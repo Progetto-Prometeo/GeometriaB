@@ -1,0 +1,9 @@
+*.aux
+*.idx
+*.log
+*.synctex.gz
+*.pdf
+*.toc
+*.out
+.dropbox
+test_and_examples/
