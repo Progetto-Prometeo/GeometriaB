@@ -1,0 +1,932 @@
+\chapter{Indice e formula integrale di Cauchy}
+
+\begin{definition}
+  \label{def:indice-in-z}
+  Sia $\morphism{\gamma}{\left[ a,b \right]}{\C}$ una curva chiusa e sia
+  $\Omega = \C \setminus \image(\gamma)$. Allora si dice \textbf{indice} di
+  $z \in \Omega$ rispetto a $\gamma$ il numero 
+  \begin{equation*}
+    \Ind_\gamma(z) := \frac{1}{2i\pi} \int_\gamma
+    \frac{dw}{w-z}
+  \end{equation*}
+\end{definition}
+
+\begin{lemma}
+  Sia $\morphism{\gamma}{\left[ a,b \right]}{\C}$ una curva chiusa e sia
+  $\Omega = \C \setminus \image(\gamma)$. Dato $\Ind_\gamma(z)$
+  l'indice di $z \in \Omega$ rispetto a $\gamma$. Allora
+  $\Ind_\gamma(z) \in \Z$.
+  \label{lem:index-is-natural-number}
+\end{lemma}
+\begin{proof}
+  Definiamo 
+  \begin{equation*}
+    g(s) := \int^{s}_{a} \frac{\gamma'(t)}{\gamma(t) - z} \ dt
+  \end{equation*}
+  per cui $g(b) = 2i\pi\Ind_\gamma(z)$ da cui vale che
+  $\Ind_\gamma(z) \in \Z$ sse $e^{g(b)} = 1$. 
+  
+  Diamo un nome a questa funzione $\varphi(s) = e^{g(s)}$. Allora vediamo
+  che derivando $\varphi'(s) = \varphi(s) \frac{\gamma'(s)}{\gamma(z) - z}$.
+  Da cui si ottiene facilmente che la seguente funzione è costante
+  \begin{equation*}
+    \left(\frac{\varphi}{\gamma - z}\right)' = 0
+  \end{equation*}
+
+  Poiché $\varphi/(\gamma - z)$ è costante e $\gamma(b) = \gamma(a)$ vale 
+  \begin{equation*}
+    \frac{\varphi(b)}{\gamma(b) - z} = \frac{\varphi(a)}{\gamma(a) - z}
+    \Longleftrightarrow \varphi(b) = \varphi(a)
+  \end{equation*}
+  per cui essendo che $\varphi(a) = e^0 = 1$ vale la tesi.
+\end{proof}
+
+\begin{lemma}
+  Sia $\Omega \subset \C$ aperto, e $\gamma$ una curva chiusa tale che
+  $\image(\gamma) \subset \Omega$ e sia $\morphism{g}{\Omega}{\C}$ una
+  funzione continua sul supporto di $\gamma$. Allora la funzione
+  \begin{equation*}
+    f(z) := \int_\gamma \frac{g(w)}{w-z}\ dw
+  \end{equation*}
+  è olomorfa su $\C \setminus \image(\gamma)$. 
+  \label{lem:index-function-holomorphic}
+\end{lemma}
+\begin{proof}
+  Dimostro che $f$ è continua. Per cui provo a fare una stima puntuale per
+  determinare la continuità. Allora sia $z_0 \in \C \setminus
+  \image(\gamma)$ e sia $\delta = \dist{z_0}{\image(\gamma)}$. 
+  Sia $z \in B_{z_0} (\delta/2)$ allora $|z-\gamma(t)| > \delta/2$ per ogni
+  $t$. Quindi
+  \begin{align*}
+    |f(z) - f(z_0)| & = \left|\int_\gamma \frac{g(w)}{w-z} - 
+                         \frac{g(w)}{w - z_0} \right| \\
+                         & \le \max_{t}
+                         \left|\frac{g(\gamma(t))}{(\gamma(t)-z)(\gamma(t)
+                           - z_0}\right| |z-z_0| \mathcal{H}^1(\gamma) \\
+                           & \le \frac{2}{\delta}\frac{1}{\delta} |z-z_0|
+                           \mathcal{H}^1(\gamma) \max_{\gamma} |g(w)|
+  \end{align*}
+  e quindi questa quantità converge a $0$ per $z\to z_0$.\\
+
+  Dimostro che $f$ è olomorfa. Fisso un $z_0 \in \C \setminus \image(\gamma)$
+  e definisco il rapporto incrementale  
+  \begin{equation*}
+    r(z) := \frac{f(z) - f(z_0)}{z-z_0} = \int_\gamma
+    \frac{g(w)}{(w-z)(w-z_0)}\ dw 
+  \end{equation*}
+  per quanto dimostrato prima $g(w)/(w-z)$ è una funzione su continua
+  $\gamma$e $1/(w - z_0)$ pure (dato che $z_0 \notin \image(\gamma)$.
+  Pertanto sappiamo che l'integrale di una funzione continua è continua,
+  da cui esiste il limite di $r(z) \to r(z_0)$ per $z \to z_0$. Da cui segue
+  che $f$ è olomorfa.
+\end{proof}
+
+\begin{corollary}
+  La funzione $\Ind_\gamma(z)$ è costante su $\Omega
+  \setminus \image(\gamma)$.
+  \label{cor:ind-is-constant-over-connex-spaces}
+\end{corollary}
+\begin{proof}
+  Poiché assume solo valori discreti e dev'essere continua per i lemmi
+  precedenti, segue che dev'essere costante.
+\end{proof}
+
+\begin{corollary}
+  Vale $\Ind_\gamma(z) = 0$ per ogni $z$ nella componente
+  illimitata di $\C \setminus \image(\gamma)$.  
+  \label{cor:index-is-trivial-in-illimited-connex-component}
+\end{corollary}
+\begin{proof}
+  Sia $\image(\gamma) \subset B(0, R)$ ovvero è limitato da una palla di
+  raggio $R$. Dato $\varepsilon > 0$ allora possiamo trovare una $z$ tale da
+  avere modulo $|z|$ abbastanza grande per cui valga
+  \begin{equation*}
+    \frac{1}{|w-z|} \le \frac{1}{|z| - |w|} \le \frac{1}{|z| - R}
+    < \varepsilon
+  \end{equation*}
+  per ogni $w \in \image(\gamma)$. Per cui possiamo stimare l'indice di
+  $\gamma$ in un punto $z$ esterno alla palla. Per cui
+  \begin{equation*}
+    |\Ind_\gamma(z)| < \frac{1}{2\pi} \varepsilon
+    \mathcal{H}^1(\gamma)
+  \end{equation*}
+  Ma essendo $\Ind_\gamma(z)$ una funzione costante sulle
+  componenti connessere segue che dev'essere $0$ dato che per ogni
+  $\varepsilon > 0$ può essere scelto $z$ tale che valga la relazione.
+\end{proof}
+
+\begin{remark}
+    Questa osservazione è dettata dal fatto che abbiamo definito un entità
+    astratta senza argomentare nemmeno per un attimo il suo significato
+    geometrico. Infatti l'indice di una curva chiusa $\gamma$ ha un significato
+    molto interessante. L'indice rappresenta quante volte la curva si
+    \textit{arrotola attorno a una delle componenti connesse che involge} (infatti
+    in inglese si usa il termine \textit{winding-numbers}). Cioè un
+    cerchio rappresentato dalla curva 
+    \begin{equation*}
+        f(t) = e^{2i\pi t}
+    \end{equation*}
+    con $t \in \left[0, 1 \right]$ avvolge la sua \textit{parte interna} una sola
+    volta. Infatti $\Ind_f(z) = 1$ per ogni $z \in \D^2 
+    \setminus \S^1$.
+    \label{rmk:winding-numbers-interpretation}
+\end{remark}
+
+\begin{theorem}[Formula integrale di Cauchy]
+    Sia $D$ un disco aperto e $f \in \mathcal{O}(D)$ e $\gamma$ una curva
+    chiusa con $\image(\gamma) \subset D$. Allora
+    \begin{equation*}
+        f(z) \Ind_\gamma(z) = \frac{1}{2i\pi} \int_\gamma
+        \frac{f(w)}{w-z} \ dw
+    \end{equation*}
+    per ogni $z \in D \setminus \image(\gamma)$.
+    \label{thr:formula-integrale-cauchy}
+\end{theorem}
+\begin{proof}
+  Sia $z \in D \setminus \image(\gamma)$ fissato e sia $g(w) = (f(w) - f(z))
+  / (w-z)$ per ogni $w \in D \setminus \left\{ z \right\}$. 
+  Allora $g$ è olomorfa su $D \setminus \left\{ z \right\}$ e inoltre vale
+  \begin{equation*}
+    \lim_{w \to z} g(w) (w-z) = 0
+  \end{equation*}
+  per la continuità di $f$. Per il Teorema dell'integrale nullo
+  \ref{thr:goursat-con-singolarità} (in particolare il corollario 
+  al teorema) applicato a $g$ si ha
+  \begin{equation*}
+    0  = \int_\gamma g(w)\ dw = \int_\gamma \frac{f(w)}{w-z}\ dw
+    - f(z)\int_\gamma \frac{dw}{w-z}\ dw 
+  \end{equation*}
+  da cui segue la tesi.
+\end{proof} 
+
+\begin{remark}
+  % TODO: Se trovo una dimostrazione carina, lo metto come teorema.
+  % Allora: 
+  % 1. Dimostrare che separa in due sole componenti connesse.
+  % 2. Dimostrare che se hai una curva chiusa, nella sua parte interna
+  % hai che |Ind_\gamma(z)| > 0. (lemma a parte) 
+  % 3. Da questo poi trovare che dev'essere almeno Ind_\gamma(z) >= 1 
+  % o Ind_\gamma(z) <= -1, poi proseguire per ridurre il bound a 
+  % Ind_\gamma(z) < 2 e analogamente Ind_\gamma(z) > -2.
+  Data una \textbf{curva di Jordan} ovvero una curva regolare a tratti,
+  chiusa e semplice (ovvero è iniettiva), allora per il \textbf{teorema
+  della curva di Jordan} vale che divide $\C$ in due componenti connesse, 
+  una illimitata e una limitata. In particolare se $\gamma$ è orientata 
+  positivamente avrà $\Ind_\gamma(z) = 1$ per ogni $z$ nella
+  componente connessa limitata, altrimenti sarà orientata negativamente
+  e allora $\Ind_\gamma(z) = -1$.
+    \label{rmk:teorema-curva-di-jordan}
+\end{remark}
+
+\begin{corollary}
+    Se $\gamma$ è una curva chiusa di Jordan e $f$ una funzione olomorfa, allora
+    per ogni punto interno $z$ vale 
+    \begin{equation*}
+        f(z) = \frac{1}{2i\pi} \int_\gamma\frac{f(w)}{w-z}\ dw
+    \end{equation*}
+    \label{cor:curva-jordan-integral-calculation}
+\end{corollary}
+
+\begin{corollary}
+    Sia $\morphism{f}{\D}{\C}$ una funzione olomorfa e sia $B_a(r) \subset
+    \D$ un disco aperto, allora
+    \begin{equation*}
+        f(a) = \frac{1}{2\pi} \int_0^{2\pi} f(a + re^{it}) \ dt 
+    \end{equation*}
+    \label{cor:media-integrale}
+\end{corollary}
+\begin{proof}
+  Ovvio per definizione di circonferenza $\gamma(t) = a + re^{it}$ con $t \in
+    \left[ 0, 2\pi \right]$. 
+\end{proof}
+\begin{remark}
+    Si può osservare che ponendo $f = u + iv$ il Corollario
+    \ref{cor:media-integrale} da la media integrale delle funzioni $u, v$
+    sulla circonferenza.
+\end{remark}
+
+\section{Applicazioni della formula integrale}
+
+\begin{definition}
+  Data $\morphism{f}{\Omega}{\C}$ funzione olomorfa su $\Omega \setminus
+  \left\{ a \right\}$, si dice che $a$ è una \textbf{signolarità
+  eliminabile} se $\lim_{z\to a} (z-a) f(z) = 0$.
+\end{definition}
+
+\begin{theorem}[Distruzione delle singolarità eliminabili]
+    Sia $\morphism{f}{\Omega}{\C}$ una funzione olomorfa su $\Omega
+    \setminus \left\{ a \right\}$ tale da avere una singolarità eliminabile
+    in $a$. Allora esiste $\morphism{\tilde{f}}{\Omega}{\C}$ tale che 
+    $\tilde{f}|_{\Omega \setminus \left\{ a \right\}} = f$ e $\tilde{f}$ 
+    è olomorfa su tutto $\Omega$.  
+  \label{thr:distruzione-singolarita-semplici}
+\end{theorem}
+\begin{proof}
+  Fissiamo una palla attorno alla singolarità eliminabile $a$ di raggio $r$,
+  $B_a(r)$. Allora definiamo $\gamma = \partial B_a(r)$. Per il Teorema
+  integrale di Cauchy \ref{thr:formula-integrale-cauchy} allora vale 
+  \begin{equation*}
+    f(z) = \frac{1}{2i\pi} \int_\gamma \frac{f(w)}{w-z}\ dw
+  \end{equation*}
+  che vale ovunque per ogni $z \in \Omega \setminus \{a\}$. Definiamo
+  l'equazione 
+  \begin{equation*}
+    g(z) =  \frac{1}{2i\pi} \int_\gamma \frac{f(w)}{w-z}\ dw
+  \end{equation*}
+  su ogni $z \in B_a(r)$ la funzione è olomorfa per Lemma
+  \ref{lem:index-function-holomorphic}. Quindi posso definire la seguente
+  funzione che sarà olomorfa ovunque su $\Omega$:
+  \begin{equation*}
+    \tilde{f}(z) := \begin{cases}
+      f(z) & z \in \Omega \setminus \left\{ a \right\} \\
+      g(z) & \text{altrimenti}
+    \end{cases}
+  \end{equation*}
+\end{proof}
+
+\begin{theorem}[Teorema di Weierstrass]
+    Sia $\Omega \subset \C$ aperto e $f \in \mathcal{O}(\Omega)$ con $z_0 \in
+    \Omega$ se $\overline{B_{z_0}(r)} \subset \Omega$ allora per ogni $z \in
+    B_{z_0}(r)$ vale
+    \begin{equation*}
+      \begin{aligned}
+         f(z) & = \sum^{+\infty}_{n=0} a_n(z-z_0)^n \\ 
+         a_n  & =\frac{1}{2i\pi} \int_\gamma \frac{f(w)}{(w-z_0)^{n+1}}\ dw
+      \end{aligned}
+    \end{equation*}
+    dove $\gamma = \partial B_{z_0}(r)$
+    \label{thr:weierstrass-analitic-local-form}
+\end{theorem}
+\begin{proof}
+    La dimostrazione è un semplice calcolo con un twist. 
+    Prendiamo $z_0 \in \Omega$ e vogliamo calcolare $f(z)$ dove $z\in
+    \Omega$. Per la formula integrale di Cauchy vale (ponendo $\gamma
+    = \partial B_{z_0}(r)$) 
+    \begin{align*}
+      f(z) & = \frac{1}{2i\pi} \int_\gamma \frac{f(w)}{w-z}\ dw \\
+           & = \frac{1}{2i\pi} \int_\gamma \frac{f(w)}{(w-z_0) - (z-z_0)}\
+           dw \\
+           & = \frac{1}{2i\pi} \int_\gamma \frac{f(w)}{(w-z_0)}
+           \frac{1}{1 - \frac{z - z_0}{w-z_0}} \ dw \\
+    \end{align*}
+    ma osserviamo che il secondo termine della moltiplicazione non
+    è nient'altro che la serie geometrica per cui 
+    \begin{align*}
+      f(z) 	& = \frac{1}{2i\pi} \int_\gamma \frac{f(w)}{w-z_0}\sum^{+\infty}_{n=0} \left(\frac{z-z_0}{w-z_0}\right)^n \ dw \\
+     	 	 	&  = \sum^{+\infty}_{n=0} \left(\frac{1}{2i\pi} \int_\gamma \left(\frac{f(w)}{(w-z_0)}\right)^{n+1} \ dw\right) (z-z_0)^n  \\
+    \end{align*}
+    poiché la serie converge (si usi ad esempio l'M-test di Weierstrass)
+    possiamo spostare la sommatoria dentro e fuori dall'integrale. Da cui
+    la tesi.
+\end{proof}
+
+\begin{corollary}
+  Sia $f \in \mathcal{O}(\Omega)$ allora $f \in C^{\infty}(\Omega)$.
+  \label{cor:olomorphism-c-infty}
+\end{corollary}
+\begin{proof}
+  Segue dal Teorema \ref{thr:weierstrass-analitic-local-form}, infatti
+  sapendo che derivando la serie si ottiene ancora una serie convergente
+  uniformemente, deve essere convergente su tutto $\Omega$ per il Teorema di
+  Abel e quindi qualsiasi derivata è convergente uniformemente su tutto
+  $\Omega$. 
+\end{proof}
+
+\begin{corollary}
+  Se $f \in \mathcal{O}(\Omega)$ esistono le derivate complesse $n$-esime
+  $f^{n}(z)$ per ogni $z \in \Omega$ e $n \in \N$. Inoltre se
+  $\overline{B_{z_0}(r)} \subset \Omega$ e $\gamma = \partial B_{z_0}(r)$
+  allora
+  \begin{equation*}
+    f^n(z_0) = \frac{n!}{2i\pi} \int_\gamma \frac{f(w)}{(w-z_0)^{n+1}}\ dw
+  \end{equation*}
+\end{corollary}
+\begin{proof}
+  Essendo $f$ localmente analitica e derivando la serie in $z_0$ si ottiene 
+  \begin{equation*}
+    f^n(z) = n!a_n 
+  \end{equation*}
+  da cui la tesi.
+\end{proof}
+
+\begin{corollary}[Stime di Cauchy]
+  Sia $\Omega \subset \C$ aperto e $\morphism{f}{\Omega}{\C}$ funzione
+  olomorfa in $\Omega$. Prendiamo $z_0 \in \Omega$, $\overline{B_{z_0}(r)}
+  \subset \Omega$, $\gamma = \partial B_{z_0}(r)$ e $M = \max_{\gamma} |f|$
+  allora vale la seguente stima
+  \begin{equation*}
+    |f^{(n)}(z_0)| \le \frac{n!M}{r^n}
+  \end{equation*}
+  per ogni $n \in \N$.
+  \label{cor:stime-cauchy}
+\end{corollary}
+\begin{proof}
+  \begin{equation*}
+    |f^{(n)}(z_0)| \le \frac{n! M}{2\pi r^{n+1}} \mathcal{H}^1(\gamma)
+    =\frac{n!M}{r^n}
+  \end{equation*}
+\end{proof}
+
+\begin{definition}
+  Una funzione $\morphism{f}{\Omega}{\C}$ si dice \textbf{intera} se è analitica su
+  tutto $\Omega$, con $\Omega = \C$. 
+\end{definition}
+
+\begin{theorem}[Liouville]
+  Sia $f \in \mathcal{O}(\C)$, ovvero è una funzione intera. Se $f$ è limitata, allora
+  $f$ è costante.
+  \label{thr:liouville}
+\end{theorem}
+\begin{proof}
+  Sia $K = \sup_{\C} |f|$, allora $K < +\infty$ poiché $f$ limitata. Dal 
+  Corollario \ref{cor:stime-cauchy} in $z_0 = 0$ si ha 
+  \begin{equation*}
+    |f^{(n)}(0)| \le \frac{n! K}{r^n}
+  \end{equation*}
+  per ogni $r > 0$. Quindi portando al limite $r \to 0$ si ottiene
+  $f^{\left(n \right)}(0) = 0$ per ogni $n \ge 1$. Quindi
+  \begin{equation*}
+    f(z) = \sum^{+\infty}_{n=0} \frac{f^{(n)}(0)}{n!} z^n = f(0)
+  \end{equation*}
+  poiché vale per ogni $z\in \C$, segue che $f$ dev'essere costante.
+\end{proof}
+
+\begin{remark}
+	Cosa succede se si prova ad usare il Teorema di Liouville in $\R$? 
+	Non funziona. Infatti basta consideare la funzione $\sin(x)$ che è 
+	analitica ovunque e limitata (su $\R$), ma non è una funzione costante. 
+	Inoltre $\sin(x)$ è una funzione intera, ma non è limitata sui complessi
+	e infatti non vale il Teorema di Liouville.
+\end{remark}
+
+\begin{corollary}
+  Sia $f \in \mathcal{O}(\C)$ e $f = u + iv$. Se $u$ oppure $v$ è limitata
+  allora $f$ è costante.
+  \label{cor:stronger-liouville-constant-function}
+\end{corollary}
+\begin{proof}
+  Consideriamo la funzione $g(z) = e^{f(z)}$. Allora $|g(z)| = e^{u(z)}$ ed
+  essendo $u(z)$ limitata anche $|g(z)|$ lo è. Possiamo applicare quindi il
+  teorema di Liouville \ref{thr:liouville} e ottenere che $g(z)$ è una
+  costante. Per cui $0 = g'(z) = (e^f)' = e^f f'$ poiché $e^f \neq 0$, segue
+  che $f' = 0$, per cui $f$ è costante.\\
+  
+  Se fosse $v$ limitata allora avrei che la funzione $h(z) = e^{-if(z)}$
+  avrebbe modulo limitato e per Liouville $h$ sarebbe costante. Per cui
+  $-i e^{-if(z)} f'(z) = 0$ per cui $f'(z) = 0$ per ogni $z$ e $f$ sarebbe
+  ancora una volta una funzione costante.
+\end{proof}
+
+\begin{theorem}[Teorema fondamentale dell'algebra]
+  Ogni polinomio non costante $p(z)$ ha una radice $z_0$ tale che $p(z_0)
+  = 0$. 
+  \label{thr:fondamentale-dell-algebra}
+\end{theorem}
+\begin{proof}
+  Se $p(z)$ non avesse radici allora $f(z) := \frac{1}{p(z)} \in
+  \mathcal{O}(\C)$. In particolare $f$ sarebbe una funzione con modulo
+  limitato (infatti l'unico modo perché possa essere non limitata è che
+  $p(z) \to 0$ per qualche $z$). In particolare possiamo usare il Teorema di
+  Liouville \ref{thr:liouville} e ottenre che $f$ è una funzione costante su
+  $\C$, ovvero $p(z)$ è un polinomio costante.
+\end{proof}
+
+\begin{theorem}[Morera]
+  Sia $\Omega \subset \C$ aperto e $f \in C^0(\Omega)$ e tale che 
+    \begin{equation*}
+      \int_{\partial R} f(z)\ dz = 0 
+    \end{equation*}
+    per ogni rettangolo $R \subset \Omega$ allora $f \in
+    \mathcal{O}(\Omega)$. 
+    \label{thr:morera}
+\end{theorem}
+\begin{proof}
+  Per costruzione analoga a quanto fatto nel Teorema
+  \ref{thr:cauchy-integrale} si può creare $F$ primitiva di $f$. Ma poiché
+  $F \in \mathcal{O}(\Omega)$ allora è anche $C^{\infty}(\Omega)$ e in
+  particolare $f \in C^{\infty}(\Omega)$ ovvero è olomorfa. 
+\end{proof}
+
+\begin{corollary}
+  Sia $\Omega \subset \C$ aperto e $\{f_n\}$ una successione di funzioni
+  olomorfe su $\Omega$. Se $\{f_n\} \to f$ uniformemente sui compatti di
+  $\Omega$ (una condizione leggermente più debole che richiedere che sia
+  convergente uniformemente su tutto $\Omega$) allora $f$ è olomorfa su
+  $\Omega$.  
+  \label{cor:trasmissione-olomorfismo-successione}
+\end{corollary}
+\begin{proof}
+  Poiché ogni rettangolo $R \subset \Omega$ è un compatto su $\Omega$,
+  allora $\{f_n\} \to f$ converge in modo uniforme. Per cui vale
+  \begin{equation*}
+    \int_{\partial R} f(z)\ dz = \int_{\partial R} \lim_{n\to+\infty}f_n(z)
+    \ dz = \lim_{n\to+\infty} \int_{\partial R} f_n(z)\ dz = 0 
+  \end{equation*}
+  per il teorema di Morera \ref{thr:morera} risulta che $f$ è olomorfa.
+\end{proof}
+
+\section{Teoremi integrali di Cauchy}
+
+% TODO: revise at the end
+Come abbiamo visto il campo dei complessi dona meraviglie al calcolo degli
+integrali di linea e stabilisce una profonda relazione tra integrale, indice
+di una curva e la funzione stessa. Vogliamo ora investigare la
+possibilità di calcolare una funzione attraverso il suo integrale nella
+maggior parte possibile dello spazio $\Omega$. Ovvero cercare di escludere
+solamente i punti dove la funzione ha dei poli.
+
+\begin{definition}
+    \label{def:catena-di-curve-chiuse}
+    Una \textbf{catena} è una somma finita formale 
+    \begin{equation*}
+      \Gamma = \sum^n_{i=1} m_i \gamma_i
+    \end{equation*}
+    dove $\gamma_i$ sono curve chiuse distinte e $C^1$ a tratti con
+    i coefficienti $m_i \in \Z$. Inoltre il \textbf{supporto di $\Gamma$}
+    è tale che 
+    \begin{equation*}
+      \image(\Gamma) = \bigcup^n_{i=1} \image(\gamma_i)
+    \end{equation*}
+\end{definition}
+
+\begin{remark}
+  Per come è stata definita la catena di curve chiuse (o meglio per come vogliamo
+  che agisca), valgono le seguenti proprietà:
+  \begin{enumerate}
+    \item Date due catene di curve chiuse $\Gamma_1 = \sum^n_{i=1} m_i
+      \gamma^1_i$ e $\Gamma_2 = \sum^m_{j=1} n_j \gamma^2_j$ allora la loro
+      somma consiste in $\Gamma_1 + \Gamma_2 =  \sum^n_{i=1} m_i
+      \gamma^1_i + \sum^m_{j=1} n_j \gamma^2_j$ e i coefficienti $m_i$
+      e $u_j$ vengono raccolti se le curve $\gamma^1_i = \gamma^2_j$.
+    \item L'integrale lungo una catena si può calcolare come la somma pesata
+      degli integrali lungo le rispettive curve chiuse da cui è composta,
+      quindi vale 
+      \begin{equation*}
+        \int_\Gamma f(z)\ dz := \sum^n_{i=1} m_i \int_{\gamma_i} f(z)\ dz
+      \end{equation*}
+      data una catena $\Gamma = \sum^n_{i=1} m_i\gamma_i$.
+    \item Inoltre si può definire l'indice di una catena come la
+      combinazione lineare degli indici delle curve chiuse da cui
+      è composta, ovvero 
+      \begin{equation*}
+        \Ind_\Gamma(z) = \sum^n_{i=1} m_i
+        \Ind_{\gamma_i}(z)
+      \end{equation*}
+  \end{enumerate}
+  \label{rmk:operazioni-intuitive-per-le-catene-di-curve-chiuse}
+\end{remark}
+
+
+\begin{definition}
+  \label{def:omologia-a-zero}
+  Sia $\Omega \subset \C$ aperto e $\Gamma$ una catena di curve chiuse tale
+  che $\image(\Gamma) \subset \Omega$. Allora si dice che $\Gamma$
+  è \textbf{omologa a zero in $\Omega$} se $\Ind_\Gamma(z)
+  = 0$ per ogni $z \in \C \setminus \Omega$. 
+\end{definition}
+
+\begin{definition}
+  \label{def:omologia-tra-catene}
+  Sia $\Omega \subset \C$ aperto e $\Gamma_1,\Gamma_2$ catene di curve 
+  chiuse tale che $\image{\Gamma_1}, \image{\Gamma_2} \subset \Omega$. 
+  Allora si dice che $\Gamma_1$ e $\Gamma_2$ sono \textbf{olomoghe in 
+  $\Omega$} se $\Gamma_1 - \Gamma_2 \sim_\Omega 0$, ovvero vale per ogni $z
+  \in \C \setminus \Omega$ che $\Ind_{\Gamma_1}(z)
+  = \Ind_{\Gamma_2}(z)$.
+\end{definition}
+
+\begin{remark}
+  Useremo per indicare l'omologia tra due curve la notazione
+  $\Gamma_1 \sim_\Omega \Gamma_2$.
+  \label{rmk:notazione-omologia-catene}
+\end{remark}
+
+\begin{proposition}
+    \label{prop:decomposizione-curva-in-catena-con-n-punti}
+    Sia $\Omega \subset \C$ un aperto e sia $\gamma$ una catena tale che
+    $\gamma \sim_\Omega 0$. Siano $z_1, \dots, z_n$ punti di $\Omega$
+    e siano $D_i$ dei cerchi a due a due disgiunti centrati in $z_i$ e tali
+    che $D_i \subset \Omega$. Allora se indichiamo con $\gamma_i = \partial
+    D_i$ vale su $\Omega' = \Omega \setminus \left\{z_1,\dots, z_n\right\}$ la
+    seguente omologia
+    \begin{equation*}
+      \gamma \sim \sum^m_{i=1} \Ind_\gamma(z_i) \gamma_i
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+     Osserviamo innanzitutto che $\C \setminus \Omega' = (\C \setminus
+     \Omega) \cup \{z_1, \dots, z_n\}$. Per cui prendiamo $z\in \C \setminus
+     \Omega$ allora vale $\Ind_\gamma(z) = 0$ poiché sappiamo
+     che è omologa alla curva $0$. Inoltre vale lo stesso per ogni $i
+     = 1,\dot, n$ il seguente $\Ind_{\gamma_i}(z) = 0$. 
+
+     Se invece $z = z_j$ per $j \in \{1, \dots, n\}$ allora
+     $\Ind_\gamma(z_j) = m_j$ poiché è possibile che siano 
+     nella parte interna di $\image(\gamma)$, mentre
+     $\Ind_{\gamma_i}(z_j) = \delta_{i,j}$ ovvero il delta di
+     Kronecker. Per cui 
+     \begin{equation*}
+       \Ind_{\sum^n_{i=1} m_i \gamma_i}(z_j) = m_j
+       = \Ind_\gamma(z_j) 
+     \end{equation*}
+    da cui la tesi.
+ \end{proof}
+
+ \begin{lemma}
+   Sia $\Omega \subset \C$ un aperto e $f \in \mathcal{O}(\Omega)$
+   e $\morphism{g}{\Omega\times\Omega}{\C}$ definita come 
+   \begin{equation*}
+     g(z,w) :=
+     \begin{cases}
+       \frac{f(w) - f(z)}{w-z} & w \neq z \\
+       f'(z)                   & w = z
+     \end{cases}
+   \end{equation*}
+   è una funzione continua. Inoltre per ogni $w_0 \in \Omega$ fissato vale
+   $g(z,w_0) \in \mathcal{O}(\Omega)$.
+   \label{lem:rapporto-incrementale-funzione-olomorfa}
+ \end{lemma}
+ \begin{proof}
+    \textbf{Dimostrazione che $g$ è continua} \\
+    
+    Se $(z_0, w_0) \in \Omega\times\Omega$ con $z_0 \neq w_0$ la
+    continuità di $g$ discende dalla definizione dato che il denominatore
+    $w_0 - z_0 \neq 0$ e $f$ è olomorfa. 
+    Per cui sia $(z_0, z_0) \in \Omega \times \Omega$. Sappiamo che $f'$
+    è continua dato che $f$ olomorfa. Per ogni $\varepsilon > 0$ esiste $\delta
+    >0$ tale che $|f'(\alpha) - f'(z_0)| \le \varepsilon$ se $\alpha \in
+    B_{z_0}(\delta) \subset \Omega$. Quindi fissiamo due punti all'interno
+    della palla di raggio $\delta$ e centro $z_0$, ovvero $z,w \in
+    B_{z_0}(\delta)$. Allora se $z = w$ si ha 
+    \begin{equation*}
+      |g(z,z) - g(z_0,z_0)| = |f'(z) - f'(z_0)| \le \varepsilon
+    \end{equation*}
+    e quindi è continua. Se $z \neq w$ allora
+    \begin{align*}
+    g(z,w) - g(z_0, z_0) & = \frac{1}{w-z}(f(w) - f(z)) - f'(z_0) \\
+    & = \frac{1}{w-z}(f(w)- f(z) - f'(z_0)) 
+    \end{align*}
+    possiamo definire quindi una retta $\morphism{\gamma}{\left[0,1
+    \right]}{\C}$ che unisce i due punti $w$ e $z$ tale che 
+    $\gamma(0) = z$ e $\gamma(1) = w$. Quindi $\gamma(t) = (1-t)z+ tw$
+    e inoltre $\gamma'(t) = w - z$. Allora possiamo esprimere la formula di
+    prima come
+    \begin{align*}
+       g(z,w) - g(z_0, z_0) & = \frac{1}{w-z}(f(w)- f(z) - f'(z_0)) \\
+        & = \frac{1}{w-z} \int_\gamma f'(\alpha) - f'(z_0)\ d\alpha \\
+        & = \frac{1}{w-z} \int^1_0 (f'(\gamma(t)) - f'(z_0)) \gamma'(t)\
+        dt \\
+        & = \int^1_0 f'(\gamma(t)) - f'(z_0)\ dt
+    \end{align*}
+    da cui si può maggiorare in valore assoluto l'espressione, sapendo
+    che per ogni $\varepsilon > 0$ fissato un $\delta >0$ e $z,w \in
+    B_{z_0}(\delta)$, con la seguente
+    \begin{equation*}
+      |g(z,w) - g(z_0,z)| \le \int^1_0 |f'(\gamma(t)) - f'(z_0)|\ dt \le
+      \int^1_0 \varepsilon\ dt = \varepsilon
+    \end{equation*}
+    ovvero $g$ è continua.
+
+   \textbf{Dimostrazione che $g$ è olomorfa dato un $w_0$} \\
+
+   Se $w_0 \in \Omega$ viene fissato, allora $g(z, w_0) \in
+   \mathcal{O}(\Omega\setminus\left\{ w_0 \right\})$. Inoltre se $z = w_0$
+   è una singolarità eliminamil per $g(z,w_0)$. Per la continuità $g(z,w_0)$
+   coincide con la sua estensione olomorfa su tutto $\Omega$ (teorema di
+     Distruzione della singolarità eliminabile
+   \ref{thr:distruzione-singolarita-semplici}).
+ \end{proof}
+
+\begin{theorem}
+Sia $\Omega \subset \C$ un aperto e $\Gamma$ una catena in $\Omega$ con
+$\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{\Omega}$. Allora 
+\begin{enumerate}
+    \item Vale la formula integrale di Cauchy per ogni $z \in \Omega \setminus
+        \image(\Gamma)$  
+        \begin{equation*}
+            f(z) \Ind_\Gamma(z) = \frac{1}{2\pi i} \int_\Gamma
+            \frac{f(w)}{w-z}\ dw
+        \end{equation*}
+    \item Vale il teorema dell'integrale nullo di Cauchy 
+        \begin{equation*}
+            \int_\Gamma f(z) \ dz = 0
+        \end{equation*}
+\end{enumerate}
+\label{thr:formule-di-cauchy-generale}
+\end{theorem}
+\begin{proof}[1]
+
+    \textbf{Definizioni preliminari}\\
+
+    Sia $\morphism{g}{\Omega\times\Omega}{\C}$ definita come nel Lemma
+    \ref{lem:rapporto-incrementale-funzione-olomorfa}. 
+    % TODO
+    Poniamo quindi 
+    \begin{equation*}
+        \Omega' := \left\{ z \in \C \setminus \image(\Gamma) \mid
+            \Ind_\Gamma(z) = 0  \right\}
+    \end{equation*}
+    ovvero $\Omega'$ rappresenta la componente connessa esterna alla catena
+    $\Gamma$ e quindi è un aperto. % TODO: why?
+    Essendo inoltre $\Gamma \sim_\Omega 0$, dev'essere che $\Omega' \supset
+    \C \setminus \Omega$.  Per cui $\Omega \cup \Omega' = \C$. Poniamo 
+    \begin{equation*}
+      h(z) = \begin{cases}
+        \frac{1}{2\pi i} \int_\Gamma g(z,w)\ dw  & \text{per} z \in \Omega \\
+        \frac{1}{2\pi i} \int_\Gamma \frac{f(w)}{w-z}\ dw \ & \text{per}
+        z \in \Omega' 
+      \end{cases}
+    \end{equation*}
+    osserviamo che la definizione è ben posta dato che se $z \in \Omega \cap
+    \Omega'$ allora la definizione coincide
+    \begin{equation*}
+      \frac{1}{2\pi i} \int_\Gamma g(z,w)\ dw =  
+            \frac{1}{2\pi i} \int_\Gamma \frac{f(w)}{w-z}\ dw - 
+            \frac{f(z)}{2\pi i} \Ind_\Gamma(z) 
+            = \frac{1}{2\pi i} \int_\Gamma \frac{f(w)}{w-z}\ dw        
+    \end{equation*}
+    poiché essendo in $\Omega'$, sappiamo che $\Ind_\Gamma(z)
+    = 0$. 
+    
+    \textbf{Dimostriamo che $h$ è intera}\\
+
+    Osserviamo che $h \in \mathcal{O}(\C)$, infatti $h \in
+    \mathcal{O}(\Omega')$ per il Lemma \ref{lem:index-function-holomorphic}
+    e inoltre possiamo dimostrare che $h \in \mathcal{O}(\Omega)$ come
+    conseguenza del Teorema di Morera \ref{thr:morera}. 
+    Bisogna quindi verificare che per ogni disco aperto $D$ tale che anche 
+    $\overline{D}\subset \Omega$ e $R \subset D$ è un rettangolo questo si
+    annulli. Calcoliamo l'integrale di $h$ lungo $\partial R$ ovvero 
+    \begin{equation*}
+      \int_{\partial R} h(z)\ dz = \frac{1}{2\pi i} \int_{\partial
+      R}\int_\Gamma g(z,w)\ dw\ dz = \frac{1}{2\pi i} \int_\Gamma
+      \int_{\partial R} g(z,w) dz\ dw
+    \end{equation*}
+    per il Teorema di Fubini grazie alla proprietà che $g$ è continua (Lemma
+    \ref{lem:rapporto-incrementale-funzione-olomorfa}). Ma sappiamo che 
+    \begin{equation*}
+      \int_{\partial R} g(z,w) \ dz = 0  
+    \end{equation*}
+    per ogni $w$ dato che $z \mapsto g(z,w)$ è una funzione olomorfa. Per
+    cui segue che $h \in \mathcal{O}(D)$ per ogni disco aperto $D \subset
+    \Omega$, per cui è olomorfa su tutto $\Omega$.
+
+    \textbf{Conclusione}\\
+
+    Dobbiamo far vedere che $h$ sia limitata. Prendiamo $z$ abbastanza
+    grande e tale che $|z| - |w| > 0$ per ogni $w \in \image(\Gamma)$
+    e $\Ind_\Gamma(z) = 0$. Allora $z \in \Omega'$ e vale la
+    seguente disuguaglianza
+    \begin{equation*}
+      2\pi |h(z)| = \left|\int_\Gamma \frac{f(w)}{w-z}\ dz \right| \le
+      \left( \sup_{w \in \image(\Gamma)} \frac{|f(w)|}{|z|-|w|} \right)
+        \mathcal{H}^1(\Gamma) \overset{|z|\to+\infty}{\to} 0
+    \end{equation*}
+    Se $|h(z)| \le 1$ per $|z| \ge M$ allora 
+    \begin{equation*}
+      |h(z)| \le \max \left\{1,\max_{|w| \le M} |h(w)|\right\}
+    \end{equation*}
+    per ogni $z \in \C$. Quindi per il teorema di Liouville
+    \ref{thr:liouville} e poiché il limite a inifinito tende a $0$
+    dev'essere che $h(z) = 0$ per ogni $z \in \C$. Per cui segue la tesi, 
+    per ogni $z \in \Omega \setminus \image(\Gamma)$ vale 
+    \begin{equation*}
+      0 = h(z) = \frac{1}{2 \pi i} \int_\Gamma \frac{f(w)}{w-z}\ dw - f(z)
+      \Ind_\Gamma(z)  
+    \end{equation*}
+\end{proof}
+\begin{proof}[2]
+  Sia $z_0 \in \Omega \setminus \image(\Gamma)$. Per il punto precedente
+    applicato alla funzione $F(z) = f(z)(z-z_0)$ vale
+    \begin{equation*}
+      0 = F(z_0)\Ind_\Gamma(z_0) = \frac{1}{2 \pi i}
+      \int_\Gamma f(w)\ dw
+    \end{equation*}
+\end{proof}
+
+\begin{corollary}
+  Se $\Gamma_1 \sim_\Omega \Gamma_2$ allora vale
+  \begin{equation*}
+    \int_{\Gamma_1}f(z) \ dz = \int_{\Gamma_2 } f(z)\ dz
+  \end{equation*}
+  \label{cor:uguaglianza-catene-per-integrali}
+\end{corollary}
+
+\section{L'indice rispetto alle curve continue}
+
+\begin{lemma}
+    Siano $\gamma_1, \gamma_2$ curve chiuse di classe $C^1$ a tratti definite su
+    $\left[ a,b \right]$ tali che $z \notin \image{\gamma_1} \cup
+    \image{\gamma_2}$. Se vale inoltre che 
+    \begin{equation*}
+        |\gamma_1(t) - \gamma_2(t)| \le |\gamma_2(t) -z| \quad \text{per
+        ogni}\ t \in \left[ a,b \right]
+    \end{equation*}
+    allora $\Ind_{\gamma_1}(z)
+    = \Ind_{\gamma_2}(z)$
+    \label{lem:stesso-indice-curve-vicine-in-punto}
+\end{lemma}
+\begin{proof}
+ Dalla definizione segue che $\Ind_\gamma(z)
+ = \Ind_{\gamma - z}(o)$. % TODO: perché vale questa cosa?
+ % Riguarda la definizione di catena di curve chiuse forse?? 
+ Assumiamo quindi $z = 0$. Sia 
+ \begin{equation*}
+   \gamma(t) = \frac{\gamma_1(t)}{\gamma_2(t)}
+ \end{equation*}
+ allora vale che $|\gamma(t) - 1| \le 1$ per ogni $t$, inoltre segue dalle
+ ipotesi che $z=0 \notin \image(\gamma)$. Dunque $\image(\gamma) \subset
+ B_{1}(1)$ e dunque l'origine appartiene alla componente illimitata di $\C
+ \setminus \image(\gamma)$, da cui segue per Corollario
+ \ref{cor:index-is-trivial-in-illimited-connex-component} che
+ $\Ind_\gamma(0) = 0$. Ma 
+ \begin{equation*}
+   2\pi i \Ind_\gamma(0) = \int_\gamma \frac{dw}{w} = \int_a^b
+   \left( \frac{\gamma'_1(t)}{\gamma_1(t)}
+   - \frac{\gamma'_2(t)}{\gamma_2(t)}\right) = 2\pi
+   i (\Ind_{\gamma_1}(0) - \Ind_{\gamma_2}(0))
+ \end{equation*}
+ ovvero la tesi.
+\end{proof}
+
+\begin{corollary}
+  Sia $\morphism{\gamma}{\left[ a,b \right]}{\C}$ una curva continua chiusa
+  con $z \notin \image(\gamma)$. Esiste $\delta > 0$ tale che pper ogni
+  coppia di curve (di classe $C^1$ a tratti)
+  $\morphism{\gamma_1,\gamma_2}{\left[ a,b \right]}{\C \setminus\left\{ z
+  \right\}}$ tali che $\|\gamma - \gamma_1\|_\infty < \delta$ e $\|\gamma
+  - \gamma_2\| < \delta$ si ha $\Ind_{\gamma_1}(z)
+= \Ind_{\gamma_2}(z)$
+  \label{cor:carabinieri-tra-due-curve-convergenza-indice}
+\end{corollary}
+\begin{proof}
+  Assumiamo ancora $z = 0$. Sia $\delta = \inf |\gamma(t)|$. Allora per ogni
+  $t \in \left[ a,b \right]$ vale 
+  \begin{equation*}
+    |\gamma_1(t) - \gamma_2(t)| \le |\gamma_1(t) - \gamma(t)| + |\gamma(t)
+    - \gamma_2(t)| < 2\delta
+  \end{equation*}
+  e inoltre vale 
+  \begin{equation*}
+    |\gamma_2(t)| \ge |\gamma(t)| - |\gamma(t) - \gamma_2(t)| \ge
+    2\delta
+  \end{equation*}
+  e per il Lemma \ref{lem:stesso-indice-curve-vicine-in-punto}, si ottiene
+  la tesi.
+\end{proof}
+
+\begin{remark}
+    Osserviamo che il corollario ci permette di definire
+    $\Ind_\gamma(z)$ per una curva $\gamma \in C^0(\Omega)$ e non
+    per forza $C^1$ a tratti. Dato che si può approssimare qualsiasi funzione
+    continua in modo uniforme attraverso delle poligonali $C^1$ a tratti.
+    \label{rmk:generalizzazione-indice-curve-chiuse-continue}
+\end{remark}
+
+\begin{theorem}
+  Sia $\Omega \subset \C$ aperto. Se $\morphism{\gamma_0, \gamma_1}{\left[
+  a,b \right]}{\Omega}$ sono curve continue chiuse e omotope in $\Omega$
+  allora vale $\gamma_0 \sim_\Omega \gamma_1$.
+  \label{thr:omotopia-implica-omologia}
+\end{theorem}
+\begin{proof}
+  Indichiamo con $\morphism{F}{\left[ a,b \right]\times \left[ 0,1
+  \right]}{\Omega}$ l'omotopia tra le curve $\gamma_1$ e $\gamma_2$. Allora
+  sia $t_0 \in I$ fissato e sia $\delta > 0$ associamo $\gamma_{t_0}(s) 
+  = F(s, 0)$. Inoltre sappiamo che $F$ è uniformemente continua poiché
+  continua e definita su un compatto. Quindi esiste $\delta' >0$ tale che 
+  \begin{equation*}
+    |t-t_0| < \delta' \Longrightarrow \|\gamma_t - \gamma_{t_0}\| < \frac{\delta}{2}
+  \end{equation*}
+  Fissiamo ora un $t_1$ per cui vale $|t_1- t_0| < \delta'$ e denominiamo
+  con $\hat{\gamma}_{t_0}, \hat{\gamma}_{t_1}$ curve di classe $C^1$
+  a tratti tali che $\|\gamma_{t_i} - \hat{\gamma}_{t_i}\| < \delta/2$ per
+  $i = 0,1$. Allora vale 
+  \begin{equation*}
+    \|\gamma_{t_0} - \hat{\gamma}_{t_1}\| \le \|\gamma_{t_0}
+    - \gamma_{t_1}\| + \|\gamma_{t_1} - \hat{\gamma}_{t_1}\| < \delta
+  \end{equation*}
+  per il Corollario \ref{cor:carabinieri-tra-due-curve-convergenza-indice}
+  vale che $\Ind_{\gamma_{t_0}}(z)
+  = \Ind_{{\gamma}_1}(z)$. Per cui segue che la funzione $t
+  \mapsto \Ind_{\gamma_t}(z)$ è localmente costante e quindi
+  continua e a valori interi sull'insieme connesso $\left[ 0,1 \right]$. In
+  particolare è costante e quindi vale $\Ind_{\gamma_0}(z)
+  = \Ind_{\gamma_1}(z)$ che era quanto si voleva dimostrare.
+\end{proof}
+
+\begin{corollary}
+  Sia $\Omega \subset \C$ aperto e $f \in \mathcal{O}(\Omega)$. Se
+  $\gamma_0, \gamma_1$ sono curve chiuse di classe $C^1$ a tratti e omotope
+  in $\Omega$ allora 
+  \begin{equation*}
+    \int_{\gamma_0} f(z)\ dz =  \int_{\gamma_1} f(z)\ dz
+  \end{equation*}
+  \label{cor:omotopia-implica-integrali-di-linea-uguali}
+\end{corollary}
+\begin{proof}
+  Omotopia implica l'omologia delle curve, da cui il teorema per formula
+  integrale di Cauchy.
+\end{proof}
+
+\begin{corollary}
+  Sia $\Omega \subset \C$ aperto e $f \in \mathcal{O}(\Omega)$. Se
+  $\gamma_0, \gamma_1$ sono curve chiuse di classe $C^1$ a tratti e omotope
+  relativamente a $\{0,1\}$ allora 
+  \begin{equation*}
+    \int_{\gamma_0} f(z)\ dz = \int_{\gamma_1} f(z)\ dz
+  \end{equation*}
+  \label{cor:omotopia-curve-aperte-implica-integrali-di-linea-uguali}
+\end{corollary}
+\begin{proof}
+  Possiamo definire la curva chiusa $C^1$ a tratti $\gamma = \gamma_0 \circ
+  \gamma^{-1}_1$ è omotopa in $\Omega$ al cammino costante
+  $c_{\gamma(0)}$ e dunque si ottiene 
+  \begin{equation*}
+    0 = \int_\gamma f(z)\ dz = \int_{\gamma_0} f(z)\ dz - \int_{\gamma_1}
+    f(z)\ dz
+  \end{equation*}
+  da cui la tesi.
+\end{proof}
+
+\section{Applicazioni dell'indice}
+
+\begin{theorem}
+    La mappa $\morphism{\Psi}{\pi(\S^1, 1)}{\Z}$ definita come $\Psi(\left[
+    \gamma \right]) = \Ind_\gamma(0)$ è un isomorfismo di gruppi
+    e in particolare $\pi(\S^1, 1) \simeq \Z$.
+    \label{thr:gruppo-fondamentale-della-circonferenza}
+\end{theorem}
+\begin{proof}
+    Osserviamo che se indichiamo con $\circ$ la composizione di due cappi
+    $\alpha, \beta$ allora vale che 
+    \begin{equation*}
+      \Ind_{\alpha \circ \beta}(z)
+      = \Ind_\alpha(z) + \Ind_\beta(z) 
+    \end{equation*}
+    quindi vale che $\Psi$ sia un omomorfismo tra i due gruppi. \\
+
+    Inoltre $\Psi$ è suriettivo poiché vale, definito $\alpha(t)
+    = e^{in\pi}$ vale $\Ind_\alpha(z) = n \in \Z$ per ogni $n
+    \in \Z$. \\
+
+    Dobbiamo infine dimostrare che sia anche iniettiva. Quindi dobbiamo
+    mostrare che $\operatorname{ker}(\Psi) = \{\left[ c \right]\}$. Per cui
+    prendiamo una classe $\left[ \alpha \right] \in
+    \operatorname{ker}(\Psi)$ e un suo rappresentante
+    $\morphism{\gamma}{\left[ 0,1 \right]}{\S^1 \subset \C}$. Poniamo $t
+    \in I$ allora definiamo 
+    \begin{equation*}
+      g(t) := \frac{1}{2\pi i} \int^t_0 \frac{\gamma'(s)}{\gamma(s)}\ ds
+      \quad f(t) := e^{2\pi i g(t)}
+    \end{equation*}
+    la funzione $g$ soddisfa le condizioni $g(0) = g(t)
+    = \Ind_\gamma(z) = 0$. Inoltre $g' = \gamma' / (2\pi
+    i \gamma)$ e quindi si può riscrivere $f' = f\gamma' / \gamma$. Da
+    questa osservazione si può dedurre che $f/\gamma$ è una funzione
+    costante dato che 
+    \begin{equation*}
+      \left(\frac{f}{\gamma}\right)' = \frac{f'}{\gamma}
+      - \frac{f\gamma'}{\gamma^2} = 0
+    \end{equation*}
+    ed essendo che $f(0)/\gamma(0) = 1$ allora vale per ogni $t$. In
+    particolare vuol dire che $f = \gamma$ per ogni $t$. Per cui $\gamma(t)
+    = e^{2\pi i g(t)}$ e dunque $|\gamma| = 1$ per ogni $t$. 
+    Sapendo che quindi $\gamma(t)$ può solo \textit{girare} nella
+    circonferenza di raggio $1$ dato che ha modulo costante, dev'essere che 
+    $g(t) \in \R$ per ogni $t$, allora è un cappio in $(\R, 0)$. Ma essendo
+    $\R$ semplicemente connesso, segue che $g$ è omotopo al cappio
+    costante in $0$.
+    Pertanto $\gamma$ è omotopo a $e^{2\pi i 0} = 1$. Ovvero per qualsiasi
+    rappresentante scelto della classe $\alpha \in \operatorname{ker}(\Psi)$, 
+    si ha che la classe $\alpha = \left[c\right]$ ovvero la classe costante. 
+\end{proof}
+
+\begin{theorem}
+  Sia $\Omega \subset \C$ aperto e semplicemente connesso. Sia $u \in
+  C^2(\Omega)$ funzione armonica. Allora esiste $v \in C^2(\Omega)$ tale che
+  $f = u + iv$ è olomorfa su $\Omega$.
+  \label{thr:esistenza-armonica-congiunta}
+\end{theorem}
+\begin{proof}
+    Osserviamo che $\pi_1(\Omega, z_0) = \{1\}$ dato che è connesso e dato che
+    $u$ è armonica abbiamo che definendo $g = u_x - iu_y$ allora $g$ soddisfa le
+    condizioni di Cauchy-Riemann, pertanto $g \in \mathcal{O}(\Omega)$. Per il
+    Corollario \ref{cor:omotopia-curve-aperte-implica-integrali-di-linea-uguali}
+    segue che indipendentemente dalla curva $\gamma$ scelta che unisce $z$
+    a $z_0$ vale
+    \begin{equation*}
+        h(z) := \int_\gamma g(w)\ dw
+    \end{equation*}
+    ovviamente $h \in \mathcal{O}(\Omega)$ e $h' = g$.
+    Quindi descrivendo $h(z) = \alpha(z) + i\beta(z)$ vale che $u_x = \Re(g)
+    = \alpha_x$ e $u_y = -\Im(g) = \beta_x = -\alpha_y$. Quindi possiamo
+    osservare che $u_x - \alpha_x = 0 = u_y - \alpha_y$ da cui si può
+    concludere che la funzione $(u-\alpha)(z) = c \in \C$ è costante e in 
+    particolare è una costante reale per come è stata definita $u$, infatti 
+    vale $c \in \R$. Per concludere basta osservare che definendo 
+    $f = (u - \alpha) + h = u + i\beta$ allora $\Re(f) = u$ e $f \in
+    \mathcal{O}(\Omega)$.
+\end{proof}
+
+

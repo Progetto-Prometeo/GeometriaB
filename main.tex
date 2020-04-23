@@ -39,7 +39,7 @@
 \documentclass{amsbook}
 
 %    For use when working on individual chapters
-%\includeonly{}
+%    \includeonly{}
 
 %    Include referenced packages here.
 
@@ -59,7 +59,7 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{dsfont}
-% TODO: scaricare il package
+% Note: se è possibile non usare il seguente package 
 % \usepackage{mnsymbol} 
 
 % Definition of sets and operators.
@@ -75,7 +75,7 @@
 % Routine to write a general function given
 % function name, domain and codomain.
 \newcommand{\morphism}[3]{
-  #1 \colon\ #2 \rightarrow #3
+	#1 \colon\ #2 \rightarrow #3
 }
 % Function diameter of a set
 \newcommand{\diam}[1]{
@@ -116,26 +116,22 @@
 
 %    Remove any unused author tags.
 
+% TODO: Decidere se mettere o meno i nomi
 %    author one information
-\author{Piero}
-\address{Casa mia}
-\curraddr{}
-\email{}
-\thanks{myself for being such a bold one}
-
+\author{A}
 %    author two information
-\author{Gianni}
-\address{Casa sua}
-\curraddr{}
-\email{}
-\thanks{}
+\author{B}
+%    
+\author{C}
 
-\subjclass[2020]{Una maldestra proposta all'analisi complessa}
+% 
+% \subjclass[2020]{}
 
 
 \date{02/02/2020}
 
 \begin{abstract}
+	% TODO? 
 \end{abstract}
 
 \maketitle
@@ -156,16 +152,22 @@
 \tableofcontents
 
 %    Include unnumbered chapters (preface, acknowledgments, etc.) here.
-\input{preface/preface.tex}
+\include{preface/preface}
 
 \mainmatter
 %    Include main chapters here.
-\input{capitoli/analisi_complessa.tex}
+
+% Analisi complessa
+\include{capitoli/analisi_complessa/calcolo_differenziale}
+\include{capitoli/analisi_complessa/integrali_linea}
+\include{capitoli/analisi_complessa/indice_e_formula_di_cauchy_integrale}
+\include{capitoli/analisi_complessa/esempi}
 
 %\appendix
 %    Include appendix "chapters" here.
 %\include{}
 
+% TODO? bibliografia
 %\backmatter
 %    Bibliography styles amsplain or harvard are also acceptable.
 %\bibliographystyle{amsalpha}
