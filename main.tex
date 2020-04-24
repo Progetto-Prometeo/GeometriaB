@@ -36,7 +36,7 @@
 
 % TODO: Controllare se fa differenza su texstudio per lo spellcheck
 % !TeX spellcheck = IT
-\documentclass{amsbook}
+\documentclass[a4paper, twoside]{amsbook}
 
 %    For use when working on individual chapters
 %    \includeonly{}
@@ -48,6 +48,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage[T1]{fontenc}
+
+
+%TODO: verificare che questo risolva i problemi di spaziatura e non dia fastidio 
+% theoremstyle personalizzato
+\newtheoremstyle{noice} 
+{15pt}{25pt} % spazio sopra / sotto
+{}{} % font corpo ed indentatura
+{\bfseries}{:} % font teorema e roba dopo teorema
+{6 pt} % spazio dopo nome teorema
+{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} %roba inutile
+
 
 % 		Math 
 
@@ -88,17 +99,18 @@
 }
 
 % Theorems, definitions and styles 
+\theoremstyle{noice}
 \newtheorem{theorem}{Teorema}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}{Proposizione}[chapter]
 \newtheorem{corollary}[theorem]{Corollario}
 
-\theoremstyle{definition}
+\theoremstyle{noice}
 \newtheorem{definition}[theorem]{Definizione}
 \newtheorem{example}[theorem]{Esempio}
 \newtheorem{xca}[theorem]{Esercizio}
 
-\theoremstyle{remark}
+\theoremstyle{noice}
 \newtheorem{remark}[theorem]{Osservazione}
 
 \numberwithin{section}{chapter}
@@ -153,6 +165,8 @@
 \tableofcontents
 
 %    Include unnumbered chapters (preface, acknowledgments, etc.) here.
+
+
 \include{preface/preface}
 
 \mainmatter
