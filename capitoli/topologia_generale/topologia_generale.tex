@@ -985,9 +985,9 @@ A seguire alcune proposizioni sulle applicazioni continue.
 
 \textbf{Alcuni esempi}
 \begin{enumerate}
-	\item La funzione $\morphism{\pi_1}{(\R^2,\tau^2_{\text{euclidea}})}{(\R,\tau_{\text{euclidea}})}$ tale che $\mapsfromto{\pi_1}{(x,y)}{x}$. Questa funzione è aperta, continua, ma non chiusa. Infatti si consideri il grafo di $xy - 1 = 0$ in $\R^2$, che chiameremo $S$, allora $\pi_1(S) = \R \setminus \{0\}$ che non è chiuso, mentre $S$ lo è.
-	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $\mapsfromto{i_1}{x}{(x,0)}$ è una mappa continua, chiusa e non aperta. % TODO dimostrare che è una mappa chiusa e non aperta
-	\item La applicazione $\morphism{\gamma}{(X = \{z\},\tau =\tau_{\text{banale}})}{(Y = \{a,b\},\xi = \tau_{\text{banale}})}$ tale che  $\mapsfromto{\gamma}{z}{a}$ è una mappa continua, ma non è ne aperta ne chiusa.
+	\item La funzione $\morphism{\pi_1}{(\R^2,\tau^2_{\text{euclidea}})}{(\R,\tau_{\text{euclidea}})}$ tale che $\pi_1 \colon\ (x,y) \mapsto x$. Questa funzione è aperta, continua, ma non chiusa. Infatti si consideri il grafo di $xy - 1 = 0$ in $\R^2$, che chiameremo $S$, allora $\pi_1(S) = \R \setminus \{0\}$ che non è chiuso, mentre $S$ lo è.
+	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $i_1 \colon\ x \mapsto (x,0)$ è una mappa continua, chiusa e non aperta. % TODO dimostrare che è una mappa chiusa e non aperta
+	\item La applicazione $\morphism{\gamma}{(X = \{z\},\tau =\tau_{\text{banale}})}{(Y = \{a,b\},\xi = \tau_{\text{banale}})}$ tale che  $\gamma \colon z \mapsto a$ è una mappa continua, ma non è ne aperta ne chiusa.
 	\item Un esempio di funzione non continua aperte e chiusa è dato dalla funzione $\morphism{\omega}{(X,\tau =\tau_{\text{banale}})}{(Y,\xi = \tau_{\text{discreta}})}$ tale che $\image{\omega} = Y$ e $|Y| > 1$ (notare che $\omega$ non è una funzione costante quindi non è continua). Allora si prenda il singoletto $\{y\} \subset Y$ è ovvio che $\omega^{-1}(\{y\}) \notin \tau_{\text{banale}}$, quindi non è continua. È aperta e chiusa perché $\omega(\varnothing) = \varnothing$ e chiusa perché $\omega(X) = Y$.
 	\item Per un esempio di funzione non continua, non aperta, non chiusa si considerino gli insiemi $X = \{a,b,c\}$ e $Y = X \cup \{d\}$ e le topologie $\tau = \{\varnothing, \{a\}, X\}$, $\mu = \{ \varnothing, \{a\}, \{a,b,c,d\}\}$. Allora la funzione $\morphism{f}{(X,\tau)}{(Y,\mu)}$ tale che assegna $a \mapsto b$, $b \mapsto a$, $c \mapsto a$. Questa funzione non è continua perché $f^{-1}(Y) = \{a,b\}$ che non è un aperto. Inoltre non è aperta perché $f(X) = \{a,b\}$ che non è un aperto e non è chiusa perché $f(\{b,c\}) = \{a\}$ ma $\{a\}$ è un aperto in $\mu$.
 	\item Una funzione continua, aperta e chiusa è l'identità, o un qualsiasi omeomorfismo.
@@ -1037,7 +1037,7 @@ A seguire alcune proposizioni sulle applicazioni continue.
 	\item La funzione identità $\morphism{id}{(X,\tau)}{(X,\tau)}$ è un omeomorfismo. 
 	\item $f$ è un omeomorfismo se e solo se $f^{-1}$ lo è. 
 	\item La composizione di omeomorfismi è un omeomorfismo.
-	\item Le affinità sono omeomorfismi. Infatti si consideri $\morphism{\varphi}{\R^n}{\R^n}$ una affinità qualsiasi, quindi è della forma $\varphi \colon x \mapsto Ax + b$ per qualche $A \in \GL_n(\R)$, $b \in \R^n$. Allora ha l'inversa che è $\varphi^{-1} \colon x \mapsto A^{-1}x - A^{-1}b$, per cui è biettiva. Inoltre essendo entrambe affinità sono continue visto che le puoi vedere come composizione di funzioni lineari sommate a funzioni costanti.
+	\item Le affinità sono omeomorfismi. Infatti si consideri $\morphism{\varphi}{\R^n}{\R^n}$ una affinità qualsiasi, quindi è della forma $\varphi \colon x \mapsto Ax + b$ per qualche $A \in \operatorname{GL}_n(\R)$, $b \in \R^n$. Allora ha l'inversa che è $\varphi^{-1} \colon x \mapsto A^{-1}x - A^{-1}b$, per cui è biettiva. Inoltre essendo entrambe affinità sono continue visto che le puoi vedere come composizione di funzioni lineari sommate a funzioni costanti.
 	\item Un altro esempio è la funzione $\morphism{\arctan}{(\R, \tau_{\text{euclidea}})}{((-\pi/2,\pi/2, \tau_{\text{euclidea}}))}$. La funzione è continua e biettiva, analogamente alla sua inversa, la funzione $\tan$.
 \end{enumerate}
 
