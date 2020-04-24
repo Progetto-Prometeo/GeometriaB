@@ -1,32 +1,31 @@
-\chapter{Un dessert prima di pranzo}
+\chapter* {Introduzione: Un dessert prima di pranzo}
 
-Praticamente queste note seguiranno gli appunti delle lezioni di mezzo semestre dedicati all'analisi complessa del corso di laurea triennale di Trento a. s. il primo con il coronavirus e con l'introduzione dei mezzi digitali.
-Sicché si dice che la matematica è un enorme battuta che nessuno capisce e poi va spiegata lentamente, 
-queste note seguiranno lo stesso corso. Prima verranno introdotti alcuni teoremi che esprimeranno la bellezza di alcuni risultati 
-e più avanti verranno motivati propriamente.
+Queste note seguiranno gli appunti delle lezioni di mezzo semestre, e saranno principalmente dedicati all'analisi complessa per il corso di laurea triennale in Matematica dell'Università di Trento - in particolare il primo con l'introduzione dell'insegnamento a distanza per causa del Coronavirus. \\
+Ovviamente la comprensione delle sezioni precedenti è prerequisito per questa, senza la quale risulterà difficile - ed a tratti persino \textit{complesso} - avere chiaro quanto stiamo per svolgere insieme. E dopotutto, la topologia algebrica è bellissima! \\ \\
+Sicché si dice che la matematica è un enorme battuta che nessuno capisce e di conseguenza vada spiegata lentamente, 
+seguiremo esattamente questa procedura nella stesura delle note: in principio introdurremo i teoremi in modo puramente formale, esprimeranno la propria bellezza ed eleganza in alcuni risultati 
+e più avanti verranno propriamente motivati.
 
-\section{Il meraviglioso complesso mondo}
+\section{Il meraviglioso mondo complesso}
 
-Premessa di questa sezione è di mostrare alcune proprietà che rendono il campo complesso $\C$ magnifico e addirittura \textit{semplice}.
+Lo scopo di questa sezione è mostrare alcune proprietà che rendono il campo complesso $\C$ magnifico e addirittura \textit{semplice}.
 
 \begin{definition}
-	Una \textbf{funzione olomorfa} è una funzione tale che $\morphism{f}{A \subset \C}{\C}$, dove $A$ aperto, differenziabile in senso complesso. 
+	Una \textbf{funzione olomorfa} è una funzione $\morphism{f}{A \subset \C}{\C}$, dove $A$ è un aperto, differenziabile in senso complesso. 
 \end{definition}
 
-Ecco alcuni enunciati che semplificano la vita mentre si lavora con funzioni olomorfe in campo complesso.
+Ecco alcuni enunciati che ci semplificheranno la vita mentre lavoreremo
 \begin{theorem}[Integrazione lungo curve]
-	Se $\alpha \sim \beta$ congiungono due punti di $A \subset \C$ allora 
-	\begin{equation}
-	\begin{aligned}
+	Se le curve $\alpha$, $\beta$ - con $\alpha \sim \beta$ - congiungono due punti di $A \subset \C$ allora 
+	\begin{equation*}
 	\int_\alpha f = \int_\beta f
-	\end{aligned}
-	\end{equation}
+	\end{equation*}
 \end{theorem}
 
 \begin{theorem}[Regolarità]
-	Se $f$ è olomorfa allora $f \in C^{\infty}(A)$ dove $A\subseteq \C$ è il dominio di $f$.
+	Se $f$ è olomorfa allora $f \in C^{\infty}(A)$, dove $A\subseteq \C$ è il dominio di $f$.
 \end{theorem}
 
 \begin{theorem}[Principio di identità]
-	Sia $A\subset \C$ tale che $A \simeq \D$ per omotopie, allora se $f(x) = g(x)$ per ogni $x\in A$, allora $f = g$.
+	Sia $A\subset \C$ tale che $A \simeq \D$ per omotopie, allora se $f(x) = g(x)$ per ogni $x\in A$, si ha che  $f = g$.
 \end{theorem}
