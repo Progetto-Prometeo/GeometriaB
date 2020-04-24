@@ -1,0 +1,139 @@
+\chapter{Esempi di topologie}
+
+\section{Alcune varianti di topologie su $\R$}
+
+\begin{defn}
+	Sia $\mathcal{B} = \{\left[a,b\right) \; | \; a,b \in \R\}$ una base tale da generare la topologia $\tau_j$ sull'insieme $\R$.
+\end{defn}
+
+\begin{theorem}
+	La topologia $\tau_j$ generata dalla base $\mathcal{B} := \{ \left[a,b\right) \; | \; a,b\in \R \}$ è strettamente più fine della topologia euclidea. 
+\end{theorem}
+\begin{proof}
+	Ogni aperto di $\tau_{\text{euclidea}}$ è contenuto in $\tau_j$. Infatti sia $(a,b) \in \tau_{\text{euclidea}}$ allora prendo 
+	\begin{equation}
+	\begin{aligned}
+	(a,b) = \bigcup_{n \in \N} \left[a + \frac{1}{n}, b\right)
+	\end{aligned}
+	\end{equation}
+	Ma l'aperto della $\left[0,1\right) \in \tau_j$ non appartiene a $\tau_{\text{euclidea}}$ poiché non è della forma $(a,b)$. Segue che $\tau_j$ è strettamente più fine di $\tau_{\text{euclidea}}$.
+\end{proof}
+
+Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il fatto di non avere basi numerabili, ma avere sistemi di intorni numberabili; essere più fine della topologia euclidea standard e altro come vedremo in questa sezione.
+
+\begin{theorem}
+	Le seguenti affermazioni sono vere in $\tau_j$.
+	\begin{enumerate}
+		\item L'intervallo $\left[0,1\right]$ è un chiuso in $\tau_j$. 
+		\item La funzione $f \colon x \mapsto -x$ non è continua in $\tau_j$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item Per dimostrare la chiusura bisogna far vedere che $\left[0,1\right]^c$ sia aperto. Ma questo è abbastanza facile. Infatti $\left[0,1\right]^c = \left(-\infty, 0\right) \cup \left(1, +\infty\right)$, per cui basta vedere che $\left(-\infty, 0\right) = \bigcup_{n \in \N} \left[-n, 1/(n+1)\right)$ e $\left(1, +\infty\right) = \bigcup_{n \in \N} \left[1+1/(n+1), n+2\right)$, per cui risulta che $\left[0,1\right]$ è un chiuso.
+		\item La funzione è ovviamente non continua, infatti si consideri l'aperto $\left[0,1\right)$, la sua controimmagine attraverso $f$ è $\left(-1, 0\right]$ che non è aperto.
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+	L'insieme $\mathcal{B} = \{ \left[a, b\right] \; | \; a \le b, a, b \in \R \}$ è una base su $\R$ e la topologia generata è quella discreta. 
+\end{theorem}
+\begin{proof}
+	Dimostro che $\mathcal{B}$ è un ricoprimento di $\R$. Infatti basta prendere $\R = \bigcup^{+\infty}_{n=1} \left[-n, n\right]$. Inoltre se interseco due chiusi nella topologia euclidea è ancora un chiuso quindi ho la stessa cosa qui. Per cui $\mathcal{B}$ è una base. \\ 
+	
+	È ovvio che tutti i singoletti di $\R$ sono contenuti in $\mathcal{B}$ quindi $\mathcal{C}\subset \mathcal{B}$ dove $\mathcal{C}$ genera la topologia discreta e poiché è la più fine dev'essere che anche $\mathcal{B}$ generi la topologia discreta su $\R$.
+\end{proof}
+
+\begin{theorem}
+	Definito l'insieme $\mathcal{B} = \{A \in 2^\R \; | \; 0 \notin A \} \cup \{ A \in 2^\R \; | \; 0 \in A, \R \setminus A \; \text{finito} \}$ Allora calcolate la chiusura di $J = \left[1,2\right] \times \{0\}$.
+\end{theorem}
+\begin{proof}
+	È ovvio dimostrare che l'insieme oltre ad essere una base è anche una topologia. Inoltre vale $\overline{J} = \overline{\{0\}} \times \overline{\left[1,2\right]}$. Quindi posso separare i casi in un topologia $\mathcal{B}$. Inoltre $\overline{\{0\}} = \{0\}$ per la definizione della topologia. Inoltre poiché $\left[1,2\right]$ è aperto e $\left[1,2\right] \cup \{0\}$ è chiuso perché il complementare è aperto. Segue che dev'essere che $\overline{\left[1,2\right]} = \left[1,2\right] \cup \{0\}$. Quindi ho trovato $\overline{J}$.
+\end{proof}
+
+
+\section{Topologia di Zariski}
+
+\begin{defn}
+	Si definisce topologia di Zariski su $\R^n$ la topologia generata dall'insieme dei chiusi 
+	\begin{equation}
+	\begin{aligned}
+	\mathcal{F} := \left\{ C \in 2^{\R^n} \; | \; C \; \text{insieme algebrico} \right\}
+	\end{aligned}
+	\end{equation}
+\end{defn}
+
+\begin{theorem}
+	Gli insiemi algebrici formano una famiglia di chiusi che generano una topologia per $\R$.
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item I polinomi $f(x) = 0$ e $f(x) = 1$ danno come soluzioni rispettivamente gli insiemi $\R, \varnothing$.
+		\item Bisogna dimostrare che l'intersezione di insiemi algebrici è ancora un insieme algebrico. Poiché tutti gli insiemi algebrici in $\R$ sono tutti finiti\footnote{Supponi che $X \neq \R$ sia algebrico e infinito allora esiste un polinomio che ha $\deg(f) \ge |X|$ ma i polinomi non possono avere grado infinito, assurdo.} tranne $\R$, l'intersezione di insiemi finiti sarà un insieme finito, per cui posso enumerare le soluzioni $\{x_1, \dots, x_n\}$ e quindi generare il polinomio $f(z) = (z-x_1)\cdots(z-x_n)$. Se l'intersezione è infinita è algebrico perché è $\R$. 
+		\item L'unione agisce in modo più prevedibile. Infatti se $F_1, \dots, F_n$ sono algebrici allora esistono $f_1, \dots, f_n$ che li generano. Per cui $f = f_1 \cdots f_n$ è il polinomio che genera $F_1 \cup \dots \cup F_n$.
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+	Gli insiemi algebrici formano una topologia su $\R^n$.
+\end{theorem}
+\begin{proof}
+	Analogamente alla dimostrazione in $\R$ si dimostra che
+	\begin{enumerate}
+		\item I polinomi $f(x_1, \dots, x_n) = 0$ e $f(x_1, \dots, x_n) = 1$ danno come soluzioni rispettivamente gli insiemi $\R^n, \varnothing$.
+		\item Siano $F_1, \dots, F_n$ insiemi algebrici allora esistono $f_1, \dots, f_n$ che li generano. Per cui $f = f_1 \cdots f_n$ è il polinomio che genera $F_1 \cup \dots \cup F_n$.
+		\item Questa parte è meno banale. Userò la notazione tratta dal libro W. Fulton, Algebraic Curves. Dimostro inannzitutto che se $\{I_i\}_{i \in \mathcal{I}}$ dove $I_i$ è un ideale di $\R\left[x_1, \dots, x_n\right]$\footnote{Questo anello è noetheriano poiché $\R$ è un campo.} per ogni $i$, allora 
+		\begin{equation}
+		\begin{aligned}
+		\bigoplus_{i \in \mathcal{I}} I_i = I
+		\end{aligned}
+		\end{equation}
+		dove $I$ è un ideale di $\R\left[x_1, \dots, x_n\right]$. Poiché siamo in un anello noetheriano $I$ è un ideale per qualsiasi insieme indicizzante $\mathcal{I}$. 
+		Per cui \footnote{Dal punto di vista della notazione $A_i = V(I_i)$ sta per indicare che l'insieme algebrico $A_i$ è l'insieme delle soluzioni dell'ideale $I_i$, visto che ogni insieme algebrico è generato da almeno un ideale di polinomi}
+		\begin{equation}
+		\begin{aligned}
+		\bigcap_{i \in I} A_i = \bigcap_{i \in I} V(I_i) = V\left(\bigoplus_{i \in \mathcal{I}} I_i\right) = V(I)
+		\end{aligned}
+		\end{equation}
+		e poiché $I$ è un ideale ho anche che $V(I)$ è un insieme algebrico per definizione.
+	\end{enumerate}	
+\end{proof}
+
+\section{Esempio di quoziente}
+
+\begin{theorem}
+	Si consideri $\left[0,1\right]$ con topologia euclidea indotta, dimostrare che $(\left[0,1\right]/R, \tau_{\text{euclidea}}|_{\left[0,1\right]/R}) \simeq (S^1, \tau_{\text{euclidea}}|_{S^1})$ dove $R$ è la relazione che associa $xRy \Leftrightarrow x = y \lor |x - y| = 1$
+\end{theorem}
+\begin{proof}
+	Possiamo usare uno dei corollari (come il \textit{primo teorema di omeomorfismo}) costruiti negli spazi quozienti. Per cui ci basta trovare un identificazione $\morphism{f}{\left[0,1\right]}{\S^1}$ e la scelta più naturale ricade su 
+	\begin{equation}
+	\begin{aligned}
+		f(x) = (\cos 2\pi x, \sin 2 \pi x)
+	\end{aligned}
+	\end{equation}
+	questa è suriettiva, continua sulla topologia euclidea e vale $f^{-1}f(x) = \left[x\right]_R$. Meno banale è dimostrare che $\tau_f = \tau_{\text{euclidea}}|_{S^1}$. Usando il teorema \ref{thr:freeomeombyquo}
+\end{proof}
+
+\section{Discriminazione di topologie}
+
+Non è sempre facile dimostrare che due topologie sono la stessa a più di omeomorfismi. Per questo se si hanno degli strumenti per riuscire a discriminare quelle distinte \textit{al volo}, si può ridurre il tempo perso a dimostrare che due topologie distinte siano la medesima. A tal fine nei capitoli precedenti si sono sviluppate alcune proprietà che sono invarianti per omeomorfismi e dunque degli invarianti topologici. Vediamo una semplice carrellata di come possono essere utilizzati per discriminare le topologie distinte
+
+\begin{theorem}
+	Le seguenti affermazioni sono vere
+	\begin{enumerate}
+		\item $\left[0,1\right] \not\simeq (0,1)$
+		\item $\left[0,1\right] \not\simeq \R$
+		\item $\left(0,1\right] \not\simeq (0,1)$
+		\item $\left[0,1\right]^2 \not\simeq \left[0,1\right]$
+		% TODO $\R \simeq (0,1)$??? dal punto di vista della connessione e della compattezza sembrerebbe funzionare
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item La compattezza è un invariante per omeomorfismi, quindi se le due topologie fossero la medesima avrei che $(0,1)$ compatto se e solo se $\left[0,1\right]$ lo è. Ma $\left[0,1\right]$ è compatto, mentre $(0,1)$ non lo è. Pertanto non possono essere omeomorfi.
+		\item Usando ancora una volta la compattezza come invariante topologico si vede che $\R$ non è compatto mentre $\left[0,1\right]$ lo è, pertanto non possono essere omeomorfi.
+		\item La connessione è un altro invariante topologico. Infatti supponiamo che $\left(0,1\right]$ sia omeomorfo a $\left(0,1\right)$. Allora esiste $f(\left(0,1\right]) = \left(0,1\right)$ e $f(1) = x \in (0,1)$. Quindi se si considera $\morphism{f}{(0,1)}{(0,1)\setminus \{x\}}$ di sicuro $x$ è interno a $(0,1)$, quindi dev'essere che $(0,1) \setminus \{x\} = (0, x) \cup (x, 1)$. Bisogna far notare che $f$ è ancora un omeomorfismo tra $(0,1)$ e $(0,1)\setminus \{x\}$ (è bigettiva ovviamente e manda aperti in aperti anche se manca un punto). Eppure $(0,1)$ è connesso e quindi $f((0,1))$ dovrebbe essere connesso, ma non lo è. Pertanto non può esistere $f$ omeomorfismo.
+		\item Analogo al caso precedente. Infatti si prenda un punto interno di $x \in (0,1)$, indipendentemente da dove verrà mappato su $\left[0,1\right]^2$, $\left[0,1\right]^2 \setminus \{f(x)\}$ sarà ancora connesso\footnote{È ovvio che sarà ancora connesso: se $x$ viene mappato sul bordo, allora essendo $(0,1)^2$ connesso e $\left[0,1\right]^2$ connesso segue che qualsiasi $Z$, tale che $(0,1)^2 \subset Z \subset \left[0,1\right]^2$ è ancora connesso; se $x$ è interno invece posso sempre trovare una funzione continua che aggira $x$ e collega ogni paio di punti di $\left[0,1\right]^2 \setminus \{f(x)\}$}, mentre $\left[0,1\right] \setminus \{x\}$ non lo è. 
+		
+	\end{enumerate}
+\end{proof}
