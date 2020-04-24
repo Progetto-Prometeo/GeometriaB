@@ -1085,7 +1085,7 @@ A seguire alcune proposizioni sulle applicazioni continue.
 \end{remark}
 
 \begin{definition}
-	Sia $(X,\tau)$ uno spazio topologico e sia $\varnothing \neq S \subset X$ allora consideriamo $\injection{i_S}{S}{X}$, allora $(S, i^{-1}_S(\tau))$\footnote{Questa scelta è una scelta naturale e si vedrà che è ben caraterizzabile} forma un \textbf{sottospazio topologico}. Inoltre la topologia si può indicare come $i^{-1}_S(\tau) := \tau|_S$. 
+	Sia $(X,\tau)$ uno spazio topologico e sia $\varnothing \neq S \subset X$ allora consideriamo $\morphism{i_S}{S}{X}$, allora $(S, i^{-1}_S(\tau))$\footnote{Questa scelta è una scelta naturale e si vedrà che è ben caraterizzabile} forma un \textbf{sottospazio topologico}. Inoltre la topologia si può indicare come $i^{-1}_S(\tau) := \tau|_S$. 
 \end{definition}
 
 \begin{theorem}
@@ -1214,14 +1214,14 @@ Esauriti tutti i punti non resta che collegarli.
 		\item $\forall i \in I \; . \; f_i$ continua e $X_i$ aperto.
 	\end{enumerate}
 	Allora esiste un unica $\morphism{f}{X}{Y}$ tale da essere anche continua e $f|_{X_i} = f_i$. \footnote{il termine coomologico indica la pratica di generalizzazione di fenomeni locali}
-	La funzione sarà dunque definita come $\mapsfromto{f}{x}{f_i(x)}$ dove $x \in X_i$.
+	La funzione sarà dunque definita come $f \colon\ x \mapsto f_i(x)$ dove $x \in X_i$.
 \end{theorem}
 \begin{proof}
-	L'esistenza è banale perché abbiamo una forma abbastanza esplicita, ovvero $\mapsfromto{f}{x}{f_i(x)}$ dove $x \in X_i$. L'unicità è banale per la proprietà di incollamento, infatti se $x \in X_i$ allora $f'(x) = f_i(x) = f(x)$ per ogni $x \in X$.
+	L'esistenza è banale perché abbiamo una forma abbastanza esplicita, ovvero $f \colon\ x \mapsto f_i(x)$ dove $x \in X_i$. L'unicità è banale per la proprietà di incollamento, infatti se $x \in X_i$ allora $f'(x) = f_i(x) = f(x)$ per ogni $x \in X$.
 	
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.6\linewidth]{images/Coomology_exercises_figure}
+		\includegraphics[width=0.6\linewidth]{images/topologia_generale/Coomology_exercises_figure}
 		\caption{}
 		\label{fig:coomologyexercisesfigure}
 	\end{figure}
@@ -1402,7 +1402,7 @@ In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \t
 Notare che in generale i teoremi dimostrati per $n=2$, ovvero $X_1 \times X_2$, valgono anche per $n \in \N$, infatti basta procedere per induzione. Il vero problema è dimostrare che $X_1 \times X_2 \times \dots \times X_n \simeq X_1 \times (X_2 \times \dots \times X_n)$ e così via. Ovvero dimostrare che il prodotto di topologie è un operatore associativo nella categoria degli spazi topologici. 
 
 \begin{theorem}
-	Le topologie con il prodotto formano un monoide commutativo su $\Top/\sim$ dove $X\sim Y$ se e solo se $X$ è omeomorfo $Y$.
+	Le topologie con il prodotto formano un monoide commutativo su $\mathbb{Top}/\sim$ dove $X\sim Y$ se e solo se $X$ è omeomorfo $Y$.
 \end{theorem}
 \begin{proof}
 	\begin{enumerate}
@@ -1598,18 +1598,18 @@ Una volta presi questi ingredienti è bene controllare le date di scadenza. Da q
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{images/projection_quotient}
+	\includegraphics[width=0.5\linewidth]{images/topologia_generale/projection_quotient}
 	\caption{Proiezione della partizione di $X$ data dalla relazione $R$. Oppure si possono vedere i sottoinsiemi verdi di $X$ come tutte le fibre di $f$ su un $X'$ e che vengono proiettate in un punto da $\pi$}
 	\label{fig:projectionquotient}
 \end{figure}
 
 Dopo questo procedimento (circa 2-3 minuti) si può iniziare a operare sui morfismi e construire una mappa 
-\begin{equation}
+\begin{equation*}
 \begin{tikzcd}[row sep = tiny]
 	\pi  \colon &  X \arrow{r} & X/R \\
 		 & x \arrow[mapsto]{r} & \left[x\right]_R
 \end{tikzcd}
-\end{equation}
+\end{equation*}
 
 
 che è la \textbf{proiezione naturale} dell'insieme sul suo quoziente. Questa è sempre suriettiva (per questo si sono sempre studiate mappe suriettive nel capitolo precedente) e si comporta bene come si può vedere dalla figura. Utilizzando il procedimento canonico per la costruzione di topologie quozienti indotte da applicaizioni sulla proiezione naturale si ottiene quella che è detta \textbf{topologia quoziente di $\tau$ modulo $R$} e $(X/R, \tau_\pi)$ è detto lo spazio topologico quoziente di $(X,\tau)$ modulo $R$.
@@ -1656,7 +1656,7 @@ che è la \textbf{proiezione naturale} dell'insieme sul suo quoziente. Questa è
 	Basta applicare il Lemma \ref{lem_qdom} sul seguente diagramma
 	\begin{equation}
 	\begin{tikzcd}[row sep = 3em]
-		(X, \tau) \arrow[swap]{d}{\pi} \arrow{r}{f} & (X', \tau') \arrow{d}{\pi' = \idarrow}\\
+		(X, \tau) \arrow[swap]{d}{\pi} \arrow{r}{f} & (X', \tau') \arrow{d}{\pi' = \operatorname{Id}}\\
 		(X/R_f, \tau_{X/R_f}) \arrow[swap]{r}{\exists! g} & (X'/U', \tau_{X'/U'}) = (X', \tau')
 	\end{tikzcd}	
 	\end{equation}
@@ -1715,7 +1715,7 @@ Alcuni esempi:
 \begin{enumerate}
 	\item $\R$ con la topologia euclidea e l'addizione è un gruppo topologico.
 	\item $\Z, \Q$ sono due sottogruppi normale di $\R$ rispetto all'addizione. 
-	\item $\GL_n$ e i suoi sottogruppi sono gruppi topologici.
+	\item $\operatorname{GL}_n$ e i suoi sottogruppi sono gruppi topologici.
 \end{enumerate}
 
 Questi sono interessanti perché si possono costruire i seguenti quozienti topologici:
