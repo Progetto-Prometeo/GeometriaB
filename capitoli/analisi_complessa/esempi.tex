@@ -1,11 +1,11 @@
 
-\chapter{Esempi di funzioni complesse}
+\chapter{Estensione di funzioni in $\C$}
 
 \section{Funzione esponenziale}
 
 \begin{definition}
 	\label{defn:funzione-esponenziale}
-	Definiamo l'esponenziale con la serie di potenze
+	Definiamo l'esponenziale in $\C$ come la serie di potenze
 	\begin{equation}
 	\begin{aligned}
 		e^z := \sum^{+\infty}_{k=0} \frac{z^k}{k!}
@@ -13,59 +13,49 @@
 	\end{equation}
 \end{definition}
 
-Osserviamo alcune proprietà 
+Possiamo osservarne alcune caratteristiche fondamentali. 
 
 \begin{theorem}
-	La funzione esponenziale gode delle seguenti proprietà
+	La funzione esponenziale gode delle seguenti proprietà:
 	\begin{enumerate}
-		\item è olomorfa su $\C$.
-		\item $(e^z)' = e^z$.
-		\item $e^{i\theta} = \cos \theta + i\sin \theta$ per $\theta \in \R$.
-		\item è periodica di periodo $2\pi i$.
-		\item $e^z \neq 0$ per ogni $z \in \C$. In particolare non è biunivoca.
+		\item è olomorfa in $\C$
+		\item $(e^z)' = e^z$
+		\item $e^{i\theta} = \cos \theta + i\sin \theta$ per $\theta \in \R$
+		\item è periodica di periodo $2\pi i$
+		\item $e^z \neq 0$ per ogni $z \in \C$ (in particolare non è biunivoca)
 	\end{enumerate}
 \end{theorem}
-\begin{proof}[1]
-	Per definizione e per il Teorema \ref{thr:teorema-di-abel}.
-\end{proof}
-\begin{proof}[2]
-	Basta un calcolo esplicito della derivata della serie di potenze
-	\begin{equation}
-	\begin{aligned}
-		(e^z)' & = \sum^{+\infty}_{n=1} n\frac{z^{n-1}}{n!} = \sum^{+\infty}_{n=1} \frac{z^{n-1}}{(n-1)!} \\
-				& = \sum^{+\infty}_{p=0} \frac{z^p}{p!} = e^z 
-	\end{aligned}
-	\end{equation}
-\end{proof}
-\begin{proof}[3]
-	Anche per questo basta un calcolo esplicito
-	\begin{equation}
-	\begin{aligned}
+\begin{proof} \
+	\begin{enumerate}
+		\item Per definizione e per il Teorema \ref{thr:teorema-di-abel}.
+		\item Dal calcolo esplicito della derivata della serie di potenze:
+		$$\begin{aligned} (e^z)' & = \sum^{+\infty}_{n=1} n\frac{z^{n-1}}{n!} = \sum^{+\infty}_{n=1} \frac{z^{n-1}}{(n-1)!} \\
+		& = \sum^{+\infty}_{p=0} \frac{z^p}{p!} = e^z \end{aligned}$$
+		\item Anche per questo basta un calcolo esplicito: \begin{equation*}
+		\begin{aligned}
 		e^{iz} & = \sum^{+\infty}_{n=0} \frac{(iz)^{n}}{n!} = \sum^{+\infty}_{k=0} \frac{(iz)^{2k}}{2k!} + \sum^{+\infty}_{k=0} \frac{(iz)^{2k+1}}{2k+1!}\\
-			& = \sum^{+\infty}_{k=0} (-1)^k\frac{z^{2k}}{2k!} + i\sum^{+\infty}_{k=0} (-1)^k\frac{z^{2k+1}}{2k+1!}\\
-			& = \cos z + i \sin z
-	\end{aligned}
-	\end{equation}
-\end{proof}
-\begin{proof}[4]
-	Basta osservare che $e^{a + 2\pi i} = e^a e^{2\pi i } = e^a$, il fatto che $e^{2\pi i} = 1$ è naturale dal punto precedente.
-\end{proof}
-\begin{proof}[5]
-	Sia $\alpha \in \C$, allora $e^z = \alpha$ vuol dire che se $z = x+iy$ allora 
-	\begin{equation}
-	\begin{cases}
+		& = \sum^{+\infty}_{k=0} (-1)^k\frac{z^{2k}}{2k!} + i\sum^{+\infty}_{k=0} (-1)^k\frac{z^{2k+1}}{2k+1!}\\
+		& = \cos z + i \sin z
+		\end{aligned}
+		\end{equation*}
+		\item Basta osservare che $e^{a + 2\pi i} = e^a e^{2\pi i } = e^a$, il fatto che $e^{2\pi i} = 1$ è naturale dal punto precedente.
+		\item 	Sia $\alpha \in \C$, allora $e^z = \alpha$ vuol dire che se $z = x+iy$ allora 
+		\begin{equation*}
+		\begin{cases}
 		x = \ln |\alpha|\\
 		y = \arg \alpha
-	\end{cases}
-	\end{equation}
-	per cui se $\alpha = 0$, $x$ non sarebbe ben definito. Mentre per tutti gli altri valore di $\alpha \in \C$ è definita.
+		\end{cases}
+		\end{equation*}
+		per cui se $\alpha = 0$, $x$ non sarebbe ben definito. Mentre per tutti gli altri valore di $\alpha \in \C$ è definita.
+		
+	\end{enumerate}
 \end{proof}
 
 \section{Funzioni trigonometriche}
 	
 	\begin{definition}
 		\label{defn:sin-cos}
-		Definiamo le funzioni trigonometriche in funzione delle serie di potenze come segue
+		Definiamo le funzioni trigonometriche in funzione delle serie di potenze come segue:
 		\begin{equation}
 		\begin{aligned}
 			\sin(z) := \sum^{+\infty}_{k=0} (-1)^k\frac{z^{2k+1}}{(2k+1)!} \;\ \cos(z) := \sum^{+\infty}_{k=0} (-1)^k\frac{z^{2k}}{(2k)!}
@@ -74,74 +64,69 @@ Osserviamo alcune proprietà
 	\end{definition}
 	
 	\begin{theorem}
-		Valgono i seguenti fatti sulle funzioni trigonometriche
+		Valgono le seguenti proprietà delle funzioni trigonometriche:
 		\begin{enumerate}
 			\item 
-			\begin{equation}
+			\begin{equation*}
 			\begin{aligned}
 				\sin(z) = \frac{e^{iz} - e^{-iz}}{2} \;\ \cos(z) = \frac{e^{iz} + e^{-iz}}{2}
 			\end{aligned}
-			\end{equation}
-			\item sono $2\pi$ periodiche.
-			\item non sono limitate.
-			\item l'immagine di $\sin$ e $\cos$ coincide con $\C$.
+			\end{equation*}
+			\item sono $2\pi$ periodiche
+			\item non sono limitate
+			\item l'immagine di $\sin$ e $\cos$ coincide con $\C$
 			\item le seguenti funzioni sono olomorfe tranne nei loro rispettivi poli
-			\begin{equation}
+			\begin{equation*}
 			\begin{aligned}
 				\tan z & := \frac{\sin z}{\cos z} \in \mathcal{O}(\C \setminus \{ \pi /2 + k\pi \mid k \in \N \}) \\
 				\cot z & := \frac{\cos z}{\sin z} \in \mathcal{O}(\C \setminus \{k\pi \mid k \in \N \})
 			\end{aligned}
-			\end{equation}
+			\end{equation*}
 		\end{enumerate}
 	\end{theorem}
-	\begin{proof}[1]
-		% TODO
-	\end{proof}
-	\begin{proof}[2]
-		% TODO: DIMOSTRAZIONE
-	\end{proof}
-	\begin{proof}[3]
-		% TODO: DIMOSTRAZIONE
-	\end{proof}
-	\begin{proof}[4]
-		% TODO: DIMOSTRAZIONE
-	\end{proof}
-	\begin{proof}[5]
-		% TODO: DIMOSTRAZIONE
+	\begin{proof} \ %TODO: proof 
+	\begin{enumerate}
+		\item 
+		\item
+		\item
+		\item
+		\item
+	\end{enumerate}
 	\end{proof}
 	
 \section{Funzione logaritmo}
 	
 	\begin{definition}
 		\label{defn:logaritmo-principale}
-		Il \textbf{logaritmo principale} è la funzione 
+		Il \textbf{logaritmo principale} è la funzione definita come:
 		\begin{equation}
 		\begin{aligned}	
-			\morphism{\log}{\C \setminus \{x \in \R \mid x \le 0\}}{\C}
+			 & \morphism{\log}{\C \setminus \{x \in \R \mid x \le 0\}}{\C} \\
+			 \log(z) = & \ln(|z|) + i\arg z \ \text{  con  } \ \arg z \in (-\pi,\pi]
 		\end{aligned}
 		\end{equation}
-		definita da $\log(z) = \ln(|z|) + i\arg z$ con $\arg z \in \left(-\pi,\pi\right]$ 
+		
 	\end{definition}
 
 	\begin{remark}
-		In generale si perdono molte delle proprietà del logaritmo sui reali. Per esempio $\log(xy) \neq \log(x)+\log(y)$.
+		In generale si perdono molte delle proprietà del logaritmo che valevano in $\R$. Per esempio $\log(xy) \neq \log(x)+\log(y)$.
 	\end{remark}
 
 	\begin{theorem}
-		La funzione logaritmo princiaple è olomorfa e la sua derivata è $\log'(z) = 1/z$.
+		La funzione logaritmo principale è olomorfa e la sua derivata è $$\log'(z) = 1/z$$.
 	\end{theorem}
-	\begin{proof}
-		Dimostriamo che è olomorfa per le equazioni di Cauchy-Riemann, per cui ponendo
-		\begin{equation}
+	\begin{proof} \
+		Dimostriamo che è olomorfa grazie alle equazioni di Cauchy-Riemann, per cui ponendo
+		\begin{equation*}
 		\begin{aligned}
 			\log(x+iy) = \frac{1}{2}\ln(x^2 + y^2) + i\arctan(y/x) = u(x,y) + iv(x,y)
 		\end{aligned}
-		\end{equation}
+		\end{equation*}
 		da cui le derivate ci danno le relazioni cercate.\\
 		
-		Sempre per le equazioni di Cauchy-Riemann otteniamo che $\log(z) = u_x + iv_x = 1/z$.
+		Sempre utilizzando le equazioni di Cauchy-Riemann otteniamo al tesi, cioè che $\log'(z) = u_x + iv_x = 1/z$.
 	\end{proof}
 	\begin{remark}
-		Osserviamo infine che poiché la funzione argomento può prendere valori con periodicità di $2\pi$, abbiamo effettivamente infinite definizioni della funzione logaritmo. Questo può presentare alcuni vantaggi. Infatti la funzione radice quadrata 
-		$f_0(z) = e^{\log(z)/2} = \sqrt{|z|}e^{i(\arg z)/2}$, ma se si usa un'altra definizione di logaritmo, ovvero consideriamo un'altra possibile branca o determinazioni possibili della radice quadrata. Allora otteniamo $f_1(z) = e^{\log'(z)/2} = \sqrt{|z|}e^{i\arg(z)/2 + i\pi}$ che rappresenta la radice `negativa'. E così via per molte altre funzioni.
+		Osserviamo infine che la funzione argomento può prendere valori con periodicità di $2\pi$, perciò abbiamo effettivamente infinite definizioni della funzione logaritmo. \\ Questo può presentare alcuni vantaggi. Infatti la funzione radice quadrata principalmente è 
+		$f_0(z) = e^{\log(z)/2} = \sqrt{|z|}e^{i(\arg z)/2}$, ma se si usa un'altra definizione di logaritmo, ovvero consideriamo una diversa possibile branca (o determinazione) della radice quadrata, otteniamo $f_1(z) = e^{\log'(z)/2} = \sqrt{|z|}e^{i\arg(z)/2 + i\pi}$, che rappresenta la \textit{radice "negativa"}. 
 	\end{remark}
