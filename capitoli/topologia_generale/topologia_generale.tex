@@ -753,12 +753,12 @@ Per il calcolo della chiusura questa definizione è leggermente inutile. Pertant
 	Definendo il sistema fondamentale di intorni 
 	\begin{equation}
 	\begin{aligned}
-	\mathcal{V}(f, I, \varepsilon) := \left\{ g \in \R^\R \; | \;  |g(t) - f(t)| < \varepsilon, \; \forall t \in I \right\}
+		\mathcal{V}(f, I, \varepsilon) := \left\{ g \in \R^\R \; | \;  |g(t) - f(t)| < \varepsilon, \; \forall t \in I \right\}
 	\end{aligned} 
 	\end{equation}
 	dove $I \in \mathcal{P}_\text{finite}(\R)$ (ovvero la famiglia di insiemi delle parti finite di $\R$), $f$ un endomorfismo su $\R$ e $\varepsilon \in \R^+$. \\
 	Dal teorema si vede che questo S.F.I. genera un unica topologia che si chiama, appunto, topologia della convergenza puntuale sulle funzioni da $\R$ in $\R$.
-	% TODO  
+	% TODO: `PROOF': Controesempio di uno spazio topologico che rispetta il primo assioma di numerabilità ma non vale l'uguaglianza tra la chiusura sequenziale e la chiusura topologica
 	Cosa bisogna dimostrare:
 	\begin{enumerate}
 		\item Dimostrare che genera una e una sola topologia 
@@ -773,7 +773,6 @@ Per il calcolo della chiusura questa definizione è leggermente inutile. Pertant
 		\end{proof}
 		\item Dimostrare che soddisfa il primo assioma di numerabilità e non è metrizzabile
 		\begin{proof}
-			Fisso un punto $x_0 = 0$ e considero $\{V(f, \{x_0\}, 1/N)\}_{N \in \N}$ questa è la prima famiglia numerabile del sistema di intorni di $f$, la seconda è $\{V(f, \{x_0\}, \sum_{i=1}^{N} 1/i) \}_{N \in \N}$, assieme fanno un sistema fondamentale di intorni di $f$. Pertanto soddisfa il primo assioma di numerabilità\footnote{Non completamente convinto e non so come dimostrarlo}.
 		\end{proof}
 		\item Sia $\{f_n\}$ e sia $f \in \R^\R$ allora $\{f_n\} \rightarrow f$ se solo se $\forall x \in \R$ allora $\{f_n(x)\} \rightarrow f(x)$.
 		\item L'insieme 
@@ -1007,7 +1006,8 @@ A seguire alcune proposizioni sulle applicazioni continue.
 \textbf{Alcuni esempi}
 \begin{enumerate}
 	\item La funzione $\morphism{\pi_1}{(\R^2,\tau^2_{\text{euclidea}})}{(\R,\tau_{\text{euclidea}})}$ tale che $\pi_1 \colon\ (x,y) \mapsto x$. Questa funzione è aperta, continua, ma non chiusa. Infatti si consideri il grafo di $xy - 1 = 0$ in $\R^2$, che chiameremo $S$, allora $\pi_1(S) = \R \setminus \{0\}$ che non è chiuso, mentre $S$ lo è.
-	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $i_1 \colon\ x \mapsto (x,0)$ è una mappa continua, chiusa e non aperta. % TODO dimostrare che è una mappa chiusa e non aperta
+	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $i_1 \colon\ x \mapsto (x,0)$ è una mappa continua, chiusa e non aperta. 
+	% TODO: `MINOR PROOF': dimostrare che la mappa di inclusione è una mappa chiusa e non aperta
 	\item La applicazione $\morphism{\gamma}{(X = \{z\},\tau =\tau_{\text{banale}})}{(Y = \{a,b\},\xi = \tau_{\text{banale}})}$ tale che  $\gamma \colon z \mapsto a$ è una mappa continua, ma non è ne aperta ne chiusa.
 	\item Un esempio di funzione non continua aperte e chiusa è dato dalla funzione $\morphism{\omega}{(X,\tau =\tau_{\text{banale}})}{(Y,\xi = \tau_{\text{discreta}})}$ tale che $\image{\omega} = Y$ e $|Y| > 1$ (notare che $\omega$ non è una funzione costante quindi non è continua). Allora si prenda il singoletto $\{y\} \subset Y$ è ovvio che $\omega^{-1}(\{y\}) \notin \tau_{\text{banale}}$, quindi non è continua. È aperta e chiusa perché $\omega(\varnothing) = \varnothing$ e chiusa perché $\omega(X) = Y$.
 	\item Per un esempio di funzione non continua, non aperta, non chiusa si considerino gli insiemi $X = \{a,b,c\}$ e $Y = X \cup \{d\}$ e le topologie $\tau = \{\varnothing, \{a\}, X\}$, $\mu = \{ \varnothing, \{a\}, \{a,b,c,d\}\}$. Allora la funzione $\morphism{f}{(X,\tau)}{(Y,\mu)}$ tale che assegna $a \mapsto b$, $b \mapsto a$, $c \mapsto a$. Questa funzione non è continua perché $f^{-1}(Y) = \{a,b\}$ che non è un aperto. Inoltre non è aperta perché $f(X) = \{a,b\}$ che non è un aperto e non è chiusa perché $f(\{b,c\}) = \{a\}$ ma $\{a\}$ è un aperto in $\mu$.
@@ -1278,6 +1278,7 @@ In questa sezione si userà spesso la notazione $(X_1, \tau_1), (X_2, \tau_2), (
 \textbf{Esempio}
 
 Si consideri $(\R^2, \tau^2_{\text{euclidea}})$, questo sarà omeomorfo a $(\R, \tau) \times (\R, \tau)$? Se la risposta fosse negativa non avrebbe senso parlare di prodotti di topologie, pertanto la risposta dev'essere affermativa. 
+% TODO: `EASY PROOF: manca la dimostrazione \R^2 \simeq \R\times \R
 
 
 In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \times \tau}}$ dove $\tau$ è la topologia euclidea. 
@@ -1337,7 +1338,7 @@ In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \t
 \end{proof}
 
 \begin{theorem}
-	Gli intorni si comportano bene rispetto al prodotto topologico. In particolare
+	Gli intorni si \emph{comportano bene} rispetto al prodotto topologico. In particolare
 	\begin{enumerate}
 		\item Sia $(x_1, x_2) \in X_1\times X_2$. Allora $P \in \mathcal{N}_\tau((x_1,x_2))$ se e solo se esitono $U_1 \in \mathcal{N}_{\tau_1}(x_1)$ e $U_2 \in \mathcal{N}_{\tau_2}(x_2)$ tali che $U_1\times U_2 \subset P$.
 		\item Sia $(x_1, x_2) \in X_1\times X_2$, $\mathcal{V}_1(x_1)$ e $\mathcal{V}_2(x_2)$ rispettivamente un sistema fondamentale di intorni di $x_1$ in $\tau_1$ e di $x_2$ in $\tau_2$. Allora $\mathcal{V}_1(x_1) \times \mathcal{V}_2(x_2)$ è un sistema fondamentale di intorni di $(x_1, x_2)$ nella topologia $\tau = \left\langle \tau_1 \times \tau_2 \right\rangle$.
@@ -1356,8 +1357,8 @@ In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \t
 	\end{enumerate}
 \end{proof}
 \begin{proof}[Punto 2]
-	% TODO
-	\end{proof}
+	% TODO: `EASY PROOF': Dimostrazione che gli intorni si comportano bene nel prodotto topologico.
+\end{proof}
 
 \begin{theorem}
 	Siano $S_1 \subset X_1, S_2 \subset X_2$, allora valgono le seguenti formule
@@ -1375,7 +1376,7 @@ In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \t
 	Applicando un po' di leggi insiemistiche diventa $V_1 \cap S_1 \times V_2 \cap S_2 \neq \varnothing$, ovvero $V_1 \cap S_1 \neq \varnothing$ e $V_2 \cap S_2\neq \varnothing$ per cui dev'essere che $x_1$ sia aderente a $S_1$ secondo $\tau_1$ e analogamente per $x_2$. Per cui vale l'equazione. 
 \end{proof}
 \begin{proof}[Dimostrazione equazione 2]
-	% TODO
+	% TODO: `EASY PROOF': Dimostrare che Int(S × T) = Int(S) × Int(T)
 \end{proof}
 \begin{proof}[Dimostrazione equazione 3]
 	Considero, analogamente a quanto fatto per dimostrare la prima equazione, posso prendere $(x_1,x_2) \in Fr(S_1 \times S_2)$. Fisso un sistema fondamentale di intorni su $S_1$ e $S_2$. Per cui se $x \in Fr(S_1 \times S_2)$ allora $V \cap S_1 \times S_2\neq \varnothing$ e $V \not\subset S_1 \times S_2$. Sostituendo la decomposizione per sistemi fondamentali di intorni $V_1 \times V_2 \cap S_1 \times S_2 = V_1 \cap V_2 \times S_1 \cap S_2\neq \varnothing$ per cui $V_1 \cap S_1 \neq \varnothing$ e $V_2 \cap S_2 \neq \varnothing$. Inoltre dalla condizione $V \not\subset S_1 \times S_2$ si ottiene le tre condizione $V_1 \subset S_1 \land V_2 \not\subset S_2$ o $V_1 \not\subset S_1 \land V_2 \subset S_2$ o $V_1 \not\subset S_1 \land V_2 \not\subset S_2$. Unendo tutte le condizioni si ottiene la tesi. 
@@ -1408,7 +1409,7 @@ In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \t
 	\end{enumerate}
 \end{proof}
 \begin{proof}[Dimostrazione utilizzando le proprietà degli s.f.i.]
-	% TODO
+	% TODO: `? CASUAL': Una dimostrazione alternativa, di un teorema già dimostrato
 \end{proof}
 
 \begin{theorem}
