@@ -17,16 +17,17 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 	Sia $(X, \tau)$ spazio topologico per ogni $A, B\in \tau$ tali che $A\cap B \neq \varnothing$ allora $\tau$ non è di Hausdorff infatti per ogni coppia di intorni $U, V$ rispettivamente di $x, y$ si ha che esistono $A \subset U, A' \subset V$ tali che $\varnothing \neq A\cap A' \subset U \cap V$
 \end{remark} 
 
-\textbf{Esempi}
+\begin{example}
 \begin{enumerate}
 	\item Le topologie metrizzabili sono di Hausdorff. In particolare la topologia discreta lo è. 
 	\item La topologia banale su un insieme $X$ di cardinalità maggiore di $2$ non è di Hausdorff. 
 	\item La topologia cofinita su un insieme infinito non è di Hausdorff. Per osservazione precedente, basta dimostrare che ogni aperto ha intersezione non vuota. Per cui siano 
-	\begin{equation}
+	\begin{equation*}
 	A \cap B = F^c \cap G^c = (F \cap G)^c 
-	\end{equation}
+	\end{equation*}
 	ma $F\cap G$ è finito quindi il complementare è non vuoto. 
 \end{enumerate}
+\end{example}
 
 \begin{theorem}
 	Sia $(X, \tau)$ spazio topologico e sia $\varnothing \neq S \subset X$ allora se $(X, \tau)$ è di Hausdorff dev'essere che $(S, \tau|_S)$ è di Hausdorff. 
@@ -40,14 +41,12 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{theorem} 
 \begin{proof}
 	\begin{enumerate}
-		\item Si fissino $(x_1, y_1), (x_2, y_2) \in X_1 \times X_2$. Allora poiché $\{x_1\} \times X_2 \simeq X_2$ e sappiamo che è di Hausdorff per ipotesi, analogamente per $X_1 \times \{y_1\} \simeq X_1$ e quindi è di Hausdorff. Pertanto posso trovare un intorno $U \times \{y_1\} \cap U' \times \{y_1\} = \varnothing$ con $x_1 \in U$ e $x_2 \in U'$; analogamente $\{x_1\} \times V \cap \{x_1\} \times V' = \varnothing$ con $y_1 \in V$ e $y_2 \in V'$. Per la definizione di intorni ho degli aperti tali che 
-		\begin{equation}
-		\begin{aligned}
+		\item Si fissino $(x_1, y_1), (x_2, y_2) \in X_1 \times X_2$. Allora poiché $\left\{x_1\right\} \times X_2 \simeq X_2$ e sappiamo che è di Hausdorff per ipotesi, analogamente per $X_1 \times \left\{y_1\right\} \simeq X_1$ e quindi è di Hausdorff. Pertanto posso trovare un intorno $U \times \left\{y_1\right\} \cap U' \times \left\{y_1\right\} = \varnothing$ con $x_1 \in U$ e $x_2 \in U'$; analogamente $\left\{x_1\right\} \times V \cap \left\{x_1\right\} \times V' = \varnothing$ con $y_1 \in V$ e $y_2 \in V'$. Per la definizione di intorni ho degli aperti tali che 
+		\begin{equation*}
 		A \times B \cap A' \times B' \subset (U \times V) \cap (U' \times V') = (U \cap U') \times (V \cap V') = \varnothing
-		\end{aligned}
-		\end{equation}
+		\end{equation*}
 		Ma $A \times B$ e $A' \times B'$ sono aperti di $\tau$ e duque sono anche intorni dei due punti. Quindi ho trovato due intorni la cui intersezione è vuota. $X_1 \times X_2$ è di Hausdorff.
-		\item Fisso $\{x_1\} \subset X_1$, $\{x_2\} \subset X_2$ e consideto $X_1 \times \{x_2\}$ e $\{x_1\} \times X_2$,per la proposizione precedente sono di Hausdorff e sono omeomorfi rispettivamente a $X_1$ e $X_2$. Pertanto $X_1$ e $X_2$ sono di Hausdorff.
+		\item Fisso $\left\{x_1\right\} \subset X_1$, $\left\{x_2\right\} \subset X_2$ e consideto $X_1 \times \left\{x_2\right\}$ e $\left\{x_1\right\} \times X_2$,per la proposizione precedente sono di Hausdorff e sono omeomorfi rispettivamente a $X_1$ e $X_2$. Pertanto $X_1$ e $X_2$ sono di Hausdorff.
 	\end{enumerate}
 \end{proof}
 
@@ -60,12 +59,12 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 
 \begin{remark}
 	In generale il passaggio a quoziente non è di Hausdorff anche se l'insieme di partenza è di Hausdorff. Infatti si consideri il diagramma 
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 3em]
 	 (X, \tau_{\text{euclidea}}) \arrow{d}{\pi}\arrow{r}{f} & (Y, \tau_f)\\
 	(X/R,\tau_{X/R}) \arrow[swap]{ru}{\simeq} &
 	\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 	dove $f = \mathcal{X}_{\left[0,2\right)}$. La funzione induce (per quanto visto precedentemente) la topologia banale che è omeomorfa a quella banale e quindi non di Hausdorff malgrado la euclidea sia Hausdorff. 
 \end{remark} 
 
@@ -77,18 +76,18 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 	Se vale che $(X, \tau)$ soddisfa $T_2$ ovvero è di Hausdorff, allora è anche $T_1$.
 \end{theorem} 
 \begin{proof}
-	Devo dimostrare che per ogni $x\in X$, $\{x\}$ è un chiuso. Quindi mi basta dimostrare che $\{x\}^c$ è aperto. Per cui sia $y \in \{x\}^c$, per la proprietà di Hausdorff dev'essere che esiste $U \in \mathcal{N}_\tau(y)$ ho che $U \cap V = \varnothing$ dove $V$ è un intorno di $\{x\}$. Per cui dev'essere che $U \subset \{x\}^c$ per qualche $U$ intorno. Ovvero $\{x\}^c$ è intorno di tutti i suoi punti e quindi è un aperto e $\{x\}$ è un chiuso.
+	Devo dimostrare che per ogni $x\in X$, $\left\{x\right\}$ è un chiuso. Quindi mi basta dimostrare che $\left\{x\right\}^c$ è aperto. Per cui sia $y \in \left\{x\right\}^c$, per la proprietà di Hausdorff dev'essere che esiste $U \in \mathcal{N}_\tau(y)$ ho che $U \cap V = \varnothing$ dove $V$ è un intorno di $\left\{x\right\}$. Per cui dev'essere che $U \subset \left\{x\right\}^c$ per qualche $U$ intorno. Ovvero $\left\{x\right\}^c$ è intorno di tutti i suoi punti e quindi è un aperto e $\left\{x\right\}$ è un chiuso.
 \end{proof}
 
 \begin{theorem}
-	Sia $\{x_n\}$ una successione definita su $(X, \tau)$ spazio topologico di Hausdorff allora se converge allora converge ad un solo punto. 
+	Sia $\left\{x_n\right\}$ una successione definita su $(X, \tau)$ spazio topologico di Hausdorff allora se converge allora converge ad un solo punto. 
 \end{theorem} 
 \begin{proof}
-	È sempre la solita dimostrazione che in $\R$ se il limite converge allora non può avere due valori distinti. Ma comunque la ripresento anche qui. Suppongo che una successione $\{x_n\}_{n \in \N} \rightarrow \{k_1, k_2\}$, allora per definizione di convergenza in uno spazio topologico ho che per ogni intorno di $k_1$ c'è sempre almeno un punto della successione. Per cui prendo un intorno $U$ di $k_1$ e uno $V$ di $k_2$ tale che $U \cap V = \varnothing$ che esistono per la proprietà di Hausdorff. Se la successione converge in entrambi i punti allora $U \cap V \neq \varnothing$. Da questo assurdo si arriva a concludere che una successione se converge, converge ad un solo punto in uno spazio di Hausdorff. 
+	È sempre la solita dimostrazione che in $\R$ se il limite converge allora non può avere due valori distinti. Ma comunque la ripresento anche qui. Suppongo che una successione $\left\{x_n\right\}_{n \in \N} \rightarrow \left\{k_1, k_2\right\}$, allora per definizione di convergenza in uno spazio topologico ho che per ogni intorno di $k_1$ c'è sempre almeno un punto della successione. Per cui prendo un intorno $U$ di $k_1$ e uno $V$ di $k_2$ tale che $U \cap V = \varnothing$ che esistono per la proprietà di Hausdorff. Se la successione converge in entrambi i punti allora $U \cap V \neq \varnothing$. Da questo assurdo si arriva a concludere che una successione se converge, converge ad un solo punto in uno spazio di Hausdorff. 
 \end{proof}
 
 \begin{theorem}
-	Sia $\{x_n\}_{n\in \N}$ una successione in $(X,\tau)$ spazio topologico di Hausdorff e che soddisfa il primo assioma di numerabilità, allora se $x \in X$ è un punto di accumulazione di $\{x_n\}_{n\in \N}$, dev'essere che esiste una sottosuccessione tale che $\{x_{n_k}\}_{n_k \in \{n_k\}_{k \in \N}} \rightarrow x$. 
+	Sia $\left\{x_n\right\}_{n\in \N}$ una successione in $(X,\tau)$ spazio topologico di Hausdorff e che soddisfa il primo assioma di numerabilità, allora se $x \in X$ è un punto di accumulazione di $\left\{x_n\right\}_{n\in \N}$, dev'essere che esiste una sottosuccessione tale che $\left\{x_{n_k}\right\}_{n_k \in \left\{n_k\right\}_{k \in \N}} \rightarrow x$. 
 \end{theorem}
 
 \begin{remark}
@@ -96,9 +95,9 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{remark}
 
 \begin{theorem}
-	\begin{equation}
+	\begin{equation*}
 	(X, \tau) \; \text{è} \; T_2 \Leftrightarrow \Delta_{X} \; \text{è chiuso} \; X \times X
-	\end{equation}
+	\end{equation*}
 \end{theorem} 
 \begin{proof}
 	Bisogna innanzitutto far notare che $U \cap V = \varnothing \Leftrightarrow \Delta_X \cap (U \times V) = \varnothing$.
@@ -109,7 +108,7 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{proof}
 
 \begin{theorem}
-	Siano $\morphism{f,g}{(X,\tau)}{(Y,\xi)}$ continue e $Y$ è $T_2$ se e solo se $Z = \{x \in X \; | \; f(x)=g(x) \}$ $Z$ è chiuso in $X$.
+	Siano $\morphism{f,g}{(X,\tau)}{(Y,\xi)}$ continue e $Y$ è $T_2$ se e solo se $Z \coloneqq \left\{x \in X \,\middle|\, f(x) = g(x) \right\}$ è chiuso in $X$.
 \end{theorem}
 \begin{proof}
 	% TODO
@@ -118,32 +117,30 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \section{Compattezza}
 
 \begin{definition}
-	Sia $(X, \tau)$ spazio topologico si dice \textbf{compatto} se da ogni ricoprimento aperto di $X$ è possibile estrarre un sottoricoprimento aperto finito di $X$. Ovvero sia $\{A_i\}_{i\in I}$ una famiglia di insiemi aperti or cui per ogni $i\in I$ vale $A_i \in \tau$ tali che $\bigcup_{i \in I} A_i = X$ allora posso estrarre un $J \subset I$ tale che $|J| < +\infty$ tale che $\bigcup_{i \in J} A_i = X$
+	Sia $(X, \tau)$ spazio topologico si dice \textbf{compatto} se da ogni ricoprimento aperto di $X$ è possibile estrarre un sottoricoprimento aperto finito di $X$. Ovvero sia $\left\{A_i\right\}_{i\in I}$ una famiglia di insiemi aperti or cui per ogni $i\in I$ vale $A_i \in \tau$ tali che $\bigcup_{i \in I} A_i = X$ allora posso estrarre un $J \subset I$ tale che $|J| < +\infty$ tale che $\bigcup_{i \in J} A_i = X$
 \end{definition} 
 
-\textbf{Esempi}\\
+\begin{example}
 \begin{enumerate}
 	\item Ogni spazio con la topologia banale.
 	\item Se $X$ finito con qualsiasi topologia è finito.
-	\item $(X, \tau_{cof})$ con $|X| \ge +\infty$ è compatto. Infatti da un qualsiasi ricoprimento si prenda uno degli aperti $A_{i_0}$, allora $X \setminus A_{i_0} = \{x_1, \dots, x_n\}$ per qualche $n < +\infty$. Pertanto bastano al più $n+1$ insiemi per ricoprire l'insieme.
+	\item $(X, \tau_{cof})$ con $|X| \ge +\infty$ è compatto. Infatti da un qualsiasi ricoprimento si prenda uno degli aperti $A_{i_0}$, allora $X \setminus A_{i_0} = \left\{x_1, \dots, x_n\right\}$ per qualche $n < +\infty$. Pertanto bastano al più $n+1$ insiemi per ricoprire l'insieme.
 	\item $(X,\tau_{\text{discreta}})$ dove $|X| \ge +\infty$  non è compatto perché basta prendere il ricoprimento dei singoletti.
-	\item $(\R, \tau_{\text{euclidea}})$ non è compatto. Infatti basta prendere la famiglia $\{(-n, n)\}_{n \in \N_{>0}}$ per vedere che non è compatto. Se si estraggono un numero finito di elementi da quella famiglia e si prendono gli indici in $J$ tale che $|J| = d < +\infty$ allora $\bigcup_{j \in J}(-n_j, n_j) = (-\max_{j \in J} n_j,  \max_{j \in J} n_j)$ che non ricopre tutto $\R$.
+	\item $(\R, \tau_{\text{euclidea}})$ non è compatto. Infatti basta prendere la famiglia $\left\{(-n, n)\right\}_{n \in \N_{>0}}$ per vedere che non è compatto. Se si estraggono un numero finito di elementi da quella famiglia e si prendono gli indici in $J$ tale che $|J| = d < +\infty$ allora $\bigcup_{j \in J}(-n_j, n_j) = (-\max_{j \in J} n_j,  \max_{j \in J} n_j)$ che non ricopre tutto $\R$.
 \end{enumerate}
-
+\end{example}
 
 \begin{definition}
 	Sia $(X, \tau)$ spazio topologico e $S \in 2^X$ si dice che $S$ è un \textbf{sottospazio compatto} in $(X, \tau)$ se lo è il corrispondente spazio $(S, \tau|_S)$.
 \end{definition} 
 
 \begin{remark}
-	$S$ è compatto se e solo se ogni volta che prendo un ricoprimento $\{A_i\}_{i \in I}$ in $\tau$ di $S$ riesco a estrarre un sottoricoprimento finito tale che $\bigcup_{i \in J} A_i \supset S$ 
+	$S$ è compatto se e solo se ogni volta che prendo un ricoprimento $\left\{A_i\right\}_{i \in I}$ in $\tau$ di $S$ riesco a estrarre un sottoricoprimento finito tale che $\bigcup_{i \in J} A_i \supset S$ 
 	\begin{proof}
-		$S$ è compatto se e solo se posso trovare un ricoprimento $\{A_i\}_{i \in I}$ da cui estraggo un sotto ricoprimento finito $\{A_i\}_{i \in J}$, ma ciascuno di quegli $A_i = A'_i \cap S$ per qualche $A'_i \in \tau$. Per cui ho che è anche un ricoprimento finito di $S$ in $\tau$, infatti sia $\{A'_i\}_{i\in J}$, vale 
-		\begin{equation}
-		\begin{aligned}
+		$S$ è compatto se e solo se posso trovare un ricoprimento $\left\{A_i\right\}_{i \in I}$ da cui estraggo un sotto ricoprimento finito $\left\{A_i\right\}_{i \in J}$, ma ciascuno di quegli $A_i = A'_i \cap S$ per qualche $A'_i \in \tau$. Per cui ho che è anche un ricoprimento finito di $S$ in $\tau$, infatti sia $\left\{A'_i\right\}_{i\in J}$, vale 
+		\begin{equation*}
 			S = \bigcup_{i \in J} A_i = \bigcup_{i \in J} (A'_i \cap S)  \subset  \bigcup_{i \in J} A'_i
-		\end{aligned}
-		\end{equation}
+		\end{equation*}
 		analogamente nell'altro verso si vede che si può prendere il ricoprimento aperto estrarre le parti significative e ottenere un nuovo ricoprimento nella sottotopologia.
 	\end{proof}
 \end{remark}
@@ -153,19 +150,15 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 	Ogni intervallo chiuso e limitato in $\left[a, b\right]$ per ogni $a, b$ tale che $a < b$ di $\R$ con $\tau_{\text{euclidea}}$.
 \end{theorem} 
 \begin{proof}
-	Dato un ricoprimento $\{A_i\}_{i \in I}$ 
-	\begin{equation}
-		\begin{aligned}
-			Y := \left\{ x\in \left[a,b\right] \; | \; \exists J \subset I. \; \text{t. c.} \; |J| < +\infty, \bigcup_{j \in J} A_j \supset \left[a,x\right]\right\}
-		\end{aligned}
-	\end{equation}
+	Dato un ricoprimento $\left\{A_i\right\}_{i \in I}$ 
+	\begin{equation*}
+			Y \coloneqq \left\{ x\in \left[a,b\right] \,\middle|\, \exists J \subset I. \; \text{t. c.} \; |J| < +\infty,\ \bigcup_{j \in J} A_j \supset \left[a,x\right] \right\}
+	\end{equation*}
 	È ovvio che $a \in Y$, per cui $Y \neq \varnothing$ ed essendo $Y \subset \R$ allora esiste $\sup Y =: z$. Poiché $z \in \left[a,b\right]$ e l'intervallo è ricoperto dagli $A_i$, deve esistere un $A_{k}$ tale che $z \in (z-\varepsilon, z+\varepsilon) \subset A_k$ per qualche $\varepsilon > 0$, visto che $A_i$ aperto. Inoltre per la definizione di estremo superiore so che per qualsiasi $\varepsilon$ esiste un $x$ tale che $x \in \left[z-\varepsilon, z\right] \cap Y$. Quindi posso costruire il seguente ricoprimento
-	\begin{equation}
-	\begin{aligned}
+	\begin{align*}
 		\left[a,z+\varepsilon\right] & = \left[a,x\right] \cup \left[z-\varepsilon, z+\varepsilon\right]\\
 				& =  \bigcup_{j \in J' \subset I} A_i \cup A_k
-	\end{aligned}
-	\end{equation}
+	\end{align*}
 	dove $J'$ è un sottoinsieme finito. Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere l'estremo superiore di $Y$ visto che $z+\varepsilon > z$ ed è ottenuto attraverso un ricoprimento finito. Inoltre il ricoprimento ottenuto contiene $z = b$. $\left[a,b\right]$ è compatto.
 \end{proof}
 
@@ -181,16 +174,14 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{theorem} 
 \begin{proof}
 	\begin{enumerate}
-		\item Si noti che se $S$ è chiuso allora $S^c$ è aperto. Quindi prendo un ricoprimento di $S$ aperto in $\tau|_S$ che denoto con $\{A_i\}_{i \in I}$ se aggiungo a questo ricoprimento $S^c$ allora considero $\{A'_i \cup S^c\}_{i \in I}$ dove $A_i = A'_i \cap S$ e $A'_i \in \tau$. Per cui questo è un ricoprimento aperto di $(X,\tau)$. Per la compattezza posso estrarre un sottoricoprimento finito tale da ricoprire tutto $X$ che sarà costituito da elementi $\{A'_j \cup S^c\}_{j \in J}$ dove $|J| < +\infty$. Ovviamente vale
-		\begin{equation}
-		\begin{aligned}
+		\item Si noti che se $S$ è chiuso allora $S^c$ è aperto. Quindi prendo un ricoprimento di $S$ aperto in $\tau|_S$ che denoto con $\left\{A_i\right\}_{i \in I}$ se aggiungo a questo ricoprimento $S^c$ allora considero $\left\{A'_i \cup S^c\right\}_{i \in I}$ dove $A_i = A'_i \cap S$ e $A'_i \in \tau$. Per cui questo è un ricoprimento aperto di $(X,\tau)$. Per la compattezza posso estrarre un sottoricoprimento finito tale da ricoprire tutto $X$ che sarà costituito da elementi $\left\{A'_j \cup S^c\right\}_{j \in J}$ dove $|J| < +\infty$. Ovviamente vale
+		\begin{equation*}
 			S \subset \bigcup_{j \in J} A'_j \cup S^c \Longrightarrow S = S \cap S \subset \bigcup_{j \in J} (A'_j \cup S^c) \cap S = \bigcup_{j \in J} A'_j  \cap S
-		\end{aligned}
-		\end{equation}
+		\end{equation*}
 		dove gli $A'_j \cap S \in \tau|_S$ e quindi ho trovato un sottoricoprimento finito aperto di $S$.  
 		\item 
 		% TODO riscrivere se ho vena artistica
-		Voglio far vedere che ogni $p \in S^c$ ha come intorno $S^c$ e dunque affermare che $S$ è chiuso in $\tau$. Per cui fissato un $p \in S^c$, per ogni $x \in S$ esitono due intorni $U_x, V_x \in \mathcal{N}_\tau(x), \mathcal{N}_\tau(p)$ tali che $U_x \cap V_x = \varnothing$ (poiché $X$ è di Hausdorff). Per cui dato un $U_x$ posso scelgiere $x \in A_x \subset U_x$ per definizione di intorno e, tale che $A_x \cap V_x = \varnothing$. Prendendo tutti questi $A_x$, una volta fissato un $p \in S^c$, si può ottenere un ricoprimento aperto di $S$, rappresentato dalla famiglia $\{A_x\}_{x \in S}$. Essendo $S$ compatto posso estrarre un sottoricoprimento aperto finito  $\{A_{x_j}\}_{j \in J}$ dove $|J| < +\infty$. Così da ottenere rispettivamente una famiglia di intorni di $p$ finita (infatti per le osservazioni precedenti per ogni $U_x$ esisteva un $V_x$). Prendendo il minimo tra questi intorni, ovvero la loro intersezione finita che denoto con $V$, si ottiene ancora un intorno con $p \in V \subset S^c$. Poiché vale per ogni $p \in S^c$ ho dimostrato che $S^c$ è intorno di ogni suo punto e quindi $S^c \in \tau$. 
+		Voglio far vedere che ogni $p \in S^c$ ha come intorno $S^c$ e dunque affermare che $S$ è chiuso in $\tau$. Per cui fissato un $p \in S^c$, per ogni $x \in S$ esitono due intorni $U_x, V_x \in \mathcal{N}_\tau(x), \mathcal{N}_\tau(p)$ tali che $U_x \cap V_x = \varnothing$ (poiché $X$ è di Hausdorff). Per cui dato un $U_x$ posso scelgiere $x \in A_x \subset U_x$ per definizione di intorno e, tale che $A_x \cap V_x = \varnothing$. Prendendo tutti questi $A_x$, una volta fissato un $p \in S^c$, si può ottenere un ricoprimento aperto di $S$, rappresentato dalla famiglia $\left\{A_x\right\}_{x \in S}$. Essendo $S$ compatto posso estrarre un sottoricoprimento aperto finito  $\left\{A_{x_j}\right\}_{j \in J}$ dove $|J| < +\infty$. Così da ottenere rispettivamente una famiglia di intorni di $p$ finita (infatti per le osservazioni precedenti per ogni $U_x$ esisteva un $V_x$). Prendendo il minimo tra questi intorni, ovvero la loro intersezione finita che denoto con $V$, si ottiene ancora un intorno con $p \in V \subset S^c$. Poiché vale per ogni $p \in S^c$ ho dimostrato che $S^c$ è intorno di ogni suo punto e quindi $S^c \in \tau$. 
 	\end{enumerate}
 \end{proof}
 
@@ -199,11 +190,11 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{remark}
 
 \begin{corollary}
-	Sia $\varnothing \neq S \subset \R$ in $(\R, \tau_text{euclidea})$. $S$ è compatto se e solo se è chiuso e limitato. 
+	Sia $\varnothing \neq S \subset \R$ in $(\R, \tau_{\text{euclidea}})$. $S$ è compatto se e solo se è chiuso e limitato. 
 \end{corollary} 
 \begin{proof}
 	\begin{enumerate}
-		\item[$\Rightarrow$] Poiché $S$ compatto allora è chiuso perché siamo in $\R$ che è $T_2$. Inoltre supponiamo $S$ illimitato allora vale $(-n, n) \cap S \neq S$ per qualsiasi $n \in N$. Quindi posso prendere il ricoprimento $\{(-n,n)\}_{n\in \N}$ che ricopre tutto $\R$, ma per quanto osservato precedentemente non esiste un ricoprimento finito tale da ricoprire $S$.
+		\item[$\Rightarrow$] Poiché $S$ compatto allora è chiuso perché siamo in $\R$ che è $T_2$. Inoltre supponiamo $S$ illimitato allora vale $(-n, n) \cap S \neq S$ per qualsiasi $n \in N$. Quindi posso prendere il ricoprimento $\left\{(-n,n)\right\}_{n\in \N}$ che ricopre tutto $\R$, ma per quanto osservato precedentemente non esiste un ricoprimento finito tale da ricoprire $S$.
 		\item[$\Leftarrow$] Essendo limitato deve esiste $S\subset \left[a,b\right]$. Quindi $\left[a,b\right] \cap S$ è chiuso poiché intersezione di chiusi. Ma $\left[a,b\right]$ è un compatto per Heine-Borel e per il lemma precedente un chiuso in un compatto è ancora un compatto, ovvero $S$ dev'essere compatto.
 	\end{enumerate}	
 \end{proof}
@@ -212,12 +203,10 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 	Sia $(X, \tau)$ spazio topologico compatto sia $(Y, \xi)$ spazio topologico e sia $\morphism{f}{X}{Y}$ continua. Allora $f(X)$ è un sottoinsieme compatto. 
 \end{theorem} 
 \begin{proof}
-	Si consideri un ricoprimento aperto di $f(X)$ indicato con $\{A_i\}_{i \in I}$. Allora visto che i suoi elementi sono tutti aperti segue che $f^{-1}(A_i) \in \tau$. Poiché $f(X)$ è l'immagine di $X$ attraverso $f$ dev'essere che la controimmagine del ricoprimento sia proprio $X$. Ma $X$ è un compatto quindi data un suo ricoprimento aperto, in questo caso sarà $\{f^{-1}(A_i)\}_{i \in I}$, posso estrarne uno finito, denominato $\{f^{-1}(A_j)\}_{j \in J}$ dove $J \subset I$ e $|J| < +\infty$. Rimandando in avanti le controimmagini (ricordando che l'immagine commuta con l'unione) risulta che
-	\begin{equation}
-	\begin{aligned}
+	Si consideri un ricoprimento aperto di $f(X)$ indicato con $\left\{A_i\right\}_{i \in I}$. Allora visto che i suoi elementi sono tutti aperti segue che $f^{-1}(A_i) \in \tau$. Poiché $f(X)$ è l'immagine di $X$ attraverso $f$ dev'essere che la controimmagine del ricoprimento sia proprio $X$. Ma $X$ è un compatto quindi data un suo ricoprimento aperto, in questo caso sarà $\left\{f^{-1}(A_i)\right\}_{i \in I}$, posso estrarne uno finito, denominato $\left\{f^{-1}(A_j)\right\}_{j \in J}$ dove $J \subset I$ e $|J| < +\infty$. Rimandando in avanti le controimmagini (ricordando che l'immagine commuta con l'unione) risulta che
+	\begin{equation*}
 		X = \bigcup_{j \in J} f^{-1}(A_j) \Longrightarrow f(X) = \bigcup_{j \in J} f(f^{-1}(A_j)) \subset \bigcup_{j \in J} A_j
-	\end{aligned}
-	\end{equation}
+	\end{equation*}
 	e quindi ho trovato un sottoricoprimento aperto e finito di $f(X)$.
 \end{proof}
 
@@ -233,38 +222,30 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{theorem} 
 \begin{proof}
 	\begin{enumerate}
-		\item[$\Rightarrow$] Se $X_1 \times X_2$ è compatto allora $\pi_1, \pi_2$ sono le proiezioni canoniche, allora per la continuità segue che $\pi_i(X_1 \times X_2)$ dev'essere compatto e per la surgettività $ \pi_i(X_1 \times X_2) = X_i$  segue che $X_i$ è compatto per $i \in \{1,2\}$.
-		\item[$\Leftarrow$] Sia $\{U_j\}_{j \in J}$ un ricoprimento di $X_1 \times X_2$ allora per ogni $U_j = \bigcup_{h \in H_j} V_h \times W_h$ dove $V_h \in \tau_1$ e $W_h \in \tau_2$. Sapendo che $\{x\} \times X_2 \simeq X_2$ per ogni  $x \in X_1$ dev'essere che anche $\{x\} \times X_2$ è compatto. In particolare posso trovare ho che 
+		\item[$\Rightarrow$] Se $X_1 \times X_2$ è compatto allora $\pi_1, \pi_2$ sono le proiezioni canoniche, allora per la continuità segue che $\pi_i(X_1 \times X_2)$ dev'essere compatto e per la surgettività $ \pi_i(X_1 \times X_2) = X_i$  segue che $X_i$ è compatto per $i \in \left\{1,2\right\}$.
+		\item[$\Leftarrow$] Sia $\left\{U_j\right\}_{j \in J}$ un ricoprimento di $X_1 \times X_2$ allora per ogni $U_j = \bigcup_{h \in H_j} V_h \times W_h$ dove $V_h \in \tau_1$ e $W_h \in \tau_2$. Sapendo che $\left\{x\right\} \times X_2 \simeq X_2$ per ogni  $x \in X_1$ dev'essere che anche $\left\{x\right\} \times X_2$ è compatto. In particolare posso trovare ho che 
 		\begin{equation}
 		\begin{aligned}
-			\{x\} \times \subset \bigcup_{h \in h(x)} V_h \times W_h
+			\left\{x\right\} \times \subset \bigcup_{h \in h(x)} V_h \times W_h
 		\end{aligned}
 		\end{equation}
 		dove $h(x) \subset H$ per cui vale la relazione sopra e $h(x)$ finito (posso farlo per la compattezza di $X_2$). Si può osservare che per ogni $h \in h(x)$ dev'essere che $x \in V_h$ e quindi definire per ogni $x \in X_1$ il seguente ricoprimento aperto 
-		\begin{equation}
-		\begin{aligned}
-		V(x) = \bigcap_{h \in h(x)} V_h
-		\end{aligned}
-		\end{equation}
+		\begin{equation*}
+			V(x) = \bigcap_{h \in h(x)} V_h
+		\end{equation*}
 		con $V(x) \in \tau_1$ poiché intersezione finita di aperti. Inoltre essendo che 
-		\begin{equation}
-		\begin{aligned}
-		\bigcup_{x \in X_1} V(x) = X_1
-		\end{aligned}
-		\end{equation}
+		\begin{equation*}
+			\bigcup_{x \in X_1} V(x) = X_1
+		\end{equation*}
 		posso estrarre un sottoricoprimento di $V(x)$ finito. A maggior ragione allora dev'essere che 
-		\begin{equation}
-		\begin{aligned}
-		\bigcup_{x \in X_1} \bigcup_{h \in h(x)} V_h = X_1
-		\end{aligned}
-		\end{equation} 
-		quindi posso prendere $\{V_x\}_{x \in X_1}$ come ricoprimento e ottenere un sottoricoprimento finito aperto $V(x_1), \dots, V(x_n)$ di $X_1$.
+		\begin{equation*}
+			\bigcup_{x \in X_1} \bigcup_{h \in h(x)} V_h = X_1
+		\end{equation*} 
+		quindi posso prendere $\left\{V_x\right\}_{x \in X_1}$ come ricoprimento e ottenere un sottoricoprimento finito aperto $V(x_1), \dots, V(x_n)$ di $X_1$.
 		Per costruzione quindi posso estrarre un sottoricoprimento aperto finito  
-		\begin{equation}
-		\begin{aligned}
-		\bigcup_{x \in \{1,\dots, n\}} \bigcup_{h \in h(x)} V(x) \times W_h
-		\end{aligned}
-		\end{equation}
+		\begin{equation*}
+			\bigcup_{x \in \left\{1,\dots, n\right\}} \bigcup_{h \in h(x)} V(x) \times W_h
+		\end{equation*}
 	\end{enumerate}
 \end{proof}
 
@@ -289,12 +270,12 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \begin{proof}
 	È ovvio, ma volevo sembrare saccente, quindi ecco una dimostrazione \textit{kostenlos}.
 	Riprendendo il diagramma commutativo 
-	\begin{equation}
+	\begin{equation*}
 		\begin{tikzcd}[row sep = 3em]
 			(X, \tau) \arrow[swap]{d}{\pi} \arrow{r}{f} & (X', \tau') \\
 			(X/R_f, \tau_{X/R_f}) \arrow[swap]{ru}{\exists! g} &
 		\end{tikzcd}	
-	\end{equation}
+	\end{equation*}
 	sappiamo che esiste $g$ biettiva. Ma dalle condizioni sopra sappiamo anche che $(X,\tau)$ è compatto e poiché $\pi$ è continua anche $X/R_f$ è compatto. Per cui $g$ va da un compatto a uno spazio di Hausdorff e applicando il teorema sopra a $g$ otteniamo un omeomorfismo. 
 \end{proof}
 
@@ -306,7 +287,7 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{definition} 
 
 \begin{definition}
-	Sia $S \subset X$ diciamo che $S$ è connesso in $(X, \tau)$ se $(S, \tau\_S)$ lo è. 
+	Sia $S \subset X$ diciamo che $S$ è connesso in $(X, \tau)$ se $(S, \tau|_S)$ lo è. 
 \end{definition} 
 
 \begin{theorem}
@@ -325,13 +306,14 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 	\end{enumerate}
 \end{proof}
 
-\textbf{Esempi}\\
+\begin{example}
 \begin{enumerate}
 	\item $(X, \tau_{\text{discreta}})$ con $|X| \ge 2$ allora ogni suo sottoinsieme è sconnesso. 
 	\item $(X, \tau_{\text{banale}})$ è sempre connesso. 
-	\item $(\R, \tau_{\text{euclidea}})$ sia $x \in \R$ è sconnesso infatti $\R \setminus \{x\}$ si può comporre con $(-\infty, x) \cup (x, +\infty)$ che sono sottoinsiemi disgiunti aperti e non vuoti. 
+	\item $(\R, \tau_{\text{euclidea}})$ sia $x \in \R$ è sconnesso infatti $\R \setminus \left\{x\right\}$ si può comporre con $(-\infty, x) \cup (x, +\infty)$ che sono sottoinsiemi disgiunti aperti e non vuoti. 
 	\item Sia $|X| > + \infty$ allora $(X, \tau_{\text{cof}})$ è connesso basta vedere che i chiusi sono tutti finiti quindi non si può ricoprire $X$ con insiemi chiusi disgiunti. 
 \end{enumerate}
+\end{example}
 
 \begin{definition}
 	Sia $S \subset \R$ di dice \textbf{convesso} se per ogni $a, b\in S$ tali che $a \le b$ vale che se esiste $c\in \R$ tale che $a\le c\le b$ allora $c\in S$.
@@ -342,11 +324,9 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{theorem}
 \begin{proof}
 	Sia $J \subset \R$ convesso e supponiamo che sia sconnesso. Allora esistono $A, B$ chiusi in $\tau$, disgiunti e non banali, tali che $A \cap J \cup B \cap J = J$. Possiamo scegliere $a \in A \cap J$ e $b \in B \cap J$ con $a < b$ e per la convessità di $J$ deve essere che $\left[a,b\right] \subset J \subset A \cup B$. Considero $\sup \left[a,b\right] \cap A = x_0$ che esiste perché l'intersezione è non vuota. Inoltre $x_0 \in A$ poiché $A$ insieme chiuso. Quindi $x_0 \notin B$ e anche $x_0 \neq b$. Ma 
-	\begin{equation}
-	\begin{aligned}
-	\left(x_0, b\right] \subset \left[a,b\right] \setminus A \subset J \setminus A =  J \setminus (A \cap J) = B
-	\end{aligned}
-	\end{equation}
+	\begin{equation*}
+		\left(x_0, b\right] \subset \left[a,b\right] \setminus A \subset J \setminus A =  J \setminus (A \cap J) = B
+	\end{equation*}
 	chiudendo $\overline{\left(x_0, b\right]} = \left[x_0, b\right] \subset \overline{B} = B$ poiché $B$ è chiuso. Pertanto dev'essere che anche $x_0 \in B$. Allora non è vero che $A$, $B$ disgiunti visto che $x_0 \in A \cap B$. Da questo assurdo si dervia che $J$ è per forza connesso.\\
 	
 	Sia $S$ connesso allora è anche convesso in $\R$. Se $S$ non fosse convesso allora esistono $a,b,c \in \R$ tale che $a < c < b$ con $a,b \in S$ e $c \notin S$. Allora basta prendere $((-\infty, c) \cap S), ((c, +\infty) \cap S)$ come ricoprimento aperto disgiunto e quindi $S$ sarebbe sconnesso, che è un assurdo.
@@ -362,11 +342,9 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \end{theorem} 
 \begin{proof}
 	Se si restringe $f$ a $\morphism{f|_C}{C}{f(C)}$ questa è ancora continua, ma è anche suriettiva e $C$ è connesso. Pertanto possiamo lavorare con le ulteriori condizioni che il dominio sia connesso e $f$ suriettiva. Supponiamo che $f(C)$ sconnesso allora esistono due aperti $A, B \subset C$ disgiunti e non vuoti tali da ricoprire $f(C)$. Prendendo le controimmagini (ancora aperte perché continue), allora 
-	\begin{equation}
-	\begin{aligned}
+	\begin{equation*}
 		f^{-1}(A) \cup f^{-1}(B) = f^{-1}(A \cup B) = f^{-1}(C) = C
-	\end{aligned}
-	\end{equation}
+	\end{equation*}
 	ma $f^{-1}(A), f^{-1}(B) \neq \varnothing$ perché $f$ suriettiva, le fibre non si toccano perché è una funzione e quindi $f^{-1}(A) \cap f^{-1}(B) = \varnothing$. Per cui $C$ dev'essere sconnesso contro la nostra ipotesi Dev'essere quindi che anche $f(C)$ sia connesso.
 \end{proof}
 
@@ -384,7 +362,7 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 \begin{proof}
 	Bisogna dimostrare che è riflessiva, simmetrica e transitiva.
 	\begin{enumerate}
-		\item	L'insieme $\{x\}$ è sempre connesso quindi $x$ è connesso con se stesso.
+		\item	L'insieme $\left\{x\right\}$ è sempre connesso quindi $x$ è connesso con se stesso.
 		\item L'insieme che connette $x,y$ connette anche $y,x$ visto che agli insiemi non importa l'ordine.
 		\item La transitività è l'unica che richiede uno sforzo. Infatti siano $x,y$ connessi attraverso $A$ e $y,z$ connessi attraverso l'insieme $B$ allora se mostriamo che $A \cup B$ è connesso $x$ è connesso con $z$. Per cui sia $Y \subset A \cup B$ aperto e chiuso tale che $Y \neq \varnothing$. Per cui dev'essere che $Y \cap A \neq \varnothing$ o $Y \cap B \neq \varnothing$. Sia soltanto $Y \cap A \neq \varnothing$. Allora $Y \cap A$ è ancora aperto e chiuso poiché $Y$ aperto e chiuso nella topologia superiore. Ma $A$ è connesso, quindi dev'essere che $Y \cap A = A$ e dunque $A \subset Y$. Inoltre visto che $y\in A \cap B$, l'intersezione è non vuota e dev'essere che anche $Y \cap B \neq \varnothing$. Applicando un ragionamento analogo a quanto visto per $A$, segue che $B \subset Y$. Per cui $Y = A \cup B$, ovvero gli unici aperti e chiusi nella topologia indotta su $A \cup B$ sono o tutto l'insieme o il vuoto. $A \cup B$ è connesso.
 	\end{enumerate}
@@ -428,7 +406,7 @@ Notare che la proprietà di Hausdorff si chiama anche $T_2$. Questo è perché e
 	Siano $X, Y$ connessi allora $X\times Y$ è connesso. 
 \end{theorem} 
 \begin{proof}
-	Fisso due punti $(x_1, y_1)$, $(x_2, y_2)$ in $X \times Y$. Allora noto che $X \times \{y_1\} \simeq X$ e quindi è connesso, pertanto $(x_1, y_1)$ dev'essere connesso a $(x_2, y_1)$ (in realtà si ottiene di più, ovvero che ogni $(x_i, y_1)$ è connesso a un $(x_j, y_1)$ per qualsiasi $i,j$). Facendo lo stesso ragionamento su $Y$ si ottiene che $(x_2, y_1)$ è connesso a $(x_2, y_2)$. Pertanto si conclude che $(x_1, y_1)$ è connesso a $(x_2, y_2)$ per ogni coppia di punti di $X \times Y$. Pertanto $X \times Y$ è connesso.
+	Fisso due punti $(x_1, y_1)$, $(x_2, y_2)$ in $X \times Y$. Allora noto che $X \times \left\{y_1\right\} \simeq X$ e quindi è connesso, pertanto $(x_1, y_1)$ dev'essere connesso a $(x_2, y_1)$ (in realtà si ottiene di più, ovvero che ogni $(x_i, y_1)$ è connesso a un $(x_j, y_1)$ per qualsiasi $i,j$). Facendo lo stesso ragionamento su $Y$ si ottiene che $(x_2, y_1)$ è connesso a $(x_2, y_2)$. Pertanto si conclude che $(x_1, y_1)$ è connesso a $(x_2, y_2)$ per ogni coppia di punti di $X \times Y$. Pertanto $X \times Y$ è connesso.
 \end{proof}
 
 \begin{definition}
