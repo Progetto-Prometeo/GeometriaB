@@ -181,12 +181,13 @@ Poiché le topologie possono essere molto complesse sarebbe utile avere un sotto
 	e $\mathcal{B}$ sia una base di $\tau$.
 \end{definition}
 
-Alcuni esempi di sottobase, giusto per capirci\footnote{Trade mark.}
+\begin{example}
 \begin{enumerate}
 	\item $S = \tau$ è una sottobase, inutile, ma lo è.
 	\item Si prenda la topologia $2^X$ dove $X = \{a,b,c\}$ allora $S = \{\{a,b\},\{a,c\},\{c,b\}\}$ è una sottobase di $\tau$.
 	\item Si consideri $\R$ una sua sottobase potrebbe essere $S := \{(-\infty, a) \; | \; a \in \R\} \cup \{(b, +\infty) \; | \; b \in \R\}$
 \end{enumerate}
+\end{example}
 
 \begin{proposition}
 	$\mathcal{S}$ è una sottobase di $\tau$ se $\forall A \in \tau \; . \forall x \in A . \; \exists U_1, \dots, U_n \in \mathcal{S}$ tali che $x \in U_1 \cap \dots \cap U_n \subset A$. 
@@ -331,12 +332,14 @@ Inoltre dalle osservazioni che seguono risulta essere che una topologia induce s
 \begin{definition}
 	Una famiglia $\mathcal{V}(x)$ di intorni di $x$ in $(X,\tau)$, cioé $\mathcal{V}(x) \subset \mathcal{N}_\tau(x)$ si dice \textbf{sistema fondamentale di intorni} di $x$ in $(X,\tau)$ se $\forall U \in \mathcal{N}_\tau(x)\ .\ \exists V \in \mathcal{V}(x)$ tale che $V \subset U$.
 \end{definition}
-Alcuni esempi
+
+\begin{example}
 \begin{enumerate}
 	\item Sia $(X,\tau)$ spazio topologico metrizzabile tramite una distanza $d \in X$. Possiamo definire $\mathcal{V}(x) = \{B_d(x,r)\}_{r>0}$ come sistema fondamentale di intorni di $x$. 
 	\item Sia $(X,\tau)$ con $\tau$ topologia banane e $x \in X$ l'unica scelta come intorno è $X$ stesso, quindi $V(x) = \{X\}$.
 	\item Sia $(X,\tau)$ con $\tau$ topologia discreta e $x \in X$ allora basta prendere $\mathcal{V}(x) = \{\{x\}\}$ come sistema fondamentale di intorni.
 \end{enumerate}
+\end{example}
 
 \begin{proposition}
 	Sia $(X,\tau)$ uno spazio topologico $\forall x \in X$ sia $\mathcal{V}(x) \subset \mathcal{N}_\tau(x)$ tale che $\mathcal{V}(x)$ è un sistema di intorni fondamentale. Sia $A \in 2^X$. Allora $A \in \tau$ se e solo se $\forall x \in A\ \exists V(x)$ tale che $V(x) \subset A$.
@@ -401,7 +404,6 @@ Alcuni esempi
 	\end{enumerate}
 	allora esiste un unica topologia $\tau$ su $X$ tale che $\forall x \in X$ $V(x)$ è un sistema fondamentale di intorni. 
 \end{theorem}
-
 
 \section{Assiomi di numerabilità}
 
@@ -786,6 +788,7 @@ Per il calcolo della chiusura questa definizione è leggermente inutile. Pertant
 	\end{remark}
 
 \section{Insiemi densi}
+
 \begin{definition}
 	Sia $(X,\tau)$ uno spazio topologico. Un insieme $E$ si dice denso in $(X, \tau)$ se $\bar{E} = X$. 
 \end{definition}
@@ -854,17 +857,13 @@ Alcuni esempi banali
 \begin{remark}
 	Non è vero invece che se $(X,\tau)$ è uno spazio topologico separabile e soddisfa il primo assioma di numerabilità allora soddisfa anche il secondo assioma di numerabilità. \\
 	Si consideri la topologia generata dalla base
-	\begin{equation}
-	\begin{aligned}
-		\mathcal{B} := \{ \left[a,b\right) \; | \; a,b \in \R, \; a < b \}
-	\end{aligned}
-	\end{equation}  
+	\begin{equation*}
+		\mathcal{B} := \{ \left[a,b\right) \mid a,b \in \R,\ a < b \}
+	\end{equation*}  
 	quindi $(\R, \tau_j)$ è uno spazio topologico. Infatti $\mathcal{B}$ è un ricoprimento di $\R$, l'intersezione è ancora un elemento di $\mathcal{B}$ e quindi per il Teorema \ref{thr:set_simil_base_generate_top} $\mathcal{B}$ genera una e una sola topologia. Soddisfa anche il primo assioma di numerabilità, infatti basta prendere 
-	\begin{equation}
-	\begin{aligned}
-		\mathcal{V}(x) := \{\left[x, x+1/h\right) \; | \; h \in \N \}
-	\end{aligned}
-	\end{equation}
+	\begin{equation*}
+		\mathcal{V}(x) := \{\left[x, x+1/h\right) \mid h \in \N \}
+	\end{equation*}
 	come sistema di intorni fondamentali che è numerabile. La base $\mathcal{B}$ originale non soddisfa il secondo assioma, quindi dobbiamo cercarne un'altra. Per cui sia $\mathcal{L}$ una nuova base numerabile di $\tau_j$. Allora $\left[x, x+1\right) \in \tau_j$ e quindi $\left[x, x+1\right) = \bigcup_{L \in \mathcal{L}'} L$ per cui esiste $x \in L_x \in \mathcal{L}'$ e $L_x \subset \left[x,x+1\right)$. In particolare per ogni $x \in \R$ esiste $L_x$ tale che soddisfa le condizioni precedenti. Inoltre $L_x \neq L_y$ per $x \neq y$. Per cui $ \{L_x\}_{x\in \R} \subset \mathcal{L}$ ma $\# \{L_x\}_{x\in \R} = \# \R$. In particolare $\# \mathcal{L} \ge \#\R$.
 \end{remark}
 
@@ -898,25 +897,19 @@ Come si è visto dal controesempio, servono ipotesi molto più forti per dire se
 	Dimostro la catena di implicazioni, malgrado le proposizioni $2 \Leftrightarrow 3$ per fatti totalmente insiemistici, non c'entra niente la topologia.
 	\begin{enumerate}
 		\item[$1 \Rightarrow 2$] Prendo $A \in \xi$ voglio dimostrare che $f^{-1}(A)$ è ancora un aperto. Mi basta dimostrare che $\forall x \in f^{-1}(A)$ questo è un intorno di $x$. Quindi fisso un $x \in f^{-1}(A)$, allora per ogni $U \in \mathcal{N}_\xi(f(x))$ ho che esiste $V \in \mathcal{N}_\tau(x)$ tale che $f(V) \subset U$. Ora prendo $U = A$ e ottengo che esiste un intorno $V$. Ma $V \subset f^{-1}(A)$
-		\begin{equation}
-		\begin{aligned}
+		\begin{equation*}
 			f(V) \subset A \Longrightarrow V \subset f^{-1}f(V) \subset f^{-1}(A)
-		\end{aligned}
-		\end{equation}
+		\end{equation*}
 		per cui anche $f^{-1}(A)$ è un intorno di $x$. Ma questo vale per ogni $x \in f^{-1}(A)$ per cui è un aperto.
 		\item[$2 \Rightarrow 1$] Sia $x \in X$ allora si fissa un $U \in \mathcal{N}_\xi(f(x))$ dimostro che esiste $V \in \mathcal{N}_\tau(x)$. Per cui prendo un $A \in \xi$ tale che $f(x) \in A \subset U$ (esiste per la definizione di intorno). Allora $f^{-1}(A)$ è ancora un aperto e dunque anche un intorno di $x$. Per cui 
-		\begin{equation}
-		\begin{aligned}
+		\begin{equation*}
 			f^{-1}(A) \subset f^{-1}(U) \Longrightarrow f(f^{-1}(A)) \subset f(f^{-1}(U)) \subset U
-		\end{aligned}
-		\end{equation}
+		\end{equation*}
 		e quindi $f^{-1}(A)$ è l'intorno che stavamo cercando.
 		\item[$2 \Leftrightarrow 3$] È una mera questione insiemistica, infatti, poiché vale 
-		\begin{equation}
-		\begin{aligned}
+		\begin{equation*}
 			f^{-1}(A^c) = f^{-1}(A)^c
-		\end{aligned}
-		\end{equation}
+		\end{equation*}
 		allora se fisso un chiuso $C$, questo sarà uguale a $C = A^c$ dove $A$ aperto. Per cui $f^{-1}(C) = f^{-1}(A^c) = f^{-1}(A)^c$ e per ipotesi $f^{-1}(A)$ è aperto e per definizione il suo complementare dev'essere chiuso. Analogamente si dimostra se si fissa un aperto.
 		\item[$4 \Leftrightarrow 3$] Sia $f$ continua. Allora $f^{-1}(\overline{f(A)})$ è un chiuso che contiene $A$ quindi per definizione $\overline{A} \subset f^{-1}(\overline{f(A)})$ rimappando in avanti ottengo 
 		$f(\overline{A}) \subset f(f^{-1}(\overline{f(A)})) 
@@ -999,11 +992,12 @@ A seguire alcune proposizioni sulle applicazioni continue.
 \end{proof}
 
 \section{Applicazioni aperte e chiuse}
+
 \begin{definition}
 	Sia $\morphism{f}{(X,\tau)}{(Y,\xi)}$ applicazione su spazii topologici. Allora $f$ è aperta se $\forall A \in \tau$, $f(A) \in \xi$. Analogamente si definisce per $f$ chiusa.
 \end{definition}
 
-\textbf{Alcuni esempi}
+\begin{example}
 \begin{enumerate}
 	\item La funzione $\morphism{\pi_1}{(\R^2,\tau^2_{\text{euclidea}})}{(\R,\tau_{\text{euclidea}})}$ tale che $\pi_1 \colon\ (x,y) \mapsto x$. Questa funzione è aperta, continua, ma non chiusa. Infatti si consideri il grafo di $xy - 1 = 0$ in $\R^2$, che chiameremo $S$, allora $\pi_1(S) = \R \setminus \{0\}$ che non è chiuso, mentre $S$ lo è.
 	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $i_1 \colon\ x \mapsto (x,0)$ è una mappa continua, chiusa e non aperta. 
@@ -1015,6 +1009,7 @@ A seguire alcune proposizioni sulle applicazioni continue.
 	\item Per l'esempio di una funzione che non è continua e neanche chiusa ma è aperta ricorro di nuovo ad insiemi semplici come $X = \{a,b,c\}$ e le due topologie $\tau = \{\varnothing, \{a\},\{a,b,c\}\}$, $\mu = \{\varnothing, \{a\}, \{c\}, \{a,c\}, \{a,b,c\}\}$. Allora definendo la mappa $\morphism{f}{(X,\tau)}{(X,\mu)}$ come $f \colon a \mapsto a$, $f \colon b \mapsto a$, $f \colon c \mapsto c$ non è continua poiché $f^{-1}(X) = \{a,c\} \notin \tau$, inoltre non è chiusa perché $f(\{b,c\}) = \{a,c\} \in \mu$, ma è aperta.\\
 	\item Sia $X = \{a,b,c,d\}$  e $Y = \{a,b,c\}$, allora definisco $\tau = \{\varnothing, \{a\}, X\}$, $\nu = \{\varnothing, \{a\}, \{c\}, \{a,c\}, Y\}$, allora la mappa $\morphism{f}{(X,\tau)}{(Y,\nu)}$ definita come $f \colon a \rightarrow b$,  $f \colon b \rightarrow b$, $f \colon c \rightarrow b$, $f \colon d \rightarrow c$ non è continua, perché $f^{-1}(\{c\}) = \{d\} \notin \tau$, inoltre $f(X) = \{b,c\} \notin \nu$ quindi non è aperta, ma è chiusa perché $f(X) = \{b,c\} = \{a\}^c$, $f(\{b,c,d\}) = \{b,c\} = \{a\}^c$.   
 \end{enumerate}
+\end{example}
 
 \section{Omeomorfismi}
 
@@ -1053,7 +1048,7 @@ A seguire alcune proposizioni sulle applicazioni continue.
 	e applicando $f^{-1}$ su $f(\tau) \subset \xi$ ottengo $f^{-1}(\xi) = \tau$.
 \end{remark}
 
-\textbf{Alcuni esempi}
+\begin{example}
 \begin{enumerate}
 	\item La funzione identità $\morphism{id}{(X,\tau)}{(X,\tau)}$ è un omeomorfismo. 
 	\item $f$ è un omeomorfismo se e solo se $f^{-1}$ lo è. 
@@ -1061,6 +1056,7 @@ A seguire alcune proposizioni sulle applicazioni continue.
 	\item Le affinità sono omeomorfismi. Infatti si consideri $\morphism{\varphi}{\R^n}{\R^n}$ una affinità qualsiasi, quindi è della forma $\varphi \colon x \mapsto Ax + b$ per qualche $A \in \operatorname{GL}_n(\R)$, $b \in \R^n$. Allora ha l'inversa che è $\varphi^{-1} \colon x \mapsto A^{-1}x - A^{-1}b$, per cui è biettiva. Inoltre essendo entrambe affinità sono continue visto che le puoi vedere come composizione di funzioni lineari sommate a funzioni costanti.
 	\item Un altro esempio è la funzione $\morphism{\arctan}{(\R, \tau_{\text{euclidea}})}{((-\pi/2,\pi/2, \tau_{\text{euclidea}}))}$. La funzione è continua e biettiva, analogamente alla sua inversa, la funzione $\tan$.
 \end{enumerate}
+\end{example}
 
 \section{Sottospazi topologici}
 
@@ -1275,13 +1271,11 @@ In questa sezione si userà spesso la notazione $(X_1, \tau_1), (X_2, \tau_2), (
 	Per quanto ovvio, facciamo vedere che $\tau_1 \times \tau_2$ forma una base su $X_1 \times X_2$. Per la Proposizione \ref{thr:sfi_generate_topology} un insieme è una base di $X_1 \times X_2$ se tale insieme copre $X_1 \times X_2$, ma questo è ovvio visto che $X_1 \times X_2 \in \tau_1 \times \tau_2$; e dati due elementi $A_1, A_2 \in \tau_1 \times \tau_2$ allora la loro intersezione $A_1 \cap A_2 = B_{1,1} \times B_{2,1} \cap B_{2,1} \times B_{2,2} = B_{1,1}\cap B_{2,1} \times B_{1,2} \cap B_{2,2}$ dove ogni $B_{j,i} \in \tau_j \cap A_i$ per cui sono ancora elementi di $\tau_1 \times \tau_2$. Pertanto è una base e identifica un unica topologia.
 \end{remark}
 
-\textbf{Esempio}
-
-Si consideri $(\R^2, \tau^2_{\text{euclidea}})$, questo sarà omeomorfo a $(\R, \tau) \times (\R, \tau)$? Se la risposta fosse negativa non avrebbe senso parlare di prodotti di topologie, pertanto la risposta dev'essere affermativa. 
-% TODO: `EASY PROOF: manca la dimostrazione \R^2 \simeq \R\times \R
-
-
-In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \times \tau}}$ dove $\tau$ è la topologia euclidea. 
+\begin{example}
+	Si consideri $(\R^2, \tau^2_{\text{euclidea}})$, questo sarà omeomorfo a $(\R, \tau) \times (\R, \tau)$? Se la risposta fosse negativa non avrebbe senso parlare di prodotti di topologie, pertanto la risposta dev'essere affermativa. 
+	% TODO: `EASY PROOF: manca la dimostrazione \R^2 \simeq \R\times \R
+	In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \times \tau}}$ dove $\tau$ è la topologia euclidea. 
+\end{example}
 
 \begin{theorem}
 	Sia $\mathcal{B}_1$ base di $\tau_1$ e $\mathcal{B_2}$ base di $\tau_2$, allora
@@ -1732,12 +1726,13 @@ I seguenti corollari sono praticamente simili e indicano la stessa cosa, ma in m
 	Sia $(X, \tau)$ uno spazio topologico con $\dot \colon X \times X \rightarrow X$ un operatore di gruppo su $X$. Allora è un gruppo topologico se $x \dot y^{-1}$ è una funzione continua.
 \end{definition}
 
-Alcuni esempi:
+\begin{example}
 \begin{enumerate}
 	\item $\R$ con la topologia euclidea e l'addizione è un gruppo topologico.
 	\item $\Z, \Q$ sono due sottogruppi normale di $\R$ rispetto all'addizione. 
 	\item $\operatorname{GL}_n$ e i suoi sottogruppi sono gruppi topologici.
 \end{enumerate}
+\end{example}
 
 Questi sono interessanti perché si possono costruire i seguenti quozienti topologici:
 \begin{theorem}
