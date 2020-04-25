@@ -1,4 +1,5 @@
 \chapter{Topologia generale}
+
 La motivazione di topologia deriva da un ulteriore ammorbimento degli assiomi degli spazi metrici. In particolare se si considerano le palle di uno spazio metrico gli intorni aperti della topologia talvolta la topologia si dice metrizzabile (a seguire definizione). Analogamente data una distanza si può indurre una topologia. In particolare non tutte le topologie sono metrizzabili. 
 
 \begin{definition}
@@ -19,11 +20,11 @@ La motivazione di topologia deriva da un ulteriore ammorbimento degli assiomi de
 \end{definition}
 
 \begin{remark}
-	È ovvio che l'ultima condizione si può riscrivere come segue: Dati $A_1, A_2 \in \tau$ allora $A_1 \cap A_2 \in \tau$. Infatti passando per induzione ottieni l'assioma precedente e per specializzazione di $\bigcap^2_{i=1} A_i$ si ritorna indietro. 
+	È ovvio che l'ultima condizione si può riscrivere come segue: dati $A_1, A_2 \in \tau$ allora $A_1 \cap A_2 \in \tau$. Infatti per induzione si riottiene il terzo assioma. 
 \end{remark}
 
 \begin{definition}
-	Sia $\tau$ una topologia su $X$ allora la coppia $(X, \tau)$ su chiama spazio topologico. $X$ si chiama supporto dello spazio topologico. Sia $A \in \tau$ allora $A$ si chiama sottoinsieme aperto di $(X,\tau)$ o aperto di $\tau$ oppure aperto di $X$ (se $\tau$ è implicitamente definita). 	
+	Sia $\tau$ una topologia su $X$ allora la coppia $(X, \tau)$ su chiama \textbf{spazio topologico}. $X$ si chiama \textbf{supporto dello spazio topologico}. Sia $A \in \tau$ allora $A$ si chiama \textbf{sottoinsieme aperto di $(X,\tau)$} o aperto di $\tau$ oppure aperto di $X$ (se $\tau$ è implicitamente definita). 	
 \end{definition}
 
 Poiché negli esempi a seguire dimostreremo che alcune semplici topologie possono essere metrizzabili, devo definire cosa intendo dire.
@@ -31,14 +32,14 @@ Poiché negli esempi a seguire dimostreremo che alcune semplici topologie posson
 	Uno spazio topologico $(X,\tau)$ si dice metrizzabile se esiste una distanza $\morphism{d}{X\times X}{\R}$ tale che gli insiemi aperti indotti da $d$ sono gli stessi elementi di $\tau$. In particolare la topologia indotta da $d$, $\tau_d  = \tau$. 
 \end{definition}
 
-\textbf{Esempi}
+\begin{example}
 \begin{enumerate}
 	\item Sia $(X,d)$ uno spazio metrico e sia la famiglia $\tau_d$ degli aperti di $X$ rispetto a $d$. Allora $(X,\tau_d)$ formano uno spazio topologico. 
 	\item[Topologia banale] La topologia più povera in assoluto è la topologia banale, ovvero $\tau = \{\varnothing, X\}$. Inoltre la topologia banale non è metrizzabile se non nel caso in cui $X = \{x\}$ ovvero sia un singoletto. Infatti sia $d$ una distanza su $X$ e sia $X = \{p,q\}$ allora per ogni $\rho > 0 \; . \; q \in B_\rho(p)$ per cui $d(p,q) = 0$ ma poiché $d$ è una distanza ottengo che $p=q$, contraddicendo il fatto che $p \neq q$. 
 	\item[Topologia discreta] Dall'altra parte della barricata c'è la topologia discreta ovvero $\tau = 2^X$ che è la più ricca topologia possibile (infatti se $\tau$ è una topologia ho che $\tau \subseteq 2^X$). È ovviamente una topologia e vale anche l'assioma della stabilità per intersezioni di famiglie arbitrarie. Inoltre è sempre metrizzabile per ogni $X \neq \varnothing$. Infatti basta prendere la distanza $d(x,y) = 1$ (si può anche prendere un valore arbitrario come $69.42^{0.314159}$) se $x \neq y$.
 	\item[Topologia cofinita] Definiamo la topologia cofinita come segue 
 	\begin{equation}
-		\tau_{cof} := \{\varnothing\} \cup \left\{ A \in 2^X \; | \; A^c\; \text{è finitio} \right\}
+		\tau_{\text{cof}} := \{\varnothing\} \cup \left\{ A \in 2^X  \mid A^c\ \text{è finitio}\ \right\}
 	\end{equation}
 	Si dimostra che è una topologia:
 	\begin{enumerate}
@@ -49,26 +50,31 @@ Poiché negli esempi a seguire dimostreremo che alcune semplici topologie posson
 					\left(\bigcup_{i \in I} A_i\right)^c = \bigcap_{i \in I} A^c_i \subseteq A^c_j
 				\end{aligned}
 			\end{equation}
-		per qualunque insieme $I$ e qualche $j \in I$. Per cui visto che $A_j \in \tau_{cof}$ risulta che $A^c_j$ sia finito.
-		\item Siano $A_1, A_2 \in \tau_{cof}$, allora $(A_1 \cap A_2)^c = A^c_1 \cup A^c_2$ e l'unione finita di insiemi finiti è finito, per cui anche $A_1 \cap A_2 \in \tau_{cof}$. 
+		per qualunque insieme $I$ e qualche $j \in I$. Per cui visto che $A_j \in \tau_{\text{cof}}$ risulta che $A^c_j$ sia finito.
+		\item Siano $A_1, A_2 \in \tau_{\text{cof}}$, allora $(A_1 \cap A_2)^c = A^c_1 \cup A^c_2$ e l'unione finita di insiemi finiti è finito, per cui anche $A_1 \cap A_2 \in \tau_{\text{cof}}$. 
 	\end{enumerate}	
 	Inoltre non è metrizzabile perché se lo fosse sarebbe di Hausdorff, ma come si vedrà, non è di Hausdorff; non può neppure essere metrizzabile.
 \end{enumerate}
+\end{example}
 
 \section{Topologie confrontabili}
+
 \begin{definition}
-	Sia $X \neq \varnothing$. SIano $\tau, \tau'$ due topologie su $X$. Diciamo che $\tau$ è meno fine (più fine) di $\tau'$ se $\tau \subset \tau'$ ($\tau' \subset \tau$).
-\end{definition}
-\begin{definition}
-	Due topologie $\tau, \tau'$ si dicono confrontabili se $\tau$ è più fine o meno fine o uguale a $\tau'$.
+	Sia $X \neq \varnothing$. Siano $\tau, \tau'$ due topologie su $X$. Diciamo che $\tau$ è \textbf{meno fine} (più fine) di $\tau'$ se $\tau \subset \tau'$ ($\tau' \subset \tau$).
 \end{definition}
 
-Alcuni esempi di confronto tra topologie
-\begin{enumerate}
-	\item La topologia banale è la meno fine di tutte le topologie di $X$.
-	\item La topologia discreta è la più fine delle topoplogie su $X$.
-	\item Sia $X = \{a,b\}$ allora $\tau = \{\varnothing,\{a\}, X\}$ e $\tau' = \{\varnothing, \{b\}, X\}$ non sono confrontabili.
-\end{enumerate}
+\begin{definition}
+	Due topologie $\tau, \tau'$ si dicono \textbf{confrontabili} se $\tau$ è più fine o meno fine o uguale a $\tau'$.
+\end{definition}
+
+\begin{example}
+	Alcuni esempi di confronto tra topologie
+	\begin{enumerate}
+		\item La topologia banale è la meno fine di tutte le topologie di $X$.
+		\item La topologia discreta è la più fine delle topoplogie su $X$.
+		\item Sia $X = \{a,b\}$ allora $\tau = \{\varnothing,\{a\}, X\}$ e $\tau' = \{\varnothing, \{b\}, X\}$ non sono confrontabili.
+	\end{enumerate}
+\end{example}
 
 
 \section{Basi e sottobasi di topologie}
@@ -85,27 +91,26 @@ Poiché le topologie possono essere molto complesse sarebbe utile avere un sotto
 \end{definition}
 
 \begin{proposition}
-	$\mathcal{B}$ è una base se e solo se $\forall A \in \tau \; \forall x \in A \; \exists B \in \mathcal{B} \;$ tale che $x \in B \subset A$.
+	$\mathcal{B}$ è una base se e solo se $\forall A \in \tau\ \forall x \in A\ \exists B \in \mathcal{B}$ tale che $x \in B \subset A$.
 \end{proposition}
 \begin{proof}
-
 	\begin{enumerate}
 		\item[($\Rightarrow$)] Scelgo un $x \in A$, ma poiché $\mathcal{B}$ è una base so che $A = \bigcup_{B \in \mathcal{B}'} B$. Riscrivendo ottengo $x \in A = \bigcup_{B \in \mathcal{B}'} B$ e di conseguenza esiste almeno un $B \in \mathcal{B}' \subset \mathcal{B}$ per cui $x \in B$.
 		\item[($\Leftarrow$)]  Sia $A \in \tau$ allora posso prendere ogni $x \in A$ e avere che $x \in B_x$ per qualche $B_x \in \mathcal{B}$. Inoltre $B_x \subset A$ per ogni $x \in A$, quindi devo dimostrare che $A \subset \bigcup_{x \in A} B_x$, ma ciò è banalmente vero. (Sia $x \in A$, allora $x \in B_x \subset \bigcup_{x \in A} B_x$).
 	\end{enumerate}
 \end{proof}
 
-Alcuni esempi di base, giusto per capirsi:
-\begin{enumerate}
-	\item Dato uno spazio topologico $(X,\tau)$, $\tau$ è una base di $\tau$. 
-	\item Se $\mathcal{B}$ è una base di $\tau$, allora sia $\mathcal{B} \subset C$, allora anche $C$ è una base di $\tau$.
-	\item In $\R$ una base può essere $\mathcal{B} = \{(a,b) \; | \; a,b \in \R, \; a < b \}$
-\end{enumerate}
-
-
+\begin{example}
+	Alcuni esempi istruttivi nella loro semplicità
+	\begin{enumerate}
+		\item Dato uno spazio topologico $(X,\tau)$, $\tau$ è una base di $\tau$. 
+		\item Se $\mathcal{B}$ è una base di $\tau$, allora sia $\mathcal{B} \subset C$, allora anche $C$ è una base di $\tau$.
+		\item In $\R$ una base può essere $\mathcal{B} = \{(a,b) \; | \; a,b \in \R, \; a < b \}$
+	\end{enumerate}
+\end{example}
 
 \begin{proposition}
-	Sia $X \neq \varnothing$ e $\{\tau_i\}$ una famiglia di topologie su $X$.I seguenti enunciati sono veri.
+	Sia $X \neq \varnothing$ e $\{\tau_i\}$ una famiglia di topologie su $X$. I seguenti enunciati sono veri:
 	\begin{enumerate}
 		\item \begin{equation}
 		\begin{aligned}
@@ -226,14 +231,14 @@ Alcuni esempi di sottobase, giusto per capirci\footnote{Trade mark.}
 	Indichiamo con $\mathcal{N}_\tau(x)$ l'insieme degli intorni di $x$ in $(X,\tau)$. 
 	\begin{equation}
 	\begin{aligned}
-		\mathcal{N}_\tau(x) := \left\{ U \in 2^X \; | \; \exists A \in \tau \; . \; x \in A \subset U \right\}
+		\mathcal{N}_\tau(x) := \left\{ U \in 2^X \mid \exists A \in \tau\ .\ x \in A \subset U \right\}
 	\end{aligned}
 	\end{equation}
 	In particolare $\mathcal{N}_\tau(x)$ si dice \textbf{sistema di intorni} di $x$ in $(X, \tau)$.
 \end{definition}
 
 \begin{remark}
-	\label{Oss:intorni_top}
+	\label{rmk:intorni_top}
 	\begin{enumerate}
 		\item Se $U \in \mathcal{N}_\tau(x)$ allora $x \in U$.
 		\item $\forall A \in \mathcal{N}_\tau(x) \; \exists C \in \mathcal{N}_\tau(x)$ tale che $C \subset A$ e $C$ aperto. Ovvero a meno di restrizioni ogni intorno è aperto.
@@ -270,38 +275,40 @@ Inoltre dalle osservazioni che seguono risulta essere che una topologia induce s
 		\end{aligned}
 		\end{equation}
 		\item Se $U \in \mathcal{N}_\tau(x)$ allora $x \in U$. 
-		\item Se $U \in \mathcal{N}(x) \exists V . \; V \subset U$ tale che $V \in \mathcal{N}(x)$ e $\forall y \in V. \; U \in \mathcal{N}(y)$.
+		\item Se $U \in \mathcal{N}(x) \exists V\ .\ V \subset U$ tale che $V \in \mathcal{N}(x)$ e $\forall y \in V\ .\ U \in \mathcal{N}(y)$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
 	\begin{enumerate}
-		\item  (si veda l'Osservazione \ref{Oss:intorni_top})
-		\item Basta far vedere che $N_1 \cap N_2 \in \mathcal{N}(x)$ il ché è ovvio. Per definizione di intorno esistono $A_1, A_2 \in \tau$ tali che $A_1 \subset N_1$ e $A_2 \subset N_2$ per cui $x \in A_1 \cap A_2 \subset N_1 \cap N_2$ e per definizione di aperti $A_1 \cap A_2$ è aperto, e la definizione di intorno è soddisfatta, $N_1 \cap N_2 \in \mathcal{N}(x)$.
-		\item  (si veda l'Osservazione \ref{Oss:intorni_top})
+		\item Si veda l'Osservazione \ref{rmk:intorni_top}.
+		\item Basta far vedere che $N_1 \cap N_2 \in \mathcal{N}(x)$ il ché è ovvio. Per definizione di intorno 
+			esistono $A_1, A_2 \in \tau$ tali che $A_1 \subset N_1$ e $A_2 \subset N_2$ per cui $x \in A_1 \cap A_2 \subset N_1 \cap 
+			N_2$ e per definizione di aperti $A_1 \cap A_2$ è aperto, e la definizione di intorno è soddisfatta, 
+			$N_1 \cap N_2 \in \mathcal{N}(x)$.
+		\item Si veda l'Osservazione \ref{rmk:intorni_top}.
 		\item Si scelga $V = A$ dove $A \subset U$ e $A \in \tau$. Per la definizione di intorno $A$ esiste e soddisfa la proprietà richiesta. 
 	\end{enumerate}
 \end{proof}  
 
 \begin{proposition}
-	Sia $X \neq \varnothing$ e ad ogni $x \in X$ sia associato la famiglia di intorni di $x$ $\mathcal{N}(x)$, ovvero la famiglia che possiede le seguenti proprietà:
+	Sia $X \neq \varnothing$ e ad ogni $x \in X$ sia associata la famiglia di intorni $\mathcal{N}(x)$, ovvero la famiglia che possiede le seguenti proprietà:
 	\begin{enumerate}
-	\item Se $U \in \mathcal{N}_\tau(x)$ e $V \in 2^X$ tale che $U \subset V$ allora $V \in \mathcal{N}_\tau(x)$
-	\item Siano $N_i \in \mathcal{N}(x)$ allora 
-	\begin{equation}
-	\begin{aligned}
-	\bigcap^{n}_{i=0} N_i \in \mathcal{N}(x)
-	\end{aligned}
-	\end{equation}
-	\item Se $U \in \mathcal{N}_\tau(x)$ allora $x \in U$. 
-	\item Se $U \in \mathcal{N}(x) \exists V . \; V \subset U$ tale che $V \in \mathcal{N}(x)$ e $\forall y \in V. \; U \in \mathcal{N}(y)$.
-\end{enumerate}
-Allora esiste un unica topologia $\tau$ tale che $\forall x \in X . \; \mathcal{N}(x) = \mathcal{N}_\tau(x)$ (ovvero gli intorni così definiti corrispondono a quelli della topologia $\tau$).
+		\item Se $U \in \mathcal{N}_\tau(x)$ e $V \in 2^X$ tale che $U \subset V$ allora $V \in \mathcal{N}_\tau(x)$
+		\item Siano $N_i \in \mathcal{N}(x)$ allora 
+			\begin{equation*}
+				\bigcap^{n}_{i=0} N_i \in \mathcal{N}(x)
+			\end{equation*}
+		\item Se $U \in \mathcal{N}_\tau(x)$ allora $x \in U$. 
+		\item Se $U \in \mathcal{N}(x) \exists V .\ V \subset U$ 
+			tale che $V \in \mathcal{N}(x)$ e $\forall y \in V.\ U \in \mathcal{N}(y)$.
+	\end{enumerate}
+	Allora esiste un unica topologia $\tau$ tale che $\forall x \in X .\ \mathcal{N}(x) = \mathcal{N}_\tau(x)$.
 \end{proposition}
 \begin{proof}
 	Definiamo innanzitutto una topologia come segue (che richiede la presenza della ipotesi $3$)
 	\begin{equation}
 	\begin{aligned}
-		\tau := \{ A \in 2^X \; |\; \forall x \in A \; . \; \exists N \in \mathcal{N}(x) \; \text{t.c.} \; x \in A \subset N\}
+		\tau := \{ A \in 2^X \mid \forall x \in A\ . \ \exists N \in \mathcal{N}(x)\ \text{t.c.}\ x \in A \subset N \}
 	\end{aligned}
 	\end{equation}
 	mostriamo la sua struttura topologica.
@@ -322,7 +329,7 @@ Allora esiste un unica topologia $\tau$ tale che $\forall x \in X . \; \mathcal{
 \section{Sistema fondamentale di intorni}
 
 \begin{definition}
-	Una famiglia $\mathcal{V}(x)$ di intorni di $x$ in $(X,\tau)$, cioé $\mathcal{V}(x) \subset \mathcal{N}_\tau(x)$ si dice \textbf{sistema fondamentale di intorni} di $x$ in $(X,\tau)$ se $\forall U \in \mathcal{N}_\tau(x) . \; \exists V \in \mathcal{V}(x)$ tale che $V \subset U$.
+	Una famiglia $\mathcal{V}(x)$ di intorni di $x$ in $(X,\tau)$, cioé $\mathcal{V}(x) \subset \mathcal{N}_\tau(x)$ si dice \textbf{sistema fondamentale di intorni} di $x$ in $(X,\tau)$ se $\forall U \in \mathcal{N}_\tau(x)\ .\ \exists V \in \mathcal{V}(x)$ tale che $V \subset U$.
 \end{definition}
 Alcuni esempi
 \begin{enumerate}
@@ -332,12 +339,12 @@ Alcuni esempi
 \end{enumerate}
 
 \begin{proposition}
-	Sia $(X,\tau)$ uno spazio topologico $\forall x \in X$ sia $\mathcal{V}(x) \subset \mathcal{N}_\tau(x)$ tale che $\mathcal{V}(x)$ è un sistema di intorni fondamentale. Sia $A \in 2^X$. Allora $A \in \tau$ se e solo se $\forall x \in A \; \exists V(x)$ tale che $V(x) \subset A$.
+	Sia $(X,\tau)$ uno spazio topologico $\forall x \in X$ sia $\mathcal{V}(x) \subset \mathcal{N}_\tau(x)$ tale che $\mathcal{V}(x)$ è un sistema di intorni fondamentale. Sia $A \in 2^X$. Allora $A \in \tau$ se e solo se $\forall x \in A\ \exists V(x)$ tale che $V(x) \subset A$.
 \end{proposition}
 \begin{proof}
 	Se $A$ è aperto allora è anche un intorno di $x \in A$. Per definizione di sistema fondamentale di intorni ottengo che esiste $V(x) \in \mathcal{V}(x)$ tale che $V(x) \subset A$.\\
 	
-	Se vale $\forall x \in A . \; \exists V(x) \in \mathcal{V}(x)$ tale che $V(x) \subset A$. 
+	Se vale $\forall x \in A\ .\ \exists V(x) \in \mathcal{V}(x)$ tale che $V(x) \subset A$. 
 	\begin{equation}
 	\begin{aligned}
 		A = \bigcup_{x \in A} \{x\} \subset \bigcup_{x \in A} A_x \subset \bigcup_{x \in A} V(x) \subset A
@@ -347,7 +354,7 @@ Alcuni esempi
 \end{proof}
 
 \begin{theorem}
-	Sia $(X,\tau)$ spazio topologico e $\mathcal{B} \subset \tau$ allora $\mathcal{B}$ è una base per $\tau$ se e soltanto se $\forall x \in X$ la famiglia $\mathcal{B}(x) = \{B \in \mathcal{B} \; | \; x \in B \}$ è un sistema fondamentale di intorni di $x$ rispetto a $\tau$.
+	Sia $(X,\tau)$ spazio topologico e $\mathcal{B} \subset \tau$ allora $\mathcal{B}$ è una base per $\tau$ se e soltanto se $\forall x \in X$ la famiglia $\mathcal{B}(x) = \{B \in \mathcal{B} \mid x \in B \}$ è un sistema fondamentale di intorni di $x$ rispetto a $\tau$.
 \end{theorem}
 \begin{proof}
 	Sia $\beta$ una base di $\tau$ e $x \in X$. Sia $U \in \mathcal{N}_\tau(x)$, cioè $\exists A \in \tau$ tale che $x \in A \subset U$. Poiché $\mathcal{B}$ base di $\tau$, allora $A = \bigcup_{B \in \mathcal{B}'} B$ con $\mathcal{B}' \subset \mathcal{B}$. Quindi $x \in A$ quindi $x \in B$ per qualche $B \in \mathcal{B}' \subset \mathcal{B}$ quindi $B \in \mathcal{B}(x)$. Quindi dimostro che per ogni intorno $N(x) \in \mathcal{N}(x)$ segue che esiste $B \subset N(x)$ che è ovvio perché per definizione di intorno $x \in A \subset N(x)$, ma $A = \bigcup_{B \in \mathcal{B}'} B$ per qualche $\mathcal{B}' \subset \mathcal{B}$.\\  
@@ -376,12 +383,12 @@ Alcuni esempi
 \end{proof}
 
 \begin{remark}
-Sia $(X, \tau)$ uno spazio topologico e $\forall x \in X$ esiste $\mathcal{V}(x)$ sistema fondamentale di intorni di $x$ in $\tau$.
-\begin{enumerate}
-	\item  Allora è ovvio che dati $V_1, V_2 \in \mathcal{V}(x)$ anche $\exists V' \in \mathcal{V}(x)$ tale che $V' \subset V_1 \cap V_2$. Infatti per definizione $V_1, V_2 \in \mathcal{N}_\tau(x)$ e siccome $\forall N \in \mathcal{N}_\tau(x)$ esiste $V' \in \mathcal{V}(x)$ tale che $V \subset N$ basta prendere $N = V_1 \cap V_2$
-	\item Un'altra cosa banale è che $\forall V \in \mathcal{V}(x)$, $x \in V$.
-	\item Una osservazione meno banale è che fissato un $V \in \mathcal{V}(x)$ allora esiste $W \in \mathcal{V}(x)$ tale che $\forall y \in W.\; \exists W_y \in \mathcal{V}(y)$ tale che $W_y \subset V$ (notare che questa osservazione è molto simile a quella per gli intorni).	
-\end{enumerate}
+	Sia $(X, \tau)$ uno spazio topologico e $\forall x \in X$ esiste $\mathcal{V}(x)$ sistema fondamentale di intorni di $x$ in $\tau$.
+	\begin{enumerate}
+		\item  Allora è ovvio che dati $V_1, V_2 \in \mathcal{V}(x)$ anche $\exists V' \in \mathcal{V}(x)$ tale che $V' \subset V_1 \cap V_2$. Infatti per definizione $V_1, V_2 \in \mathcal{N}_\tau(x)$ e siccome $\forall N \in \mathcal{N}_\tau(x)$ esiste $V' \in \mathcal{V}(x)$ tale che $V \subset N$ basta prendere $N = V_1 \cap V_2$
+		\item Un'altra cosa banale è che $\forall V \in \mathcal{V}(x)$, $x \in V$.
+		\item Una osservazione meno banale è che fissato un $V \in \mathcal{V}(x)$ allora esiste $W \in \mathcal{V}(x)$ tale che $\forall y \in W.\; \exists W_y \in \mathcal{V}(y)$ tale che $W_y \subset V$ (notare che questa osservazione è molto simile a quella per gli intorni).	
+	\end{enumerate}
 \end{remark}
 
 \begin{theorem}
@@ -425,7 +432,7 @@ Esempi di topologie in relazione agli assiomi di numerabilità.
 	\item Si consideri $(\R, \tau_{euclide})$ ovvero lo spazio topologico euclideo sulla retta reale. Posso creare la base $B = \{(a,b) \; | \; a,b \in \Q . \; a < b\}$  che è numerabile e fa da base di $\tau_{euclidea}$ poiché sia un $(a,b)$ per $a,b \in \R$ allora posso sempre creare due successioni $p_k$ e $q_k$ tali da convergere, rispettivamente, in $a, b$  (per il fatto che $\Q$ è denso in $\R$) e quindi $\bigcup_{i=1}^{+\infty}(p_i, q_i) = (a,b)$. Questo procedimento si può estendere a $\R^n$ usando le palle aperte razionali come base topologica.
 \end{enumerate}
 
-\begin{theorem}[Teorema di Linderöff]\footnote{È importante perché puoi ridurre cose non numerabile a numerabili e quindi avere possibilità di passare al limite o per induzione}
+\begin{theorem}[Teorema di Linderöff]
 	Sia $(X,\tau)$ uno spazio topologico la cui base sia numerabile e data la famiglia $\{A_i\}_{i\in \mathcal{I}} \subset \tau$ dove $\mathcal{I}$ non per forza numerabile allora $\exists \mathcal{J} \subset \mathcal{I}$ tale che 
 	\begin{equation}
 	\begin{aligned}
@@ -456,6 +463,7 @@ Esempi di topologie in relazione agli assiomi di numerabilità.
 \end{proof}
 
 \section{Successioni in uno spazio topologico}
+
 \begin{definition}
 	Sia $X \neq \varnothing$. Si definisce successione una qualsiasi funzione $\morphism{f}{\N}{X}$. Per abuso di notazione si può identificare la funzione $f$ con $\{x_n\}_{n\in\N}$ dove $x_i := f(i)$.
 \end{definition}
@@ -464,12 +472,28 @@ Esempi di topologie in relazione agli assiomi di numerabilità.
 	Sia $(X, \tau)$ uno spazio topologico sia $\{x_n\} \subset X$ diremo che la successione converge ad un punto di $x \in X$ se $\forall U \in \mathcal{N}(x) . \; \exists n_U \in \N$ tale che $\forall n \ge n_U . \; x_n \in U$. Inoltre la successione si dice convergente in $(X,\tau)$ se esiste almeno un valore limite $x$, cioè un $x \in X$ per cui $\{x_n\} \rightarrow x$.
 \end{definition}
 
-Alcuni esempi 
+\begin{example}
 \begin{enumerate}
-	\item Sia $(X,\tau)$ con $\tau$ topologia banale. Sia $\{x_n\}$ una successione allora $\forall x \in X$ si può dire che $\{x_n\} \rightarrow x$. (l'unico intorno possibile è $X$ stesso, quindi...)
-	\item Se invece si considera $(X,\tau)$ con la topologia discreta si ha che ogni successione converge a $x$ se e solo se dopo un certo $n \ge n_0$, $x_n = x$. Siccome ha come aperti il singoletto questo ci dice che la successione per convergere deve essere `talmente vicina' da essere la stessa cosa (è qui che sta la ricchezza della topologia discreta).
- 	\item Se $(X,\tau)$ è uno spazio topologico metrizzabile allora le successioni se convergono hanno un unico valore limite. La dimostrazione è dovuta al fatto che usando $d(x,x') > 0$ dove $x \neq x' $ e entrambi valori limite di $\{x_n\}$ allora posso fare un intorno per cui $S = \{y\; |\; d(x, y) < d(x,x')\}$. Se l'insieme è vuoto allora $x = x'$ che è assurdo. Al contrario se è non vuoto, allora $x' \not\in S$ per cui ho trovato un intorno in cui la successione è $\{x_n\} \subset S$ per $n > n_0$ e quindi non può convergere a $x'$. 
+	\item Sia $(X,\tau)$ con $\tau$ topologia banale. Sia $\{x_n\}$ una 
+		successione allora $\forall x \in X$ si può dire che $\{x_n\} 
+		\rightarrow x$ dato che abbiamo un unico intorno possibile. 
+	\item Se invece si considera $(X,\tau)$ con la topologia discreta si 
+		ha che ogni successione converge a $x$ se e solo se dopo un certo 
+		$n \ge n_0$, $x_n = x$. Siccome ha come aperti il singoletto questo ci 
+		dice che la successione per convergere deve essere `talmente vicina' da 
+		essere la stessa cosa (è qui che sta la ricchezza della topologia 
+		discreta).
+	\item Se $(X,\tau)$ è uno spazio topologico metrizzabile allora le 
+		successioni se convergono hanno un unico valore limite. La 
+		dimostrazione è dovuta al fatto che usando $d(x,x') > 0$ dove 
+		$x \neq x' $ e entrambi valori limite di $\{x_n\}$ allora posso 
+		fare un intorno per cui $S = \{y\; |\; d(x, y) < d(x,x')\}$. Se 
+		l'insieme è vuoto allora $x = x'$ che è assurdo. Al contrario se 
+		è non vuoto, allora $x' \not\in S$ per cui ho trovato un intorno 
+		in cui la successione è $\{x_n\} \subset S$ per $n > n_0$ e quindi 
+		non può convergere a $x'$. 
 \end{enumerate}
+\end{example}
 
 \begin{definition}
 	Una sottosuccessione di una successione $\{x_n\} \subset X$ si definisce come una successione $\{x_{n_k}\} \subset X$ dove $\{n_k\}_{k\in \N} \subset \N$ è una successione strettamente crescente. 
@@ -493,9 +517,9 @@ Alcuni esempi
 \begin{definition}
 	Sia $(X, \tau)$ uno spazio topologico. Sia $S \subset X$. 
 	\begin{enumerate}
-		\item Si indica con $Int(S)$ l'insieme dei punti interni di $S$ secondo $(X,\tau)$.
-		\item Si indica con $Est(S)$ l'insieme dei punti interni di $S$ secondo $(X,\tau)$.
-		\item Si indica con $Fr(S)$ l'insieme dei punti interni di $S$ secondo $(X,\tau)$.
+		\item Si indica con $Int(S)$ l'insieme dei \textbf{punti interni} di $S$ secondo $(X,\tau)$.
+		\item Si indica con $Est(S)$ l'insieme dei \textbf{punti esterni} di $S$ secondo $(X,\tau)$.
+		\item Si indica con $Fr(S)$ l'insieme dei \textbf{punti frontiera} di $S$ secondo $(X,\tau)$.
 	\end{enumerate}
 \end{definition}	
 
@@ -552,24 +576,21 @@ Alcune proprietà di questi insiemi.
 \section{Chiusi e chiusura di un insieme}
 
 \begin{definition}
-	Sia $(X, \tau)$ uno spazio topologico. Sia $S \subset X$. Diciamo che $S$ è un insieme chiuso se in $(X,\tau)$ se $X\setminus S \in \tau$.
+	Sia $(X, \tau)$ uno spazio topologico. Sia $S \subset X$. Diciamo che $S$ è un insieme chiuso se in $(X,\tau)$ se $X \setminus S \in \tau$.
 \end{definition}
 
 \begin{remark}
 	È ovvio vedere che la famiglia dei chiusi $\mathcal{F}_\tau$ rispetta le seguenti proprietà ereditate dagli aperti:
 	\begin{enumerate}
 		\item $\varnothing, X \in \mathcal{F}_\tau$
-		\item \begin{equation}
-		\begin{aligned}
-			\bigcap_{i \in I} F_i \in \mathcal{F}_\tau
-		\end{aligned}
-		\end{equation}
+		\item \begin{equation*}
+				\bigcap_{i \in I} F_i \in \mathcal{F}_\tau
+			\end{equation*}
 		dove $\{F_i\}_{i\in I}$ è una famiglia arbitraria di chiusi.
-		\item \begin{equation}
-		\begin{aligned}
-		\bigcup^{n}_{i = 0} F_i \in \mathcal{F}_\tau
-		\end{aligned}
-		\end{equation}
+		\item 
+			\begin{equation*}
+				\bigcup^{n}_{i = 0} F_i \in \mathcal{F}_\tau
+			\end{equation*}
 		dove $\{F_i\}^n_{i=0}$ è una famiglia di chiusi.
 	\end{enumerate}
 \end{remark}
@@ -1256,8 +1277,7 @@ In questa sezione si userà spesso la notazione $(X_1, \tau_1), (X_2, \tau_2), (
 
 \textbf{Esempio}
 
-Si consideri $(\R^2, \tau^2_{\text{euclidea}})$, questo sarà omeomorfo a $(\R, \tau) \times (\R, \tau)$? Se la risposta fosse negativa non avrebbe senso parlare di prodotti di topologie, pertanto la risposta dev'essere affermativa. Vediamo perché:\\
-% TODO: Aggiungere spiegazione
+Si consideri $(\R^2, \tau^2_{\text{euclidea}})$, questo sarà omeomorfo a $(\R, \tau) \times (\R, \tau)$? Se la risposta fosse negativa non avrebbe senso parlare di prodotti di topologie, pertanto la risposta dev'essere affermativa. 
 
 
 In generale quindi $\tau^n = \underset{n-volte}{\underbrace{\tau \times \dots \times \tau}}$ dove $\tau$ è la topologia euclidea. 
