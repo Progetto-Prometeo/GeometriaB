@@ -413,12 +413,15 @@ Inoltre dalle osservazioni che seguono risulta essere che una topologia induce s
 \begin{definition}
 	Sia $(X,\tau)$ uno spazio topologico, esso soddisfa il \textbf{primo assioma di numerabilità} se $\forall x \in X$ esiste un sistema fondamentale di intorni $\mathcal{V}(x)$ di $x$ per $\tau$ tale che $\mathcal{V}(x)$ è numerabile.
 \end{definition}
-Esempi:
+
+\begin{example}	
 \begin{enumerate}
 	\item Sia $X$ con $\tau$ banale, allora un sistema fondamentale di intorni è $\mathcal{V}(x) = \{X\}$ che è numerabile e quindi soddisfa il primo assioma di numerabilità.
 	\item Sia $X$ con $\tau$ discreta, allora un sistema fondamentale di intorni è $\mathcal{V}(x) = \{\{x\}\}$ (infatti se prendi tutti i sistemi fondamentali di intorni per ogni $x\in X$ ottieni la base dei singoletti) è ancora numerabile e quindi soddisfa il primo assioma di numerabilità.
 	\item Un esempio meno banale è il sistema fondamentale di intorni $\mathcal{V}(x) = \{B_d(x, 1/n)\}_{n > 0}$ che è ancora numerabile e fa da sistema fondamentale di intorni per $x$ in $\R^n$ con la distanza euclidea.
 \end{enumerate}
+\end{example}
+
 
 \begin{definition}
 	Sia $(X,\tau)$ uno spazio topologico, esso soddisfa il \textbf{secondo assioma di numerabilità} se esiste una base $\mathcal{B}$ numerabile tale da generare la topologia $\tau$. 
@@ -431,11 +434,13 @@ Esempi:
 	Infatti sia un $\mathcal{B}$ una base numerabile di $\tau$, allora mi basta prendere come sistema fondamentale di intorni tutti i $\{B_i\} \in \mathcal{B}$ tali che $x \in B_i$. Per cui $\{B_i\}$ genera un sistema fondamentale di intorni numerabili per ogni $x \in X$.
 \end{proof}
 
-Esempi di topologie in relazione agli assiomi di numerabilità.
+\begin{example}	
 \begin{enumerate}
 	\item Sia $X$ non numerabile con $\tau_d$ topologia discreta. Allora questa è metrizzabile, inoltre per ogni $x\in X$ esiste un sistema fondamentale di intorni $\mathcal{V}(x) := \{ \{x \} \}$ tale da essere numerabile e quindi soddisfare il primo assioma di numerabilità. Ma non esiste alcuna base tale da soddisfare il  criterio di numerabilità. Infatti se $\mathcal{B} \subset \tau$ e $\mathcal{B}$ una base di $\tau$, allora deve contenere tutti i singoletti di $X$. Per cui $\mathcal{B}$ è non numerabile.
 	\item Si consideri $(\R, \tau_{euclide})$ ovvero lo spazio topologico euclideo sulla retta reale. Posso creare la base $B = \{(a,b) \; | \; a,b \in \Q . \; a < b\}$  che è numerabile e fa da base di $\tau_{euclidea}$ poiché sia un $(a,b)$ per $a,b \in \R$ allora posso sempre creare due successioni $p_k$ e $q_k$ tali da convergere, rispettivamente, in $a, b$  (per il fatto che $\Q$ è denso in $\R$) e quindi $\bigcup_{i=1}^{+\infty}(p_i, q_i) = (a,b)$. Questo procedimento si può estendere a $\R^n$ usando le palle aperte razionali come base topologica.
 \end{enumerate}
+\end{example}
+
 
 \begin{theorem}[Teorema di Linderöff]
 	Sia $(X,\tau)$ uno spazio topologico la cui base sia numerabile e data la famiglia $\{A_i\}_{i\in \mathcal{I}} \subset \tau$ dove $\mathcal{I}$ non per forza numerabile allora $\exists \mathcal{J} \subset \mathcal{I}$ tale che 
@@ -796,12 +801,13 @@ Per il calcolo della chiusura questa definizione è leggermente inutile. Pertant
 	Sia $(X,\tau)$ uno spazio topologico. Un insieme $E$ si dice denso in $(X, \tau)$ se $\bar{E} = X$. 
 \end{definition}
 
-Alcuni esempi
+\begin{example}
 \begin{enumerate}
 	\item $\Q$ è denso in $(\R, \tau_{\text{euclidea}})$. Inoltre anche $\Q^c$ è denso nella stessa topologia.
 	\item Sia $(X,\tau_{\text{banale}})$ allora tutti i sottoinsiemi di $X$ sono densi.
 	\item Sia $(X,\tau_{\text{discreta}})$ allora nessun sottoinsieme di $X$ è denso.
 \end{enumerate}
+\end{example}
 
 \begin{theorem}
 	\label{thr:dense_set_iff}
@@ -845,10 +851,9 @@ Alcuni esempi
 	Uno spazio topologico si dice separabile se ammette un sottoinsieme numerabile denso.
 \end{definition}
 
-Alcuni esempi banali
-\begin{enumerate}
-	\item $\Q$ in $\R$ è un sottoinsieme numerabile denso, per cui $(\R, \tau_{\text{euclidea}})$ è uno spazio separabile. Notare che $\R \setminus \Q$ è denso, ma non è numerabile. Analogamente $(\R^n, \tau_{\text{euclidea}})$ è uno spazio topologico denso.
-\end{enumerate}
+\begin{example}
+	$\Q$ in $\R$ è un sottoinsieme numerabile denso, per cui $(\R, \tau_{\text{euclidea}})$ è uno spazio separabile. Notare che $\R \setminus \Q$ è denso, ma non è numerabile. Analogamente $(\R^n, \tau_{\text{euclidea}})$ è uno spazio topologico denso.
+\end{example}
 
 \begin{theorem}
 	Sia $(X, \tau)$ spazio topologico che soddisfa il secondo assioma di numerabilità, allora è separabile.	
