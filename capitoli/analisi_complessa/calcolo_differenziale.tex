@@ -27,9 +27,11 @@ Come nel caso reale in una variabile, possiamo esprimere la differenziabilità i
 
 Inoltre, per come è stata definita la derivata, possiamo sfruttare tutte le proprietà che valgono nel caso reale di una variabile. Mostriamo alcuni esempi, come la derivata delle seguenti funzioni (se sono differenziabili \dots). \\
 
-	$$f(z) = \log(|z|) $$ 
-	$$ f(z) = e^{iz - |z|} $$ 
-	$$ f(z) = (1 + i - z)z^2 $$
+	\begin{equation*} \begin{aligned}
+	f(z) & = \log(|z|)   \\
+	f(z) & = e^{iz - |z|}  \\
+	f(z) & = (1 + i - z)z^2  \\
+	\end{aligned} \end{equation*}
 \\
 
 Occupiamoci della derivabilità in senso complesso: la seguente definizione è fondamentale.
@@ -49,8 +51,10 @@ In virtù della relazione stabilità precedentemente, ovvero che $f = u + iv$ pe
 \end{theorem}
 \begin{proof}
 	Supponiamo $f$ differenziabile in $z=x+iy$. Allora consideriamo le derivate direzionali lungo l'asse reale e quello immaginario.
-		$$D_{1} f  = f'(z) = f_x(z) $$
-		$$D_{i} f  = f'(z)i = f_y(z)$$
+		\begin{equation*} \begin{aligned}
+		D_{1} f  &= f'(z) = f_x(z) \\
+		D_{i} f  &= f'(z)i = f_y(z)  
+		\end{aligned}\end{equation*}
 	dove $f_x(z) = u_x(x,y) + iv_x(x,y)$ e $f_y(z) = u_y(x,y) + iv_y(x,y)$. Da questo noto che vale la relazione
 	\begin{equation*}
 		f'(z) = u_x(z) + iv_x(x,y) = -i(u_y(x,y) + iv_y(x,y))
@@ -91,8 +95,10 @@ In virtù della relazione stabilità precedentemente, ovvero che $f = u + iv$ pe
 
 \begin{corollary}
 	Se $f = u + iv$ con $u(x,y) = r \in \R$ e $f \in C^1$, allora 
-	$$0 = u_x = v_y$$
-	$$0 = u_y = -v_x$$
+	\begin{equation*} \begin{aligned}
+	0 = u_x &= v_y \\
+	0 = u_y &= -v_x
+	 \end{aligned}\end{equation*}
 	 (cioè $f' = 0$, dunque $f$ è una funzione costante). \\ Viceversa se $v(x,y) = p \in \R$ allora $f$ è una funzione costante.   
 \end{corollary}
 
@@ -253,18 +259,29 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 	Possiamo supporre $z_0 = 0$ - senza perdita di generalità, dato che basta effettuare una sostituzione per riportarci nel caso $z_0 = 0$ dato un qualsiasi $z_0 \in \C$.\\ 
 	Dimostro che la serie di potenze converge uniformemente e assolutamente per ogni $0 < r < R$. Essendo $R < t^{-1}$ allora esiste un $N$ per cui
 	
-		$$\sqrt[n]{a_n} < t^{-1} \quad\ \text{per ogni}\ n \ge N $$
+		\begin{equation*}
+		\sqrt[n]{a_n} < t^{-1} \quad\ \text{per ogni}\ n \ge N 
+		\end{equation*}
 	
 	dunque $|a_n| < t^{-n}$ per ogni $n \ge N$. \\ Se $|z| \le r$ vale
 	
-	$$	|a_nz^n| < \left(\frac{r}{t}\right)^n$$
+	\begin{equation*}
+	|a_nz^n| < \left(\frac{r}{t}\right)^n
+	\end{equation*}
 	
 	Per il Teorema \ref{thr:m-test-weierstrass} la serie di potenze converge $\forall z \in \Omega$ - dove $\Omega = B_0(r)$ - e siccome vale per ogni $r < R$ segue anche per $B_0(R)$.\\
 	
 	Dimostriamo ora che non converge da nessuna parte al di fuori della chiusura del disco aperto $\overline{B_{z_0}(R)}$. Infatti se supponessimo la convergenza in qualche punto $z \in \C \setminus \overline{B_{z_0}(R)}$ allora $|z| > R$ e $|z|^{-1} < R$. Per cui $\forall n \ge N$ con $N \in \N$ vale che
-		$$|z|^{-1} < \sqrt[n]{|a_n|}$$
+	
+		\begin{equation*}
+		|z|^{-1} < \sqrt[n]{|a_n|}
+		\end{equation*}
+		
 	per cui otteniamo 
-	$$	\sum^{+\infty}_{n=0}|z|^{-n}|z|^n = \sum^{+\infty}_{n=0}|\sqrt[n]{|a_n|}|^n|z|^n < \sum^{+\infty}_{n=0}|a_n||z^n| $$
+	\begin{equation*}	
+	\sum^{+\infty}_{n=0}|z|^{-n}|z|^n = \sum^{+\infty}_{n=0}|\sqrt[n]{|a_n|}|^n|z|^n < \sum^{+\infty}_{n=0}|a_n||z^n| 
+	\end{equation*}
+	
 	e la prima serie è ovviamente non assolutamente convergente per ogni $|z| > R$.
 \end{proof}
 
@@ -326,4 +343,3 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 	\end{aligned}
 	\end{equation*}
 \end{remark}
-
