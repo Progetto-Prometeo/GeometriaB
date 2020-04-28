@@ -1,0 +1,228 @@
+\chapter{Serie di Laurent}
+
+\begin{definition}
+  Una \emph{serie di Laurent} è una serie di funzioni della forma 
+  \begin{equation*}
+    \sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n = \sum_{n=1}^{+\infty} a_{-m}
+            \frac{1}{(z-z_0)^m} + \sum_{n=0}^{+\infty} a_n(z - z_0)^{n}
+  \end{equation*}
+con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
+\setminus \left\{ z_0 \right\}$.
+  \label{def:serie_laurent}
+\end{definition}
+
+\begin{proposition}
+  Esistono $r, R \in \left[ 0, +\infty \right]$ tali che la serie 
+  \begin{equation*}
+    \sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n
+  \end{equation*}
+  converge assolutamente su una corona circolare 
+  \begin{equation*}
+    D \coloneqq \left\{ z \in \C \,\middle|\, r < |z-z_0| < R \right\}
+  \end{equation*}
+  e converge uniformemente su ogni corona chiusa
+  \begin{equation*}
+    K \coloneqq \left\{ z \in C \,\middle|\, r' \le |z-z_0| \le R' \right\}
+  \end{equation*}
+  con $r' > r$ e $R' < R$.
+  \label{prp:convergenza_ass_unif_laurent}
+\end{proposition}
+\begin{proof}
+  % TODO:
+\end{proof}
+
+\begin{remark}
+  Se $r < R$ la corona $C_{z_0}(r,R) \coloneqq \left\{ z \in \C \,\middle|\,
+  r < |z - z_0|  < R \right\}$ è non vuota e la serie di Laurent ha somma $f \in
+  \mathcal{O}(C_{z_0}(r,R))$. Viceversa se $f$ è olomorfa su una corona si
+  ottiene lo sviluppo di Laurent della funzione.
+  \label{rmk:reverso_card_holo_func}
+\end{remark}
+
+\begin{theorem}
+  Sia $f \in \mathcal{O}(\Omega)$ e $\Omega \subset \C$ aperto contenente la
+  corona circolare chiusa 
+  \begin{equation*}
+    \overline{C_{z_0}(r,R)} \coloneqq \left\{ z \in \C \,\middle|\,
+            \le < |z - z_0| \le R \right\}
+  \end{equation*}
+  allora si può scrivere $f$ come somma di una serie di Laurent, ovvero 
+  \begin{equation*}
+    f(z) = \sum_{n = -\infty}^{+\infty} a_n(z-z_0)^n
+  \end{equation*}
+  dove $z \in C_{z_0}(r,R)$. Vale la convergenza assoluta su $C_{z_0}(r,R)$ e la
+  convergenza uniforme su $\overline{C_{z_0}(r',R')}$ con $r < r' < R' < R$.
+  I coefficienti $a_n$ sono della seguente forma 
+  \begin{equation*}
+    a_n = \frac{1}{2\pi i} \int_{\gamma_{r'}} \frac{f(w)}{(w-z_0)^{n+1}}\ dw
+  \end{equation*}
+  dove $\gamma_{r'} = \partial B_{z_0}(r')$ percorso in senso antiorario.
+  \label{thr:function_as_laurent_series}
+\end{theorem}
+\begin{proof}
+  % TODO
+\end{proof}
+
+\begin{remark}
+  Al posto di $\gamma_{r'}$ nella forma di $a_n$ può essere presa una qualsiasi
+  curva omotopa al disco. In partiolare basta che sia una curva di Jordan.
+  \label{rmk:cambiamento_bordo_di_integrazione}
+\end{remark}
+
+\begin{remark}
+  Se $f$ è olomorfa sul disco $B_{z_0}(R)$ i coefficienti $a_n$ con $n < 0$ sono
+  tutti nulli, infatti la funzione $f(w) / (w-z_0)^{n+1}$ è olomorfa sul disco
+  \label{rmk:coefficienti_negativi}
+  % TODO: completare osservazione 1 pagina 4
+\end{remark}
+
+\begin{definition}
+  Il coefficiente della serie di Laurent $a_{-1}$ è detto \emph{residuo} di $f$
+  in $z_0$ 
+  \begin{equation*}
+    a_{-1} \coloneqq \frac{1}{2\pi i} \int_{\gamma} f(w)\ dw
+  \end{equation*}
+  per ogni curva di Jordan $\gamma$ in $\Omega$ e $z_0 \in
+  \operatorname{interno}(\gamma)$.
+  \label{def:residuo}
+\end{definition}
+
+\section{Singolarità}
+
+\begin{definition}
+  Sia $D$ un disco aperto centrato in $z_0$. Se $f \in \mathcal{O}(D \setminus
+  \left\{ z_0 \right\})$ si dice che $z_0$ è una \emph{singolarità isolata} di
+  $f$.
+  \label{def:singolarità_isolata}
+\end{definition}
+
+\begin{example}
+  \begin{enumerate}
+    \item Se una singolarità è eliminabile allora è anche isolata, dato che $f$
+      è olomorfa ovunque tranne nel punto dove ha una singolarità.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}[Classificazione singolarità isolate]
+  Sia $z_0$ singolarità isolata di $f \in \mathcal{O}(\Omega \setminus \left\{
+  z_0 \right\})$ e siano $\{a_n\}_{n=-\infty}^{+\infty}$ i coefficienti della
+  rispettiva serie di Laurent. Allora
+  \begin{enumerate}
+    \item $z_0$ è \emph{eliminabile} sse $a_n = 0$ per ogni $n < 0$.
+    \item $z_0$ è un \emph{polo di ordine} $m > 0$ di $f$ sse $a_{-m} \neq 0$ e $a_n
+      = 0$ per ogni $n < -m$.
+    \item $z_0$ è una \emph{singolarità essenziale} sse esistono infiniti coefficienti
+      $a_n \neq 0$ con $n < 0$.
+  \end{enumerate}
+  \label{def:classificazione_singolarita_per_serie_di_laurent}
+\end{definition}
+
+\begin{remark}
+  Osserviamo che non c'è alcuna contraddizione tra la definizione di singolarità
+  eliminabile definita in termini della serie di Laurent e quella data in
+  % TODO: \ref{}
+  % TODO: copiare l'osservazione e la parte sopra la definizione delle
+  % singolarità, in questo modo da ottenere un osservazione completa e non
+  % spezzata a metà come quella di qualcuno.. .
+  \label{rmk:equivalenza_definizioni_sing_eliminabili}
+\end{remark}
+
+\begin{example}
+  \begin{enumerate}
+    \item Sia $f(z) = 1/z$ allora proviamo a vedere che tipo di singolarità ha
+      in $z = 0$, il residuo è 
+      \begin{equation*}
+        % TODO: check if my calcs are correct
+        \operatorname{Res}}_f(0) = \frac{1}{2\pi i } \int_{\gamma} f(w)\ dw = 1
+      \end{equation*}
+      Per per ogni $n < 1$ i coefficienti si azzerano. Quindi ha un polo di ordine
+      $1$.
+    \item Sia invece 
+      \begin{equation*}
+        f(z) = \frac{z}{(\cos(z) - 1)^2}
+      \end{equation*}
+      allora stimando $\cos(z) - 1 = -z^2/2 + o(z^3) = z^2 h(z)$ con $h(0)
+      = -1/2$ e $h \in \mathcal{O}(\Omega)$. Allora 
+      \begin{equation*}
+        f(z) = \frac{z}{z^4h(z)^2} = \frac{1}{z^3} \frac{1}{h(z)^2}
+      \end{equation*} 
+      con $1/h^2$ olomorfa su un intorno di $z = 0$. Quindi possiamo osservare
+      che $1/h^2 = \sum_{n=0}^{+\infty} b_n z^n$ per qualche $b_n \in \C$.
+      Infine si ottiene che 
+      \begin{equation*}
+        f(z) = \frac{b_0}{z^3} + \frac{b_1}{z^2} + \cdots
+      \end{equation*}
+      ovvero $f$ ha un polo di ordine $3$ nell'origine.
+  \end{enumerate}
+\end{example}
+
+\begin{proposition}
+  Una funzione $f$ ha un polo di ordine $m$ in $z_0$ se e solo se $g \coloneqq
+  1/f$ è olomorfa in un intorno di $z_0$ e ha \emph{uno zero di ordine $m$} in
+  $z_0$.
+  \label{prp:caratterizzazione_poli}
+\end{proposition}
+\begin{proof}
+  % TODO
+\end{proof}
+
+\begin{remark}
+  % TODO: che vuole dire questa osservazione?
+  Se $z_0$ è un polo di ordine $m > 0$ di $f$ e $f(z)(z-z_0)^m = h(z)$ con 
+  \label{<+label+>}
+\end{remark}
+
+\begin{definition}
+  Sia $S \subset \Omega$ sottoinsieme discreto dell'aperto $\Omega$. Se $f \in
+  \mathcal{O}(\Omega \setminus S)$ e $f$ ha poli o singolarità eliminabili nei
+  punti di $S$, allora $f$ è detta \emph{meromorfa} su $\Omega$. Lo indicheremo
+  con $f \in \mathcal{M}(\Omega)$.
+  \label{def:meromorfismo}
+\end{definition}
+
+\begin{example}
+  \begin{enumerate}
+    \item Se funzione razionale $f= p / q$ dove $p,q$ sono polinomi complessi
+      e ovviamente $q \neq 0$ allora $f \in \mathcal{M}(\Omega)$. Infatti se
+      $z_0$ è uno zero di $q$ di ordine $k$ allora possiamo supporre che al
+      massimo per $l \ge 0$ vale 
+      \begin{align*}
+        p(z) & = (z-z_0)^l \tilde{p}(z) & q(z) & = (z-z_0)^k \tilde{q}(z) \\
+        & \Longrightarrow f(z) & = (z-z_0)^{l-k}
+        \frac{\tilde{p}(z)}{\tilde{q}(z)} &
+      \end{align*}
+      e quindi al massimo $z_0$ è un polo di ordine $l-k$ (se $k > l$)
+      altrimenti è una singolarità eliminabile. 
+    \item Sia $f(z) = e^{1/z}$ allora possiamo vedere che ha una singolarità
+      essenziale all'origine
+      \begin{equation*}
+        e^{1/z} = \sum_{0}^{+\infty} \frac{1}{n!}\frac{1}{z^n} = \sum_{m
+        = -\infty}^{0} \frac{1}{(-m)!} z^m 
+      \end{equation*}
+  \end{enumerate}
+\end{example}
+
+\begin{theorem}
+    Se $f \in \mathcal{O}(D \setminus \left\{z_0  \right\})$ e $z_0$ è una
+    singolarità essenziale di $f$ allora $f(D \setminus \left\{ z_0 \right\})$
+    è denso in $\C$.
+  \label{thr:casorati_weierstrass}
+\end{theorem}
+\begin{proof}
+  % TODO
+\end{proof}
+
+
+\begin{remark}
+  Le singolarità isolate possono essere quindi caratterizzate dal
+  \emph{comportamento locale} di $f$ in $z_0$: 
+  \begin{enumerate}
+    \item $z_0$ è una singolarità eliminabile sse esiste il limite e 
+      $\lim_{z \to z_0} |f(z)| < +\infty$.
+    \item $z_0$ è polo di $f$ sse esiste i limite e vale $\lim_{z\to
+      z_0}|f(z)| = +\infty$
+    \item $z_0$ è singolarità essenziale sse non esiste il limite
+      $\lim_{z \to z_0} f(z)$. 
+  \end{enumerate}
+  \label{<+label+>}
+\end{remark}<++>
