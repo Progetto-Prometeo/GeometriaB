@@ -1,0 +1,234 @@
+\def \Res {\operatorname{Res}}
+
+\chapter{Residui}
+
+\section{Residuo e residuo a infinito}
+
+\begin{theorem}[Teorema dei Residui]
+  Sia $\Omega \subset \C$ aperto con $z_1, \cdots, z_n \in \Omega$ e $f \in
+  \mathcal{O}(\Omega')$ con $\Omega' = \Omega \setminus \left\{ z_1,\cdots, z_n
+  \right\}$. Sia $\gamma$ una catena di curve chiuse in $\Omega$ tale che
+  $\image(\gamma) \cap \left\{ z_1, \cdots,z_n \right\} = \varnothing$ e $\gamma
+  \sim_\Omega 0$. Allora vale 
+  \begin{equation*}
+    \int_\gamma f(z)\ dz = 2 \pi i \sum_{i=1}^{n} \Ind_\gamma(z_i)
+    \Res_{z_i}(f)
+  \end{equation*}
+  \label{thr:teorema_dei_residui}
+\end{theorem}
+\begin{proof}
+  Supponiamo che $\gamma = \sum_{i=1}^n \Ind_\gamma (z_i) \gamma_i$, allora
+  per il Teorema di Cauchy \ref{thr:formule-di-cauchy-generale} vale 
+  \begin{equation*}
+    \int_\gamma f(z) \ dz = \sum_{i = 1}^{n} m_i \int_{\gamma_i} f(z) \ dz
+    = \sum_{i=1}^n \Ind_\gamma(z_i) \Res_{z_i}(f)
+  \end{equation*}
+\end{proof}
+
+\begin{definition}
+  Si dice che $\Omega \subset \C$ è un \textbf{intorno aperto di $\infty$} se
+  è un aperto contenente il complemente di un insieme limitato di $\C$. Se $f
+  \in \mathcal{O}(\Omega)$ si dice che $f$ ha una \textbf{singolarità isolata
+  all'infinito} se la funzione $g(w) = f(1/w)$ ha una singolarità isolata a $w
+  = 0$. Il tipo di singolarità per $f$ in $\infty$ è lo stesso per $g$ in $0$.
+  Se $0$ è elimiminabile per $g$ allora si dice che $f$ è \textbf{olomorfa
+  all'inifito}. Il \textbf{residuo all'infinito} di $f$ è 
+  \begin{equation*}
+    \Res_\infty(f) = \Res_0\left( -\frac{g(w)}{w^2} \right)
+  \end{equation*}
+  \label{def:varie_definizioni_all'inifinito}
+\end{definition}
+
+\begin{lemma}
+  Sia $f \in \mathcal{O}(\Omega)$ con $\C \setminus B_0(R) \subset \Omega$.
+  Allora 
+  \begin{equation*}
+    \Res_\infty (f) = -\frac{1}{2\pi i } \int_{\gamma_R} f(z)\ dz
+  \end{equation*}
+  \label{lem:residuo_a_infinito}
+\end{lemma}
+\begin{proof}
+  Sia $g(w) = f(1/w)$. Allora il residuo a infinito di $f$ è uguale a 
+  \begin{equation*}
+    \Res_\infty(f) = \Res_0\left(-\frac{g(w)}{w^2}  \right) = \int_{\gamma}
+    -\frac{g(w)}{w^2}\ dw
+  \end{equation*}
+  dove con $\gamma \coloneqq e^{-it}/R$. Percorrendola in senso antiorario,
+  indichiamo questa curva con $-\gamma$, allora
+  \begin{equation*}
+    \int_{\gamma} -\frac{g(w)}{w^2}\ dw  = - \int_{0}^{2\pi}
+    \frac{g(\gamma(t))}{\gamma(t)^2} \gamma'(t)\ dt 
+  \end{equation*}
+  osservando che $-1/\gamma_R = \gamma$ otteniamo che 
+  \begin{align*}
+     \int_{0}^{2\pi} -\frac{g(\gamma(t))}{\gamma(t)^2} \gamma'(t)\ dt
+     & = \int_{0}^{\pi} f(\gamma_R(t)) \gamma'_R(t) \ dt\\
+     & = \int_{\gamma_R} f(z)\ dz
+  \end{align*}
+  ovvero la tesi.
+\end{proof}
+
+\begin{corollary}
+  Sia $f \in \mathcal{O}(\C \setminus \left\{ z_1, \cdots, z_n \right\}$. Allora 
+    \begin{equation*}
+      \Res_\infty(f) = - \sum_{i=1}^{n} \Res_{z_i}(f) = 0
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+  Basta integrale lungo una circonferenza $\gamma$ con $z_1, \cdots, z_n$ punti
+  interni e applicare il Teorema dei residui \ref{thr:teorema_dei_residui}.
+\end{proof}
+
+
+\section{Calcolo dei residui}
+
+\begin{lemma}
+  Sia $f$ una un polo semplice in $z_0$, ovvero di ordine $1$, e $g$ funzione 
+  olomorfa in un intorno di $z_0$, allora $\Res_{z_0}(fg) = g(z_0) \Res_{z_0}(f)$.
+  \label{lem:calcolo_residuo_prodotto_funz}
+\end{lemma}
+\begin{proof}
+  Sia $f(z) = a_{-1}(z-z_0)^{-1} + h(z)$ con $h$ olomorfa vicino a $z_0$. Sia
+  $g(z) = b_0 + h_1(z) (z-z_0)$ con $h_1$ olomorfa vicino a $z_0$. Allora
+  \begin{equation*}
+    f(z)g(z) = \frac{a_{-1}b_0}{z-z_0} + \left(a_{-1}h_1(z) + b_0h(z)
+    + h(z)h_1(z)(z-z_0)\right)
+  \end{equation*}
+  Notiamo che dal secondo membro in poi è una funzione olomorfa in un
+  intorno di $z_0$, vale quindi che la sua serie di Laurent è una serie di 
+  potenze. Pertanto il residuo in $z_0$ dev'essere
+  \begin{equation*}
+    \Res_{z_0}(fg) = a_{-1}b_0 = a_{-1}g(z_0)
+  \end{equation*}
+\end{proof}
+
+\begin{corollary}
+  Se $f$ ha uno zero semplice all'infinito allora 
+  \begin{equation*}
+    \Res_\infty(f) = - \lim_{z \to +\infty} z f(z)
+  \end{equation*}
+  \label{cor:calcolo_residuo_infinito}
+\end{corollary}
+\begin{proof}
+  Sia $g(w) = f(1/w)$. Allora sia $\hat{g}(w) = w h(w)$ l'estensione olomorfa di
+  $g$ (infatti $g$ ha un polo semplice in $w = 0$ per ipotesi), con $h(0) \neq 0$. 
+  Quindi $g(w)/w^2 = h(w)/w$ per ogni $w \neq 0$ allora $g(w)/w^2$ ha un polo 
+  semplice in $0$. Per il Lemma \ref{lem:calcolo_residuo_prodotto_funz} vale 
+  \begin{align*}
+    \Res_\infty(f) & = \Res_0\left( -\frac{g(w)}{w^2} \right)
+    = \Res_0\left(-\frac{1}{w} h(w)\right) \\
+    & = h(0) \Res_0 \left( -\frac{1}{w} \right) \\
+    & = - \lim_{w \to 0} \frac{g(w)}{w} \\
+    & = - \lim_{z \to 0} z f(z)
+  \end{align*}
+\end{proof}
+
+\begin{lemma}
+  Se $f$ è olomorfa nell'intorno di $z_0$ e in $z_0$ ha uno zero semplice allora
+  $1/f$ ha un polo semplice in $z_0$ e vale 
+  \begin{equation*}
+  \Res_{z_0}\left( \frac{1}{f} \right) = \frac{1}{f'(z_0)}
+  \end{equation*}
+  \label{lem:calcolo_residuo_zero_semplice_inversa}
+\end{lemma}
+\begin{proof}
+  Poiché $f$ ha uno zero semplice, vale $f(z) = (z-z_0) g(z)$ con $g$ olomorfa
+  in un intorno di $z_0$ e $g(z_0) = f'(z_0) \neq 0$. Quindi 
+  \begin{equation*}
+    \frac{1}{f(z)} = \frac{1}{z-z_0} \frac{1}{g(z)}
+  \end{equation*}
+  con $1/g$ olomorfa vicino a $z_0$. Per il Lemma
+  \ref{lem:calcolo_residuo_prodotto_funz} vale
+  \begin{equation*}
+    \Res_{z_0}\left(\frac{1}{f}\right) = \Res_{z_0}\left(\frac{1}{z-z_0}\right) 
+                        \frac{1}{g(z_0)}
+  \end{equation*}
+  poiché $\Res_{z_0} 1/(z-z_0) = 1$ vale la tesi, ovvero 
+  \begin{equation*}
+    \Res_{z_0}\left(\frac{1}{f}\right) = \frac{1}{g(z_0)}
+    = \frac{1}{f'(z_0)}
+  \end{equation*}
+\end{proof}
+
+\begin{lemma}
+  Se $f$ ha un polo di ordine $m$ in $z_0$ allora 
+  \begin{equation*}
+    \Res_{z_0}(f) = \frac{1}{(m-1)!} \lim_{z \to z_0} ((z-z_0)^m
+  f(z))^{(m-1)}
+  \end{equation*}
+  \label{lem:calcolo_residuo_polo}
+\end{lemma}
+\begin{proof}
+  Sia $g(z) = (z-z_0)^m f(z)$ allora questa è l'estensione olomorfa della
+  funzione $f$ che avrà serie di Laurent della forma
+  \begin{equation*}
+    g(z) = \sum_{n = 0}^{+\infty} b_n(z-z_0)^n
+  \end{equation*}
+  Per cui la serie di Laurent di $f$ diventa
+  \begin{equation*}
+    f(z) = b_0(z-z_0)^{-m} + \cdots + b_{m-1}(z-z_0)^{-1} + \cdots
+  \end{equation*}
+  allora 
+  \begin{equation*}
+    a_{-1} = \Res_{z_0}(f) = b_{m-1} = \frac{g^{(m-1)}(z_0)}{(m-1)!}
+  \end{equation*}
+  da cui la tesi.
+\end{proof}
+
+\begin{example}
+  \begin{enumerate}
+    \item Calcoliamo i residui della funzione $h(z) = z^2 / (z^2 - 1)$, allora $h
+        \in \mathcal{O}(\C \setminus \left\{ \pm 1 \right\}$ e vale la seguente
+         decomposizione
+         \begin{equation*}
+            h(z) = \frac{1}{z-1} \frac{z^2}{z+1} = f(z)g(z)
+         \end{equation*}
+         Quindi 
+         \begin{enumerate}
+            \item In $z = 1$, la funzione $f$ ha un polo semplice con residuo $1$ e $g$
+                è olomorfa in un intorno di $1$ quindi 
+                \begin{equation*}
+                    \Res_1(h) = g(1) \Res_1(f) = \frac{1}{2}
+                \end{equation*}
+            \item In $z = -1$, la funzione $g$ ha un polo semplice con residuo $1$
+                mentre $f$ è olomorfa in un intorno di $-1$ quindi 
+                \begin{equation*}
+                    \Res_{-1}(h) = f(-1) \Res_{-1}(g) = - \frac{1}{2}
+                \end{equation*}
+            \item All'infinito vale 
+                \begin{equation*}
+                    \Res_\infty(h) = - \Res_{1}(h) - \Res_{-1}(h) = 0
+                \end{equation*}
+         \end{enumerate}
+       \item Calcoliamo i residui di $h(z) = 1/ \sin(z)$. La funzione si annulla
+         solo in $z = k\pi$ con $k \in \Z$ e vale $\sin(z)' = \cos(z) \neq 0$
+         per $z \in k \pi$. Quindi sono poli semplici e per il Lemma
+         \ref{lem:calcolo_residuo_zero_semplice_inversa} allora vale 
+         \begin{equation*}
+           \Res_{k\pi}(h) = \frac{1}{\cos(k\pi)} = \pm 1
+         \end{equation*}
+         con $1$ se $k$ pari e $-1$ se $k$ dispari.
+       \item Consideriamo la funzione 
+         \begin{equation*}
+           h(z) = \frac{z^2}{z^3 - z^2 - z + 1} = \frac{z^2}{(z-1)^2(z+1)}
+         \end{equation*}
+         allora $h \in \mathcal{O}(\C \setminus \left\{ \pm 1 \right\}$ e 
+           \begin{enumerate}
+             \item Se $z = 1$ il polo è doppio quindi 
+               \begin{equation*}
+                 \Res_1(h) = \left(\frac{z^2}{z+1}\right)'|_{z = 1} = \frac{3}{4}
+               \end{equation*}
+             \item Se $z = -1$ il polo di ordine $1$ quindi
+               \begin{equation*}
+                 \Res_{-1}(h) = \frac{(-1)^2}{(-1-1)^2} = \frac{1}{4} 
+               \end{equation*}
+             \item Invece a infinito diventa 
+               \begin{equation*}
+                 \Res_\infty(h) = - \frac{3}{4} - \frac{1}{4} = -1
+               \end{equation*}
+           \end{enumerate}
+  \end{enumerate}
+\end{example}
+
+
+\section{Applicazioni dei residui agli integrali impropri}
