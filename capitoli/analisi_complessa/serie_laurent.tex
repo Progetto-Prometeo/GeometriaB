@@ -1,0 +1,346 @@
+\chapter{Serie di Laurent}
+
+\begin{definition}
+  Una \emph{serie di Laurent} è una serie di funzioni della forma 
+  \begin{equation*}
+    \sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n = \sum_{n=1}^{+\infty} a_{-m}
+            \frac{1}{(z-z_0)^m} + \sum_{n=0}^{+\infty} a_n(z - z_0)^{n}
+  \end{equation*}
+con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
+\setminus \left\{ z_0 \right\}$.
+  \label{def:serie_laurent}
+\end{definition}
+
+\begin{proposition}
+  Esistono $r, R \in \left[ 0, +\infty \right]$ tali che la serie 
+  \begin{equation*}
+    \sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n
+  \end{equation*}
+  converge assolutamente su una corona circolare 
+  \begin{equation*}
+    D \coloneqq \left\{ z \in \C \,\middle|\, r < |z-z_0| < R \right\}
+  \end{equation*}
+  e converge uniformemente su ogni corona chiusa
+  \begin{equation*}
+    K \coloneqq \left\{ z \in C \,\middle|\, r' \le |z-z_0| \le R' \right\}
+  \end{equation*}
+  con $r' > r$ e $R' < R$.
+  \label{prp:convergenza_ass_unif_laurent}
+\end{proposition}
+\begin{proof}
+  Osserviamo che la serie di Laurent si può scrivere come sommatoria di due serie di
+  potenze
+  \begin{align}
+    \label{eq:serie_laurent_pos}
+    \sum_{n=0}^{+\infty} a_n (z-z_0)^{n} \\
+    \label{eq:serie_laurent_neg}
+    \sum_{m=-\infty}^{0} a_{m} \frac{1}{(z-z_0)^{m}}
+  \end{align}
+  la seconda basta fare una sostituzione $w = 1/(z-z_0)$ e diventa una serie di
+  potenze.
+  Per il Teorema di Hadamard \ref{thr:criterio-hadamard} le serie di potenze
+  hanno un raggio di convergenza, quindi denotiamo con $R, R_1 \in \left[ 0, 
+  +\infty \right]$ rispettivamente il raggio di convergenza della serie di
+  potenze \ref{eq:serie_laurent_pos} e della serie di potenze
+  \ref{eq:serie_laurent_neg}. Ponendo $r = 1/R_1$ si ottiene il raggio di
+  convergenza della parte della serie di potenze negativa (ovvero formula
+  \ref{eq:serie_laurent_neg}) in funzione di $z$. Pertanto la serie di Laurent
+  converge (la parte a indici negativi) assolutamente in 
+  $\left\{z \in \C \,\middle|\, |z-z_0| > r \right\}$
+  e uniformemente in $\left\{ z \in \C \,\middle|\, |z-z_0| \ge r' \right\}$ per
+  ogni $r' > r$. Analogamente la parte a indici positivi converge assolutamente
+  in $\left\{ z \in \C \,\middle|\, |z -z_0| < R  \right\}$ e uniformemente per
+  ogni $R' < R$ in $\left\{ z \in \C \,\middle|\, |z -z_0| \le R'  \right\}$.
+  Intersecando gli insiemi di convergenza per la serie a indici positivi
+  e quella a indici negativi, otteniamo la tesi.
+\end{proof}
+
+\begin{remark}
+  Se $r < R$ la corona $C_{z_0}(r,R) \coloneqq \left\{ z \in \C \,\middle|\,
+  r < |z - z_0|  < R \right\}$ è non vuota e la serie di Laurent ha somma $f \in
+  \mathcal{O}(C_{z_0}(r,R))$. Viceversa se $f$ è olomorfa su una corona si
+  ottiene lo sviluppo di Laurent della funzione.
+  \label{rmk:reverso_card_holo_func}
+\end{remark}
+
+\begin{theorem}
+  Sia $f \in \mathcal{O}(\Omega)$ e $\Omega \subset \C$ aperto contenente la
+  corona circolare chiusa 
+  \begin{equation*}
+    \overline{C_{z_0}(r,R)} \coloneqq \left\{ z \in \C \,\middle|\,
+            \le < |z - z_0| \le R \right\}
+  \end{equation*}
+  allora si può scrivere $f$ come somma di una serie di Laurent, ovvero 
+  \begin{equation*}
+    f(z) = \sum_{n = -\infty}^{+\infty} a_n(z-z_0)^n
+  \end{equation*}
+  dove $z \in C_{z_0}(r,R)$. Vale la convergenza assoluta su $C_{z_0}(r,R)$ e la
+  convergenza uniforme su $\overline{C_{z_0}(r',R')}$ con $r < r' < R' < R$.
+  I coefficienti $a_n$ sono della seguente forma 
+  \begin{equation*}
+    a_n = \frac{1}{2\pi i} \int_{\gamma_{r''}} \frac{f(w)}{(w-z_0)^{n+1}}\ dw
+  \end{equation*}
+  dove $\gamma_{r''} = \partial B_{z_0}(r'')$ percorso in senso antiorario con
+  $r \le r'' \le R$.
+  \label{thr:function_as_laurent_series}
+\end{theorem}
+\begin{proof}
+  Siano $R,r$ i raggi di convergenza della corona della serie di Laurent. Allora
+  definiamo $\Gamma = \gamma_R - \gamma_r \sim_\Omega 0$. Sappiamo per omologia
+  quindi che $z \in C_{z_0}(r,R)$ allora $1 = \Ind_{\Gamma}(z) = 
+  \Ind_{\gamma_R}(z) - \Ind_{\gamma_r}(z)$ e per definizione dell'indice 
+  sappiamo che $\Ind_{\gamma_R} = 1$ e quindi $\Ind_{\gamma_r} = 0$. 
+  Per cui per il Teorema delle Formule Integrale di Cauchy
+  \ref{thr:formule-di-cauchy-generale} si ottiene che 
+  \begin{equation*}
+    f(z) = f(z)\Ind_{\Gamma}(z) = \frac{1}{2\pi i} \int_{\gamma_R}
+    \frac{f(w)}{w-z}\ dw - \frac{1}{2\pi i}\int_{\gamma_r} \frac{f(w)}{w-z}\ dw
+  \end{equation*}
+  e il primo integrale, in modo analogo a quanto fatto nel Teorema di
+  Weierstrass \ref{thr:weierstrass-analitic-local-form} diventano i termini positivi 
+  della serie di Laurent, ovvero
+  \begin{equation*}
+    \frac{1}{2\pi i }\int_{\gamma_R} \frac{f(w)}{w-z}\ dw
+    = \sum_{n=0}^{+\infty} a_n (z-z_0)^{n}
+  \end{equation*}
+  Il secondo integrale si sviluppa in modo analogo solo che essendoci il meno
+  cambia il segno
+  \begin{equation*}
+    - \int_{\gamma_r} \frac{f(w)}{w-z}\ dw = \int_{\gamma_r}
+    \frac{f(w)}{z-z_0} \frac{1}{1- \frac{w-z_0}{z -z_0}}\ dw
+  \end{equation*}
+  possiamo vedere il secondo membro della moltiplicazione come una serie
+  geometrica e quindi si ottiene che 
+  \begin{equation*}
+    -\int_{\gamma_r} \frac{f(w)}{w-z_0}\ dw = \sum_{n=-\infty}^{0}
+    \int_{\gamma_r} \frac{f(w)}{(w-z_0)^{n+1}}\ dw (z-z_0)^n
+  \end{equation*}
+  Per concludere basta osservare che per ogni $\partial B_{z_0}(r')$ con $r \le
+  r' \le R$ si ha che $\gamma_r \sim_{\Omega} \gamma_{r'} \sim_{\Omega}
+  \gamma_R$ e quindi si ottiene che ogni $a_n$ si può scrivere come 
+  \begin{equation*}
+    a_n = \frac{1}{2\pi i} \int_{\gamma_{r'}} \frac{f(w)}{(w-z_0)^{n+1}}\ dw
+  \end{equation*}
+\end{proof}
+
+\begin{remark}
+  Al posto di $\gamma_{r'}$ nella forma di $a_n$ può essere presa una qualsiasi
+  curva omotopa al disco. In partiolare basta che sia una curva di Jordan.
+  \label{rmk:cambiamento_bordo_di_integrazione}
+\end{remark}
+
+\begin{remark}
+  Se $f$ è olomorfa sul disco $B_{z_0}(R)$ i coefficienti $a_n$ con $n < 0$ sono
+  tutti nulli, infatti la funzione $f(w) / (w-z_0)^{n+1}$ è olomorfa sul disco
+  e quindi ammette primitiva ed essendo che il disco è una curva chiusa si ha
+  che tutti i coefficienti a indice negativo della serie di Laurent si
+  annullino.
+  \label{rmk:coefficienti_negativi}
+\end{remark}
+
+\begin{definition}
+  Il coefficiente della serie di Laurent $a_{-1}$ è detto \emph{residuo} di $f$
+  in $z_0$ 
+  \begin{equation*}
+    a_{-1} \coloneqq \frac{1}{2\pi i} \int_{\gamma} f(w)\ dw
+  \end{equation*}
+  per ogni curva di Jordan $\gamma$ in $\Omega$ e $z_0 \in
+  \operatorname{interno}(\gamma)$.
+  \label{def:residuo}
+\end{definition}
+
+\section{Singolarità}
+
+\begin{definition}
+  Sia $D$ un disco aperto centrato in $z_0$. Se $f \in \mathcal{O}(D \setminus
+  \left\{ z_0 \right\})$ si dice che $z_0$ è una \emph{singolarità isolata} di
+  $f$.
+  \label{def:singolarità_isolata}
+\end{definition}
+
+\begin{example}
+  \begin{enumerate}
+    \item Se una singolarità è eliminabile allora è anche isolata, dato che $f$
+      è olomorfa ovunque tranne nel punto dove ha una singolarità.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}[Classificazione singolarità isolate]
+  Sia $z_0$ singolarità isolata di $f \in \mathcal{O}(\Omega \setminus \left\{
+  z_0 \right\})$ e siano $\{a_n\}_{n=-\infty}^{+\infty}$ i coefficienti della
+  rispettiva serie di Laurent. Allora
+  \begin{enumerate}
+    \item $z_0$ è \emph{eliminabile} sse $a_n = 0$ per ogni $n < 0$.
+    \item $z_0$ è un \emph{polo di ordine} $m > 0$ di $f$ sse $a_{-m} \neq 0$ e $a_n
+      = 0$ per ogni $n < -m$.
+    \item $z_0$ è una \emph{singolarità essenziale} sse esistono infiniti coefficienti
+      $a_n \neq 0$ con $n < 0$.
+  \end{enumerate}
+  \label{def:classificazione_singolarita_per_serie_di_laurent}
+\end{definition}
+
+\begin{remark}
+  Sia $f \in \mathcal{O}(\Omega \setminus \left\{ z_0 \right\})$ tale che ha serie di 
+  Laurent $a_n = 0$ per ogni $n < 0$  allora $f$ può essere estesa come una 
+  funzione olomorfa su tutto $\Omega$ (teorema di distruzione della singolarità).
+  Quindi il suo sviluppo di Laurent equivale a quello della sua estensione.\\
+  
+  Se $f$ invece ha una singolarità eliminabile, allora posso \emph{eliminare} la
+  singolarità e definire $\tilde{f}$ tale che è uguale $f$ ovunque e olomorfa su
+  tutto $\Omega$. Quindi 
+  \begin{equation*}
+    a_n = \frac{1}{2\pi i} \int_{\gamma_R} \frac{f(w)}{w-z_0}\ dw 
+        = \frac{1}{2\pi i} \int_{\gamma_R} \frac{\tilde{f}(w)}{w-z_0}\ dw
+  \end{equation*}
+  ma poiché $\tilde{f} \in \mathcal{O}(\Omega)$ segue che $a_n = 0$ per il teorema
+  della forma integrale di Cauchy.
+  \label{rmk:equivalenza_definizioni_sing_eliminabili}
+\end{remark}
+
+\begin{example}
+  \begin{enumerate}
+    \item Sia $f(z) = 1/z$ allora proviamo a vedere che tipo di singolarità ha
+      in $z = 0$, il residuo è 
+      \begin{equation*}
+        % TODO: check if my calcs are correct
+        \operatorname{Res}_f(0) = \frac{1}{2\pi i } \int_{\gamma} f(w)\ dw = 1
+      \end{equation*}
+      Per per ogni $n < 1$ i coefficienti si azzerano. Quindi ha un polo di ordine
+      $1$.
+    \item Sia invece 
+      \begin{equation*}
+        f(z) = \frac{z}{(\cos(z) - 1)^2}
+      \end{equation*}
+      allora stimando $\cos(z) - 1 = -z^2/2 + o(z^3) = z^2 h(z)$ con $h(0)
+      = -1/2$ e $h \in \mathcal{O}(\Omega)$. Allora 
+      \begin{equation*}
+        f(z) = \frac{z}{z^4h(z)^2} = \frac{1}{z^3} \frac{1}{h(z)^2}
+      \end{equation*} 
+      con $1/h^2$ olomorfa su un intorno di $z = 0$. Quindi possiamo osservare
+      che $1/h^2 = \sum_{n=0}^{+\infty} b_n z^n$ per qualche $b_n \in \C$.
+      Infine si ottiene che 
+      \begin{equation*}
+        f(z) = \frac{b_0}{z^3} + \frac{b_1}{z^2} + \cdots
+      \end{equation*}
+      ovvero $f$ ha un polo di ordine $3$ nell'origine.
+  \end{enumerate}
+\end{example}
+
+\begin{proposition}
+  Una funzione $f \in \mathcal{O}(D \setminus \{z_0\})$ definita su un disco
+  aperto $D$ ha un polo di ordine $m$ in $z_0$ se e solo se $g \coloneqq 1/f$ 
+  è olomorfa in un intorno di $z_0$ e ha \emph{uno zero di ordine $m$} in $z_0$.
+  \label{prp:caratterizzazione_poli}
+\end{proposition}
+\begin{proof}
+  Dimostriamo che se $f$ ha un polo di ordine $m$ in $z_0$ allora $g$ è olomorfa in un
+  intorno di $z_0$ e ha uno zero di ordine $m$. Essendo olomorfa allora per la
+  decomposizione in serie di Laurent possiamo osservare che $h(z) \coloneqq
+  f(z)(z-z_0)^m$ (è olomorfa su tutto $D$ questa), allora ha sviluppo solo in serie 
+  di potenze. In particolare   
+  \begin{equation*}
+    h(z_0) = \lim_{z \to z_0} f(z)(z-z_0)^{m} = a_{-m}  
+  \end{equation*}
+  Quindi $g(z) = 1/f(z) = (z-z_0)^m 1/h(z)$ è olomorfa in un intorno $I$ di $z_0$.
+  E ovviamente ha sviluppo in serie di potenze in $I$, ovvero ha forma
+  \begin{equation*}
+    g(z) = \frac{1}{a_{-m}} (z-z_0)^{m} + \cdots
+  \end{equation*}
+  ovvero ha uno zero di oridne $m$ in $z_0$.\\
+
+  Dimostriamo l'implicazione nel senso contrario, anche se è del tutto analogo
+  a quanto fatto precedentemente. Allora è ovvio che 
+  \begin{equation*}
+    g(z) = (z-z_0)^m \tilde{h}(z)
+  \end{equation*}
+  con $\tilde{h}(z_0) \neq 0$ (altrimenti avrei uno zero di ordine maggiore di
+  $m$). Per definizione di $g$ si può scrivere 
+  \begin{equation*}
+    f(z) = \frac{1}{g(z)} = (z-z_0)^{-m} \frac{1}{\tilde{h}(z)}
+  \end{equation*}
+  poiché $g$ era olomorfa in un intorno di $z_0$, dev'essere che $\tilde{h}$
+  abbia come sviluppo di Laurent uno sviluppo in serie di potenze, per cui 
+  \begin{equation*}
+    f(z) = a_{-m} (z-z_0)^{-m} + \cdots
+  \end{equation*}
+  e poiché $a_{-m} \neq 0$ segue che $f$ ha un polo di ordine $m$ in $z_0$.
+\end{proof}
+
+\begin{remark}
+  Se $z_0$ è un polo di ordine $m > 0$ di $f$ e $f(z)(z-z_0)^m = h(z)$, allora
+  $h \in \mathcal{O}(D)$ poiché la sua espansione di Laurent è una serie di
+  potenze  
+  \begin{equation*}
+    \lim_{z\to z_0} \left|\frac{h(z)}{(z-z_0)^m}\right| = \lim_{z\to z_0} |f(z)|
+    = + \infty
+  \end{equation*}
+  quindi segue che $h(z) = f(z)(z-z_0)^m = c \in \C$ finito per $z \to z_0$. 
+  \label{rmk:limitatezza_tolto_il_polo}
+\end{remark}
+
+\begin{definition}
+  Sia $S \subset \Omega$ sottoinsieme discreto dell'aperto $\Omega$. Se $f \in
+  \mathcal{O}(\Omega \setminus S)$ e $f$ ha poli o singolarità eliminabili nei
+  punti di $S$, allora $f$ è detta \emph{meromorfa} su $\Omega$. Lo indicheremo
+  con $f \in \mathcal{M}(\Omega)$.
+  \label{def:meromorfismo}
+\end{definition}
+
+\begin{example}
+  \begin{enumerate}
+    \item Se funzione razionale $f= p / q$ dove $p,q$ sono polinomi complessi
+      e ovviamente $q \neq 0$ allora $f \in \mathcal{M}(\Omega)$. Infatti se
+      $z_0$ è uno zero di $q$ di ordine $k$ allora possiamo supporre che al
+      massimo per $l \ge 0$ vale 
+      % TODO: formattare meglio questa espressione
+      \begin{align*}
+        & p(z) = (z-z_0)^l \tilde{p}(z) &  & q(z)  = (z-z_0)^k \tilde{q}(z)  \\
+        & & \Longrightarrow f(z)  = (z-z_0)^{l-k}
+        \frac{\tilde{p}(z)}{\tilde{q}(z)} 
+      \end{align*}
+      e quindi al massimo $z_0$ è un polo di ordine $l-k$ (se $k > l$)
+      altrimenti è una singolarità eliminabile. 
+    \item Sia $f(z) = e^{1/z}$ allora possiamo vedere che ha una singolarità
+      essenziale all'origine
+      \begin{equation*}
+        e^{1/z} = \sum_{0}^{+\infty} \frac{1}{n!}\frac{1}{z^n} = \sum_{m
+        = -\infty}^{0} \frac{1}{(-m)!} z^m 
+      \end{equation*}
+  \end{enumerate}
+\end{example}
+
+\begin{theorem}
+    Se $f \in \mathcal{O}(D \setminus \left\{z_0  \right\})$ e $z_0$ è una
+    singolarità essenziale di $f$ allora $f(D \setminus \left\{ z_0 \right\})$
+    è denso in $\C$.
+  \label{thr:casorati_weierstrass}
+\end{theorem}
+\begin{proof}
+  Supponiamo che $\overline{f(D \setminus \left\{ z_0 \right\})} \neq \C$ allora
+  esiste $\alpha \in \C$ e $\delta > 0$ tale che $B_{\alpha}(\delta) \cap f(D
+  \setminus \left\{ z_0 \right\}) = \varnothing$ cioè $|f(z) - \alpha| \ge
+  \delta$ per ogni $z \in D \setminus \left\{ z_0 \right\}$. Sia quindi
+  \begin{equation*}
+    g(z) = \frac{1}{f(z) - \alpha} \in \mathcal{O}(D \setminus \left\{ z_0
+      \right\}
+  \end{equation*}
+  allora $g \le 1/\delta$, ovvero è limitata. Pertanto $g$ ha una singolarità
+  eliminabile in $z_0$ e questo indica che $f - \alpha$ può avere al massimo una
+  discontinuità eliminabile o un polo. Ma $f$ ha una singolarità essenziale, da
+  cui l'assurdo.
+\end{proof}
+
+
+\begin{remark}
+  Le singolarità isolate possono essere quindi caratterizzate dal
+  \emph{comportamento locale} di $f$ in $z_0$: 
+  \begin{enumerate}
+    \item $z_0$ è una singolarità eliminabile sse esiste il limite e 
+      $\lim_{z \to z_0} |f(z)| < +\infty$.
+    \item $z_0$ è polo di $f$ sse esiste i limite e vale $\lim_{z\to
+      z_0}|f(z)| = +\infty$
+    \item $z_0$ è singolarità essenziale sse non esiste il limite
+      $\lim_{z \to z_0} f(z)$. 
+  \end{enumerate}
+  \label{rmk:comportamento_locale_singolarita}
+\end{remark}
