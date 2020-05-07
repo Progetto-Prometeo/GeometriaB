@@ -231,4 +231,306 @@
 \end{example}
 
 
-\section{Applicazioni dei residui agli integrali impropri}
+\section{Applicazioni dei residui agli integrali reali}
+
+Dividiamo l'argomento in due casi. Il primo caso è quello in cui
+$\morphism{f}{\C}{\C}$ ristretto all'asse reale non presenta singolarità. Il
+secondo caso è quello in cui $f|_\R$ ha delle singolarità di qualche tipo.
+
+\begin{proposition}[Caso I]
+  \label{prop:caso-i}
+  Consideriamo $\morphism{f}{\R}{\R}$ una funzione reale continua, intesa come
+  restrizione di $g \in \mathcal{O}(\Omega \setminus \left\{ z_1, \cdots,z_n
+  \right\})$ e con $\Im(z_1), \cdots,\Im(z_n) > 0$ e $\Omega \supset \left\{
+  z \in \C \,\middle|\, \Im(z) \ge 0 \right\}$. Se esistono $K,M > 0$ e $a > 0$ 
+  tali che 
+  \begin{equation*}
+    |f(z)| \le \frac{K}{|z|^{1+a}}
+  \end{equation*}
+  per $|z| \ge M$, allora vale
+  \begin{equation}
+    \label{eq:integrale_improprio_no_poli_reali}
+    \int_{-\infty}^{+\infty} f(x)\ dx = 2\pi i \sum_{i=1}^{n} \Res_{z_i}(f)
+  \end{equation}
+\end{proposition}
+\begin{proof}
+   Per $x \in \R$ vale $|f(x)| \le K/|x|^{1+a}$ che è integrabile su $(-\infty,
+  \alpha)$ e su $(\beta, +\infty)$ per ogni $\alpha < 0$ e $\beta > 0$. Quindi
+  esistono i limiti 
+  \begin{align*}
+    \lim_{R\to +\infty} \int_{-R}^{\alpha}f(x)\ dx &= L^+ \in \R \\
+    \lim_{R \to +\infty} \int_{\beta}^{R} f(x)\ dx &= L^- \in \R 
+  \end{align*}
+  e quindi esiste il limite
+  \begin{equation*}
+    \int_{-\infty}^{+\infty}f(x)\ dx = \lim_{R\to+\infty} \int_{-R}^R f(x) \ dx
+  \end{equation*}
+  Per dimostrare la formula applichiamo il Teorema dei Residui a $f$ lungo la
+  catena $\Gamma$ ottenuta come in Figura \ref{fig:residui_1}. 
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/analisi_complessa/residui_figura_1.png}
+    \caption{Integrazione lungo curva}
+    \label{fig:residui_1}
+  \end{figure}
+  Quindi otteniamo 
+  \begin{equation*}
+    2 \pi i \sum_{i=1}^{n} \Res_{z_i}(f) = \int_{I_R} f(z)\ dz + \int_{\Gamma_R}
+    f(z)\ dz
+  \end{equation*}
+  il secondo integrale osserviamo che 
+  \begin{equation*}
+    \left|\int_{\Gamma_R} f(z)\ dz \right| \le
+    \frac{K}{R^{1+a}}\mathcal{H}^{1}(\Gamma_R) = \frac{\pi K}{R^{a}}
+  \end{equation*}
+  e quindi tende a $0$ per $R \to +\infty$. Mentre il primo integrale
+  corrisponde all'integrale improprio che volevamo calcolare. Da cui
+  \begin{equation*}
+     \int_{-\infty}^{+\infty} f(x)\ dx = 2\pi i \sum_{i=1}^{n} \Res_{z_i}(f)
+  \end{equation*}  
+\end{proof}
+
+\begin{proposition}[Caso II]
+	\label{prop:caso-ii}
+    Sia $\morphism{f}{\R}{\R}$ una funzione reale continua, resitrizione di una
+    funzione complessa $g \in \mathcal{O}(\Omega \setminus \left\{ z_1, \cdots,
+    z_n\right\}$ e con $\Omega \supset \left\{ z \in \C \,\middle|\, \Im(z) \ge
+    0\right\}$ e $z_1, \cdots, z_n \in \left\{ z \in \C \,\middle|\, \Im(z)
+    > 0 \right\}$. Se esistono $K,M > 0$ tali che 
+    \begin{equation*}
+      |f(z)| \le \frac{K}{|z|}
+    \end{equation*}
+    allora vale 
+    \begin{equation*}
+      \int_{-\infty}^{+\infty} f(x) e^{ix} \ dx = 2\pi i \sum_{i=1}^n
+      \Res_{z_i}(f(z) e^{iz})  
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    Essenzialmente ci ritroviamo a usare il Teorema dei Residui in modo analogo
+    al caso I, solo che questa volta considereremo un quadrato dato che abbiamo
+    anche la parte complessa della funzione $f$. Infatti possiamo riscrivere
+    l'integrale come segue:
+    \begin{equation*}
+      \int_{-\infty}^{+\infty} f(x) e^{ix}\ dx = \int_{-\infty}^{+\infty}
+      f(x)\cos(x) \ dx + i\int_{-\infty}^{+\infty} f(x)\sin(x)\ dx
+    \end{equation*}
+    Integriamo lungo il quadrato $\Gamma_{A,B}$ descritto in 
+    Figura \ref{fig:residui_funz_fourier}
+    
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.4\linewidth]{images/analisi_complessa/residui_figura_2.png}
+      \caption{Visualizzazione delle curve di integrazione}
+      \label{fig:residui_funz_fourier}
+    \end{figure}
+
+    Spezziamo quindi l'integrazione sul quadrato nei suoi quattro lati,
+    e mostriamo che l'integrale su $L_B, L_A, L^+$ tendono a $0$ per $A,B \to
+    +\infty$. Scegliamo $A,B \ge M$, in maniera tale da poter poi limitare la
+    funzione $f$. Prendiamo quindi il caso di $L^+$ che parametriziamo con la 
+    curva $\gamma^+(x) = -x + i(A+B)$. Allora
+    \begin{align*}
+      \left| \int_{\gamma^+} f(z)e^{iz}\ dz  \right| & = \left| \int_{-A}^B f(-x
+      + i(A+B)) (-e^{-ix - (A+B)}\ dx\right| \\
+        & \le \frac{K}{T}e^{-(A+B)} \mathcal{H}^1(\gamma^+) = Ke^{-(A+B)}
+    \end{align*}
+    l'ultima disuguaglianza dipende dal fatto che $|f(z)| \le K/(A+B)$ per $|z| \ge
+    (A+B) \ge M$. \\
+
+    Consideriamo ora il caso del lato $L_A$, parametrizzato dalla curva
+    $\gamma_A(y) = A + iy$, allora
+    \begin{equation*}
+      \left|\int_{\gamma_A} f(z) e^{iz}\right| 
+      = \left|\int_{0}^{A+B} f(A+iy)e^{-y + iA}i \ dy \right| 
+      \le \frac{K}{A} \int_{0}^{A+B} e^{-y}\ dy
+    \end{equation*}
+    e questo ovviamente tende a $0$ per $A+B \to +\infty$.\\
+    Quindi per il Teorema dei Residui
+    \begin{equation*}
+      2 \pi i \sum_{i=1}^n \Res_{z_i} (f) = \int_{\Gamma_{A,B}} f(z)e^{iz}\ dz 
+    \end{equation*}
+    e il membro di destra ha come solo sopravvissuto 
+    \begin{equation*}
+      \int_{\Gamma_{A,B}} f(z)e^{iz}\ dz = \int_{A}^{B} f(z)e^{iz}\ dz \quad\
+      \text{per}\ A+B \to 0
+    \end{equation*}
+    da cui vale la tesi.
+\end{proof}
+
+\begin{proposition}[Caso III]
+  
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\linewidth]{images/analisi_complessa/residui_figura_3.png}
+    \caption{Descrizione delle ipotesi}
+  \end{figure}
+
+  Sia $\Omega$ aperto e $z_0 \in \Omega$ e $f \in
+  \mathcal{O}(\Omega\setminus\left\{ z_0 \right\})$. Sia
+  $\overline{B_{z_0}}(\delta) \subset \Omega$ e sia $\gamma_\tau$ l'arco di
+  raggio $\tau$ con $\theta_1 \le \operatorname{arg}(\gamma_\tau) \le \theta_2$
+  e $\tau \le \delta$. Se $f$ ha un polo semplice o una singolarità eliminabile
+  in $z_0$ allora vale
+  \begin{equation*}
+    \lim_{\tau \to 0} \int_{\gamma_{\tau}} f(z) \ dz = ib(\theta_2-\theta_1)
+  \end{equation*}
+  \label{prop:caso-iii}
+\end{proposition}
+\begin{proof}
+  Possiamo riscrivere 
+  \begin{equation*}
+    f(z) = \frac{b}{z-z_0} + h(z)
+  \end{equation*}
+  con $h$ olomorfa in un intorno di $z_0$. Quindi
+  \begin{equation*}
+    \int_{\gamma_\tau} f(z)\ dz = \int_{\theta_1}^{\theta_2}
+    \frac{b}{\tau e^{i\theta}} i \tau e^{i\theta} \ d\theta + \int_{\gamma_\tau}
+    h(z)\ dz
+  \end{equation*}
+  per cui mostriamo che il secondo integrale converge a $0$ in modulo, ovvero
+  \begin{equation*}
+    \left| \int_{\gamma_\tau} h(z)\ dz \right| \le \max_{\gamma_\tau} |h|
+    \mathcal{H}^1(\gamma_\tau) 
+  \end{equation*}
+  ma la lunghezza di $\gamma_\tau\to 0$ per $\tau \to 0$, quindi tutto
+  l'integrale tende a $0$.
+  Per cui
+  \begin{equation*}
+    \lim_{\tau\to 0} \int_{\gamma_\tau} f(z)\ dz = \lim_{\tau \to 0} 
+    \int_{\theta_1}^{\theta_2} \frac{b}{\tau e^{i\theta}} i \tau e^{i\theta}
+    \ d\theta \to ib(\theta_2 - \theta_1) 
+  \end{equation*}
+\end{proof}
+
+\begin{proposition}[Caso IV - Funzioni razionali]
+  \label{prop:caso-iv}
+  Siano $g,h$ polinomi reali in $x,y$ con $h \neq 0$ per $x^2 + y^2 = 1$. Allora
+  possiamo definire la funzione razionale 
+  \begin{equation*}
+    Q(x,y) \coloneqq \frac{g(x,y)}{h(x,y)} 
+  \end{equation*}
+  e vale la seguente formula
+  \begin{equation*}
+    \int_0^{2\pi} Q(\cos(\theta), \sin(\theta)) \ d\theta = 2\pi
+    i \sum_{i=1}^n \Res_{z_i} (f)
+  \end{equation*}
+  dove 
+  \begin{equation*}
+    f(z) \coloneqq \frac{1}{iz} Q\left( \frac{z+z^{-1}}{2},
+    \frac{z-z^{-1}}{2i} \right)
+  \end{equation*}
+\end{proposition}
+\begin{proof}
+  Consideriamo il cerchio centrato nell'origine e di raggio $1$, parametrizzato
+  dalla curva $\gamma = \partial B_0(1) = e^{i\theta}$ (con $\theta \in \left[
+  0,2\pi \right]$). Allora
+  \begin{equation*} 
+    f(e^{i\theta}) = \frac{1}{ie^{i\theta}}
+    Q\left(\cos(\theta),\sin(\theta)\right)
+  \end{equation*}
+  e quindi 
+  \begin{equation*}
+    \int_{\gamma} f(z) \ dz = \int_{0}^{2\pi} Q(\cos(\theta), \sin(\theta))\
+    d\theta
+  \end{equation*}
+  e infine per il Teorema dei Residui si ottiene la tesi.
+\end{proof}
+
+\begin{example}
+  \begin{enumerate}
+    \item Calcoliamo 
+      \begin{equation*}
+        I = \int_{0}^{+\infty} \frac{1}{(1+x^2)^2}\ dx = \int_{0}^{+\infty}
+        f(x)\ dx
+      \end{equation*}
+      possiamo vedere che la funzione è pari, quindi 
+      \begin{equation*}
+        2I = \int_{-\infty}^{+\infty} \frac{1}{(1+x^2)^2}\ dx
+      \end{equation*}
+      inoltre mostriamo che $f(z)$ è limitata. Quindi 
+      \begin{equation*}
+        |f(z)| = \left|\frac{z^{-4}}{(z^{-2}+1)^2}\right|
+        = \frac{|z|^{-4}}{|z^{-2}+1|^2} \le \frac{1}{z^{4}(1-M^2)^2}
+      \end{equation*}
+      con $|z| \ge M > 1$. Quindi la funzione è limitata a infinito. Calcoliamo
+      infine i residui di $f$ in $\pm i$, ma solo uno dei poli sta nel
+      semispazio $\Im(i) > 0$. Quindi dalla formula
+      \eqref{eq:integrale_improprio_no_poli_reali} risulta
+      \begin{equation*}
+        2I = 2\pi i \Res_{i}(f) = 2\pi i \frac{1}{4i} = \frac{\pi}{2}
+      \end{equation*}
+    \item Proviamo a calcolare 
+      \begin{equation*}
+        I = \int_{-\infty}^{+\infty} \frac{\cos(x)}{1+x^2}\ dx  
+      \end{equation*}
+      definiamo $f(z) = 1/(1+z^2)$ allora questa risulta limitata in modulo
+      a infinito. Inoltre possiamo vedere che l'integrale $I$ è 
+      \begin{equation*}
+        I = \Re\left( \int_{-\infty}^{+\infty} \frac{e^{ix}}{1+x^2} \ dx\right)
+      \end{equation*}
+      ovvero possiamo riscrivere per quanto visto nella Proposizione \ref{prop:caso-ii} che 
+      \begin{equation*}
+        I = \Re\left( 2\pi i \Res_{i} \left(\frac{e^{iz}}{1+z^2} \right) \right)
+      \end{equation*}
+      e poiché il residuo è $e^{-1}/2i$ si ottiene 
+      \begin{equation*}
+        I = \Re\left( \pi e^{-1} \right) = \frac{\pi}{e}
+      \end{equation*}
+    \item Calcoliamo l'integrale seguente 
+      \begin{equation*}
+        I = \int_{-\infty}^{+\infty} \frac{\sin(x)}{x}\ dx
+      \end{equation*}
+      Allora possiamo vedere che ha una singolarità in $0$, definiamo $f(z)
+      = 1/z$ e la curva $\Gamma$ come in figura 
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.4\linewidth]{images/analisi_complessa/residui_figura_4.png}
+        \caption{Visualizzazione della curva $\Gamma$}
+      \end{figure}
+      Allora possiamo risolvere come nel caso II ma dobbiamo spezzare
+      l'integrale in $3$ curve:
+      \begin{equation*}
+        \int_{-\infty}^{-\varepsilon} \frac{e^{ix}}{x}\ dx +
+        \int_{\gamma_\varepsilon} \frac{e^{iz}}{z}\ dz +
+        \int^{+\infty}_{+\varepsilon} \frac{e^{ix}}{x}\ dx
+        \overset{\text{Thr. Cauchy}}{=} 0
+      \end{equation*}
+      per ogni $\varepsilon > 0$, ma preso sufficientemente piccolo. Per la
+      Proposizione \ref{prop:caso-iii} prendiamo $\theta_1 = \pi$ e $\theta_2 = 0$ e $b
+      = \Res_{0}(e^{iz}f(z)) = 1$. Allora abbiamo che per $\varepsilon \to 0$
+      \begin{equation*}
+        \int_{\gamma_\varepsilon} \frac{e^{iz}}{z}\ dz = - \pi i
+      \end{equation*}
+      e di conseguenza abbiamo che 
+      \begin{equation*}
+        \int_{-\infty}^{-\varepsilon} \frac{e^{ix}}{x}\ dx
+        + \int_{\varepsilon}^{+\infty} \frac{e^{ix}}{x}\ dx = \pi i
+      \end{equation*}
+      per $\varepsilon \to 0$. Quindi 
+      \begin{equation*}
+        I = \Im\left( \int_{-\infty}^{+\infty} \frac{e^{ix}}{x}\ dx \right)
+        = \Im(\pi i ) = \pi
+      \end{equation*}
+    \item Proviamo a calcolare invece l'integrale 
+      \begin{equation*}
+        I = \int_{0}^{2\pi} \frac{d\theta}{3-\cos(\theta)}
+      \end{equation*}
+      Possiamo vederlo come un integrale di un polinomio composto con $\cos,
+      \sin$, quindi $Q(x,y) = 1/(3-x)$. Allora per la Proposizione
+      \ref{prop:caso-iv}
+      \begin{equation*}
+        f(z) = \frac{1}{iz} \frac{1}{3 - \frac{z+z^{-1}}{2}}
+        = \frac{1}{z-3+2\sqrt{2}} \frac{2i}{z-3-2\sqrt{2}}
+      \end{equation*}
+      Quindi calcoliamo solo il residuo in $z_1 = 3-2\sqrt{2}$, 
+      dato che è l'unica singolarità che è all'interno di $B_0(1)$. Per cui
+      \begin{equation*}
+        \Res_{z_1}(f) = \frac{i}{2\sqrt{2}}
+      \end{equation*}
+      e quindi si ottiene 
+      \begin{equation*}
+        I = 2\pi i \left( -\frac{i}{2\sqrt{2}} \right) = \frac{\pi}{\sqrt{2}}
+      \end{equation*}
+  \end{enumerate}
+\end{example}
