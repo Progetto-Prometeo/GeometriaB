@@ -1,0 +1,447 @@
+\def \ord {\operatorname{ord}}
+
+\chapter{Zeri di funzioni olomorfe}
+
+Lo scopo principale di questo capitolo è di dimostrare il \emph{Principio di
+indentità}, ovvero se due funzioni olomorfe coincidono in un qualche intorno di
+un punto, allora sono identiche.
+
+\begin{theorem}
+   \label{thr:zeri_di_funz_no_accum}
+  Sia $\Omega \subset \C$ aperto connesso e $f\in \mathcal{O}(\Omega)$ non
+  identicamente nulla e sia $Z(f) \coloneqq \left\{ z \in \Omega \,\middle|\,
+  f(z) = 0 \right\}$. Allora  $Z(f)$ non ha punti di accumulazione in $\Omega$.
+  (Gli zeri di una funzione olomorfa sono isolati).
+\end{theorem}
+\begin{proof}
+    Dimostriamo la tesi a livello locale. Per cui prendiamo $z_0 \in Z(f)$. Se
+    $f$ non è identicamente nulla in un intorno di $z_0$, segue che $z_0$ è uno
+    zero di molteplicità $m > 0$ quindi in un intorno di $z_0$ la serie di
+    Laurent di $f$ prende forma
+    \begin{equation*}
+      f(z) = (z-z_0)^m g(z)
+    \end{equation*}
+    con $g$ olomorfa in un intorno di $z_0$ e $g(z_0) \neq 0$.
+    Restringendo opportunamente l'intorno si può trovare un nuovo intorno tale
+    per cui $g \neq 0$. Segue che anche $f(z) \neq 0$ se $z \neq z_0$, per cui
+    lo zero $z_0$ è uno zero isolato di $f$.\\
+
+    Per ottenere il risultato globale usiamo la proprietà di connessione di
+    $\Omega$. Infatti sia $A \subset \Omega$ l'insieme dei punti di
+    accumulazione di $Z(f)$ in $\Omega$. Noi sappiamo che $f$ è continua, quindi
+    dev'essere che $A \subset Z(f)$ (infatti se $z$ fosse di accumulazione
+      e $f(z) \neq 0$ allora vorrebbe dire che esiste una sequenza di $\{s_n\}
+    \subset Z(f)$ tale che $f(s_n) = 0$ e che $s_n \to z$, ma con 
+    $\lim_{n\to+\infty} f(s_n) \neq f(z)$ per cui $f$ non sarebbe continua).
+    % TODO: chiarire meglio questa parte.
+    \begin{enumerate}
+    	\item Se $A$ è aperto allora $z_0 \in A$ quindi è uno zero isolato
+    	di $f$ e per quanto visto sopra possiamo trovare un intorno in cui $f \neq
+    	0$ per tutto un intorno escluso $z_0$. Quindi l'intorno dovrebbe essere
+    	contenuto in $A$, ma ciò vorrebbe dire che $A \not\subset Z(f)$. 
+    	\item Se $A$ chiuso allora esiste una sequenza $z_n \to z$ con $z_n \in A$ e che
+    	convergono ancora in $z \in A$. In particolare se $z \in Z(f)$ allora $z$
+    	non sarebbe isolato (e abbiamo visto che non è il caso) quindi $z \in A$
+    	e quindi $A \not\subset Z(f)$.
+    \end{enumerate}
+  Pertanto dev'essere che $A = \varnothing$.
+\end{proof}
+
+\begin{corollary}[Principio di Identità]
+    \label{cor:principio_indentita}
+  Sia $\Omega \subset \C$ aperto connesso e $f,g \in \mathcal{O}(\Omega)$. Se
+  esiste $S \subset \Omega$ tale che $f|_S = g|_S$ e $S$ ha punti di
+  accumulazione in $\Omega$ allora $f = g$ in $\Omega$.
+\end{corollary}
+\begin{proof}
+  Sia $h = f - g$, osserviamo che la differenza di funzioni olomorfe su $\Omega$
+  sarà ancora olomorfa. Allora per il Teorema \ref{thr:zeri_di_funz_no_accum},
+  sapendo che $S \subseteq Z(h)$, abbiamo che l'insieme $Z(h)$ ha almeno
+  un punto di accumulazione in $\Omega$ (per Bolzano-Weierstrass), pertanto si
+  conclude che $h$ è la funzione identicamente nulla su tutto $\Omega$.
+\end{proof}
+
+% TODO: portare la definizione di meromorfa, qui, perché dov'era non aveva
+% senso. Era stata introdotta e lasciata a marcire, quindi mettiamola dove può
+% servire effettivamente la sua definizione.
+\begin{corollary}
+	\label{thr:rapporto_olomorfe_diventa_meromorfa}
+  Sia $\Omega \supset \C$ connesso e $f,g \in \mathcal{O}(\Omega)$ con $f \neq
+  0$ allora $g / f \in \mathcal{M}(\Omega)$ 
+\end{corollary}
+\begin{proof}
+  Sia $S$ l'insieme degli zeri di $f$. Questi sono punti isolati e sono poli 
+  di $1/f$. Quindi $g/f$ è olomorfa in $\Omega \setminus S$ con $S$ insieme 
+  discreto di $\Omega$ da cui dalla definizione di funzione meromorfa si 
+  ottiene la tesi.
+\end{proof}
+
+\begin{definition}
+\label{def:ordine_funz_meromorfa}
+  Sia $f\in \mathcal{M}(\Omega)$ e $z_0 \in \Omega$. Se $a_m$ è il primo
+  coefficiente non nullo della serie di Laurent di $f$ centrata in $z_0$, allora 
+  \begin{equation*}
+    \ord_{z_0} (f)  \coloneqq m
+  \end{equation*}
+  si dice \textbf{ordine di $f$ in $z_0$}.
+\end{definition}
+
+\begin{remark}
+  Osserviamo per prima cosa che $\ord_{z_0}(f) \in \Z$. Se l'ordine è positivo
+  allora coincide con l'ordine dello zero in $z_0$ di $f$; se l'ordine
+  è negativo, invece corrisponde all'ordine cambiato di segno dell'ordine del
+  polo in $z_0$.  
+  \label{rmk:insight_ordine}
+\end{remark}
+
+\begin{theorem}[Principio dell'argomento]
+	\label{thr:principio_dell_argomento}
+  Sia $f \in \mathcal{M}(\Omega)$ con un numero finito di zeri e poli $z_1,
+  \cdots, z_n \in \Omega$. Sia $\gamma$ catena in $\Omega$ e $\gamma \sim_\Omega
+  0$ con $\image(\gamma) \cap \left\{ z_1, \cdots, z_n\right\} = \varnothing$.
+  Allora 
+  \begin{equation*}
+    \int_{\gamma} \frac{f'(z)}{f(z)}\ dz = 2\pi i \sum_{i=1}^{n}
+    \Ind_\gamma(z_i) \ord_{z_i}(f)
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  Mostriamo che $f'/ f \in \mathcal{O}(\Omega')$ dove $\Omega' \coloneqq \Omega
+  \setminus \left\{ z_1, \cdots, z_n \right\}$ e $f'/f \in \mathcal{M}(\Omega)$
+  e con ordine $\ord_{z_i}(f) = \Res_{z_i}(f'/f)$.
+  Infatti $f(z) \neq 0$ su $\Omega'$ e allora segue che è olomorfa su tutto
+  $\Omega'$. Inoltre visto che ha un numero finito di singolarità isolate
+  è meromorfa su $\Omega$. Nell'intorno di $z_i$ possiamo decomporre $f$ secondo
+  la serie di Laurent
+  \begin{equation*}
+    f(z) = (z-z_i)^{m_i}h(z) 
+  \end{equation*}
+  con $m_i = \ord_{z_i}(f)$ per definizione e $h$ funzione olomorfa tale che
+  $h(z_i) \neq 0$. Quindi derivando $f$ si ottiene 
+  \begin{equation*}
+    f'(z) = m_i(z-z_i)^{m_i-1}h(z) + (z-z_i)^{m_i}h(z)
+  \end{equation*}
+  per ogni $z \neq z_i$ vicino a $z_i$. Segue quindi che 
+  \begin{equation*}
+    \frac{f'(z)}{f(z)} = \frac{m_i}{z-z_i} + \frac{h'(z)}{h(z)}
+  \end{equation*}
+  con $h'/h$ funzione olomorfa in un intorno di $z_i$. Si può concludere che
+  $m_i = \Res_{z_i}(f'/f)$. La formula segue quindi dal Teorema dei Residui \ref{} 
+  % TODO aggiungere riferimento al teorema dei Residui.
+\end{proof}
+
+\begin{corollary}
+  Sia $\Omega \subset \C$ aperto, $f \in \mathcal{M}(\Omega)$. Sia $\gamma$ una
+  curva di Jordan in $\Omega$ e la parte interna deve stare in $\Omega$
+  e l'immagine di $\gamma$ non si intersechi con zeri o poli di $f$. Indicando
+  con $N_0$ il numero di zeri di $f$ contenuti all'interno di $\gamma$, 
+  contati con la loro molteplicità; $N_\infty$ il numero di poli di $f$
+  contenuti all'interno di $\gamma$, contati con il loro ordine. Allora vale la
+  seguente formula
+  \begin{equation*}
+    \frac{1}{2 \pi i} \int_{\gamma} \frac{f'(z)}{f(z)}\ dz = N_0 - N_\infty
+  \end{equation*}
+  \label{cor:principio_id_per_curve_semplici}
+\end{corollary}
+\begin{proof}
+  Dato che $\gamma \sim_\Omega 0$ per deduzione dalle ipotesi
+  e $\Ind_{\gamma}(z_i) = 1$ per ogni zero o polo (visto che si trova nella
+  parte interna di una curva di Jordan), allora se indichiamo con $S_1$
+  l'insieme degli zeri di $f$ nell'interno di $\gamma$ e con $S_2$ l'insieme
+  dei poli all'interno di $\gamma$, allora  
+  \begin{equation*}
+    N_0 = \sum_{z_i \in S_1} \ord_{z_i}(f) \quad\ N_\infty = - \sum_{z_i \in
+    S_2} \ord_{z_i}(f)
+  \end{equation*}
+  allora dal Teorema del Principio dell'Argomento
+  \ref{thr:principio_dell_argomento} segue la tesi.
+\end{proof}
+
+\begin{corollary}
+  Se $f \in \mathcal{M}(\C)$ e l'interno di una curva di Jordan $\gamma$
+  contiene tutti gli zerie i poli di $f$ allora
+  \begin{equation*}
+    N_0 - N_\infty = - \Res_\infty\left( \frac{f'}{f} \right)
+  \end{equation*}
+  \label{cor:residuo_infinito_rispetto_all_ordine}
+\end{corollary}
+\begin{proof}
+  Segue dalla definizione di $\Res_\infty(f'/f)$ e dal Corollario
+  \ref{cor:principio_id_per_curve_semplici}.
+\end{proof}
+
+\begin{remark}
+  Il \emph{Principio dell'argomento} deriva dall'interpretazione geometrica
+  dell'integrale \begin{equation*}
+    \frac{1}{2\pi i} \int_{\gamma} \frac{f'(z)}{f(z)}\ dz
+  \end{equation*}
+  come \emph{variazione dell'argomento} dei punti della curva $f \circ \gamma$.
+  Ad esempio si consideri 
+  \begin{equation*}
+    f(z) = \frac{1}{z^2} \quad\ \gamma(t) = e^{it} 
+  \end{equation*}
+  allora $f \circ \gamma(t) = e^{-2it}$ ovvero percorre una circonferenza in
+  senso orario due volte. Si ha quindi 
+  \begin{equation*}
+    \frac{1}{2\pi i} \int_{\gamma} \frac{f'(z)}{f(z)}\ dz
+    = \frac{1}{2\pi i} \int_{\gamma} \frac{-2}{z}\ dz = -2
+  \end{equation*}
+  e la variazione $\Delta_{f \circ \gamma} \operatorname{arg}(w)$ dell'argomento
+  di $w = f \circ \gamma(t)$ lungo la curva $f \circ \gamma$ è $-4\pi$ (ovvero
+  la lunghezza della curva, orientata). Quindi vale 
+  \begin{equation*}
+    \frac{1}{2\pi i} \int_{\gamma} \frac{f'}{f}\ dz = \frac{1}{2\pi}
+    \Delta_{f\circ \gamma}\operatorname{arg}(w)
+  \end{equation*}
+
+  In generale se $g$ è una funzione logaritmo di $f$, cioè $e^{g} = f$ con $f,g$
+  funzioni olomorfe, si ha 
+  \begin{equation*}
+    f' = (e^g)' = e^g g' = fg'
+  \end{equation*}
+  ovvero $g' = f'/f$. Osserviamo infine che la derivata logaritmica di $f$ non
+  dipende dalla branca del logaritmo di $g$, infatti si ha 
+  \begin{align*}
+    \int_{\gamma} \frac{f'}{f}\ dz & = \int_{\gamma} (\log(f))' \ dz
+    = \log(f(\gamma(b))) - \log(f(\gamma(a)))\\
+    & = \ln |f(\gamma(b))| - \ln |f(\gamma(a))|
+    + i(\operatorname{arg}(f(\gamma(b))) - \operatorname{arg}(f(\gamma(a)))) \\
+    & = i \Delta_{f \circ \gamma} \operatorname{arg}(w)
+  \end{align*}
+  per cui 
+  \begin{equation*}
+    \frac{1}{2\pi i} \int_{\gamma} \frac{f'}{f}\ dz = \frac{1}{2\pi i}
+    \Delta_{f\circ \gamma}\operatorname{arg}(w) = \Ind_{f\circ \gamma}(0)
+  \end{equation*}
+  \label{rmk:motivazione_principio_argomento}
+\end{remark}
+
+\begin{theorem}[Teorema di Rouché]
+   \label{thr:rouche}
+  Sia $\Omega \subset \C$ aperto e $f,g \in \mathcal{O}(\Omega)$ e $\gamma$
+  curva di Jordan in $\Omega$ con interno contenuto in $\Omega$. Se vale 
+  \begin{equation}
+    \label{eq:rouche_stima_ipotesi}
+    |f(z) - g(z)| < |f(z)|
+  \end{equation}
+  allora $f$ e $g$ non hanno zeri in $\image(\gamma)$ e hanno lo stesso numero
+  di zeri (contati con molteplicità) nell'interno di $\gamma$.
+ 
+\end{theorem}
+\begin{proof}
+  Per ipotesi $f,g$ non si annullano su $\gamma$:
+  Supponiamo che esiste $z \in \gamma$ tale che $f(z) = 0$ allora per
+  \eqref{eq:rouche_stima_ipotesi} valrebbe che 
+  \begin{equation*}
+    |g(z)| < 0
+  \end{equation*}
+  che è impossibile. Se $g(z) = 0$ allora si avrebbe ancora per
+  \eqref{eq:rouche_stima_ipotesi}
+  \begin{equation*}
+    |f(z)| < |f(z)|
+  \end{equation*}
+  da cui è ancora assurdo. Segue che $f,g$ non si annullino su $\gamma$.\\
+
+  Sia $h = g/f$, questa è una funzione meromorfa su $\Omega$. Osserviamo che $h
+  \circ \gamma$ ha supporto all'interno della palla in $1$ di raggio $1$, ovvero
+  $\image(h \circ \gamma) \subset B_1(1)$, poiché 
+  \begin{equation*}
+    |h(z) - 1| = \frac{|f(z) - g(z)|}{|f(z)|} < 1
+  \end{equation*}
+  dove $z = \gamma(t)$ per qualche $t$. In particolare osserviamo che
+  $\Ind_{h\circ \gamma}(0) = 0$ poiché $0 \notin B_1(1)$. Ovvero appartiene
+  all'esterno del supporto della curva $h \circ \gamma$. Quindi
+  \begin{equation*}
+    0 = 2\pi i \Ind_{h\circ \gamma}(0) = \int_{h \circ \gamma}
+    \frac{dw}{w} = \int_{a}^b \frac{h'(\gamma(t))\gamma'(t)}{h(\gamma(t))}\ dt
+    = \int_{\gamma} \frac{h'(z)}{h(z)}\ dz
+  \end{equation*}
+  Infine osservando che 
+  \begin{equation*}
+    \frac{h'}{h} = \frac{g'f - gf'}{f^2} \frac{f}{g} = \frac{g'}{g}
+    - \frac{f'}{f}
+  \end{equation*}
+  allora segue che 
+  \begin{equation*}
+    \int_{\gamma} \frac{g'(z)}{g(z)}\ dz = \int_{\gamma} \frac{f'(z)}{f(z)}\ dz
+  \end{equation*}
+  Per il Corollario \ref{cor:residuo_infinito_rispetto_all_ordine} i due
+  integrali sono uguali, così come i residui e quindi anche lo stesso numero di
+  zeri contati con molteplicità.
+\end{proof}
+
+\begin{example}
+  Presentiamo qui alcuni esempi per trovare, per confronto (e utilizzo del
+  Teorema di Rouché \ref{thr:rouche}), gli zeri di una funzione. In questo caso
+  particolare nel caso di funzioni polinomiale. Ma per le proprietà locali ogni
+  funzione olomorfa può ossere approssimata ad una serie di Laurent e quindi
+  è equivalente a trovare gli zeri di un polinomio.
+  \begin{enumerate}
+    \item Prendiamo $p(z) = z^8 - 5z^3 + z -2$ e $f(z) = -5z^3$. Sulla
+      circonferenza $|z| = 1$ vale 
+      \begin{equation*}
+        |p(z) - f(z)| = |z^8 + z -2| \le |z|^8 + |z| + 2 = 4 < 5|z|^3 = |f(z)|
+      \end{equation*}
+      quindi $p$ ha $3$ zeri tanti quanti come $f$ nel disco unitario $|z| < 1$
+      e non si annulla per $|z| =1$. Scegliamo ora $g(z) = z^8$ si controlliamo
+      nella circonferenza $|z| = 2$, 
+      \begin{equation*}
+        |p(z) - g(z)| \le 5|z|^3 + |z| + 2 \le 44 < |g(z)|
+      \end{equation*}
+      quindi si può concludere che $p$ ha tutti i suoi $8$ zeri in $|z| < 2$, in
+      particolare ne ha $5$ nella corona circolare di raggi $1$ e $2$.
+    \item Consideriamo $q(z) = 4z^5 - z^3 + z^2 -2$, analogamente a quanto fatto
+      nell'esempio precedente per controllare dove sono locati tutti gli zeri
+      possiamo confrontarlo con la funzione $f(z) = 4z^5$ sulla circonferenza di
+      raggio $B_0(1+\varepsilon)$. Allora
+      \begin{equation*}
+        |q(z) - f(z)| \le |z|^3 + |z|^2 - 2 < |f(z)|
+      \end{equation*}
+      dunque per ogni $\varepsilon > 0$ $q$ ha $5$ zeri in $B_0(1+\varepsilon)$.
+      Per cui possiamo concludere per l'arbitrarietà di $\varepsilon$ che tutti
+      gli zeri di $q(z)$ si trovano in $\overline{B_0(1)}$.
+  \end{enumerate}
+\end{example}
+
+\section{Principio del Massimo Modulo}
+
+Per ottenere i seguenti teoremi: \emph{Principio del Massimo}; il 
+\emph{Teorema della mappa aperta}; il \emph{Teorema della mappa inversa}. Ci
+serve un risultato sul comportamento locale delle funzioni olomorfe, che vedremo
+essere analogo a quello di una funzione $z^n$ per qualche $n\in \Z$.
+
+\begin{theorem}
+	\label{thr:tecnico_principio_massimo}
+  Sia $\Omega \subset \C$ aperto, $f \in \mathcal{O}(\Omega)$ e $z_0 \in \Omega$
+  uno zero di ordine $m$ di $f$. Esiste $\varepsilon_0 > 0$ tale che per ogni $0
+  < \varepsilon < \varepsilon_0$ esiste $\delta > 0$ tale che per ogni $w_0 \in
+  \C$ con $|w_0| < \delta$ l'equazione $f(z) = w_0$ ha $m$ soluzioni in
+  $B_{z_0}(\varepsilon)$ distinte se $w_0 \neq 0$ (nel caso $m > 1$). 
+\end{theorem}
+\begin{proof}
+    Sia $z_0$ uno zero isolato di $f$ allora esiste $\varepsilon_0 > 0$ tale che
+    $B_{z_0}(\varepsilon_0) \subset \Omega$ e $f(z) \neq 0$ per $z \in
+    B_{z_0}(\varepsilon_0) \setminus \left\{ z_0 \right\}$. Sia $0 < \varepsilon
+    < \varepsilon_0$ e sia $\gamma = \partial B_{z_0}(\varepsilon)$ e poniamo 
+    $\delta = \min_{z \in \gamma} |f(z)| > 0$. Se $|w_0| < \delta$ allora $g
+    = f - w_0$ è una funzione olomorfa su tutto $\Omega$ e vale 
+    \begin{equation*}
+      |f(z) - g(z)| = |w_0| < \delta \le |f(z)| \quad\ \forall z \in
+      \image(\gamma)
+    \end{equation*}
+    
+    Utiliziamo il Teorema di Rouché \ref{thr:rouche} su $g$. Allora $g$ ha $m$
+    zeri in $B_{z_0}(\varepsilon)$ che equivale a dire che $f(z) = w_0$ ha $m$
+    soluzioni (con molteplicità) nella palla $B_{z_0}(\varepsilon)$.
+    Se $m = 1$ si ha la tesi.
+    Se $m > 1$ allora $z_0$ è uno zero anche di $f'$ che avrà uno zero di ordine
+    $m-1$. Se $\varepsilon_0$ viene scelto sufficientemente piccolo in modo che
+    $Z(f') \cap B_{z_0}(\varepsilon_0) = \left\{ z_0 \right\}$ si ha che $g'
+    \neq 0$ su $B_{z_0}(\varepsilon) \setminus \left\{ z_0 \right\}$ ovvero gli
+    zeri di $g$ sono tutti semplici. Ovvero le soluzioni di $f(z) = w_0$ ono
+    tutte distinte per $w_0 \neq 0$.
+\end{proof}
+
+\begin{corollary}
+	\label{cor:tecnico_principio_massimo}
+  Sia $f \in \mathcal{O}(\Omega)$ non costante e $z_0 \in \Omega$. Sia $f(z_0)
+  = \alpha$ e $\ord_{z_0}(f-\alpha) = m$. Allora esiste $\varepsilon_0 > 0$ tale
+  che per ogni $0 < \varepsilon < \varepsilon_0$ esiste un $\delta > 0$ tale che
+  per ogni $w_0$ con $|w_0 - \alpha| < \delta$, l'equazione $f(z) = w_0$ ha $m$
+  soluzioni in $B_{z_0}(\varepsilon)$ distinte se $w_0 \neq \alpha$.
+\end{corollary}
+\begin{proof}
+  Si usa il Teorema precedente \ref{thr:tecnico_principio_massimo} a $f - \alpha
+  \in \mathcal{O}(\Omega)$.
+\end{proof}
+
+\begin{theorem}[Teorema Della Mappa Aperta]
+  \label{thr:mappa_aperta}
+  Sia $\Omega \subset \C$ aperto connesso e $f \in \mathcal{O}(\Omega)$ non
+  costante. Allora $f$ è una mappa aperta.
+\end{theorem}
+\begin{proof}
+  Sia $A \subset \Omega$ aperto e $\alpha = f(z_0)$ per qualche $z_0 \in A$.
+  Allora esiste $B_{z_0}(\varepsilon) \subset A$ tale che $f - \alpha \neq 0$ in
+  $B_{z_0}(\varepsilon) \setminus \left\{ z_0 \right\}$. Se $\varepsilon
+  < \varepsilon_0$ come nel Corollario precedente, allora esiste $\delta > 0$
+  tale che $|w_0 - \alpha| < \delta$ e allora $w_0 \in f\left(
+  B_{z_0}(\varepsilon) \right) \subset f(A)$. Cioè $B_{\alpha}(\delta) \subset
+  f(A)$ per ogni $\alpha \in f(A)$ dato che non abbiamo imposto alcuna ipotesi
+  su $\alpha$. Pertanto $f(A)$ è intorno di ogni suo punto ed è aperto. 
+\end{proof}
+
+\begin{theorem}[Principio Del Massimo]
+  \label{thr:principio_del_massimo}
+  Sia $\Omega \subset \C$ aperto e connesso e $f \in \mathcal{O}(\Omega)$ non
+  costante. Allora $|f|$ non ha massimi locali in $\Omega$. 
+\end{theorem}
+\begin{proof}
+  Sappiamo che $f$ è aperta per Teorema della Mappa Aperta
+  \ref{thr:mappa_aperta}. Allora per ogni $\alpha = f(z_0) \in \image(f)$ e per
+  ogni intorno $B_{z_0}(\varepsilon)$ di $z_0$ essendo
+  $f \left(B_{z_0}(\varepsilon) \right)$ aperto contenente $\alpha$ allora esiste
+  un'altra palla aperta $B_\alpha(\delta) \subset f\left( B_{z_0}(\varepsilon) 
+  \right)$. In particolare esistono degli $f(z) \in f\left( B_{z_0}(\varepsilon
+  \right) \setminus B_\alpha(\delta)$, per cui dev'essere che 
+  \begin{equation*}
+    |f(z)| > |\alpha| = |f(z_0)|
+  \end{equation*}
+  con $|z-z_0| < \varepsilon$. Quindi segue che $z_0$ non può essere un punto
+  di massimo locale. Poiché $z_0$ è stato scelto in modo arbitrario questa
+  conclusione vale per ogni punto $z_0 \in \Omega$.
+\end{proof}
+
+\begin{corollary}
+  \label{cor:massimo_sul_bordo}
+  Sia $\Omega$ aperto connesso con chiusura $\overline{\Omega}$ compatto. Se $f
+  \in \mathcal{\Omega} \cap C^0(\overline{\Omega})$ allora
+  \begin{equation*}
+    \max_{\overline{\Omega}} |f| = \max_{\partial \Omega} |f|
+  \end{equation*}
+\end{corollary}
+\begin{proof}
+  Dato che sussiste il Principio del massimo \ref{thr:principio_del_massimo},
+  allora dev'essere che $f$ non ha un massimo nella parte interna, dev'essere
+  sul bordo, poiché $|f|$ è continua e per Weierstrass deve avere massimo. 
+\end{proof}
+
+\begin{theorem}[Teorema della mappa inversa]
+	  \label{thr:mappa_inversa}
+  Sia $f \in \mathcal{O}(\Omega)$ con $z_0 \in \Omega$ con $f'(z_0) \neq 0$.
+  Esiste un intorno aperto $V$ di $z_0$ e un intorno aperto $W$ di $f(z_0)$
+  tali che $\morphism{f}{V}{W}$ è invertibile con inversa
+  $\morphism{f^{-1}}{W}{V}$ olomorfa. Vale inoltre la formula
+  \begin{equation*}
+    (f^{-1})'(w) = \frac{1}{f'(f^{-1}(w))}
+  \end{equation*}
+  per ogni $w \in W$.
+\end{theorem}
+\begin{proof}
+  Poniamo $\alpha = f(z_0)$. La funzione $g(z) = f(z) - \alpha$ è una funzione
+  olomorfa con uno zero di molteplicità $1$ in $z_0$. Infatti $g'(z_0) = f'(z_0)
+  \neq 0$. Per il Corollario \ref{cor:tecnico_principio_massimo} esistono
+  $\varepsilon, \delta > 0$ tali che l'equazione $f(z) = w_0$ per ogni $w_0 \in
+  B_\alpha(\delta)$ ha un unica soluzione in $B_{z_0}(\varepsilon)$. Per cui
+  basta porre $V = B_{z_0}(\varepsilon)$ e $W = B_\alpha(\delta)$ e si vede che 
+  $\morphism{f}{V}{W}$ è una mappa biunivoca e olomorfa; in più risulta essere
+  una mappa aperta per il Teorema della mappa Aperta \ref{thr:mappa_aperta}.
+  Quindi $f^{-1}$ dev'essere una funzione continua. Osserviamo anche che $f'(z)
+  \neq 0$ per ogni $z\in V$, dato che se no la funzione non sarebbe biunivoca.
+
+  Mostriamo che $f^{-1}$ è olomorfa su $W$. Siano $z_1 = f^{-1}(w_1)$ e $z_2
+  = f^{-1}(w_2)$. Si ha per continuità che 
+  \begin{equation*}
+    \lim_{w \to w_1} \frac{f^{-1}(w) - f^{-1}(w_1)}{w-w_1} = \lim_{z \to z_1}
+    \frac{z-z_1}{f(z)- f(z_1)} = \frac{1}{f'(z_1)} = \frac{1}{f'(f^{-1}(w_1)}
+  \end{equation*}
+  e il limite esiste per ogni punto $w_1 \in W$.
+\end{proof}
+
+\begin{remark}
+  Se $f'(z_0) = 0$, la funzione $f$ non è iniettiva, in quanto $z_0$ è uno zero
+  di $g = f - f(z_0)$ di ordine $m > 1$. Nell'intorno di $z_0$ l'equazione $f(z)
+  = w_0$ ha $m > 1$ soluzioni, quindi $f$ non è invertibile. Sui reali invece
+  questo non è vero, per esempio $f(x) = x^3$.
+  \label{rmk:complessi_limitano_le_inverse}
+\end{remark}
