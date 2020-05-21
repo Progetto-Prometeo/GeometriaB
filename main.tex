@@ -1,153 +1,40 @@
-%% filename: amsbook-template.tex
-%% version: 1.1
-%% date: 2014/07/24
-%%
-%% American Mathematical Society
-%% Technical Support
-%% Publications Technical Group
-%% 201 Charles Street
-%% Providence, RI 02904
-%% USA
-%% tel: (401) 455-4080
-%%      (800) 321-4267 (USA and Canada only)
-%% fax: (401) 331-3842
-%% email: tech-support@ams.org
-%% 
-%% Copyright 2006, 2008-2010, 2014 American Mathematical Society.
-%% 
-%% This work may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3c
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3c or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
-%% 
-%% This work has the LPPL maintenance status `maintained'.
-%% 
-%% The Current Maintainer of this work is the American Mathematical
-%% Society.
-%%
-%% ====================================================================
+%------ PREAMBOLO --------------
 
-%    AMS-LaTeX v.2 driver file template for use with amsbook
-%
-%    Remove any commented or uncommented macros you do not use.
-
-% TODO: Controllare se fa differenza su texstudio per lo spellcheck
 % !TeX spellcheck = IT
-\documentclass[a4paper, twoside]{amsbook}
+% TODO: Controllare se fa differenza su texstudio per lo spellcheck
+% NOTA: no, non lo fa (Stark)
 
-%    For use when working on individual chapters
-%    \includeonly{}
-
-%    Include referenced packages here.
-
-%    Font & encoding
-
-\usepackage[utf8]{inputenc}
-\usepackage[italian]{babel}
-\usepackage[T1]{fontenc}
+\documentclass[a4paper, twoside]{book}
+\include{preambolo}
 
 
-%TODO: verificare che questo risolva i problemi di spaziatura e non dia fastidio 
-% theoremstyle personalizzato
-\newtheoremstyle{noice} 
-{12pt}{18pt} % spazio sopra / sotto
-{}{} % font corpo ed indentatura
-{\bfseries}{:} % font teorema e roba dopo teorema
-{6 pt} % spazio dopo nome teorema
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} %roba inutile
 
-
-% 		Math 
-
-\usepackage{amsthm, amsmath, amssymb, mathtools}
-\usepackage{tikz-cd}    % TODO: non so se servirà, per ora l'ho messo.
-\usepackage{derivative} % Serve: il comando che era dv è diventato odv
-
-% 		Misc
-\usepackage{hyperref}
-\usepackage{booktabs}
-\usepackage{dsfont}
-% Note: se è possibile non usare il seguente package 
-% \usepackage{mnsymbol} 
-
-% Definition of sets and operators.
-\def \Z {\mathbb{Z}}
-\def \R {\mathbb{R}}
-\def \C {\mathbb{C}}
-\def \Q {\mathbb{Q}}
-\def \N {\mathbb{N}}
-\def \S {\mathbb{S}}
-\def \D {\mathbb{D}}
-\def \Ind {\operatorname{Ind}}
-\def \image {\operatorname{image}}
-
-% Routine to write a general function given
-% function name, domain and codomain.
-\newcommand{\morphism}[3]{
-	#1 \colon\ #2 \rightarrow #3
-}
-% Function diameter of a set
-\newcommand{\diam}[1]{
-	\operatorname{diam}\left(#1\right)
-}
-% Distance between two sets or a set and a point or whatever.
-\newcommand{\dist}[2]{
-	\operatorname{dist}\left(#1, #2\right)
-}
-
-% Theorems, definitions and styles 
-\theoremstyle{noice}
-\newtheorem{theorem}{Teorema}[chapter]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}{Proposizione}[chapter]
-\newtheorem{corollary}[theorem]{Corollario}
-
-\theoremstyle{noice}
-\newtheorem{definition}[theorem]{Definizione}
-\newtheorem{example}[theorem]{Esempio}
-\newtheorem{xca}[theorem]{Esercizio}
-
-\theoremstyle{noice}
-\newtheorem{remark}[theorem]{Osservazione}
-
-\numberwithin{section}{chapter}
-\numberwithin{equation}{chapter}
-
-%    For a single index; for multiple indexes, see the manual
-%    "Instructions for preparation of papers and monographs:
-%    AMS-LaTeX" (instr-l.pdf in the AMS-LaTeX distribution).
+%------ COPERTINA e ROBA RANDOM --------------
+% TODO: Decidere se mettere o meno i nomi
 \makeindex
-
 \begin{document}
+\definecolor{VerdeSfondo}{rgb}{0.09, 0.45, 0.27}
+\definecolor{VerdeEsag}{rgb}{0.0, 0.5, 0.0}
+\include{copertina_geom}
+\setcounter{page}{1} % correzione errore per presenza copertina
+
+% Per ora è verde, ma possiamo cambiarla; era il primo colore che mi venisse in mente
+% Colori : http://latexcolor.com/
+
+%Colori per i capitoli
+\definecolor{TopGener}{rgb}{0.09, 0.45, 0.27} 
+\definecolor{TopAlg}{rgb}{0.09, 0.45, 0.27}
+\definecolor{AnComp}{rgb}{0.09, 0.45, 0.27}
+
+
+
+% --- FRONT MATTER ------------------------------------
 
 \frontmatter
+%\begin{abstract}
+	% TODO? in book non c'è l'ambiente abstact
+%\end{abstract}
 
-\title{Analisi Complessa}
-
-%    Remove any unused author tags.
-
-% TODO: Decidere se mettere o meno i nomi
-%    author one information
-\author{A}
-%    author two information
-\author{B}
-%    
-\author{C}
-
-% 
-% \subjclass[2020]{}
-
-
-\date{02/02/2020}
-
-\begin{abstract}
-	% TODO? 
-\end{abstract}
-
-\maketitle
 
 %    Dedication.  If the dedication is longer than a line or two,
 %    remove the centering instructions and the line break.
@@ -160,27 +47,37 @@
 %\cleardoublepage
 
 %    Change page number to 6 if a dedication is present.
-\setcounter{page}{4}
+% NOTA: l'ho settato ad 1 perché è la prima pagina dell'indice, 
+% mettere la copertina ha cambiato tutto ma non è un problema. (Stark)
+\setcounter{page}{1}
 
 \tableofcontents
-
 %    Include unnumbered chapters (preface, acknowledgments, etc.) here.
 
 
-\include{preface/preface}
 
-\mainmatter
-%    Include main chapters here.
 
+
+
+% --- MAIN MATTER ------------------------------------
+
+\mainmatter		% Include main chapters here.
+
+
+\part{Topologia Generale}
 \include{capitoli/topologia_generale/topologia_generale}
 \include{capitoli/topologia_generale/proprieta_topologiche}
 \include{capitoli/topologia_generale/esempi}
 
+
+
+\part{Topologia Algebrica}
 \include{capitoli/topologia_algebrica/omologia}
 \include{capitoli/topologia_algebrica/varieta}
 
 
-% Analisi complessa
+\part{Analisi Complessa}
+\include{preface/preface}
 \include{capitoli/analisi_complessa/calcolo_differenziale}
 \include{capitoli/analisi_complessa/integrali_linea}
 \include{capitoli/analisi_complessa/indice_e_formula_di_cauchy_integrale}
@@ -188,6 +85,10 @@
 \include{capitoli/analisi_complessa/residui}
 \include{capitoli/analisi_complessa/zerifunzolom}
 \include{capitoli/analisi_complessa/esempi}
+
+
+
+% --- APPENDIX & BACKMATTER ------------------------------------
 
 %\appendix
 %    Include appendix "chapters" here.
@@ -199,6 +100,6 @@
 %\bibliographystyle{amsalpha}
 %\bibliography{}
 %    See note above about multiple indexes.
-\printindex
+%\printindex
 
 \end{document}
