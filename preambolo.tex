@@ -1,0 +1,115 @@
+% --- FONT & STYLE ------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor} % devo caricarlo qui per option clash
+\usepackage{nameref}
+\usepackage{amsmath}
+
+\usepackage{fancyhdr}
+\definecolor{PageNum}{rgb}{0.09, 0.45, 0.27}
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\fancyhead[LE,RO]{\slshape{    }}
+	\fancyhead[RE,LO]{\textbf{Geometria B}}
+	\fancyfoot[CE,CO]{\leftmark}
+	\fancyfoot[LE,RO]{\textcolor{PageNum}{\textbf{\thepage}}}
+}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\slshape{    }}
+\fancyhead[RE,LO]{\textbf{Geometria B}}
+\fancyfoot[CE,CO]{\leftmark}
+\fancyfoot[LE,RO]{\textcolor{PageNum}{\textbf{\thepage}}}
+
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand\footnoterule{}
+
+
+%TODO: verificare che questo risolva i problemi di spaziatura e non dia fastidio 
+%\newtheoremstyle{noice} % theoremstyle personalizzato
+%{12pt}{18pt} % spazio sopra / sotto
+%{}{} % font corpo ed indentatura
+%{\bfseries}{:} % font teorema e roba dopo teorema
+%{6 pt} % spazio dopo nome teorema
+%{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} %roba inutile
+
+
+
+% --- PACKAGES ------------------------------------
+\usepackage{amsthm, amsmath, amssymb, mathtools}
+\usepackage{tikz-cd}    % TODO: non so se servirà, per ora l'ho messo.
+\usepackage{derivative} % Serve: il comando che era dv è diventato odv
+\usepackage{tikz}
+
+%packages per la copertina:
+\usepackage{tikz}
+% questo sotto da errore ma a compilation time gira!
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+\usepackage{anyfontsize}
+
+
+
+% --- MISC ------------------------------------
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{dsfont}
+% \usepackage{mnsymbol} % Note: se è possibile non usarlo
+
+
+
+% --- DEFINITIONS (sets, operators) ------------------------------------
+\def \Z {\mathbb{Z}}
+\def \R {\mathbb{R}}
+\def \C {\mathbb{C}}
+\def \Q {\mathbb{Q}}
+\def \N {\mathbb{N}}
+\def \S {\mathbb{S}}
+\def \D {\mathbb{D}}
+\def \Ind {\operatorname{Ind}}
+\def \image {\operatorname{image}}
+
+
+
+% --- FUNCTIONS, THEOREMS ------------------------------------
+% Routine to write a general function given 
+% function name, domain and codomain.
+
+\newcommand{\morphism}[3]{
+	#1 \colon\ #2 \rightarrow #3}
+
+\newcommand{\diam}[1]{	% Function diameter of a set
+	\operatorname{diam}\left(#1\right)}
+
+\newcommand{\dist}[2]{	% Distance between "things"
+	\operatorname{dist}\left(#1, #2\right)
+}
+
+% Theorems, definitions and styles 
+%\theoremstyle{noice}
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}{Proposizione}[chapter]
+\newtheorem{corollary}[theorem]{Corollario}
+
+%\theoremstyle{noice}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definizione}
+\newtheorem{example}[theorem]{Esempio}
+\newtheorem{xca}[theorem]{Esercizio}
+
+%\theoremstyle{noice}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Osservazione}
+
+\numberwithin{section}{chapter}
+\numberwithin{equation}{chapter}
+
+%    For a single index; for multiple indexes, see the manual
+%    "Instructions for preparation of papers and monographs:
+%    AMS-LaTeX" (instr-l.pdf in the AMS-LaTeX distribution).
+
+
