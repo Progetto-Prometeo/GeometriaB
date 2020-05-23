@@ -33,7 +33,12 @@ Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il 
 \end{theorem}
 \begin{proof}\
 	\begin{enumerate}
-		\item Per dimostrare la chiusura bisogna far vedere che $\left[0,1\right]^c$ sia aperto. Ma questo è abbastanza facile. Infatti $\left[0,1\right]^c = \left(-\infty, 0\right) \cup \left(1, +\infty\right)$, per cui basta vedere che $\left(-\infty, 0\right) = \bigcup_{n \in \N} \left[-n, 1/(n+1)\right)$ e $\left(1, +\infty\right) = \bigcup_{n \in \N} \left[1+1/(n+1), n+2\right)$, per cui risulta che $\left[0,1\right]$ è un chiuso.
+		\item Per dimostrare la chiusura bisogna far vedere che $\left[0,1\right]^c$ sia aperto. Ma questo è abbastanza facile. Infatti $\left[0,1\right]^c = \left(-\infty, 0\right) \cup \left(1, +\infty\right)$, osserviamo che 
+		\begin{align*}
+			\left(-\infty, 0\right) & = \bigcup_{n \in \N} \left[-n, \frac{1}{n+1}\right) \\	
+			\left(1, +\infty\right) & = \bigcup_{n \in \N} \left[1+\frac{1}{n+1}, n+2\right)\\
+		\end{align*}
+		per cui risulta che $\left[0,1\right]$ è un chiuso.
 		\item La funzione è ovviamente non continua, infatti si consideri l'aperto $\left[0,1\right)$, la sua controimmagine attraverso $f$ è $\left(-1, 0\right]$ che non è aperto.
 	\end{enumerate}
 \end{proof}
@@ -57,10 +62,6 @@ Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il 
 	Definito l'insieme $$\mathcal{B} = \left\{A \in 2^\R \,\middle|\, 0 \notin A \right\} \cup \left\{ A \in 2^\R \,\middle|\, 0 \in A, \R \setminus A \; \text{finito} \right\}$$ calcolare la chiusura di $J = \left[1,2\right] \times \left\{0\right\}$. \\ \\
 	È ovvio dimostrare che l'insieme oltre ad essere una base è anche una topologia. \\ Inoltre vale $\overline{J} = \overline{\left\{0\right\}} \times \overline{\left[1,2\right]}$, quindi posso separare i casi in una topologia $\mathcal{B}$. Vediamo che $\overline{\left\{0\right\}} = \left\{0\right\}$ per la definizione della topologia, $\left[1,2\right]$ è aperto e $\left[1,2\right] \cup \left\{0\right\}$ è chiuso (perché il complementare è aperto). \\ Segue che $\overline{\left[1,2\right]} = \left[1,2\right] \cup \left\{0\right\}$. Quindi ho trovato $\overline{J}$.
 \end{example}
-\begin{proof}
-	
-\end{proof}
-
 
 
 \section{Topologia di Zariski e gli insiemi algebrici}
@@ -111,7 +112,7 @@ Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il 
 
 
 \section{Esempio di quoziente}
-\subsection{\textcolor{TopGener}{\textbf{Un breve esempio di quoziente topologico}}
+\subsection{\textcolor{TopGener}{\textbf{Un breve esempio di quoziente topologico}}}
 	
 
 
@@ -129,20 +130,20 @@ Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il 
 
 
 \section{Discriminazione di topologie}
-\subsection{\textcolor{TopGener}{\textbf{Discriminare, ma in senso buono}}
+\subsection{\textcolor{TopGener}{\textbf{Discriminare, ma in senso buono}}}
 
 
 
-Non è sempre facile dimostrare che due topologie sono la stessa a meno di omeomorfismi. \\ Per questo se si hanno degli strumenti per riuscire a discriminare quelle distinte \textit{al volo}, si può ridurre il tempo perso a dimostrare che due topologie distinte siano la medesima. \\ \\A tal fine nei capitoli precedenti si sono sviluppate alcune proprietà che sono invarianti per omeomorfismi e dunque degli invarianti topologici. Vediamo una semplice carrellata di come possono essere utilizzati per discriminare le topologie distinte
+Non è sempre facile dimostrare che due topologie sono la stessa a meno di omeomorfismi. \\ Per questo se si hanno degli strumenti per riuscire a discriminare quelle distinte \textit{al volo}, si può ridurre il tempo perso a dimostrare che due topologie distinte siano la medesima. \\ A tal fine nei capitoli precedenti si sono sviluppate alcune proprietà che sono invarianti per omeomorfismi e dunque degli invarianti topologici. Vediamo una semplice carrellata di come possono essere utilizzati per discriminare le topologie distinte
 
 \begin{theorem}
 	Le seguenti affermazioni sono vere:
 	\begin{enumerate}
-		\item $\left[0,1\right] \not\simeq (0,1)$
-		\item $\left[0,1\right] \not\simeq \R$
-		\item $\left(0,1\right] \not\simeq (0,1)$
-		\item $\left[0,1\right]^2 \not\simeq \left[0,1\right]$
-		% TODO $\R \simeq (0,1)$??? dal punto di vista della connessione e della compattezza sembrerebbe funzionare
+		\item $\left[0,1\right] \not\simeq (0,1)$;
+		\item $\left[0,1\right] \not\simeq \R$;
+		\item $\left(0,1\right] \not\simeq (0,1)$;
+		\item $\left[0,1\right]^2 \not\simeq \left[0,1\right]$;
+		\item $\R \simeq (0,1)$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}\
@@ -151,5 +152,14 @@ Non è sempre facile dimostrare che due topologie sono la stessa a meno di omeom
 		\item Usando ancora una volta la compattezza come invariante topologico si vede che $\R$ non è compatto mentre $\left[0,1\right]$ lo è, pertanto non possono essere omeomorfi.
 		\item La connessione è un altro invariante topologico. Infatti supponiamo che $\left(0,1\right]$ sia omeomorfo a $\left(0,1\right)$. Allora esiste $f(\left(0,1\right]) = \left(0,1\right)$ e $f(1) = x \in (0,1)$. Quindi se si considera $\morphism{f}{(0,1)}{(0,1)\setminus \left\{x\right\}}$ di sicuro $x$ è interno a $(0,1)$, quindi dev'essere che $(0,1) \setminus \left\{x\right\} = (0, x) \cup (x, 1)$. Bisogna far notare che $f$ è ancora un omeomorfismo tra $(0,1)$ e $(0,1)\setminus \left\{x\right\}$ (è ovviamente bigettiva e manda aperti in aperti anche se manca un punto). Eppure $(0,1)$ è connesso e quindi $f((0,1))$ dovrebbe essere connesso, ma non lo è. \\ Pertanto non può esistere $f$ omeomorfismo.
 		\item Analogo al caso precedente. Infatti si prenda un punto interno di $x \in (0,1)$, indipendentemente da dove verrà mappato su $\left[0,1\right]^2$, $\left[0,1\right]^2 \setminus \left\{f(x)\right\}$ sarà ancora connesso\footnote{È ovvio che sarà ancora connesso: se $x$ viene mappato sul bordo, allora essendo $(0,1)^2$ connesso e $\left[0,1\right]^2$ connesso segue che qualsiasi $Z$, tale che $(0,1)^2 \subset Z \subset \left[0,1\right]^2$ è ancora connesso; se $x$ è interno invece posso sempre trovare una funzione continua che aggira $x$ e collega ogni paio di punti di $\left[0,1\right]^2 \setminus \left\{f(x)\right\}$}, mentre $\left[0,1\right] \setminus \left\{x\right\}$ non lo è. 
+		\item Per vedere questa omeomorfismo basta prendere $\morphism{f}{(0,1)}{\R}$ definita come segue
+		\begin{equation*}
+			f(x) = \tan\left(\pi x - \frac{\pi}{2}\right)
+		\end{equation*}
+		che è una funzione continua e biettiva. Inoltre possiamo definire $f^{-1}(x)$ che è ancora continua e ha definizione
+		\begin{equation*}
+			f^{-1}(x) = \frac{1}{\pi} \arctan(x) + \frac{1}{2} 
+		\end{equation*}
+		da cui la tesi di omeomorfismo tra i due insiemi.
 	\end{enumerate}
 \end{proof}
