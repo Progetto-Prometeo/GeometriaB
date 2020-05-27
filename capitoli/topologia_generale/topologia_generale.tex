@@ -52,7 +52,7 @@ Insomma, che cosa aspettiamo?
 Di seguito mostreremo come alcune semplici topologie possano essere collegate alla struttura di uno spazio metrico in modo più preciso; le due definizioni sono strettamente correlate anche in casi molto complessi, ma non ci estenderemo a tanto. \\ \\
 \marginpar{\textcolor{TopGener}{\textbf{Topologia euclidea}}}
 Parlando di un caso davvero banale, diciamo \textbf{topologia euclidea} la topologia su $\mathbb{R}^n$ associata alla ben nota \textit{distanza euclidea}. Già al nostro marginale livello di trattazione, il caso euclideo (e quindi campo dell'analisi matematica) risulta essere una "banale" eccezione.
-\\ \\ Questo è esattamente ciò di cui stavamo parlando, il fatto che uno spazio ammetta una funzione distanza compatibile con la propria topologia non è affatto scontato; o almeno non lo è nella maggior parte delle volte. \\ Altri spazi più \textit{patologici} sono metrizzabili, e questo induce su di loro la struttura di spazio metrico.
+\\ \\ Questo è esattamente ciò di cui stavamo parlando, il fatto che uno spazio ammetta una funzione distanza compatibile con la propria topologia non è affatto scontato; o almeno non lo è nella maggior parte delle volte. \\ Altri spazi più \textit{patologici} sono metrizzabili, e questo induce su di loro la struttura di spazio metrico. \\ Notiamo un fatto importante, che dovrebbe essere ovvio ma è bene sottolineare. Se uno spazio è metrizzabile, quindi se la sua topologia è compatibile con una funzione distanza $d$, allora gli aperti possono essere costruiti come unione di $B_d(x_i,r_i)$ per $r_i \in \mathbb{R}$, $x_i \in \mathbb{R}$. Vedremo in seguito che questi costituiscono una \textit{base della topologia}, ma diamo tempo al tempo.
 \begin{example}\
 \begin{enumerate}
 	\item Sia $(X,d)$ uno spazio metrico e sia la famiglia $\tau_d$ degli aperti di $X$ rispetto a $d$. Allora $(X,\tau_d)$ formano uno spazio topologico. 
@@ -201,12 +201,12 @@ Poiché le topologie possono essere molto complesse, sarebbe utile avere un modo
 			A_1 \cap A_2 & = \bigcup_{i} B_{1,i} \cap \bigcup_{j} B_{2,j} \\
 				& = \bigcup_{i,j} B_{1,i} \cap B_{2,j} = \bigcup_{i,j} \bigcup_{k} B_{i,j,k}
 		\end{align*}
-		ovvero è ancora contenuto in $\tau$, visto che basta prendere l'unione di una sottofamiglia di $\mathcal{B}$.
+		per un $k \in I_{i,j}$ insieme degli indici dipendente da $i$ e $j$. Ovvero è ancora contenuto in $\tau$, visto che basta prendere l'unione di una sottofamiglia di $\mathcal{B}$.
 	\end{enumerate}
 \end{proof}
 
 
-
+\newpage
 \subsection{\textcolor{TopGener}{\textbf{La sottobase di una topologia}}}
 
 
@@ -216,41 +216,45 @@ L'idea dietro la costruzione di una sottobase è mostrare un modo semplice di co
 \begin{definition}
 	Sia $(X,\tau)$ uno spazio topologico e sia $S \subset \tau$. \\ Si dice che $S$ è una \textbf{sottobase di $\tau$} se $\mathcal{B}$ è una base di $\tau$ e vale che
 	\begin{equation*}
-		S \subset \mathcal{B} \coloneqq \left\{ B \in 2^X \,\middle|\, \bigcap^{|I| < +\infty}_{i \in I} S_i = B \right\}
+		S \subset \mathcal{B} \coloneqq \left\{ B \in 2^X \ \Big|\ \bigcap_{i \in I} S_i = B \ \text{ per un indice con} |I| < +\infty \right\}
 	\end{equation*}
 	.
 \end{definition}
 
-\begin{example}
+\begin{example}\
 \begin{enumerate}
 	\item $S = \tau$ è una sottobase, inutile, ma lo è.
-	\item Si prenda la topologia $2^X$ dove $X = \left\{a,b,c\right\}$ allora $S = \left\{\left\{a,b\right\},\left\{a,c\right\},\left\{c,b\right\}\right\}$ è una sottobase di $\tau$.
-	\item Si consideri $\R$ una sua sottobase potrebbe essere $S \coloneqq \left\{(-\infty, a) \,\middle|\, a \in \R\right\} \cup \left\{(b, +\infty) \,\middle|\, b \in \R\right\}$
+	\item Si prenda la topologia $2^X$ dove $X = \left\{a,b,c\right\}$, allora $S = \left\{\left\{a,b\right\},\left\{a,c\right\},\left\{c,b\right\}\right\}$ è una sottobase di $\tau$.
+	\item Si consideri $\R$, una sua sottobase potrebbe essere $S \coloneqq \left\{(-\infty, a) \,\middle|\, a \in \R\right\} \cup \left\{(b, +\infty) \,\middle|\, b \in \R\right\}$
 \end{enumerate}
 \end{example}
 
 \begin{proposition}
-	$\mathcal{S}$ è una sottobase di $\tau$ se $\forall A \in \tau \; . \forall x \in A . \; \exists U_1, \dots, U_n \in \mathcal{S}$ tali che $x \in U_1 \cap \dots \cap U_n \subset A$. 
+	$\mathcal{S}$ è una sottobase di $\tau$ se $\forall \ A \in \tau \; . \forall x \in A . \; \exists \ U_1, \dots, U_n \in \mathcal{S}$ tali che $x \in U_1 \cap \dots \cap U_n \subset A$. 
 \end{proposition}
 \begin{proof}
 	Riesce immediatamente, usa le definizioni locali di base ricordandoti che la sottobase definisce una base.
 \end{proof}
 
 \begin{remark}
-	Se nella proposizione precedente si sostituisce quel \textit{qualunque A} con tutto l'insieme $X$, si ha che $\mathcal{S}$ forma un ricoprimento di $X$.
+	Nella proposizione precedente abbiamo ricavato una definizione equivalente di sottobase; usiamo questa definizione con al posto di $A$ tutto l'insieme $X$, si ha immediatamente che $\mathcal{S}$ forma un ricoprimento di $X$.
 \end{remark}
 
 \begin{proposition}
-	Se $\mathcal{S} \subset 2^X$ è un ricoprimento di $X$ allora $\mathcal{S}$ è una sottobase di $(X,\tau)$, dove $\tau$ è l'unica topologia generata da $\mathcal{S}$. \\ In particolare è anche la meno fine.
+	Se $\mathcal{S} \subset 2^X$ è un ricoprimento di $X$ allora $\mathcal{S}$ è una sottobase di $(X,\tau)$, ed esiste un'unica topologia su $X$ con questa sottobase generatrice della base. \\ Quindi $\tau$ è l'unica topologia generata da $\mathcal{S}$, ed in particolare è anche la meno fine tra tutte le generabili da $\mathcal{S}$.
 \end{proposition}
 \begin{proof}
 	Se si prova l'esistenza della topologia allora è l'unica ed è anche la più fine.
 	Perciò per il Teorema \ref{thr:set_simil_base_generate_top} basta dimostrare che la base $\mathcal{B}$ generata da $\mathcal{S}$ è tale da essere un ricoprimento e che l'intersezione finita di elementi di $\mathcal{B}$ è stabile.\\
+	Come base usiamo ovviamente
+	\begin{equation*}
+	\mathcal{B} = \left\{ A \in 2^X \ \Big|\ \exists \ U_1, \dots, U_n \in \mathcal{S} \ \text{ con } A = \bigcap_{i } U_i \right\}
+	\end{equation*}
 	\begin{enumerate}
 		\item Per ipotesi $\mathcal{S}$ è un ricoprimento e $\mathcal{S} \subset \mathcal{B}$ quindi anche $\mathcal{B}$ è ovviamente un ricoprimento di $X$.
 		\item Siano $B_1, B_2 \in \mathcal{B}$ allora sono intersezione finita di elementi di $\mathcal{S}$ per cui
 		\begin{equation*}
-			B_1 \cap B_2 = \bigcap^n_{i=1} U_i \cap \bigcap^{n+m}_{i=n} U_i = \bigcap^{n+m}_{i=1} U_i  \in \mathcal{B}
+			B_1 \cap B_2 = \bigcap^n_{i=1} U_i \cap \bigcap^{m}_{j=1} U_i = \bigcap^{n+m}_{i=1} U_i  \in \mathcal{B}
 		\end{equation*}
 	\end{enumerate}
 	quindi utilizzando il Teorema \ref{thr:set_simil_base_generate_top} si conclude.
@@ -261,9 +265,9 @@ L'idea dietro la costruzione di una sottobase è mostrare un modo semplice di co
 \end{remark}
 
 
-
+\newpage
 \section{Intorni e sistemi fondamentali di intorni}
-Ad un certo punto dello studio di analisi si è destinati ad incontrare \textit{intorni}. \\ L'idea basilare della topologia è ampliare e generalizzare quanto è possibile fare con la "banale" analisi matematica in $\mathbb{R}^n$, quindi è più che naturale arrivare a trattare di intorni. \\ \\ In analisi matematica si definiscono con la formulazione detta \textit{epsilon-delta}, e sono solitamente intorni circolari (nel caso $n=2$); vedremo in questo capitolo un modo per rendere più generali tali definizioni e strutture, oltre all'importanza che ricopriranno nel corso delle dimostrazioni e della teoria di topologia generale, ma anche algebrica, così come in gran parte della matematica.
+Ad un certo punto, nello studio di analisi si è destinati ad incontrare gli \textit{intorni}. \\ L'idea alla base dello studio della topologia è ampliare e generalizzare quanto è possibile fare con la "banale" analisi matematica in $\mathbb{R}^n$, quindi è più che naturale arrivare a trattare di intorni. \\ \\ In analisi matematica si definiscono con la formulazione detta \textit{epsilon-delta}, e sono solitamente intorni circolari (nel caso $n=2$); vedremo in questo capitolo un modo per rendere più generali tali definizioni e strutture, oltre all'importanza che ricopriranno nel corso delle dimostrazioni e della teoria di topologia generale, ma anche algebrica, così come in gran parte della matematica.
 
 
 
@@ -299,7 +303,7 @@ Ad un certo punto dello studio di analisi si è destinati ad incontrare \textit{
 \begin{proof} \
 	\begin{enumerate}
 		\item[$(\Rightarrow)$] La prima implicazione è ovvia poiché $A$ aperto. Allora $x \in A \subset A$ per ogni $x \in A$.
-		\item[$(\Leftarrow)$]	La seconda pure perché so che per ogni $x \in A$ $A$ è un intorno e quindi esiste $x \in A_x \subset A$ tale che $A_x \in \tau$. Per cui  
+		\item[$(\Leftarrow)$]	La seconda pure perché $A$ è un intorno di ogni suo punto, e quindi esiste $x \in A_x \subset A$ tale che $A_x \in \tau$. Allora
 		\begin{equation*}
 			A = \bigcup_{x \in A} \left\{x\right\} \subset \bigcup_{x\in A} A_x \subset A
 		\end{equation*}
@@ -307,7 +311,7 @@ Ad un certo punto dello studio di analisi si è destinati ad incontrare \textit{
 	\end{enumerate}
 \end{proof}
 
-Inoltre dalle osservazioni che seguono risulta essere che una topologia induce sugli intorni certe proprietà, ma allo stesso modo se si danno quelle proprietà a degli intorni questi creano una topologia. Insomma una topologia è genera degli intorni se e solo se quelli stessi intorni generano la stessa topologia. 
+Dalle osservazioni che seguono vedremo come una topologia induce sugli intorni certe proprietà, ma allo stesso modo se si danno quelle proprietà a degli intorni questi creano una topologia. Insomma, una topologia genera degli intorni se e solo se quegli stessi intorni generano la suddetta topologia. \\ A meno di restrizioni, ogni intorno appartenente al sistema di intorni è aperto (basti pensare alla definizione di intorno, con $x \in U \subset A$ ed $U \in \tau$, bisogna solo eventualmente restringersi all'aperto $A$). Gli intorni quindi possono sostituirsi agli aperti.
 
 \begin{proposition}
 	Sia $(X,\tau)$ uno spazio topologico ed $x \in X$, indichiamo per semplicità $\mathcal{N}_\tau(x) = \mathcal{N}(x)$. \\ Valgono le seguenti proprietà:
@@ -378,13 +382,13 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 
 
 \begin{definition}
-	Una famiglia $\mathcal{V}(x)$ di intorni di $x$ in $(X,\tau)$, cioè $\mathcal{V}(x) \subset \mathcal{N}_\tau(x)$; si dice \textbf{sistema fondamentale di intorni} di $x$ in $(X,\tau)$ se $\forall U \in \mathcal{N}_\tau(x)\ .\ \exists V \in \mathcal{V}(x)$ tale che $V \subset U$.
+	Sia data una famiglia $\mathcal{V}(x)$ di intorni di $x$ in $(X,\tau)$, cioè una famiglia $\mathcal{V}(x) \subset \mathcal{N}_\tau(x)$; questa si dice \textbf{sistema fondamentale di intorni} di $x$ in $(X,\tau)$ se $\forall U \in \mathcal{N}_\tau(x)\ .\ \exists V \in \mathcal{V}(x)$ tale che $V \subset U$.
 \end{definition}
 
 \begin{example} Esempi di sistemi fondamentali di intorni:
 \begin{enumerate} 
 	\item Sia $(X,\tau)$ spazio topologico metrizzabile tramite una distanza $d$. Possiamo definire $\mathcal{V}(x) = \left\{B_d(x,r)\right\}_{r>0}$ come sistema fondamentale di intorni di $x$. 
-	\item Sia $(X,\tau)$ con $\tau$ topologia banane e $x \in X$; l'unica scelta come intorno è $X$ stesso, quindi $V(x) = \left\{X\right\}$.
+	\item Sia $(X,\tau)$ con $\tau$ topologia banale e $x \in X$; l'unica scelta come intorno è $X$ stesso, quindi $V(x) = \left\{X\right\}$.
 	\item Sia $(X,\tau)$ con $\tau$ topologia discreta e $x \in X$, basta prendere $\mathcal{V}(x) = \left\{\left\{x\right\}\right\}$ come sistema fondamentale di intorni.
 \end{enumerate}
 \end{example}
@@ -405,7 +409,7 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 	Sia $(X,\tau)$ spazio topologico e $\mathcal{B} \subset \tau$; allora $\mathcal{B}$ è una base per $\tau$ se e soltanto se $\forall x \in X$ la famiglia $\mathcal{B}(x) = \left\{B \in \mathcal{B} \,\middle|\, x \in B \right\}$ è un sistema fondamentale di intorni di $x$ rispetto a $\tau$.
 \end{theorem}
 \begin{proof}
-	Sia $\beta$ una base di $\tau$ e $x \in X$. Sia $U \in \mathcal{N}_\tau(x)$, cioè $\exists A \in \tau$ tale che $x \in A \subset U$. \\ Poiché $\mathcal{B}$ base di $\tau$, allora $A = \bigcup_{B \in \mathcal{B}'} B$ con $\mathcal{B}' \subset \mathcal{B}$. Perciò $x \in A$, che implica $x \in B$ per qualche $B \in \mathcal{B}' \subset \mathcal{B}$, ed otteniamo che $B \in \mathcal{B}(x)$. \\ Quindi dimostro che per ogni intorno $N(x) \in \mathcal{N}(x)$ segue che esiste $B \subset N(x)$, ovvio perché per definizione di intorno $x \in A \subset N(x)$, ma $A = \bigcup_{B \in \mathcal{B}'} B$ per qualche $\mathcal{B}' \subset \mathcal{B}$.\\  
+	Sia $\beta$ una base di $\tau$ e $x \in X$. Sia $U \in \mathcal{N}_\tau(x)$, cioè $\exists A \in \tau$ tale che $x \in A \subset U$. \\ Poiché $\mathcal{B}$ base di $\tau$, allora $A = \bigcup_{B \in \mathcal{B}'} B$ con $\mathcal{B}' \subset \mathcal{B}$. Perciò $x \in A$, che implica $x \in B$ per qualche $B \in \mathcal{B}' \subset \mathcal{B}$, ed otteniamo che $B \in \mathcal{B}(x)$. \\ Quindi dimostro che per ogni intorno $N(x) \in \mathcal{N}(x)$; segue che esiste $B \subset N(x)$, ovvio perché per definizione di intorno $x \in A \subset N(x)$, ma $A = \bigcup_{B \in \mathcal{B}'} B$ per qualche $\mathcal{B}' \subset \mathcal{B}$.\\  
 	
 	Supponiamo che $\mathcal{B}(x)$ sia un sistema fondamentale di intorni per ogni $x \in X$. Sia $A \in \tau$, per la proposizione precedente allora $\forall x \in A, \exists V(x) \in \mathcal{B}(x)$ tale che $V(x) \subset A$. In particolare ottengo che
 	\begin{equation*}
@@ -427,7 +431,7 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 \end{proof}
 
 \begin{remark}
-	Sia $(X, \tau)$ uno spazio topologico, $\forall x \in X$ esiste $\mathcal{V}(x)$ sistema fondamentale di intorni di $x$ in $\tau$.
+	Sia $(X, \tau)$ uno spazio topologico tale che $\forall x \in X$ esiste $\mathcal{V}(x)$ sistema fondamentale di intorni di $x$ in $\tau$.
 	\begin{enumerate}
 		\item  Allora è ovvio che dati $V_1, V_2 \in \mathcal{V}(x)$, $\exists V' \in \mathcal{V}(x)$ tale che $V' \subset V_1 \cap V_2$. \\ Infatti per definizione $V_1, V_2 \in \mathcal{N}_\tau(x)$ e siccome $\forall N \in \mathcal{N}_\tau(x)$ esiste $V' \in \mathcal{V}(x)$ tale che $V \subset N$; basta prendere $N = V_1 \cap V_2$.
 		\item Banalmente vale che $\forall V \in \mathcal{V}(x)$, $x \in V$.
@@ -437,7 +441,7 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 
 \begin{theorem}
 	\label{thr:sfi_generate_topology}
-	Sia $X \neq \varnothing$ e $\morphism{V}{X}{2^{2^X}}$ tale che $\forall x \in X$ $V(x) \subset 2^X$ e $V(x) \neq \varnothing$ e che rispetta i seguenti enunciati
+	Sia $X \neq \varnothing$ e $\morphism{V}{X}{2^{2^X}}$ tale che $\forall x \in X$ valga $V(x) \subset 2^X$ e $V(x) \neq \varnothing$, e che rispetti i seguenti enunciati:
 	\begin{enumerate}
 		\item Dati $V_1, V_2 \in \mathcal{V}(x)$ anche $\exists V' \in \mathcal{V}(x)$ tale che $V' \subset V_1 \cap V_2$.
 		\item $\forall V \in \mathcal{V}(x)$, $x \in V$.
@@ -447,10 +451,29 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 \end{theorem}
 \begin{proof}
 	% TODO: ELONGATED PROOF
+	Se la topologia esiste è chiaramente unica: questo vale per costruzione della topologia tramite la propria base e per i risultati di unicità della topologia data la base. Allora dobbiamo solo dimostrare che questa topologia esiste. \\ \\
+	In un risultato precedente abbiamo visto che $\mathcal{B}$ è base di una topologia $\tau$ se e solo se ogni punto $x$ dello spazio $X$ ha come sistema fondamentale di intorni 
+	\begin{equation*}
+	B_x \coloneqq \left\{ b \in \mathcal{B} \ \text{ tali che } \ x \in b \right\}
+	\end{equation*}
+	che è il sistema fondamentale di intorni che supponiamo di avere (si noti che possiamo farlo). \\ Usando questo per costruire la base possiamo definire la topologia $\tau$ ed usare le tre proprietà richieste dalle ipotesi per dimostrare che è effettivamente una topologia.
+	\begin{itemize}
+		\item Effettivamente l'insieme vuoto e lo spazio $X$ appartengono a $\tau$, per definizione di base il primo e per unione di intorni di ogni suo punto il secondo.
+		\item L'unione arbitraria di suoi elementi è ancora un elemento, questo risulta chiaramente dalle proprietà richieste.
+		\item Per l'intersezione finita basta usare la prima proprietà unita alla terza richiesta al sistema fondamentale di intorni.
+	\end{itemize}
 \end{proof}
 
+\begin{remark}[Sistema fondamentale come funzione] 
+	Abbiamo sempre indicato con $\mathcal{V}(x)$ il sistema fondamentale di intorni nel punto $x$ di $X$; questo può essere visto come immagine di una funzione 
+	\begin{equation*}
+		f : X \ \rightarrow \ \mathcal{P}\big(\mathcal{P} (X) \big)
+	\end{equation*}
+	che associa ad ogni punto il suo sistema fondamentale di intorni. \\ Chiaramente abbiamo usato la notazione che indica con $\mathcal{P}(A)$ l'insieme delle parti dell'insieme $A$. \\ \\ Un discorso esattamente analogo vale per i sistemi di intorni $\mathcal{N}(x)$. \\ Per quanto possa sembrare non interessante, è un fatto che a posteriori vale la pena sottolineare.
+\end{remark}
 
 
+\newpage
 \section{Assiomi di numerabilità}
 Gli assiomi di numerabilità descrivono proprietà dello spazio in cui lavoriamo, e sono strettamente legati alle proprietà di Hausdorff - che vedremo. \\
 Torneranno utili nella descrizione degli spazi.
@@ -484,8 +507,15 @@ Torneranno utili nella descrizione degli spazi.
 \begin{lemma}
 	Sia $(X,\tau)$ uno spazio topologico, se esso soddisfa il secondo assioma di numerabilità allora soddisfa anche il primo. 
 \end{lemma}
-\begin{proof}
-	Infatti sia $\mathcal{B}$ una base numerabile di $\tau$, allora mi basta prendere come sistema fondamentale di intorni tutti i $\left\{B_i\right\} \in \mathcal{B}$ tali che $x \in B_i$. Per cui $\left\{B_i\right\}$ genera un sistema fondamentale di intorni numerabile per ogni $x \in X$.
+\begin{proof}[Vista in classe]
+	Prendendo come abbiamo sempre fatto la costruzione del sistema fondamentale di intorni (in un punto $x$ generico) dalla base
+	\begin{equation*}
+	B_x \coloneqq \left\{ b \in \mathcal{B} \ \text{ tali che } \ x \in b \right\}
+	\end{equation*}
+	risulta ovvio che se la base $\mathcal{B}$ è finita, allora lo è anche il sistema fondamentale di intorni.
+\end{proof}
+\begin{proof}[Alternativa]
+	Sia $\mathcal{B}$ una base numerabile di $\tau$, allora mi basta prendere come sistema fondamentale di intorni tutti i $\left\{B_i\right\} \in \mathcal{B}$ tali che $x \in B_i$. Per cui $\left\{B_i\right\}$ genera un sistema fondamentale di intorni numerabile per ogni $x \in X$.
 \end{proof}
 
 \begin{example}	
