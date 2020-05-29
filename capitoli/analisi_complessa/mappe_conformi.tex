@@ -28,16 +28,64 @@ reali di una funzione olomorfa è
 \end{remark}
 
 \begin{theorem}
+ \label{thr:conferme_sse_jacobiana_non_nulla}
   Sia $\morphism{f}{\Omega}{\C}$ e $z_0 \in \Omega$. Sia $f = u + iv$ con $u,v$
   differenziabili in $z_0$. Allora $f$ è conforme in $z_0$ se e solo se esiste
   la derivata complessa di $f'(z_0)$ e vale che $f'(z_0) \neq 0$.
-  \label{<+label+>}
 \end{theorem}
 \begin{proof}\
-  % TODO
   \begin{enumerate}
-    \item Se $f$ è differenziabile
-  \end{enumerate}<++>
+    \item[$\Rightarrow$] Se $f$ è differenziabile in $z_0$ allora $J_f(z_0) = 
+      |f'(z_0)|^2 > 0$ per ipotesi. Sia quindi $(u_x,v_x) = (r\cos\theta, 
+      r\sin\theta)$ con 
+      \begin{equation*}
+        r = \sqrt{u_x^2 + v_x^2} = |f'(z_0)|^2 > 0 
+      \end{equation*}
+      allora la matrice Jacobiana di $f$ in $z_0$ diventa
+      \begin{equation*}
+        \left(\begin{array}{cc}
+          r & 0 \\
+          0 & r
+      \end{array}\right)
+       \left( \begin{array}{cc}
+          \cos\theta & - \sin \theta \\
+          \sin \theta & \cos \theta
+      \end{array}\right)
+      \end{equation*}
+      corrisponde alla composizione di una rotazione con una omotetia, ma sono
+      entrambe trasformazioni che preservano gli angoli, da cui la tesi.
+    \item[$\Leftarrow$] Sia $f$ conforme in $z_0$. Sia $\theta$ l'angolo tra
+      i vettori $(1,0)$ e $J(1,0)$ con $J = J_f(z_0)$. Per cui costruiamo una
+      rotazione $R_\theta$ tale che $R_\theta^{-1}(J(1,0)) = (r,0)$ con $r > 0$
+      dato che se no $f$ non preserverebbe gli angoli. In particolare chiediamo
+      $R^{-1}_\theta$ una rotazione che rende l'angolo tra $(1,0)$
+      e $R^{-1}_\theta(J(1,0))$ sia nullo. Segue che la
+      trasformazione $G = R^{-1}_\theta J$ preserva gli angoli. Quindi segue che
+      anche $G (0,1) = (0, s)$ con $s > 0$.  Per cui $G(1,1) = (r,s)$
+      e dev'essere che $r = s$ dato che se non preserverebbe gli angoli. Per cui
+      consideriamo $(a,b)$ vettore qualsiasi, vale che $G(a,b) = r(a,b)$.
+      Because algebra: 
+      \begin{equation*}
+        R^{-1}_\theta J = I_r \Longrightarrow J = J_f(z_0) = R_\theta I_r
+      \end{equation*}
+      scritto in termini matriciali diventa
+      \begin{equation*}
+        J_f(z_0) = \left( 
+          \begin{array}{cc}
+          u_x & u_y \\
+          v_x & v_y 
+          \end{array}\right) = 
+          \left( 
+            \begin{array}{cc}
+              r\cos\theta & -r\sin\theta \\
+              r\sin\theta & r\cos\theta 
+            \end{array}
+          \right)
+      \end{equation*}
+      da cui segue subito che $u_x = v_y$ e $u_y = - v_x$, ovvero soddisfa le
+      condizioni di Cauchy-Riemann. Pertanto $f$ è differenziabile e inoltre
+      vale che $f'(z_0) \neq 0$ dato che $J \neq 0$.
+  \end{enumerate}
 \end{proof}
 
 \begin{corollary}
