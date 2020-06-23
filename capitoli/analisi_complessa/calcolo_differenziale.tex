@@ -25,19 +25,21 @@ Come nel caso reale in una variabile, possiamo esprimere la differenziabilità i
 \end{definition}
 
 
-Inoltre, per come è stata definita la derivata, possiamo sfruttare tutte le proprietà che valgono nel caso reale di una variabile. Mostriamo alcuni esempi, come la derivata delle seguenti funzioni (se sono differenziabili \dots). \\
+Inoltre, per come è stata definita la derivata, possiamo sfruttare tutte le proprietà che valgono nel caso reale di una variabile. Mostriamo alcuni esempi, come la derivata delle seguenti funzioni (se sono differenziabili \dots).
 
-	\begin{equation*} \begin{aligned}
-	f(z) & = \log(|z|)   \\
-	f(z) & = e^{iz - |z|}  \\
-	f(z) & = (1 + i - z)z^2  \\
-	\end{aligned} \end{equation*}
+	\begin{equation*} 
+	\begin{aligned}
+		f(z) & = \log(|z|) 			& \text{non diff.} &  \\
+		f(z) & = e^{iz - |z|} 		& \text{non diff.} & \\
+		f(z) & = (1 + i - z)z^2  	& f'(z) & = 2(1+i)z - 3z^2 \\
+	\end{aligned} 
+	\end{equation*}
 \\
 
 Occupiamoci della derivabilità in senso complesso: la seguente definizione è fondamentale.
 
 \begin{definition}
-	Una funzione $\morphism{f}{\Omega \subset \C}{\C}$ è detta \textbf{olomorfa} se è differenziabile in ogni $z \in \Omega$. \\ In generale indicheremo l'insieme delle funzioni olomorfe su $\Omega$ con $\mathcal{O}(\Omega)$.
+	Una funzione $\morphism{f}{\Omega \subset \C}{\C}$ è detta \textbf{olomorfa} se è differenziabile in ogni $z \in \Omega$. In generale indicheremo l'insieme delle funzioni olomorfe su $\Omega$ con $\mathcal{O}(\Omega)$.
 \end{definition}
 
 \begin{remark}
@@ -195,7 +197,7 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 	Data una successione di funzioni complesse definite su $\Omega$, $\{f_n\}_{n\in\N}$, se vale 
 	\begin{equation}
 	\begin{aligned}
-		\sup_{z \in \Omega} |\sum^{N}_{n=0}f_n(z) - f(z)| \to 0 \quad\ \text{per}\ N \to +\infty
+		\sup_{z \in \Omega} \left|\sum^{N}_{n=0}f_n(z) - f(z)\right| \to 0 \quad\ \text{per}\ N \to +\infty
 	\end{aligned}
 	\end{equation}
 	per una qualche $\morphism{f}{\Omega}{\C}$, allora si dice che la serie \textbf{converge uniformemente} a $f$.
@@ -215,7 +217,7 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 \begin{remark}
 	Osserviamo infine che se una serie $\{\sum^n_{k=0}f_k\}_{n \in \N}$ è assolutamente convergente, allora è anche puntualmente convergente, infatti
 	\begin{equation*}
-		|\sum^n_{k=0} f_k(z)| \le \sum^n_{k=0} |f_k(z)| = l < +\infty
+		\left|\sum^n_{k=0} f_k(z)\right| \le \sum^n_{k=0} |f_k(z)| = l < +\infty
 	\end{equation*} 
 	per cui $\sum^n_{k=0} \Re(f_k(z)) < +\infty,\ \sum^n_{k=0} \Im(f_k(z)) < +\infty$. Per cui tutta la serie converge a qualche funzione $f$ in ogni punto.
 \end{remark}
@@ -249,7 +251,7 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 
 \begin{theorem}[Criterio di Hadamard]
 	\label{thr:criterio-hadamard}
-	Data una serie di potenze $S$ con notazione come in Definizione \ref{defn:serie-di-potenze}, definiamo il suo\textbf{raggio di convergenza} come $R := ( \limsup_{n\to+\infty} \sqrt[n]{a_n})^{-1} \in \left[0,+\infty\right]$. Allora 
+	Data una serie di potenze $S$ con notazione come in Definizione \ref{defn:serie-di-potenze}, definiamo il suo \textbf{raggio di convergenza} come $R := ( \limsup_{n\to+\infty} \sqrt[n]{a_n})^{-1} \in \left[0,+\infty\right]$. Allora 
 	\begin{enumerate}
 		\item La serie di potenze $S$ converge assolutamente nel disco $B_{z_0}(R)$ e non converge per $z \notin \overline{B_{z_0}(R)}$.
 		\item La serie di potenze converge su ogni disco chiuso $\overline{B_{z_0}(r)}$ con $r < R$.  
@@ -269,7 +271,7 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 	|a_nz^n| < \left(\frac{r}{t}\right)^n
 	\end{equation*}
 	
-	Per il Teorema \ref{thr:m-test-weierstrass} la serie di potenze converge $\forall z \in \Omega$ - dove $\Omega = B_0(r)$ - e siccome vale per ogni $r < R$ segue anche per $B_0(R)$.\\
+	Per il Teorema \ref{thr:m-test-weierstrass} la serie di potenze converge $\forall z \in B_0(r)$ e siccome vale per ogni $r < R$ segue anche per $B_0(R)$.\\
 	
 	Dimostriamo ora che non converge da nessuna parte al di fuori della chiusura del disco aperto $\overline{B_{z_0}(R)}$. Infatti se supponessimo la convergenza in qualche punto $z \in \C \setminus \overline{B_{z_0}(R)}$ allora $|z| > R$ e $|z|^{-1} < R$. Per cui $\forall n \ge N$ con $N \in \N$ vale che
 	
@@ -337,11 +339,3 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 	\end{equation*}
 \end{proof}
 
-\begin{remark}
-	Utilizzando il teorema di Abel posso mostrare che ogni funzione analitica è localmente olomorfa nel suo raggio di convergenza, ma per quanto abbiamo "previsto" precedentemente sappiamo anche che una funzione olomorfa è $C^\infty$, quindi potremmo sviluppare \textit{all'infinito} Taylor ed ottenere una serie di potenze localmente identiche alla funzione iniziale. \\ Concludiamo dunque con la notevole - ed importante! - osservazione che
-	\begin{equation*}
-	\begin{aligned}
-		f \ \ \textrm{ANALTICA} \ \Longleftrightarrow \ f \ \  \mathrm{OLOMORFA}
-	\end{aligned}
-	\end{equation*}
-\end{remark}

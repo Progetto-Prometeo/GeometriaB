@@ -7,7 +7,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 	Sia $\morphism{f}{\left[a,b\right]\subset \R}{\C}$ una funzione continua, con $f(t) = u(t), iv(t)$ allora 
 	\begin{equation*}
 	\begin{aligned}
-	\int_{a}^{b} f(t)\ dt := \int_{a}^{b} u(t)\ dt + i \int_{a}^{b} v(t)\ dt 
+	\int_{a}^{b} f(t)\ dt \coloneqq \int_{a}^{b} u(t)\ dt + i \int_{a}^{b} v(t)\ dt 
 	\end{aligned}
 	\end{equation*}
 \end{definition}
@@ -52,7 +52,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 \end{proof}
 
 \begin{proof}[3]
-	Poniamo $\omega := \int_{a}^{b} f(t)\ dt$, allora se $\omega = 0$ è dimostrata. Se $\omega \neq 0$ allora poniamo $u = \overline{\omega}/|\omega|$, osserviamo che $|u|=1$. Da cui
+	Poniamo $\omega \coloneqq \int_{a}^{b} f(t)\ dt$, allora se $\omega = 0$ è dimostrata. Se $\omega \neq 0$ allora poniamo $u = \overline{\omega}/|\omega|$, osserviamo che $|u|=1$. Da cui
 	\begin{equation*}
 	\begin{aligned}
 	|w| = uw = \int_{a}^b \Re(uf(t))\ dt \le \int_{a}^b |uf(t))|\ dt = \int_{a}^b |f(t))|\ dt  
@@ -75,7 +75,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 
 \begin{definition}
 	\label{defn:curva-c1}
-	Una \textbf{curva di classe $C^1$} nel piano complesso è una funzione $\morphism{\gamma}{J=\left[a,b\right]}{\C}$ di classe $C^1$. L'immagine $\gamma(J) \subset \C$ è detta \textbf{traccia o sostegno della curva}. Una curva di classe $C^1$ a tratti è una funzione continua $\morphism{\gamma}{J}{\C^1}$, di classe $C^1$ su $J$ meno un numero finito di punti.\\ 		
+	Una \textbf{curva di classe $C^1$} nel piano complesso è una funzione $\morphism{\gamma}{J=\left[a,b\right]}{\C}$ di classe $C^1$. L'immagine $\gamma(J) \subset \C$ è detta \textbf{traccia o sostegno della curva}. Una curva di classe $C^1$ a tratti è una funzione continua $\morphism{\gamma}{J}{\C^1}$, di classe $C^1$ su $J$ meno un numero finito di punti. 		
 \end{definition}
 
 \begin{definition}
@@ -88,7 +88,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 	La \textbf{lunghezza} della curva di classe $C^1$ $\morphism{\gamma}{\left[a,b\right]}{\C}$ è definita come l'integrale 
 	\begin{equation*}
 	\begin{aligned}
-	l(\gamma) := \int_{a}^{b} |\gamma'(t)|\ dt
+	l(\gamma) \coloneqq \int_{a}^{b} |\gamma'(t)|\ dt
 	\end{aligned}
 	\end{equation*}
 \end{definition}
@@ -98,7 +98,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 	Sia $\morphism{\gamma}{\left[a,b\right]}{\C}$ una curva di classe $C^1$ con sostegno contenuto in un aperto $\Omega \subset \C$. Sia $\morphism{f}{\Omega}{\C}$ allora
 	\begin{equation*}
 	\begin{aligned}
-	\int_\gamma f(z)\ dz := \int_{a}^b f(\gamma(t)) \gamma'(t) \ dt
+	\int_\gamma f(z)\ dz \coloneqq \int_{a}^b f(\gamma(t)) \gamma'(t) \ dt
 	\end{aligned}
 	\end{equation*}  
 \end{definition}
@@ -123,7 +123,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 		\left|\int_{\gamma} f(z) \ dz\right| \le \max_{\gamma} |f(z)| \mathcal{H}^1(\gamma)	
 		\end{aligned}
 		\end{equation*}
-		\item sia $-\gamma(t) := \gamma(a+b-t)$ la curva percorsa in senso opposto a quello di $\gamma$, allora
+		\item sia $-\gamma(t) \coloneqq \gamma(a+b-t)$ la curva percorsa in senso opposto a quello di $\gamma$, allora
 		\begin{equation*}
 		\begin{aligned}
 		\int_{-\gamma} f(z) \ dz = - \int_{\gamma} f(z) \ dz
@@ -204,7 +204,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 	Per ogni rettangolo $R' \subset \Omega$ definiamo 
 	\begin{equation*}
 	\begin{aligned}
-	\eta(R') := \left| \int_{\partial R'} f(z)\ dz\right|
+	\eta(R') \coloneqq \left| \int_{\partial R'} f(z)\ dz\right|
 	\end{aligned}
 	\end{equation*}
 	Per cui suddividiamo $R$ in quattro sottrettangoli, $R_1, \dots, R_4$. La somma dell'intergale sul bordo dei 4 rettangoli dà l'integrale di $f$ lungo $R$ dato che i lati interni vengono percorsi in senso opposto e quindi valgono $0$. \\

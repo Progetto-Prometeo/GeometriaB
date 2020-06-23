@@ -1,12 +1,7 @@
 %------ PREAMBOLO --------------
 
-% !TeX spellcheck = IT
-% TODO: Controllare se fa differenza su texstudio per lo spellcheck
-% NOTA: no, non lo fa (Stark)
-
 \documentclass[a4paper, twoside]{book}
 \include{preambolo}
-
 
 
 %------ COPERTINA e ROBA RANDOM --------------
@@ -26,32 +21,12 @@
 \definecolor{TopAlg}{rgb}{0.27, 0.42, 0.81}
 \definecolor{AnComp}{rgb}{1.0, 0.65, 0.0}
 
-%Test colori [TEMPORANEO]
-TEST:
-\\
-\textcolor{TopGener}{\textbf{TEST TEST} TEST TEST \textit{TEST TEST} 1234567890} \ Topologia generale\\
-\textcolor{TopAlg}{\textbf{TEST TEST} TEST TEST \textit{TEST TEST} 1234567890} \ Topologia algebrica\\
-\textcolor{AnComp}{\textbf{TEST TEST} TEST TEST \textit{TEST TEST} 1234567890} \ Analisi complessa
-
 
 
 % --- FRONT MATTER ------------------------------------
 
 \frontmatter
-%\begin{abstract}
-	% TODO? in book non c'è l'ambiente abstact
-%\end{abstract}
 
-
-%    Dedication.  If the dedication is longer than a line or two,
-%    remove the centering instructions and the line break.
-%\cleardoublepage
-%\thispagestyle{empty}
-%\vspace*{13.5pc}
-%\begin{center}
-%  Dedication text (use \\[2pt] for line break if necessary)
-%\end{center}
-%\cleardoublepage
 
 %    Change page number to 6 if a dedication is present.
 % NOTA: l'ho settato ad 1 perché è la prima pagina dell'indice, 
@@ -59,9 +34,6 @@ TEST:
 \setcounter{page}{1}
 
 \tableofcontents
-%    Include unnumbered chapters (preface, acknowledgments, etc.) here.
-
-
 
 
 
@@ -93,9 +65,6 @@ TEST:
 
 
 \part{Analisi Complessa}
-\include{preface/preface}
-%todos: 0
-
 \include{capitoli/analisi_complessa/calcolo_differenziale}
 %todos: 0
 

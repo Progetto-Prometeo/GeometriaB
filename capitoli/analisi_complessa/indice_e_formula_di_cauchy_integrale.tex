@@ -226,12 +226,12 @@
   $B_a(r)$. Allora definiamo $\gamma = \partial B_a(r)$. Per il Teorema
   integrale di Cauchy \ref{thr:formula-integrale-cauchy} allora vale 
   \begin{equation*}
-    f(z) = \frac{1}{2i\pi} \int_\gamma \frac{f(w)}{w-z}\ dw
+    f(z) = \frac{1}{2\pi i} \int_\gamma \frac{f(w)}{w-z}\ dw
   \end{equation*}
   che vale ovunque per ogni $z \in \Omega \setminus \{a\}$. Definiamo
   l'equazione 
   \begin{equation*}
-    g(z) =  \frac{1}{2i\pi} \int_\gamma \frac{f(w)}{w-z}\ dw
+    g(z) =  \frac{1}{2 \pi i} \int_\gamma \frac{f(w)}{w-z}\ dw
   \end{equation*}
   su ogni $z \in B_a(r)$ la funzione è olomorfa per Lemma
   \ref{lem:index-function-holomorphic}. Quindi posso definire la seguente
@@ -315,15 +315,15 @@
   \subset \Omega$, $\gamma = \partial B_{z_0}(r)$ e $M = \max_{\gamma} |f|$
   allora vale la seguente stima
   \begin{equation*}
-    |f^{(n)}(z_0)| \le \frac{n!M}{r^n}
+    |f^{(n)}(z_0)| \le \frac{Mn!}{r^n}
   \end{equation*}
   per ogni $n \in \N$.
   \label{cor:stime-cauchy}
 \end{corollary}
 \begin{proof}
   \begin{equation*}
-    |f^{(n)}(z_0)| \le \frac{n! M}{2\pi r^{n+1}} \mathcal{H}^1(\gamma)
-    =\frac{n!M}{r^n}
+    |f^{(n)}(z_0)| \le \frac{Mn!}{2\pi r^{n+1}} \mathcal{H}^1(\gamma)
+    =\frac{Mn!}{r^n}
   \end{equation*}
 \end{proof}
 
@@ -546,7 +546,7 @@ solamente i punti dove la funzione ha dei poli.
    $g(z,w_0) \in \mathcal{O}(\Omega)$.
    \label{lem:rapporto-incrementale-funzione-olomorfa}
  \end{lemma}
- \begin{proof}
+ \begin{proof}\
     \textbf{Dimostrazione che $g$ è continua} \\
     
     Se $(z_0, w_0) \in \Omega\times\Omega$ con $z_0 \neq w_0$ la
@@ -585,7 +585,7 @@ solamente i punti dove la funzione ha dei poli.
       |g(z,w) - g(z_0,z)| \le \int^1_0 |f'(\gamma(t)) - f'(z_0)|\ dt \le
       \int^1_0 \varepsilon\ dt = \varepsilon
     \end{equation*}
-    ovvero $g$ è continua.
+    ovvero $g$ è continua.\\
 
    \textbf{Dimostrazione che $g$ è olomorfa dato un $w_0$} \\
 
@@ -599,7 +599,7 @@ solamente i punti dove la funzione ha dei poli.
 
 \begin{theorem}
 Sia $\Omega \subset \C$ un aperto e $\Gamma$ una catena in $\Omega$ con
-$\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{\Omega}$. Allora 
+$\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora 
 \begin{enumerate}
     \item Vale la formula integrale di Cauchy per ogni $z \in \Omega \setminus
         \image(\Gamma)$  
@@ -646,7 +646,7 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{\Omega}$. Allora
             = \frac{1}{2\pi i} \int_\Gamma \frac{f(w)}{w-z}\ dw        
     \end{equation*}
     poiché essendo in $\Omega'$, sappiamo che $\Ind_\Gamma(z)
-    = 0$. 
+    = 0$. \\
     
     \textbf{Dimostriamo che $h$ è intera}\\
 
@@ -669,7 +669,7 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{\Omega}$. Allora
     \end{equation*}
     per ogni $w$ dato che $z \mapsto g(z,w)$ è una funzione olomorfa. Per
     cui segue che $h \in \mathcal{O}(D)$ per ogni disco aperto $D \subset
-    \Omega$, per cui è olomorfa su tutto $\Omega$.
+    \Omega$, per cui è olomorfa su tutto $\Omega$.\\
 
     \textbf{Conclusione}\\
 
