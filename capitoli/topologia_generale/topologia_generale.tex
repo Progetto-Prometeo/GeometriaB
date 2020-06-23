@@ -1,4 +1,7 @@
 \chapter{Introduzione alla topologia generale}
+
+\section{La struttura di topologia}
+\subsection{\textcolor{TopGener}{\textbf{Alcune definizioni fondamentali}}}
 %todo: introduzione di ghiloni sullo spazio metrico e la distanza? maybe?
 
 
@@ -45,6 +48,8 @@ Insomma, che cosa aspettiamo?
 \end{definition}
 
 
+Di seguito mostreremo come alcune semplici topologie possano essere collegate alla struttura di uno spazio metrico in modo più preciso; le due definizioni sono strettamente correlate anche in casi molto complessi, ma non ci estenderemo a tanto.
+
 \begin{definition}
 	Uno spazio topologico $(X,\tau)$ si dice \textbf{metrizzabile} se esiste una funzione distanza $\morphism{d}{X\times X}{\R}$ tale che gli insiemi aperti indotti da $d$ sono gli stessi elementi di $\tau$. \\ In particolare la topologia indotta da $d$, $\tau_d  = \tau$. 
 \end{definition}
@@ -88,6 +93,7 @@ Parlando di un caso davvero banale, diciamo \textbf{topologia euclidea} la topol
 
 
 \subsection{\textcolor{TopGener}{\textbf{Confronto tra topologie}}}
+
 Risulta perfettamente naturale chiedersi quando due topologia siano "uguali". Ma come si definisce per una topologia essere "uguale" ad un'altra?
 
 
@@ -265,10 +271,10 @@ L'idea dietro la costruzione di una sottobase è mostrare un modo semplice di co
 \end{remark}
 
 
+
 \newpage
 \section{Intorni e sistemi fondamentali di intorni}
 Ad un certo punto, nello studio di analisi si è destinati ad incontrare gli \textit{intorni}. \\ L'idea alla base dello studio della topologia è ampliare e generalizzare quanto è possibile fare con la "banale" analisi matematica in $\mathbb{R}^n$, quindi è più che naturale arrivare a trattare di intorni. \\ \\ In analisi matematica si definiscono con la formulazione detta \textit{epsilon-delta}, e sono solitamente intorni circolari (nel caso $n=2$); vedremo in questo capitolo un modo per rendere più generali tali definizioni e strutture, oltre all'importanza che ricopriranno nel corso delle dimostrazioni e della teoria di topologia generale, ma anche algebrica, così come in gran parte della matematica.
-
 
 
 \subsection{\textcolor{TopGener}{\textbf{Gli intorni in topologia}}}
@@ -409,8 +415,7 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 	Sia $(X,\tau)$ spazio topologico e $\mathcal{B} \subset \tau$; allora $\mathcal{B}$ è una base per $\tau$ se e soltanto se $\forall x \in X$ la famiglia $\mathcal{B}(x) = \left\{B \in \mathcal{B} \,\middle|\, x \in B \right\}$ è un sistema fondamentale di intorni di $x$ rispetto a $\tau$.
 \end{theorem}
 \begin{proof}
-	Sia $\beta$ una base di $\tau$ e $x \in X$. Sia $U \in \mathcal{N}_\tau(x)$, cioè $\exists A \in \tau$ tale che $x \in A \subset U$. \\ Poiché $\mathcal{B}$ base di $\tau$, allora $A = \bigcup_{B \in \mathcal{B}'} B$ con $\mathcal{B}' \subset \mathcal{B}$. Perciò $x \in A$, che implica $x \in B$ per qualche $B \in \mathcal{B}' \subset \mathcal{B}$, ed otteniamo che $B \in \mathcal{B}(x)$. \\ Quindi dimostro che per ogni intorno $N(x) \in \mathcal{N}(x)$; segue che esiste $B \subset N(x)$, ovvio perché per definizione di intorno $x \in A \subset N(x)$, ma $A = \bigcup_{B \in \mathcal{B}'} B$ per qualche $\mathcal{B}' \subset \mathcal{B}$.\\  
-	
+	Sia $\beta$ una base di $\tau$ e $x \in X$. Sia $U \in \mathcal{N}_\tau(x)$, cioè $\exists A \in \tau$ tale che $x \in A \subset U$. \\ Poiché $\mathcal{B}$ base di $\tau$, allora $A = \bigcup_{B \in \mathcal{B}'} B$ con $\mathcal{B}' \subset \mathcal{B}$. Perciò $x \in A$, che implica $x \in B$ per qualche $B \in \mathcal{B}' \subset \mathcal{B}$, ed otteniamo che $B \in \mathcal{B}(x)$. \\ Quindi dimostro che per ogni intorno $N(x) \in \mathcal{N}(x)$; segue che esiste $B \subset N(x)$, ovvio perché per definizione di intorno $x \in A \subset N(x)$, ma $A = \bigcup_{B \in \mathcal{B}'} B$ per qualche $\mathcal{B}' \subset \mathcal{B}$.\\  	
 	Supponiamo che $\mathcal{B}(x)$ sia un sistema fondamentale di intorni per ogni $x \in X$. Sia $A \in \tau$, per la proposizione precedente allora $\forall x \in A, \exists V(x) \in \mathcal{B}(x)$ tale che $V(x) \subset A$. In particolare ottengo che
 	\begin{equation*}
 		A = \bigcup_{x \in A} \left\{x\right\} \subset \bigcup_{x \in A} V(x) \subset A
@@ -464,6 +469,7 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 	\end{itemize}
 \end{proof}
 
+
 \begin{remark}[Sistema fondamentale come funzione] 
 	Abbiamo sempre indicato con $\mathcal{V}(x)$ il sistema fondamentale di intorni nel punto $x$ di $X$; questo può essere visto come immagine di una funzione 
 	\begin{equation*}
@@ -474,6 +480,7 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 
 
 \newpage
+
 \section{Assiomi di numerabilità}
 Gli assiomi di numerabilità descrivono proprietà dello spazio in cui lavoriamo, e sono strettamente legati alle proprietà di Hausdorff - che vedremo. \\
 Torneranno utili nella descrizione degli spazi.
