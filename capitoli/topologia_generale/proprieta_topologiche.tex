@@ -464,3 +464,38 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	Sapendo che è connesso per archi, esiste per ogni $x,y \in X$ una funzione che connette $x$ con $y$. In particolare $\left[0,1\right]$ è connesso in $\R$, quindi $\image{\alpha}$ è un connesso per Teorema \ref{thr:3.21.3}. Esiste sempre un connesso che connette qualsiasi $x,y \in X$ e per la caratterizzazione Teorema \ref{thr:3.21.4}, segue che $X$ è connesso.
 \end{proof}
 
+
+\begin{remark}
+	In generale non vale che se uno spazio topologico $(X,\tau)$ è connesso allora è anche connesso per archi. Per mostrare che ciò non è valido in generale, possiamo controllare i seguenti controesempi:
+	\begin{enumerate}
+		\item[Pettine del Topologo] Si veda la Figura \ref{fig:comb_topology} che descrive lo spazio topologico $D$ sotto composta da tre principali componenti $D = \left\{0\right\} \times \left\{0,1\right\} \cup \left[0,1\right]\times \left\{0\right\} \cup \left\{1/n \,\middle|\, n \in \N \right\} \times \left[0,1\right]$. 
+		
+		% TODO: \usepackage{graphicx} required
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{images/topologia_generale/g160}
+			\caption{Visualizzazione del pettine del topologo}
+			\label{fig:comb_topology}
+		\end{figure}
+		
+		
+		Possiamo osservare che questo spazio è connesso. È ovvio che $D \setminus \left\{(0,1)\right\}$ è connesso per archi e quindi è connesso, pertanto se fosse sconnesso le componenti sarebbero $(0,1)$ e $D \setminus \{(0,1)\}$. Ma $\overline{D \setminus \{(0,1)\}} \cap \{(0,1)\} \neq \varnothing$ e quindi tutto $D$ è connesso. 
+		
+		D'altro canto $D$ non è connesso per archi. Consideriamo $f$ funzione continua che connette $(0,1)$ a $(0,0)$, con $f(0) = (0,1)$. Mostriamo che $f^{-1}(D)$ è sconnesso, da cui per assurdo si arriva che $\left[0,1\right]$ è sconnesso. Allora vediamo che $f^{-1}(\left\{0\right\})$ è chiuso per definizione (un punto è chiuso e la controimmagine di un chiuso è chiuso se la mappa è continua). Per cui dobbiamo far vedere che $f^{-1}(\left\{(0,1)\right\})$ è aperto. Prendiamo un intorno di $(0,1)$ che chiameremo $U \subset D$ dove tale da non intersecare l'asse delle ascisse e lo supponiamo tale che $f^{-1}(U)$ è connesso. Allora 
+		poiché $U$ non interseca l'asse delle ascisse, dev'essere che $x \in V$ tale da essere della forma $x = (1/n, k)$ per qualche $n \in \N$ e $k \in \left(0,1\right]$. Osserviamo che ogni intorno contiene almeno un elemento di questa forma (perché sappiamo che si `accumulano' su $(0,1)$). Per cui sia $x \neq (0,1)$ allora $x = (1/n, k) \in U$ per cui possiamo trovare $1/n+1< r< 1/n$ per cui possiamo vedere che la controimmagine di $U$ si può separare nei seguenti insiemi disgiunti 
+		\begin{equation*}
+			f^{-1}(U) = f^{-1}((-\infty, r)\times \left[0,1\right]) \cup f^{-1}((r,+\infty)\times \left[0,1\right])
+		\end{equation*}
+		Pertanto possiamo dire che $U$ è sconnesso contro la nostra ipotesi di connessione. Risulta quindi che $f^{-1}((0,1))$ è aperto e chiuso, ma $\left[0,1\right]$ è ovviamente connesso da cui dev'essere che $\{(0,1)\}$ non è connesso per archi a $\{(0,0)\}$.
+		
+		\item Consideriamo la funzione reale 
+		\begin{equation*}
+			f(x) \coloneqq
+			\begin{cases}
+				0 & \text{se}\ x = 0 \\
+				\sin \frac{1}{x} & \text{se}\ x \in \R^+
+			\end{cases}
+		\end{equation*}
+		allora possiamo vedere in modo simile al pettine del topologo che l'immagine della funzione è connessa, ma il punto $(0,0)$ non è connesso per archi a nessun altro punto del grafo. Infatti se esistesse una funzione continua che collega le due parti del grafo avrebbe limite $\lim_{x\to 0} g(x) = \left[-1,1\right]$ e quindi non può essere continua in $0$.
+	\end{enumerate} 
+\end{remark}
