@@ -46,7 +46,7 @@ Occupiamoci della derivabilità in senso complesso: la seguente definizione è f
 	Ogni funzione olomorfa è continua. Per dimostrarlo basta rispolverare la dimostrazione fatta nel caso dell'analisi reale.
 \end{remark}
 
-In virtù della relazione stabilità precedentemente, ovvero che $f = u + iv$ per degli $\morphism{u,v}{\R^2}{\R}$, otteniamo una condizione che ci eravamo limitati solo a ipotizzare.
+In virtù della relazione stabilità precedentemente, ovvero che $f = u + iv$ per delle funzioni $\morphism{u,v}{\R^2}{\R}$, otteniamo una condizione che ci eravamo limitati solo a ipotizzare.
 
 \begin{theorem}[Equazioni di Cauchy-Riemann]
 	Sia data una funzione complessa su $\Omega \subset \C$ del tipo $f(x+iy) = u(x,y) + iv(x,y)$ . Allora $f$ è differenziabile in $z \in \Omega$ se e solo se $u,v$ sono differenziabili e $u_x = v_y, u_y = - v_x$ (in $z \in \C$).
@@ -96,12 +96,13 @@ In virtù della relazione stabilità precedentemente, ovvero che $f = u + iv$ pe
 \end{corollary}
 
 \begin{corollary}
-	Se $f = u + iv$ con $u(x,y) = r \in \R$ e $f \in C^1$, allora 
-	\begin{equation*} \begin{aligned}
-	0 = u_x &= v_y \\
-	0 = u_y &= -v_x
-	 \end{aligned}\end{equation*}
-	 (cioè $f' = 0$, dunque $f$ è una funzione costante). \\ Viceversa se $v(x,y) = p \in \R$ allora $f$ è una funzione costante.   
+	Se $f = u + iv$ con $u(x,y) = r \in \R$ e $f \in \mathcal{O}(\Omega)$, allora 
+	\begin{equation*} 
+	\begin{aligned}
+		0 = u_x &= v_y \\
+		0 = u_y &= -v_x
+	\end{aligned}\end{equation*}
+	E quindi risulta essere una funzione costante. Analogamente se $v(x,y) = p \in \R$ allora $f$ è una funzione costante.   
 \end{corollary}
 
 \section{Funzioni armoniche, operatori di Wirtinger}
