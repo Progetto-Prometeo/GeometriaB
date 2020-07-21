@@ -81,14 +81,14 @@
 
 \begin{remark}
 	In generale se uno spazio topologico è localmente euclideo non è di Hausdorff. Infatti si consideri $\{a,b\} \times \R$ con la relazione di equivalenza $(x,y) \sim (z,w) \leftrightarrow y = w \land y \ge 0 \lor (x,y) = (z,w)$. Allora il disegno diventa una sorta di Y, in cui dove le due rette si congiungono c'é lo 0.
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.35\linewidth]{images/topologia_generale/lcleucnott2}
 		\caption{}
 		\label{fig:lcleucnott2}
 	\end{figure}
 	
-	Questo spazio è localmente euclideo, ma non è di Hausdorff.
+	Questo spazio è localmente euclideo, ma non è di Hausdorff. Infatti prendiamo un intorno di $(a,0)$ in $\{a\} \times \R$, denominiamlo $U$. Allora se lo mando in avanti nello spazio quoziente diventa 
 \end{remark}
 
 \begin{definition}
@@ -204,4 +204,57 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 
 
 % TODO: Inserire esempi da minuto 22 della lezione del 24/03/2020.
-\textbf{Esempi e osservazioni sui retratti}\\
+
+\begin{remark}
+	Ricordiamo che affinché un retratto $\morphism{i}{A}{B}$ sia tale è necessario che $\morphism{i_*}{\pi(A, a)}{\pi(B, b)}$ sia un omomorfismo iniettivo; se vogliamo che sia un retratto di deformazione allora $i_*$ dev'essere un isomorfismo. 
+\end{remark}
+
+\begin{example}\
+	\begin{enumerate}
+		\item Siano $\S^1$ e $\D^2$ è ovvio che $\S^1$ non è un retratto di $\D^2$ dato che
+		\begin{equation*}
+		\pi(\S^1, x_0) \simeq \Z \not\subset \{1\} \simeq \pi(\D^2, x_0)
+		\end{equation*}
+		e quindi non può esistere una mappa iniettiva tra i due gruppi. 
+		\item Si consideri $T_1$ come in figura.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.3\linewidth]{images/topologia_algebrica/torus_polygon}
+			\caption{}
+			\label{fig:toruspolygon}
+		\end{figure}
+		Allora se si prende $A = \{a\}$, questo sarà un retratto di $T_1$, e vale
+		\begin{equation*}
+			\pi(A) \simeq \Z \hookrightarrow \Z^2 \simeq \pi(T_1)
+		\end{equation*}
+		analogamente vale per $A = \{b\}$.
+		\item Sia $K$ una bottiglia di Klein con il poligono fondamentale come in figura. Osserviamo che $a, b$ hanno ruoli differenti. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.3\linewidth]{images/topologia_algebrica/klein_polygon}
+			\caption{}
+			\label{fig:kelinpolygon}
+		\end{figure}
+		Infatti $B = \{b\}$ è un retratto della bottiglia di Klein, mentre $A = \{a\}$ non lo è. \
+		
+		Possiamo costruire un retratto per $B$: 
+		\begin{equation*}
+			r(\left[s,t\right]) = \left[0,t\right]
+		\end{equation*}
+		e osserviamo che è continua e ben definita e tale che $K \overset{r}{\hookrightarrow} B$.\
+		
+		Mostriamo che $A$ non è un ritratto. Prendiamo i gruppi fondamentale di $A$ e $K$ 
+		\begin{equation*}
+			\pi(K, P) \simeq \left\langle \alpha, \beta \,\middle|\, \alpha\beta\alpha\beta^{-1} = 1 \right\rangle \quad\ \pi(A, P) \simeq \left\langle \alpha \,\middle|\, \varnothing \right\rangle
+		\end{equation*}
+		supponiamo per assurdo che esista una retrazione $\morphism{r}{K}{A}$. Allora consideriamo le mappe indotte sui rispettivi gruppi fondamentali. Per cui
+		\begin{equation*}
+			r_*(\beta) \in \pi(A, P) \Longrightarrow \exists k \in \N \; \text{t.c.}\ r_*(\beta) = \alpha^k
+		\end{equation*}
+		per cui osserviamo che 
+		\begin{equation*}
+			 1 = r_*(1) = r_*(\alpha\beta\alpha\beta^{-1}) = \alpha\alpha^k\alpha\alpha^{-k} = \alpha^2
+		\end{equation*}
+		che contraddice le relazioni $\pi(A, P)$ quindi $A$ non è una retrazione di $K$. 		
+	\end{enumerate}
+\end{example}
