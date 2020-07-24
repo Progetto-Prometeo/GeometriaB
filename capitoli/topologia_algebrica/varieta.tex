@@ -80,7 +80,7 @@
 \end{proof}
 
 \begin{remark}
-	In generale se uno spazio topologico è localmente euclideo non è di Hausdorff. Infatti si consideri $\{a,b\} \times \R$ con la relazione di equivalenza $(x,y) \sim (z,w) \leftrightarrow y = w \land y \ge 0 \lor (x,y) = (z,w)$. Allora il disegno diventa una sorta di Y, in cui dove le due rette si congiungono c'é lo 0.
+	In generale se uno spazio topologico è localmente euclideo non è di Hausdorff. Infatti si consideri $\{a,b\} \times \R$ con la relazione di equivalenza $(x,y) \sim (z,w) \leftrightarrow y = w \land y > 0 \lor (x,y) = (z,w)$. Allora il disegno diventa una sorta di Y, in cui dove le due rette si congiungono c'è lo $0$ (che non viene identificato! ci sono due zeri: $\{0\}\times \{a\}, \{0\}\times \{b\}$).
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.35\linewidth]{images/topologia_generale/lcleucnott2}
@@ -88,7 +88,16 @@
 		\label{fig:lcleucnott2}
 	\end{figure}
 	
-	Questo spazio è localmente euclideo, ma non è di Hausdorff. Infatti prendiamo un intorno di $(a,0)$ in $\{a\} \times \R$, denominiamlo $U$. Allora se lo mando in avanti nello spazio quoziente diventa 
+	Questo spazio è localmente euclideo (ricopri una retta alla volta e la parte unita la metti in entrambe le carte), ma non è di Hausdorff. Infatti prendiamo un intorno di $(0,a)$ denominiamlo $U$ e poi un intorno $V$ di $(0,b)$, questi si intersecheranno sempre sulla parte identificata delle due rette, per cui i due punti non rispettano la condizione di Hausdorff. 
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{images/topologia_generale/bug_eye}
+		\caption{L'esempio della retta con due origini, con un possibile ricoprimento con due carte locali}
+		\label{fig:bugeye}
+	\end{figure}
+	
+	Un altro esempio è dato dalla linea con due origini che è molto simile all'esempio precedente, l'unica differenza è che si identificano tutte le rette tranne l'origine al posto che solo la parte positiva come avveniva sopra. Si prenda $\R \times \{a,b\}$ come spazio e si quozienti con la relazione $(x,a) \sim (y,b) \Longleftrightarrow x = y \land x,y \neq 0$. Allora lo spazio quoziente sarà dato da due rette distinte, ma con due origini $\{0\} \times \{a\}, \{0\}\times \{b\}$. Se si prende un qualsiasi intorno di $\{0\}\times \{a\}$ si avrà un intersezione per qualsiasi intorno di $\{0\} \times \{b\}$ per ovvie ragioni, per cui non è Hausdorff, malgrado sia localmente euclideo. Infatti basta prendere una carta locale di due mappe che cartografano $(-\infty, a) \cup \{0\}\times \{a\}$ e una che prende $(-a, +\infty) \cup \{0\}\times \{b\}$.  
 \end{remark}
 
 \begin{definition}
