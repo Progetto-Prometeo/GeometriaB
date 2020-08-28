@@ -5,7 +5,7 @@ In sostanza diciamo \textbf{proprietà topologica} una caratteristica invariante
 
 
 \section{Proprietà di Hausdorff $T_2$}
- \subsection{\textcolor{TopGener}{\textbf{La proprietà $T_2$}}}
+\subsection{\textcolor{TopGener}{\textbf{La proprietà $T_2$}}}
  
  
  
@@ -17,14 +17,14 @@ In sostanza diciamo \textbf{proprietà topologica} una caratteristica invariante
 La proprietà di Hausdorff è detta $T_2$,  esistono anche $T_0, T_1, T_3, T_4$, altre proprietà più deboli o più forti (a seconda della loro numerazione) di quella di Hausdorff. \\ La più forte, $T_4$, richiede che in due insiemi chiusi disgiunti ogni intorno dei loro punti sia disgiunto e viene anche detta \textbf{normalità}. La più debole, $T_1$, richiede che i sottoinsiemi singoletti di $X$ siano chiusi.\\ \\ Esistono interessanti relazioni tra le varie proprietà $T_i$, ad esempio $T_2$ implica $T_1$ ma l'inverso non vale. \footnote{si veda un insieme $X$ infinito con topologia cofinita, è immediato verificare che vale come controesempio.}
 
 \begin{remark}
-	La condizione di Hausdorff è topologica. \\  Infatti è preservata dagli omeomorfismi: vale che
+	La condizione di Hausdorff è topologica. \\  Infatti è preservata dagli omeomorfismi:
 	\begin{center}
 		$(X,\tau)$ è di Hausdorff se e solo se anche $(Y,\xi)$ è di Hausdorff ed esiste $\morphism{f}{(X,\tau)}{(Y,\xi)}$ omeomorfismo tra i due spazi topologici
 	\end{center}
 	 Se $x,y \in X$ e $x\neq y$, allora $f(x), f(y) \in Y$ e $f(x) \neq f(y)$ poiché $f$ biettiva. Se esistono degli $U,V\in \mathcal{N}_\tau(x),\mathcal{N}_\tau(y)$ tali che $U \cap V = \varnothing$, esistono $A \subset U$ e $A' \subset V$ aperti tali che $A \cap A' = \varnothing$. Per cui $f(A) \cap f(A') = \varnothing$, dove $f(A), f(A')$ sono aperti ed intorni rispettivamente di $f(x),f(y)$. Quindi la proprietà vale. Inoltre applicando l'inversa si ottiene l'altra implicazione.
 \end{remark} 
 \begin{remark}
-	Se $(X, \tau)$ è di Hausdorff, allora ogni topologia più fine $\tau \subset \xi$ è di Hausdorff su $X$. \\ Infatti interessano soltanto gli aperti \textit{più piccolini} e non quelli grossi. Se ci sono aperti più piccoli e sappiamo che ce ne sono già di piccoli abbastanza affinché sia Hausdorff, non danno problema. Se ci sono aperti più grossi, non è interessante comunque, perché per la proprietà di Hausdorff ci servono \textit{aperti abbastanza piccoli}. \\ Se si volesse proprio fare una dimostrazione: sia $x \neq y$ allora $\tau \subset \xi$ per cui esistono in $\tau$ $U \cap V = \varnothing$ e quindi $U, V$ sono ancora intorni in $\xi$, pertanto anche $\xi$ è di Hausdorff. 
+	Se $(X, \tau)$ è di Hausdorff, allora ogni topologia più fine $\tau \subset \xi$ è di Hausdorff su $X$. \\ Infatti a noi interessano soltanto gli aperti \textit{più piccoli} e non quelli più grossi. Se ci sono aperti più piccoli e sappiamo che ce ne sono già di piccoli abbastanza affinché sia Hausdorff, non danno problema. Se ci sono aperti più grossi, non è interessante comunque, perché per la proprietà di Hausdorff ci servono solamente degli aperti \enquote{abbastanza piccoli}. \\ \\ Se si volesse proprio fare una dimostrazione: sia $x \neq y$ allora $\tau \subset \xi$ per cui esistono in $\tau$ $U \cap V = \varnothing$ e quindi $U, V$ sono ancora intorni in $\xi$, pertanto anche $\xi$ è di Hausdorff. 
 \end{remark}
 \begin{remark}
 	Sia $(X, \tau)$ spazio topologico, se per ogni $A, B\in \tau$ si ha che $A\cap B \neq \varnothing$ allora $\tau$ non è di Hausdorff. \\ Infatti per ogni coppia di intorni $U, V$ di $x, y$ (rispettivamente) si ha che esistono $A \subset U, A' \subset V$ tali che $\varnothing \neq A\cap A' \subset U \cap V$
@@ -32,8 +32,8 @@ La proprietà di Hausdorff è detta $T_2$,  esistono anche $T_0, T_1, T_3, T_4$,
 
 \begin{example} \
 \begin{enumerate}
-	\item Le topologie metrizzabili sono di Hausdorff, in particolare la topologia discreta lo è. 
-	\item La topologia banale su un insieme $X$ di cardinalità maggiore di $2$ non è di Hausdorff. 
+	\item Le topologie metrizzabili sono \textit{sempre} di Hausdorff, in particolare la topologia discreta lo è. 
+	\item La topologia banale su un insieme $X$ di cardinalità maggiore di $2$ non è di Hausdorff (è elementare). 
 	\item La topologia cofinita su un insieme infinito non è di Hausdorff. Per osservazione precedente, basta dimostrare che ogni aperto ha intersezione non vuota. Per cui siano 
 	\begin{equation*}
 	A \cap B = F^c \cap G^c = (F \cap G)^c 
@@ -43,10 +43,10 @@ La proprietà di Hausdorff è detta $T_2$,  esistono anche $T_0, T_1, T_3, T_4$,
 \end{example}
 
 \begin{theorem}
-	Sia $(X, \tau)$ spazio topologico e sia $\varnothing \neq S \subset X$, allora se $(X, \tau)$ è di Hausdorff $(S, \tau|_S)$ è di Hausdorff. 
+	Sia $(X, \tau)$ spazio topologico e sia $\varnothing \neq S \subset X$, allora se $(X, \tau)$ è di Hausdorff anche il sottospazio topologico $(S, \tau|_S)$ è di Hausdorff. 
 \end{theorem} 
 \begin{proof}
-	Fisso $x,y \in S \subset X$ qualsiasi, purché $x \neq y$. Allora prendendo un intorno per ciascun punto tale da soddisfare la condizione di Hausdorff; ho che $U \cap V = \varnothing$. Ma $U \cap S = U' \in \tau|_S$ e $V \cap S = V' \in \tau|_S$ e dunque se $U \cap V = \varnothing \Longrightarrow U \cap V \cap S = U' \cap V' = \varnothing$. Ovvero anche la topologia $\tau|_S$ è di Hausdorff.
+	Fisso $x,y \in S \subset X$ qualsiasi, purché $x \neq y$. Allora prendendo un intorno per ciascun punto tale da soddisfare la condizione di Hausdorff; ho che $U \cap V = \varnothing$. Ma per caratterizzazione dei sottospazi di uno spazio topologico vale che esistono intorni $U \cap S = U' \in \tau|_S$ e $V \cap S = V' \in \tau|_S$ e dunque se $U \cap V = \varnothing \Longrightarrow U \cap V \cap S = U' \cap V' = \varnothing$. Ovvero anche la topologia $\tau|_S$ è di Hausdorff.
 \end{proof}
 
 \begin{theorem}
@@ -67,6 +67,8 @@ La proprietà di Hausdorff è detta $T_2$,  esistono anche $T_0, T_1, T_3, T_4$,
 Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro prodotto non è di Hausdorff. \\ Per esempio si consideri il prodotto tra $\R$ con la topologia euclidea e la topologia banale su $\R$. Allora il prodotto non è di Hausdorff perché $(1,1)$ e $(1,2)$ sono distinti ma stanno sempre nello stesso intorno. 
 	
 	% TODO: se valesse $X_1$ $T_2$ e $X_2$ $T_1$ il prodotto sarebbe di Hausdorff?
+	% TODO:dubito seriamente, ti serve che entrambi siano T2 per far funzionare la dim. del teorema, se P=(a,b) e Q=(c,d) stanno
+	% nel prodotto ed hanno a=c nel T1 ma b \neq d non puoi usare la dimostrazione vista, non so se inserirlo
 \end{remark} 
 
 
@@ -97,12 +99,13 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \begin{proof}
 	Devo dimostrare che per ogni $x\in X$, $\left\{x\right\}$ è un chiuso. Quindi mi basta dimostrare che $\left\{x\right\}^c$ è aperto. Per cui sia $y \in \left\{x\right\}^c$, per la proprietà di Hausdorff dev'essere che esiste $U \in \mathcal{N}_\tau(y)$ ho che $U \cap V = \varnothing$ dove $V$ è un intorno di $\left\{x\right\}$. Per cui dev'essere che $U \subset \left\{x\right\}^c$ per qualche $U$ intorno. Ovvero $\left\{x\right\}^c$ è intorno di tutti i suoi punti e quindi è un aperto e $\left\{x\right\}$ è un chiuso.
 \end{proof}
-
+\begin{remark} Come visto la topologia cofinita su uno spazio $X$ infinito induce una struttura di spazio $T_1$ ma non $T_2$. L'implicazione inversa quindi in generale non è vera.
+\end{remark}
 \begin{theorem}
 	Sia $\left\{x_n\right\}$ una successione definita su $(X, \tau)$ spazio topologico di Hausdorff allora se converge allora converge ad un solo punto. 
 \end{theorem} 
 \begin{proof}
-	È sempre la solita dimostrazione che in $\R$ se il limite converge allora non può avere due valori distinti. Ma comunque la ripresento anche qui. Suppongo che una successione $\left\{x_n\right\}_{n \in \N} \rightarrow \left\{k_1, k_2\right\}$, allora per definizione di convergenza in uno spazio topologico ho che per ogni intorno di $k_1$ c'è sempre almeno un punto della successione. Per cui prendo un intorno $U$ di $k_1$ e uno $V$ di $k_2$ tale che $U \cap V = \varnothing$ che esistono per la proprietà di Hausdorff. Se la successione converge in entrambi i punti allora $U \cap V \neq \varnothing$. Da questo assurdo si arriva a concludere che una successione, se converge, converge ad un solo punto in uno spazio di Hausdorff. 
+	È sempre la solita dimostrazione che in $\R$ se il limite converge allora non può avere due valori distinti. Ma comunque la ripresento anche qui. Suppongo che una successione $\left\{x_n\right\}_{n \in \N} \rightarrow \left\{k_1, k_2\right\}$, allora per definizione di convergenza in uno spazio topologico ho che per ogni intorno di $k_1$ c'è sempre almeno un punto della successione. Per cui prendo un intorno $U$ di $k_1$ e uno $V$ di $k_2$ tale che $U \cap V = \varnothing$ che esistono per la proprietà di Hausdorff. Se la successione converge in entrambi i punti allora deve valere definitivamente che $U \cap V \neq \varnothing$. Da questo assurdo si arriva a concludere che una successione, se converge, converge ad un solo punto in uno spazio di Hausdorff. 
 \end{proof}
 
 \begin{theorem}
@@ -110,28 +113,31 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \end{theorem}
 
 \begin{remark}
-	Sia $(X, \tau)$ spazio topologico che soddisfa $T_1$, allora non vale che una successione converga ad un unico punto.
+	Sia $(X, \tau)$ spazio topologico che soddisfa $T_1$, allora non vale che una successione converga ad un unico punto (in altre parole, la classe dei valori limite per successioni globalmente convergenti non è necessariamente costituita da un solo punto).
 \end{remark}
 
-\begin{theorem}
+\begin{theorem} Sia $\Delta_{X}$ l'insieme diagonale (il suo significato è ovvio, contiene quella che sarebbe la \enquote{diagonale} dell'insieme).
 	\begin{equation*}
-	(X, \tau) \; \text{è} \; T_2 \Leftrightarrow \Delta_{X} \; \text{è chiuso} \; X \times X
+	(X, \tau) \; \text{è} \; T_2 \Leftrightarrow \Delta_{X} \; \text{è chiuso in} \; X \times X
 	\end{equation*}
 \end{theorem} 
 \begin{proof} \
-	Bisogna innanzitutto far notare che $U \cap V = \varnothing \Leftrightarrow \Delta_X \cap (U \times V) = \varnothing$.
+	La dimostrazione si basa sul fatto che valga 
+	\begin{equation*}
+	U \cap V = \varnothing \Leftrightarrow \Delta_X \cap (U \times V) = \varnothing
+	\end{equation*}
 	\begin{enumerate}
-		\item[$(\Rightarrow)$] Poiché $T_2$ posso prendere $U, V \in \mathcal{N}_\tau(x)$ tali che $U \cap V = \varnothing$, allora $\Delta_X \cap (U \times V) = \varnothing$; $\Delta_X$ è aperto in $X\times X$ e $\Delta_X$ è chiusa. 
-		\item[$(\Leftarrow)$] Se $\Delta_X$ chiuso $\Delta^c_X$ è aperto, quindi posso pendere un intorno di un punto interno di $\Delta^c_X$ tale che $U \cap \Delta_X = \varnothing$. Inoltre ogni intorno $U = U' \times V'$ dove $U', V'$ è in $X$, perciò $(U' \times V') \cap \Delta_X = \varnothing$. Per l'osservazione iniziale $U' \cap V' = \varnothing$.
+		\item[$(\Rightarrow)$] Poiché $T_2$ posso prendere $U, V \in \mathcal{N}_\tau(x)$ tali che $U \cap V = \varnothing$, allora $\Delta_X \cap (U \times V) = \varnothing$. Ovviamente otteniamo $\Delta_X^c$ è aperto in $X\times X$ e $\Delta_X$ è chiusa. 
+		\item[$(\Leftarrow)$] Se $\Delta_X$ chiuso $\Delta^c_X$ è aperto, quindi posso pendere un intorno di un punto interno di $\Delta^c_X$ tale che $U \cap \Delta_X = \varnothing$. In particolare vale per un intorno nella forma $U = U' \times V'$ dove $U', V'$ è in $X$, perciò $(U' \times V') \cap \Delta_X = \varnothing$. Per l'osservazione iniziale $U' \cap V' = \varnothing$.
 	\end{enumerate}
 \end{proof}
 
 \begin{theorem}
 	Siano $\morphism{f,g}{(X,\tau)}{(Y,\xi)}$ continue, $Y$ è $T_2$ se e solo se $Z \coloneqq \left\{x \in X \,\middle|\, f(x) = g(x) \right\}$ è chiuso in $X$.
 \end{theorem}
-\begin{proof}
+%\begin{proof}
 	% TODO
-\end{proof}
+%\end{proof}
 
 
 
@@ -141,7 +147,7 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 
 
 \begin{definition}
-	Sia $(X, \tau)$ spazio topologico, si dice \textbf{compatto} se da ogni ricoprimento aperto di $X$ è possibile estrarre un sottoricoprimento aperto finito di $X$. \\ \\ Ovvero sia $\left\{A_i\right\}_{i\in I}$ una famiglia di insiemi aperti tali che
+	Sia $(X, \tau)$ spazio topologico, si dice \textbf{compatto} se da ogni ricoprimento aperto di $X$ è possibile estrarre un sottoricoprimento aperto finito. \\ \\ In altre parole, sia $\left\{A_i\right\}_{i\in I}$ una famiglia di insiemi aperti tali che
 	\begin{itemize}
 		\item $A_i \in \tau \ \forall \ i\in I$
 		\item $\bigcup_{i \in I} A_i = X$
@@ -152,10 +158,11 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \begin{example} Spazi topologici compatti:
 \begin{enumerate}
 	\item Ogni spazio con la topologia banale.
-	\item $X$ finito con qualsiasi topologia è finito.
-	\item $(X, \tau_{cof})$ con $|X| \ge +\infty$ è compatto. Infatti da un qualsiasi ricoprimento si prenda uno degli aperti $A_{i_0}$, allora $X \setminus A_{i_0} = \left\{x_1, \dots, x_n\right\}$ per qualche $n < +\infty$. Pertanto bastano al più $n+1$ insiemi per ricoprire l'insieme.
-	\item $(X,\tau_{\text{discreta}})$ dove $|X| \ge +\infty$  non è compatto perché basta prendere il ricoprimento dei singoletti.
-	\item $(\R, \tau_{\text{euclidea}})$ non è compatto. Infatti basta prendere la famiglia $\left\{(-n, n)\right\}_{n \in \N_{>0}}$ per vedere che non è compatto. Se si estraggono un numero finito di elementi da quella famiglia e si prendono gli indici in $J$ tale che $|J| = d < +\infty$ allora $\bigcup_{j \in J}(-n_j, n_j) = (-\max_{j \in J} n_j,  \max_{j \in J} n_j)$ che non ricopre tutto $\R$.
+	\item $X$ finito con qualsiasi topologia è compatto.
+	\item $(X, \tau_{cof})$ con $|X|$ infinita è compatto. Infatti da un qualsiasi ricoprimento si prenda uno degli aperti $A_{i_0}$, allora $X \setminus A_{i_0} = \left\{x_1, \dots, x_n\right\}$ per qualche $n < +\infty$. Pertanto bastano al più $n+1$ insiemi per ricoprire l'insieme.
+	\item $(X,\tau_{\text{discreta}})$ di cardinalità infinita non è compatto perché basta prendere il ricoprimento dei singoletti.
+	\item $(\R, \tau_{\text{euclidea}})$ non è compatto. Infatti basta prendere la famiglia $\left\{(-n, n)\right\}_{n \in \N_{>0}}$ per vedere che non è compatto. Se si estraggono un numero finito di elementi da quella famiglia e si prendono gli indici in $J$ tale che $|J| = d < +\infty$ allora $\bigcup_{j \in J}(-n_j, n_j) = (-\max_{j \in J} n_j,  \max_{j \in J} n_j)$, una sottofamiglia che evidentemente non ricopre tutto $\R$.
+%non è strano scrivere la cardinalità come \geq +\infty ? Boh, al massimo rimettilo (S)
 \end{enumerate}
 \end{example}
 
@@ -163,6 +170,7 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	Sia $(X, \tau)$ spazio topologico e $S \in 2^X$ si dice che $S$ è un \textbf{sottospazio compatto} in $(X, \tau)$ se lo è il corrispondente spazio $(S, \tau|_S)$.
 \end{definition} 
 
+%todo: non è strano avere una dimostrazione di un'osservazione? (S)
 \begin{remark}
 	$S$ è compatto se e solo se ogni volta che prendo un ricoprimento $\left\{A_i\right\}_{i \in I}$ in $\tau$ di $S$ riesco a estrarre un sottoricoprimento finito tale che $\bigcup_{i \in J} A_i \supset S$ 
 	\begin{proof}
@@ -181,23 +189,22 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 
 
 \begin{theorem}[Heine-Borel]
-	Ogni intervallo chiuso e limitato in $\left[a, b\right]$ per ogni $a, b$ tale che $a < b$ di $\R$ con $\tau_{\text{euclidea}}$.
+	Ogni intervallo chiuso e limitato in $\left[a, b\right]$ per ogni $a, b$ tale che $a < b$ di $\R$ con $\tau_{\text{euclidea}}$ è compatto.
 \end{theorem} 
 \begin{proof}
 	Dato un ricoprimento $\left\{A_i\right\}_{i \in I}$ 
 	\begin{equation*}
 			Y \coloneqq \left\{ x\in \left[a,b\right] \,\middle|\, \exists J \subset I. \; \text{t. c.} \; |J| < +\infty,\ \bigcup_{j \in J} A_j \supset \left[a,x\right] \right\}
 	\end{equation*}
-	È ovvio che $a \in Y$, per cui $Y \neq \varnothing$ ed essendo $Y \subset \R$ allora esiste $\sup Y =: z$. \\ Poiché $z \in \left[a,b\right]$ e l'intervallo è ricoperto dagli $A_i$, deve esistere un $A_{k}$ tale che $z \in (z-\varepsilon, z+\varepsilon) \subset A_k$ per qualche $\varepsilon > 0$, visto che $A_i$ aperto. Inoltre per la definizione di estremo superiore so che per qualsiasi $\varepsilon$ esiste un $x$ tale che $x \in \left[z-\varepsilon, z\right] \cap Y$. Quindi posso costruire il seguente ricoprimento:
+	È ovvio che $a \in Y$, per cui $Y \neq \varnothing$ ed essendo $Y \subset \R$ allora (siccome è raggiungibile per successioni) esiste $\sup Y =: z$. \\ Poiché $z \in \left[a,b\right]$ e l'intervallo è ricoperto dagli $A_i$, deve esistere un $A_{k}$ tale che $z \in [z-\varepsilon, z+] \subset A_k$ per qualche $\varepsilon > 0$, visto che $A_i$ aperto. Inoltre per la definizione di estremo superiore so che per qualsiasi $\varepsilon$ esiste un $x$ tale che $x \in \left[z-\varepsilon, z\right] \cap Y$. \\ Sia $J$ l'insieme finito che indicizza il ricoprimento di $[a,x]$, posso costruire il seguente ricoprimento:
 	\begin{align*}
-		\left[a,z+\varepsilon\right] & = \left[a,x\right] \cup \left[z-\varepsilon, z+\varepsilon\right]\\
-				& =  \bigcup_{j \in J' \subset I} A_i \cup A_k
+		\left[a,z+\varepsilon\right] \subset \bigcap_{j \in J\cup \left\{k\right\}}
 	\end{align*}
-	dove $J'$ è un sottoinsieme finito. Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere l'estremo superiore di $Y$ visto che $z+\varepsilon > z$, ed è ottenuto attraverso un ricoprimento finito. Inoltre il ricoprimento ottenuto contiene $z = b$. $\left[a,b\right]$ è compatto.
+Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere l'estremo superiore di $Y$ visto che $z+\varepsilon > z$, ed è ottenuto attraverso un ricoprimento finito. Inoltre il ricoprimento ottenuto contiene $z = b$. $\left[a,b\right]$ è compatto.
 \end{proof}
 
 \begin{remark}
-	Esistono spazi topologici compatti che possiedono sottoinsiemi non compatti. Per esempio si prenda $(\left[a, b\right],\tau_text{euclidea})$; il sottoinsieme $(0, 1)$ è un insieme non compatto. 
+	Esistono spazi topologici compatti che possiedono sottoinsiemi non compatti. Per esempio si prenda $(\left[a, b\right],\tau_{text{euclidea})}$; il sottoinsieme $[0, 1)$ è un insieme non compatto, si pensi al ricoprimento degli $[0,1-\frac{1}{n}]$ per $n \geq 2$.
 \end{remark} 
 
 \begin{theorem} \
@@ -208,7 +215,7 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \end{theorem} 
 \begin{proof} \
 	\begin{enumerate}
-		\item Si noti che se $S$ è chiuso allora $S^c$ è aperto. Quindi prendo un ricoprimento di $S$ aperto in $\tau|_S$ che denoto con $\left\{A_i\right\}_{i \in I}$ se aggiungo a questo ricoprimento $S^c$ allora considero $\left\{A'_i \cup S^c\right\}_{i \in I}$ dove $A_i = A'_i \cap S$ e $A'_i \in \tau$. Per cui questo è un ricoprimento aperto di $(X,\tau)$. Per la compattezza posso estrarre un sottoricoprimento finito tale da ricoprire tutto $X$ che sarà costituito da elementi $\left\{A'_j \cup S^c\right\}_{j \in J}$ dove $|J| < +\infty$. Ovviamente vale
+		\item Si noti che se $S$ è chiuso allora $S^c$ è aperto. Quindi prendo un ricoprimento di $S^c$ aperto in $\tau|_S$ che denoto con $\left\{A_i\right\}_{i \in I}$ se aggiungo a questo ricoprimento $S$ allora considero $\left\{A'_i \cup S^c\right\}_{i \in I}$ dove $A_i = A'_i \cap S$ e $A'_i \in \tau$. Per cui questo è un ricoprimento aperto di $(X,\tau)$. Per la compattezza posso estrarre un sottoricoprimento finito tale da ricoprire tutto $X$ che sarà costituito da elementi $\left\{A'_j \cup S^c\right\}_{j \in J}$ dove $|J| < +\infty$. Ovviamente vale
 		\begin{equation*}
 			S \subset \bigcup_{j \in J} A'_j \cup S^c \Longrightarrow S = S \cap S \subset \bigcup_{j \in J} (A'_j \cup S^c) \cap S = \bigcup_{j \in J} A'_j  \cap S
 		\end{equation*}
@@ -226,7 +233,7 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \begin{corollary}
 	Sia $\varnothing \neq S \subset \R$ in $(\R, \tau_{\text{euclidea}})$. \\ $S$ è compatto se e solo se è chiuso e limitato. 
 \end{corollary} 
-\begin{proof}
+\begin{proof}\
 	\begin{enumerate}
 		\item[$(\Rightarrow)$] Poiché $S$ compatto allora è chiuso perché siamo in $\R$ che è $T_2$. Inoltre supponiamo $S$ illimitato, allora vale $(-n, n) \cap S \neq S$ per qualsiasi $n \in N$. Quindi posso prendere il ricoprimento $\left\{(-n,n)\right\}_{n\in \N}$ che ricopre tutto $\R$, ma per quanto osservato precedentemente non esiste un ricoprimento finito tale da ricoprire $S$.
 		\item[$(\Leftarrow)$] Essendo limitato deve esistere $S\subset \left[a,b\right]$. Quindi $\left[a,b\right] \cap S$ è chiuso perché intersezione di chiusi. Ma $\left[a,b\right]$ è un compatto per Heine-Borel, e per il lemma precedente un chiuso in un compatto è ancora un compatto, ovvero $S$ dev'essere compatto.
@@ -254,20 +261,20 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \begin{theorem}[Tychonoff]
 	Lo spazio topologico $X_1 \times X_2$ è compatto se e solo se $X_1,X_2$ sono compatti. 
 \end{theorem} 
-\begin{proof}
+\begin{proof}\
 	\begin{enumerate}
 		\item[$(\Rightarrow)$] Se $X_1 \times X_2$ è compatto e $\pi_1, \pi_2$ sono le proiezioni canoniche, allora per la continuità segue che $\pi_i(X_1 \times X_2)$ dev'essere compatto e per la surgettività $ \pi_i(X_1 \times X_2) = X_i$; segue che $X_i$ è compatto per $i \in \left\{1,2\right\}$.
-		\item[$(\Leftarrow)$] Sia $\left\{U_j\right\}_{j \in J}$ un ricoprimento di $X_1 \times X_2$, allora vale che $U_j = \bigcup_{h \in H_j} V_h \times W_h$ (dove $V_h \in \tau_1$ e $W_h \in \tau_2$). \\ Sapendo che $\left\{x\right\} \times X_2 \simeq X_2$ per ogni  $x \in X_1$, dev'essere che anche $\left\{x\right\} \times X_2$ è compatto. In particolare ho che 
+		\item[$(\Leftarrow)$] Sia $\left\{U_j\right\}_{j \in J}$ un ricoprimento di $X_1 \times X_2$, allora vale (per quanto visto in precedenza) che $U_j = \bigcup_{h \in H_j} V_h \times W_h$ (dove $V_h \in \tau_1$ e $W_h \in \tau_2$). \\ Sapendo che $\left\{x\right\} \times X_2 \simeq X_2$ per ogni  $x \in X_1$, dev'essere che anche $\left\{x\right\} \times X_2$ è compatto. In particolare ho che 
 		\begin{equation}
 		\begin{aligned}
-			\left\{x\right\} \times \subset \bigcup_{h \in h(x)} V_h \times W_h
+			\left\{x\right\} \times X_2\subset \bigcup_{h \in h(x)} V_h \times W_h
 		\end{aligned}
 		\end{equation}
-		dove $h(x) \subset H$, per cui vale la relazione sopra ed $h(x)$ è ovviamente finito (posso verificarlo per la compattezza di $X_2$). Si può osservare che per ogni $h \in h(x)$ deve valere $x \in V_h$, e quindi definisco per ogni $x \in X_1$ il seguente ricoprimento aperto 
+		dove $h(x) \subset H$, per cui vale la relazione sopra ed $h(x)$ è ovviamente finito (posso verificarlo per la compattezza di $X_2$). Si può osservare che (per costruzione) per ogni $h \in h(x)$ deve valere $x \in V_h$, e quindi definisco per ogni $x \in X_1$ il seguente intorno di $x$
 		\begin{equation*}
 			V(x) = \bigcap_{h \in h(x)} V_h
 		\end{equation*}
-		con $V(x) \in \tau_1$ poiché intersezione finita di aperti. Inoltre essendo che 
+		con $V(x) \in \tau_1$ poiché intersezione finita di aperti. Inoltre essendo 
 		\begin{equation*}
 			\bigcup_{x \in X_1} V(x) = X_1
 		\end{equation*}
@@ -287,19 +294,19 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	Un sottoinsieme di $S \subset \R^n$ è compatto se e solo se è chiuso e limitato. 
 \end{corollary} 
 \begin{proof}
-	% TODO
+	Si svolge esattamente come visto in precedenza: se è compatto allora è chiuso perché in uno spazio $T_2$, inoltre se fosse illimitato non potrei estrarre un sottoricoprimento finito dal ricoprimento delle palle aperte di centro $0$ e raggio $n$. \\ Inoltre se è chiuso e limitato vuol dire che è contenuto in un insieme del tipo $[-R,R]^n$ per $R>0$, che è chiuso in un compatto quindi compatto (e lo stesso vale per $S$).
 \end{proof}
 
 \begin{theorem}
 	$\morphism{f}{X}{Y}$ continua con $(X, \tau)$ compatto e $(Y, \xi)$ di Hausdorff. Allora $f$ è chiusa. \\ In particolare se $f$ è biettiva allora è un omeomorfismo. 
 \end{theorem} 
 \begin{proof}
-	Se fisso $C$ chiuso in $(X,\tau)$ allora $C$ è compatto, quindi $f|_C(C)$ è un compatto e siccome il codominio è di Hausdorff dev'essere che $f|_C(C)$ è anche chiuso. La seconda parte è banale per caratterizzazioni precedenti.
+	Se fisso $C$ chiuso in $(X,\tau)$, allora $C$ è compatto, quindi $f|_C(C)$ è un compatto e siccome il codominio è di Hausdorff dev'essere che $f|_C(C)$ è anche chiuso. La seconda parte è banale per caratterizzazioni precedenti.
 \end{proof}
 
 \begin{corollary}
 	\label{thr:freeomeombyquo}
-	Sia $(X, \tau)$ spazio topologico compatto, $(X', \tau')$ di Hausdorff e $R$ relazione su $X$. Se esiste $\morphism{f}{(X, \tau)}{(X', \tau')}$ e $f$ continua e surgettiva allora esiste una $g$ omeomorfismo tra $(X/R,\tau_{X/R})$ e $(X', \tau')$
+	Sia $(X, \tau)$ spazio topologico compatto, $(X', \tau')$ di Hausdorff e $R$ relazione di equivalenza su $X$. Se esiste $\morphism{f}{(X, \tau)}{(X', \tau')}$ continua e surgettiva allora esiste una mappa $g$ omeomorfismo tra $(X/R,\tau_{X/R})$ e $(X', \tau')$
 \end{corollary}
 \begin{proof}
 	È ovvio, ma volevo sembrare saccente, quindi ecco una dimostrazione.
@@ -310,7 +317,7 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 			(X/R_f, \tau_{X/R_f}) \arrow[swap]{ru}{\exists! g} &
 		\end{tikzcd}	
 	\end{equation*}
-	sappiamo che esiste $g$ biettiva. Ma dalle condizioni sopra sappiamo anche che $(X,\tau)$ è compatto e poiché $\pi$ è continua anche $X/R_f$ è compatto. Per cui $g$è da un compatto ad uno spazio di Hausdorff, e applicando il teorema sopra a $g$ otteniamo un omeomorfismo. 
+	sappiamo che esiste $g$ biettiva. Ma dalle condizioni sopra sappiamo anche che $(X,\tau)$ è compatto e poiché $\pi$ è continua anche $X/R_f$ è compatto. Per cui $g$ è da un compatto ad uno spazio di Hausdorff, e applicando il teorema sopra a $g$ otteniamo un omeomorfismo. 
 \end{proof}
 
 
@@ -325,7 +332,7 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \end{definition} 
 
 \begin{definition}
-	Sia $S \subset X$, diciamo che \textbf{$S$ è connesso in $(X, \tau)$} se $(S, \tau|_S)$ lo è. 
+	Sia $S \subset X$, diciamo che \textbf{$S$ è connesso in $(X, \tau)$} se $(S, \tau|_S)$ è un sottospazio topologico connesso. 
 \end{definition} 
 
 \begin{theorem}
@@ -344,11 +351,11 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	\end{enumerate}
 \end{proof}
 
-\begin{example}
+\begin{example}\
 \begin{enumerate}
 	\item $(X, \tau_{\text{discreta}})$ con $|X| \ge 2$ allora ogni suo sottoinsieme è sconnesso. 
 	\item $(X, \tau_{\text{banale}})$ è sempre connesso. 
-	\item $(\R, \tau_{\text{euclidea}})$ sia $x \in \R$ è sconnesso infatti $\R \setminus \left\{x\right\}$ si può comporre con $(-\infty, x) \cup (x, +\infty)$ che sono sottoinsiemi disgiunti aperti e non vuoti. 
+	\item $(\R, \tau_{\text{euclidea}})$, $x \in \R$; $(\R, \tau_{\text{euclidea}})$ è sconnesso infatti $\R \setminus \left\{x\right\}$ si può comporre con $(-\infty, x) \cup (x, +\infty)$ che sono sottoinsiemi disgiunti aperti e non vuoti. 
 	\item Sia $|X| > + \infty$ allora $(X, \tau_{\text{cof}})$ è connesso basta vedere che i chiusi sono tutti finiti quindi non si può ricoprire $X$ con insiemi chiusi disgiunti. 
 \end{enumerate}
 \end{example}
@@ -356,7 +363,15 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \begin{definition}
 	Sia $S \subset \R$, di dice \textbf{convesso} se per ogni $a, b\in S$ tali che $a \le b$ vale che se esiste $c\in \R$ tale che $a\le c\le b$ allora $c\in S$.
 \end{definition} 
-
+\begin{theorem}
+	I sottoinsiemi convessi non vuoti della retta reale sono tutti e soli gli intervalli (di ogni tipo).
+\end{theorem}
+\begin{proof} Studiamo il caso in cui gli intervalli abbiano forma $S=[a,b]$; si noti che i casi degli intervalli di altra forma sono perfettamente analoghi.
+	\begin{equation*}
+	S \text{ connesso } \iff S=[a,b] \text{ (intervallo)}
+	\end{equation*}
+	Sia $S$ un sottoinsieme convesso della retta reale, ammette un elemento massimo ed un elemento minimo, inoltre siccome è convesso contiene tutti gli elementi tra $a$ e $b$, quindi è ovviamente un intervallo. \\ \\ Sia invece $S$ un generico intervallo $S=[a,b]$, allora rispetta palesemente la definizione di convesso.
+\end{proof}
 \begin{theorem}
 	I connessi di $\R$ sono tutti e soli gli insiemi convessi. 
 \end{theorem}
@@ -370,10 +385,6 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	Sia $S$ connesso, allora è anche convesso in $\R$. Se $S$ non fosse convesso: esistono $a,b,c \in \R$ tali che $a < c < b$ con $a,b \in S$ e $c \notin S$. Allora basta prendere $((-\infty, c) \cap S), ((c, +\infty) \cap S)$ come ricoprimento aperto disgiunto e quindi $S$ sarebbe sconnesso, che è un assurdo.
 \end{proof}
 
-\begin{remark}
-	La connessione è una proprietà topologica. Infatti se $X \simeq Y$ e $X$ è connesso se è solo $Y$ è connesso. 
-\end{remark} 
-
 \begin{theorem}
 	\label{thr:3.21.3}
 	Siano $\morphism{f}{X}{Y}$ applicazione continua tra spazi topologici e $C$ insieme connesso di $X$, allora $f(C)$ è connesso. 
@@ -383,36 +394,58 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	\begin{equation*}
 		f^{-1}(A) \cup f^{-1}(B) = f^{-1}(A \cup B) = f^{-1}(C) = C
 	\end{equation*}
-	ma $f^{-1}(A), f^{-1}(B) \neq \varnothing$ perché $f$ suriettiva, le fibre non si toccano perché è una funzione e quindi $f^{-1}(A) \cap f^{-1}(B) = \varnothing$. Per cui $C$ dev'essere sconnesso contro la nostra ipotesi Dev'essere quindi che anche $f(C)$ sia connesso.
+	ma $f^{-1}(A), f^{-1}(B) \neq \varnothing$ perché $f$ suriettiva, le fibre non si toccano perché è una funzione e quindi $f^{-1}(A) \cap f^{-1}(B) = \varnothing$. Per cui $C$ dev'essere sconnesso contro la nostra ipotesi. Dev'essere quindi che anche $f(C)$ sia connesso.
 \end{proof}
 
-\begin{remark}
+\begin{corollary}
+	La connessione è una proprietà topologica. \\ Infatti se $X \simeq Y$ allora $X$ è connesso se è solo $Y$ è connesso. 
+\end{corollary}
+
+\begin{corollary}
 	Sia $X$ spazio topologico con $R$ relazione di equivalenza, $X/R$ è connesso se $X$ è connesso poiché $\morphism{\pi}{X}{X/R}$
-\end{remark} 
+\end{corollary} 
 
 \begin{definition}
 	Sia $(X, \tau)$ spazio topologico e siano $x, y \in X$, si dicono \textbf{connessi $x, y$ in $(X, \tau)$} se esiste $S \subset X$ tale che è connesso e $x, y\in S$.
 \end{definition} 
 
-\begin{lemma}
+\begin{theorem}
+	L'unione di due insiemi connessi che si intersecano è di nuovo un insieme connesso. Di conseguenza (per induzione) questo vale per l'unione numerabile.
+\end{theorem}
+\begin{proof}
+	Siano $x,y$ connessi attraverso $A$ (vuol dire che sono elementi dell'insieme connesso) e $y,z$ connessi attraverso l'insieme $B$, in sostanza posso modificare l'enunciato in \enquote{$x$ e $z$ sono connessi attraverso $A \cup B$}. Capiremo in seguito il motivo di questo cambio di enunciato.\\
+	Sia $Y \subset A \cup B$ aperto e chiuso tale che $Y \neq \varnothing$.
+	\begin{align*}
+	Y \subset A \cup B & \implies Y \cap (A \cup B) = (Y\cap A)\cup (Y\cap B) \neq \varnothing\\
+	& \implies Y \cap A \neq \varnothing \ \text{oppure} \ Y \cap B \neq \varnothing
+	\end{align*}
+	
+	Sia $Y \cap A \neq \varnothing$. Allora $Y \cap A$ è ancora aperto e chiuso poiché $Y$ aperto e chiuso nella topologia superiore. Ma $A$ è connesso, quindi dev'essere che $Y \cap A = A$ e dunque $A \subset Y$. Inoltre visto che $y\in A \cap B$, l'intersezione è non vuota e dev'essere che anche $Y \cap B \neq \varnothing$. Applicando un ragionamento analogo a quanto visto per $A$, segue che $B \subset Y$. Per cui $Y = A \cup B$, ovvero gli unici aperti e chiusi nella topologia indotta su $A \cup B$ sono o tutto l'insieme o l'insieme vuoto. $A \cup B$ è connesso.
+\end{proof}
+
+\begin{corollary}[Connessione come relazione di equivalenza]
 	La relazione di connessione in $(X, \tau)$ è una relazione di equivalenza. 
-\end{lemma} 
+\end{corollary} 
 \begin{proof}
 	Bisogna dimostrare che è riflessiva, simmetrica e transitiva.
 	\begin{enumerate}
 		\item	L'insieme $\left\{x\right\}$ è sempre connesso quindi $x$ è connesso con se stesso.
-		\item L'insieme che connette $x,y$ connette anche $y,x$ visto che agli insiemi non "importa" l'ordine.
-		\item La transitività è l'unica che richiede uno sforzo. Infatti siano $x,y$ connessi attraverso $A$ e $y,z$ connessi attraverso l'insieme $B$; se mostriamo che $A \cup B$ è connesso, $x$ è connesso con $z$. \\ Per cui sia $Y \subset A \cup B$ aperto e chiuso tale che $Y \neq \varnothing$. Per cui dev'essere che $Y \cap A \neq \varnothing$ o $Y \cap B \neq \varnothing$. Sia soltanto $Y \cap A \neq \varnothing$. Allora $Y \cap A$ è ancora aperto e chiuso poiché $Y$ aperto e chiuso nella topologia superiore. Ma $A$ è connesso, quindi dev'essere che $Y \cap A = A$ e dunque $A \subset Y$. Inoltre visto che $y\in A \cap B$, l'intersezione è non vuota e dev'essere che anche $Y \cap B \neq \varnothing$. Applicando un ragionamento analogo a quanto visto per $A$, segue che $B \subset Y$. Per cui $Y = A \cup B$, ovvero gli unici aperti e chiusi nella topologia indotta su $A \cup B$ sono o tutto l'insieme o il vuoto. $A \cup B$ è connesso.
+		\item L'insieme che connette $x,y$ connette anche $y,x$ visto che agli insiemi non \enquote{importa} l'ordine.
+		\item La transitività è l'unica che richiede uno sforzo: siano $x,y$ connessi attraverso $A$ e $y,z$ connessi attraverso l'insieme $B$; se mostriamo che $A \cup B$ è connesso, $x$ è connesso con $z$, ma questo è vero per il teorema. 
 	\end{enumerate}
 \end{proof}
 
-\begin{definition}
+\begin{definition}[Componenti connesse]
 	Dato $(X, \tau)$ con $R$ relazione di equivalenza di connessione, le $R$-classi di equivalenza si dicono \textbf{componenti connesse di $(X, \tau)$}.
 \end{definition} 
 
+\begin{remark}
+	A livello intuitivo la \textit{componente connessa} di un $x\in X$ è il più grande connesso contenente $x$; si potrebbe dire che quando un \enquote{clopen} (insieme sia aperto che chiuso) incontra un connesso \enquote{se lo mangia tutto}.
+\end{remark}
+
 \begin{theorem}
 	\label{thr:3.21.4}
-	Uno $(X, \tau)$ spazio topologico connesso se e solo se $\forall x, y \in X$, $x$ è connesso con $y$.
+	$(X, \tau)$ spazio topologico è connesso se e solo se $\forall x, y \in X$, $x$ è connesso con $y$.
 \end{theorem} 
 \begin{proof} \
 	\begin{enumerate}
@@ -425,14 +458,17 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	Sia $X$ spazio topologico, $Y, Z \subset X$ ed $Y \subset Z\subset \overline{Y}$. Allora se $Y$ è connesso anche $Z$ lo è. \\ In particolare $\overline{Y}$ è connesso.
 \end{theorem} 
 \begin{proof}
-	Suppongo $\overline{Y}$ sconnesso. Allora esiste $A \subset \overline{Y}$ tale da essere aperto e chiuso e diverso dal vuoto e da tutto l'insieme $\overline{Y}$. Per cui considero i seguenti casi
-	\begin{enumerate}
-		\item $A \subsetneq Y$, poiché $Y$ connesso e non può avere clopen $A = Y$ quindi $A = \overline{A} = \overline{Y} = Y$ o $A = \varnothing$, quindi assurdo.
-		\item $Y \subsetneq A \subsetneq \overline{Y}$, $Y \subset A$ e per la monotonia della chiusura ed il fatto che $A$ è chiuso $\overline{Y} \subset A$. Pertanto $\overline{Y}= A$, assurdo. 
-	\end{enumerate}
-	In particolare ho dimostrato che se esiste un altro insieme $Y \subset A \subset \overline{Y}$, $A$ dev'essere ancora connesso se no si ricade in uno dei casi sopra.
+	Sia $S \subset Z$ tale da essere aperto e chiuso in $Z$, diverso dal vuoto e da tutto l'insieme $Z$. \\ Devono esistere un aperto $A$ ed un chiuso $C$ (entrambi in $\overline{Y})$ con $A\cap Z = S$ ed anche $C\cap Z = S$. Siccome $S$ è sia aperto che chiuso, per la teoria svolta sappiamo che $S \cap Y$ può essere solo il vuoto o tutto l'insieme $Y$. \\ \\ Supponiamo che sia il vuoto, ma allora
+	\begin{equation*}
+	S\cap Y = (Z\cap A)\cap Y=A \cap Y = A \cap \overline{Y}=\varnothing
+	\end{equation*}
+	e questo implica che $A \cap Z = \emptyset$. \\ \\ Sia invece l'intersezione pari a tutto $Y$, allora
+	\begin{equation*}
+	(Z \cap C)\cap Y = Y \cap C \implies Y \subset C \implies \overline{Y}\subset C
+	\end{equation*}
+	% L'ho riscritta, questa sembra più elementare
 \end{proof}
-
+\newpage
 \begin{theorem}
 	Sia $X$ spazio topologico e siano $X_i \subset X$ connessi tali che $\bigcap_{i \in I} X_i \neq \varnothing$, allora $\bigcup_{i \in I} X_i$ è un connesso. 
 \end{theorem} 
@@ -441,10 +477,11 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \end{proof}
 
 \begin{theorem}
-	Siano $X, Y$ connessi allora $X\times Y$ è connesso. 
+	$X$ ed $Y$ spazi topologici sono connessi se e solo se il loro prodotto topologico $X\times Y$ è connesso.
 \end{theorem} 
 \begin{proof}
-	Fisso due punti $(x_1, y_1)$, $(x_2, y_2)$ in $X \times Y$. Allora noto che $X \times \left\{y_1\right\} \simeq X$ e quindi è connesso, pertanto $(x_1, y_1)$ dev'essere connesso a $(x_2, y_1)$ (in realtà si ottiene di più, ovvero che ogni $(x_i, y_1)$ è connesso a un $(x_j, y_1)$ per qualsiasi $i,j$). Facendo lo stesso ragionamento su $Y$ si ottiene che $(x_2, y_1)$ è connesso a $(x_2, y_2)$. \\ Pertanto si conclude che $(x_1, y_1)$ è connesso a $(x_2, y_2)$ per ogni coppia di punti di $X \times Y$, cioè che $X \times Y$ è connesso.
+	Ovviamente se $X\times Y$ è connesso basta applicare la proiezione, che è una mappa continua. \\ \\ 
+	Passiamo all'implicazione inversa, fisso due punti $(x_1, y_1)$, $(x_2, y_2)$ in $X \times Y$. Allora noto che $X \times \left\{y_1\right\} \simeq X$ e quindi è connesso, pertanto $(x_1, y_1)$ dev'essere connesso a $(x_2, y_1)$ (in realtà si ottiene di più, ovvero che ogni $(x_i, y_1)$ è connesso a un $(x_j, y_1)$ per qualsiasi $i,j$). Facendo lo stesso ragionamento su $Y$ si ottiene che $(x_2, y_1)$ è connesso a $(x_2, y_2)$. \\ Pertanto si conclude che $(x_1, y_1)$ è connesso a $(x_2, y_2)$ per ogni coppia di punti di $X \times Y$, cioè che $X \times Y$ è connesso.
 \end{proof}
 
 
@@ -452,9 +489,9 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \subsection{\textcolor{TopGener}{\textbf{Connessione per archi}}}
 
 
-
+In generale è più comodo valutare la \textit{connessione per archi} rispetto alla connessione, sotto un certo punto di vista è una proprietà più forte, ma è molto più facile verificarla nella pratica.
 \begin{definition}
-	Sia $X$ spazio topologico. Si dice che è \textbf{connesso per archi} se per ogni $x, y \in X$ esiste un'applicazione continua $\morphism{\alpha}{\left[0,1\right]}{X}$ tale che $\alpha(0)=x$ e $\alpha(1)=y$.
+	Sia $X$ spazio topologico. Si dice che è \textbf{connesso per archi} se per ogni $x, y \in X$ esiste un'applicazione continua $\morphism{\alpha}{\left[0,1\right]}{X}$ tale che $\alpha(0)=x$ e $\alpha(1)=y$. Questa funzione si dice \textbf{arco}.
 \end{definition} 
 
 \begin{theorem}
@@ -466,10 +503,16 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 
 
 \begin{remark}
-	In generale non vale che se uno spazio topologico $(X,\tau)$ è connesso allora è anche connesso per archi. Per mostrare che ciò non è valido in generale, possiamo controllare i seguenti controesempi:
-	\begin{enumerate}
-		\item[Pettine del Topologo] Si veda la Figura \ref{fig:comb_topology} che descrive lo spazio topologico $D$ sotto composta da tre principali componenti $D = \left\{0\right\} \times \left\{0,1\right\} \cup \left[0,1\right]\times \left\{0\right\} \cup \left\{1/n \,\middle|\, n \in \N \right\} \times \left[0,1\right]$. 
-		
+	In generale non vale che se uno spazio topologico $(X,\tau)$ è connesso allora è anche connesso per archi. Per mostrare che ciò non è valido in generale, possiamo controllare i seguenti controesempi: \\
+
+		\begin{flushleft}
+			\textbf{Pettine del topologo}
+		\end{flushleft}
+
+		Si veda la Figura \ref{fig:comb_topology} che descrive lo spazio topologico $D$ sotto composta da tre principali componenti.
+		\begin{equation*}
+		D = \left\{0\right\} \times \left\{0,1\right\} \cup \left[0,1\right]\times \left\{0\right\} \cup \left\{1/n \,\middle|\, n \in \N \right\} \times \left[0,1\right]
+		\end{equation*}
 		% TODO: \usepackage{graphicx} required
 		\begin{figure}[h]
 			\centering
@@ -479,16 +522,19 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 		\end{figure}
 		
 		
-		Possiamo osservare che questo spazio è connesso. È ovvio che $D \setminus \left\{(0,1)\right\}$ è connesso per archi e quindi è connesso, pertanto se fosse sconnesso le componenti sarebbero $(0,1)$ e $D \setminus \{(0,1)\}$. Ma $\overline{D \setminus \{(0,1)\}} \cap \{(0,1)\} \neq \varnothing$ e quindi tutto $D$ è connesso. 
-		
-		D'altro canto $D$ non è connesso per archi. Consideriamo $f$ funzione continua che connette $(0,1)$ a $(0,0)$, con $f(0) = (0,1)$. Mostriamo che $f^{-1}(D)$ è sconnesso, da cui per assurdo si arriva che $\left[0,1\right]$ è sconnesso. Allora vediamo che $f^{-1}(\left\{0\right\})$ è chiuso per definizione (un punto è chiuso e la controimmagine di un chiuso è chiuso se la mappa è continua). Per cui dobbiamo far vedere che $f^{-1}(\left\{(0,1)\right\})$ è aperto. Prendiamo un intorno di $(0,1)$ che chiameremo $U \subset D$ dove tale da non intersecare l'asse delle ascisse e lo supponiamo tale che $f^{-1}(U)$ è connesso. Allora 
+		Possiamo osservare che questo spazio è connesso. È ovvio che $D \setminus  \left\{(0,1)\right\}$ è connesso per archi e quindi è connesso, pertanto se fosse sconnesso le componenti sarebbero $(0,1)$ e $D \setminus \{(0,1)\}$. Ma $\overline{D \setminus \{(0,1)\}} \cap \{(0,1)\} \neq \varnothing$ e quindi tutto $D$ è connesso. \\ \\
+		D'altro canto $D$ non è connesso per archi. Consideriamo $f$ funzione continua che connette $(0,1)$ a $(0,0)$, con $f(0) = (0,1)$. Mostriamo che $f^{-1}(D)$ è sconnesso, da cui per assurdo si arriva che $\left[0,1\right]$ è sconnesso. Allora vediamo che $f^{-1}(\left\{0\right\})$ è chiuso per definizione (un punto è chiuso e la controimmagine di un chiuso è chiuso se la mappa è continua). Per cui dobbiamo far vedere che $f^{-1}(\left\{(0,1)\right\})$ è aperto. Prendiamo un intorno di $(0,1)$ che chiameremo $U \subset D$ tale da non intersecare l'asse delle ascisse e lo supponiamo tale che $f^{-1}(U)$ è connesso. Allora 
 		poiché $U$ non interseca l'asse delle ascisse, dev'essere che $x \in V$ tale da essere della forma $x = (1/n, k)$ per qualche $n \in \N$ e $k \in \left(0,1\right]$. Osserviamo che ogni intorno contiene almeno un elemento di questa forma (perché sappiamo che si `accumulano' su $(0,1)$). Per cui sia $x \neq (0,1)$ allora $x = (1/n, k) \in U$ per cui possiamo trovare $1/n+1< r< 1/n$ per cui possiamo vedere che la controimmagine di $U$ si può separare nei seguenti insiemi disgiunti 
 		\begin{equation*}
 			f^{-1}(U) = f^{-1}((-\infty, r)\times \left[0,1\right]) \cup f^{-1}((r,+\infty)\times \left[0,1\right])
 		\end{equation*}
-		Pertanto possiamo dire che $U$ è sconnesso contro la nostra ipotesi di connessione. Risulta quindi che $f^{-1}((0,1))$ è aperto e chiuso, ma $\left[0,1\right]$ è ovviamente connesso da cui dev'essere che $\{(0,1)\}$ non è connesso per archi a $\{(0,0)\}$.
+		Pertanto possiamo dire che $U$ è sconnesso contro la nostra ipotesi di connessione. Risulta quindi che $f^{-1}((0,1))$ è aperto e chiuso, ma $\left[0,1\right]$ è ovviamente connesso da cui dev'essere che $\{(0,1)\}$ non è connesso per archi a $\{(0,0)\}$.\\ 
 		
-		\item Consideriamo la funzione reale 
+		\begin{flushleft}
+			\textbf{Seno del topologo}
+		\end{flushleft}
+		
+		 Consideriamo la funzione reale 
 		\begin{equation*}
 			f(x) \coloneqq
 			\begin{cases}
@@ -496,6 +542,5 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 				\sin \frac{1}{x} & \text{se}\ x \in \R^+
 			\end{cases}
 		\end{equation*}
-		allora possiamo vedere in modo simile al pettine del topologo che l'immagine della funzione è connessa, ma il punto $(0,0)$ non è connesso per archi a nessun altro punto del grafo. Infatti se esistesse una funzione continua che collega le due parti del grafo avrebbe limite $\lim_{x\to 0} g(x) = \left[-1,1\right]$ e quindi non può essere continua in $0$.
-	\end{enumerate} 
+		allora possiamo vedere in modo simile al pettine del topologo che l'immagine della funzione è connessa, ma il punto $(0,0)$ non è connesso per archi a nessun altro punto del grafo. Infatti se esistesse una funzione continua che collega le due parti del grafico avrebbe limite $\lim_{x\to 0} g(x) = \left[-1,1\right]$ e quindi non può essere continua in $0$.
 \end{remark}
