@@ -1,7 +1,9 @@
 \chapter{Varietà}
 
 
-\section{Varietà topologica}
+\newpage
+\section{Le varietà topologiche}
+\subsection{\textcolor{TopAlg}{\textbf{Introduzione allo studio delle varietà}}}
 
 \begin{definition}
 	Un $(X,\tau)$ spazio topologico, è detto \textbf{localmente euclideo} se per ogni $x \in X$ esiste $n \in \N$ e $U_x \subset X$ intorno aperto di $x$ tale che esiste un omeomorfismo $\morphism{\varphi_x}{U_x}{\mathring{\D}^n}$.  
@@ -100,6 +102,7 @@
 	Un altro esempio è dato dalla linea con due origini che è molto simile all'esempio precedente, l'unica differenza è che si identificano tutte le rette tranne l'origine al posto che solo la parte positiva come avveniva sopra. Si prenda $\R \times \{a,b\}$ come spazio e si quozienti con la relazione $(x,a) \sim (y,b) \Longleftrightarrow x = y \land x,y \neq 0$. Allora lo spazio quoziente sarà dato da due rette distinte, ma con due origini $\{0\} \times \{a\}, \{0\}\times \{b\}$. Se si prende un qualsiasi intorno di $\{0\}\times \{a\}$ si avrà un intersezione per qualsiasi intorno di $\{0\} \times \{b\}$ per ovvie ragioni, per cui non è Hausdorff, malgrado sia localmente euclideo. Infatti basta prendere una carta locale di due mappe che cartografano $(-\infty, a) \cup \{0\}\times \{a\}$ e una che prende $(-a, +\infty) \cup \{0\}\times \{b\}$.  
 \end{remark}
 
+\subsection{\textcolor{TopAlg}{\textbf{Struttura delle varietà topologiche}}}
 \begin{definition}
 	Uno spazio topologico $(X,\tau)$ è detto \textbf{varietà topologica} di dimensione $n$ se è localmente euclideo, connesso, di Hausdorff e a base numerabile.
 \end{definition}
@@ -125,7 +128,9 @@
 L'intuizione di ciò è data dal fatto che il toro può essere rappresentato dalla stringa $aba^{-1}b^{-1}$ e il piano proiettivo da $aa$, mentre la sfera da $aa^{-1}$, per cui tutte le possibili stringhe sono di questo tipo visto che la somma connessa risulta essere, in questo caso, una semplice concatenazione di queste stringhe. La dimostrazione della minimalità verrà data nella prossima sezione.
 
 
-\section{Classificazione superfici compatte}
+\newpage
+\section{Classificazione delle superfici compatte}
+\subsection{\textcolor{TopAlg}{\textbf{Alcuni cenni di teoria dei gruppi}}}
 
 Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebrici sui gruppi. In particolar modo il calcolo degli abelianizzati e dei gruppi dei nostri modelli fondamentali: il toro e il piano proiettivo.
 
@@ -179,6 +184,7 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 \begin{proof}
 \end{proof}
 
+\subsection{\textcolor{TopAlg}{\textbf{Il teorema di classificazione per le superfici compatte}}}
 \begin{theorem}
 	Sia $S$ una superficie compatta. Allora essa è omeomorfa a $T_g$ con $g\ge 0$ oppure ad una superficie $U_h$ per $h > 0$. Inoltre $T_g \not\simeq U_h$ per ogni $g,h$, $U_h \not\simeq U_{h'}$ per $h\neq h'$ e $T_{g'} \not\simeq T_g$ per $g \neq g'$.
 \end{theorem}
