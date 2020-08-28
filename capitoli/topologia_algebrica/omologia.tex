@@ -1,7 +1,9 @@
 \chapter{Omologia}
 
 
+\newpage
 \section{Omotopie e retratti}
+\subsection{\textcolor{TopAlg}{\textbf{Omotopie e classi di omotopia}}}
 
 \begin{definition}
 	Siano $\morphism{f_0, f_1}{X}{Y}$ mappe continue. Allora $f_0$ e $f_1$ si dicono \textbf{omotope} se esiste una funzione continua $\morphism{F}{X \times \left[0,1\right]}{Y}$ tale che $F(t,0) = f_0(t)$ per ogni $t \in X$ e $F(t,1) = f_1(t)$ per ogni $t \in X$.
@@ -22,6 +24,7 @@
 \begin{remark}
 	L'omotopia di spazi topologici è una relazione di equivalenza. 
 \end{remark}
+\subsection{\textcolor{TopAlg}{\textbf{Retratti e retratti di deformazione}}}
 
 \begin{definition}
 	Se $A \subset X$ dove $X$ spazio topologico allora $A$ è detto \textbf{retratto} di $X$ se esiste $\morphism{r}{X}{A}$ con $r$ continua e che $r(a) = a$ per ogni $a \in A$. In particolare $r \circ i_A = \operatorname{Id}_{A}$.
@@ -51,7 +54,9 @@
  	\end{enumerate}
 \end{remark}
 
+\newpage
 \section{CW-complessi}
+\subsection{\textcolor{TopAlg}{\textbf{Una semplice classe di spazi complessi}}}
 
 Ora verranno introdotte delle classi di insiemi tali che possono essere suddivisi in parti \textit{retratte} e parti irriducibilmente non retratte, ovvero il Teorema \ref{thr:contrai_ncelle_cw_complesso}.
 
@@ -214,8 +219,11 @@ I CW-complessi sono importanti poiché è possibile esprimere un invariante topo
 	\end{enumerate}
 \end{remark}
 
-\section{Gruppo fondamentale}
+\newpage
+\section{Il gruppo fondamentale}
+\subsection{\textcolor{TopAlg}{\textbf{Deformare cappi su una superficie}}}
 
+% todo: definizione di GF? forse me la sono persa
 \begin{definition}
 	Sia $X$ spazio topologico, allora $\morphism{\alpha}{\left[0,1\right]}{X}$ tale che $\alpha(0) = x_0 \in X$ e $\alpha(1) = x_0 \in X$ con $\alpha$ continua si dice \textbf{cappio}.
 \end{definition}
@@ -282,6 +290,9 @@ I CW-complessi sono importanti poiché è possibile esprimere un invariante topo
 	Se $A \subset X$ è un retratto di $X$ con $r$ come retrazione, allora vale che $\pi_1(A, x_0) \subset \pi_1(X, x_0)$ ed è un sottogruppo.  
 \end{theorem}
 	
+\section{Il teorema di Seifert-van Kampen}
+\subsection{\textcolor{TopAlg}{\textbf{Enunciato e conseguenze}}}
+
 
 \begin{theorem}[Teorema di Seifert-van Kampen]
 	Dati due aperti $U, V$ tali che $U \cap V \neq \varnothing$ e tutti gli insiemi devono essere connesse per archi. Allora se $X = V \cup U$ e $x_0 \in U\cap V$ segue che 
@@ -299,8 +310,8 @@ I CW-complessi sono importanti poiché è possibile esprimere un invariante topo
 \end{theorem}
 
 
-\section{Applicazioni del teorema di Seifert-van Kampen}
 
+\subsection{\textcolor{TopAlg}{\textbf{Applicazioni di Seifert-van Kampen}}}
 Presento alcuni corollari utili allo svolgimento degli esempi successivi.
 
 \begin{corollary}
