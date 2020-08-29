@@ -1,10 +1,14 @@
 \chapter{Integrali di linea}
+Il corso si fonderà sul calcolo degli integrali di funzioni in variabile complessa su un dominio - o una curva - complesso: vedremo alcune definizioni ed alcuni teoremi per il calcolo integrale e noteremo come le curve abbiamo un ruolo fondamentale. Presto scopriremo anche come \enquote{scegliere} le curve per semplificare i calcoli. \\ \\ Ci inoltreremo nel teorema più importante di questa sezione del corso: il \textit{teorema integrale di Cauchy}.
+\newpage
+\section{Integrare su una curva}
+\subsection{\textcolor{AnComp}{\textbf{Integrare su una curva?}}}
 
 Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso. Per fare ciò parametriziamo le curve complesse su un intervallo reale. 
 
 \begin{definition}
 	\label{defn:integrale-funzione-complessa-parametrizzata-su-intervallo-reale}
-	Sia $\morphism{f}{\left[a,b\right]\subset \R}{\C}$ una funzione continua, con $f(t) = u(t), iv(t)$ allora 
+	Sia $\morphism{f}{\left[a,b\right]\subset \R}{\C}$ una funzione continua, siccome possiamo scrivere $f(t) = u(t)+ iv(t)$ allora vale che
 	\begin{equation*}
 	\begin{aligned}
 	\int_{a}^{b} f(t)\ dt \coloneqq \int_{a}^{b} u(t)\ dt + i \int_{a}^{b} v(t)\ dt 
@@ -14,7 +18,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 
 \begin{proposition}
 	\label{prop:proprieta-funzione-complessa-parametrizzata-su-intervallo-reale}
-	Valgono le seguenti proprietà per l'integrale in Definizione \ref{defn:integrale-funzione-complessa-parametrizzata-su-intervallo-reale}
+	Valgono le seguenti proprietà per l'integrale definito in Definizione \ref{defn:integrale-funzione-complessa-parametrizzata-su-intervallo-reale}
 	\begin{enumerate}
 		\item è lineare, infatti, per ogni $\lambda, \mu \in \C$ e $\morphism{f,g}{\left[a,b\right]}{\C}$ vale
 		\begin{equation*}
@@ -42,16 +46,16 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 		\end{equation*}
 	\end{enumerate} 
 \end{proposition}
-\begin{proof}[1]
+\begin{proof} (1)\\
 	Il primo punto deriva dalla linearità dell'integrale di Riemann. 
 	Basta dividere in parte reale e immaginaria della funzione $f = u+ iv$.
 \end{proof}
 
-\begin{proof}[2]
+\begin{proof} (2)\\
 	Segue dalla linearità dividendo la funzione in parte reale e immaginaria.	
 \end{proof}
 
-\begin{proof}[3]
+\begin{proof} (3)\\
 	Poniamo $\omega \coloneqq \int_{a}^{b} f(t)\ dt$, allora se $\omega = 0$ è dimostrata. Se $\omega \neq 0$ allora poniamo $u = \overline{\omega}/|\omega|$, osserviamo che $|u|=1$. Da cui
 	\begin{equation*}
 	\begin{aligned}
@@ -60,7 +64,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 	\end{equation*}
 \end{proof}
 
-\begin{proof}[4]
+\begin{proof} (4)\\
 	Questo si può vedere come la Formula dell'area  
 	\begin{equation*}
 	\begin{aligned}
@@ -106,6 +110,8 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 \begin{remark}
 	La definizione \ref{defn:integrale-di-linea} è dipendente dalla parametrizzazione utilizzata, ma ciò non toglie che dia, per parametrizzazioni che non cambiano l'orientazione della curva, lo stesso risultato (come si può riparametrizzando avanti e indietro la curva).
 \end{remark}
+
+\subsection{\textcolor{AnComp}{\textbf{Integrare su una curva!}}}
 
 \begin{proposition}
 	\label{prop:proprieta-integrale-di-linea}
