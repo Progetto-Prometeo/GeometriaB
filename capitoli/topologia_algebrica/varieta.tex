@@ -1,5 +1,5 @@
 \chapter{Varietà}
-
+Ora abbiamo completato uno studio fondamentale, che ci permetterà di lavorare su superfici topologiche \enquote{brutte a piacere}; quindi perché non farlo? \\ \\ Studieremo le varietà topologiche più interessanti dopo una breve introduzione generale, e vedremo di persona il \textit{teorema di classificazione delle superfici topologiche compatte}.
 
 \newpage
 \section{Le varietà topologiche}
@@ -21,11 +21,11 @@
 	Il disco nella topologia euclidea $\mathbb{D}^n$ è connesso per archi. 
 \end{theorem} 
 \begin{proof}
-	Dimostro che il disco è convesso e quindi connesso per rette (e in particolare per archi). Infatti sia 
+	Dimostro che il disco è convesso e quindi connesso per segmenti (e in particolare per archi). Infatti sia 
 	\begin{equation}
 	\mathbb{D}^n := \{x\in \R^n\; |\; |x| \le 1\}
 	\end{equation}
-	allora basta far vedere che presi due punti vale che l'intera retta sta nel disco. Siano $x, y \in \mathbb{D}^n$ allora
+	allora basta far vedere che presi due punti vale che l'intero segmento sta nel disco. Siano $x, y \in \mathbb{D}^n$ allora
 	\begin{equation}
 	|(1-t)x+ty| \le (1-t)|x| + t|y| \le 1-t+t =1
 	\end{equation}
@@ -82,7 +82,7 @@
 \end{proof}
 
 \begin{remark}
-	In generale se uno spazio topologico è localmente euclideo non è di Hausdorff. Infatti si consideri $\{a,b\} \times \R$ con la relazione di equivalenza $(x,y) \sim (z,w) \leftrightarrow y = w \land y > 0 \lor (x,y) = (z,w)$. Allora il disegno diventa una sorta di Y, in cui dove le due rette si congiungono c'è lo $0$ (che non viene identificato! ci sono due zeri: $\{0\}\times \{a\}, \{0\}\times \{b\}$).
+	In generale se uno spazio topologico è localmente euclideo non è di Hausdorff. Infatti si consideri $\{a,b\} \times \R$ con la relazione di equivalenza $(x,y) \sim (z,w) \leftrightarrow y = w \land y > 0 \lor (x,y) = (z,w)$. Allora il disegno diventa una sorta di Y, in cui le due rette si congiungono nello $0$ (che non viene identificato! ci sono due zeri: $\{0\}\times \{a\}, \{0\}\times \{b\}$).
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.35\linewidth]{images/topologia_generale/lcleucnott2}
@@ -144,18 +144,18 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 	\end{aligned}
 	\end{equation}  
 \end{lemma}
-\begin{proof}[1]
+\begin{proof} Prima formula:\\
 	Sappiamo che $\pi_1(U_h) \simeq \left\langle \alpha_1, \dots, \alpha_h \mid \alpha^2_1 \cdots \alpha^2_h = 1\right\rangle$, quindi abelianizzando il gruppo si ottiene (utilizzando le trasformate di Tietze)
 	\begin{equation}
 	\begin{aligned}
 		& Ab( \left\langle \alpha_1, \dots, \alpha_h \mid \alpha^2_1 \cdots \alpha^2_h = 1\right\rangle) \\
-		& \simeq \left\langle \alpha_0, \alpha_1, \dots, \alpha_h \mid \alpha^2_1 \cdots \alpha^2_h = 1,\ \alpha_0 = \alpha_1 \dots \alpha_h,\ \left[a_i, a_j\right],\ \forall i,j \right\rangle\\
-		& \simeq \left\langle \alpha_0, \alpha_1, \dots, \alpha_h \mid \alpha^2_0 = 1,\ \left[a_i, a_j\right],\ \forall i,j \right\rangle \\
-		& \simeq \left\langle \alpha_1, \dots, \alpha_h \mid \left[a_i, a_j\right],\ \forall i,j \right\rangle \times \left\langle \alpha_0 \mid \alpha^2_0 = 1\right\rangle \simeq \Z^{h-1} \times \Z_2 
+		& \simeq \left\langle \alpha_0, \alpha_1, \dots, \alpha_h \mid \alpha^2_1 \cdots \alpha^2_h = 1,\ \alpha_0 = \alpha_1 \dots \alpha_h,\ \left[\alpha_i, \alpha_j\right],\ \forall i,j \right\rangle\\
+		& \simeq \left\langle \alpha_0, \alpha_1, \dots, \alpha_h \mid \alpha^2_0 = 1,\ \left[\alpha_i, \alpha_j\right],\ \forall i,j \right\rangle \\
+		& \simeq \left\langle \alpha_1, \dots, \alpha_h \mid \left[\alpha_i, \alpha_j\right],\ \forall i,j \right\rangle \times \left\langle \alpha_0 \mid \alpha^2_0 = 1\right\rangle \simeq \Z^{h-1} \times \Z_2 
 	\end{aligned}
 	\end{equation}
 \end{proof}
-\begin{proof}[2]
+\begin{proof}Seconda formula:\\
 	Sappiamo che $\pi_1(T_g) \simeq \left\langle \alpha_1, \dots, \alpha_g, \beta_1, \dots, \beta_g \mid \alpha_1 \beta_1\alpha^{-1}_1\beta^{-1}_1 \dots \alpha_g \beta_g\alpha^{-1}_g\beta^{-1}_g = 1\right\rangle$. Quindi la relazione sui generatori coincide al prodotto di tutti i commutatori, per cui 
 	\begin{equation}
 	\begin{aligned}
@@ -181,8 +181,6 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 \begin{proposition}
 	$\Z^n \simeq \Z^m$ se e solo se $m = n$. 
 \end{proposition}
-\begin{proof}
-\end{proof}
 
 \subsection{\textcolor{TopAlg}{\textbf{Il teorema di classificazione per le superfici compatte}}}
 \begin{theorem}
@@ -191,7 +189,9 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 \begin{proof}
 	Il fatto che $S$ sia omeomorfa ad una delle due superfici è già stato dimostrato. Non resta che dimostrare la minimalità dei modelli presi.\\
 	
-	\textbf{$T_g \not\simeq U_h$}\\
+	\begin{flushleft}
+		\textbf{$T_g \not\simeq U_h$}
+	\end{flushleft}
 	
 	Consideriamo gli abelianizzati dei gruppi fondamentali rispettivi. Per il Lemma \ref{lemm:abel_torus_proj} vale che 
 	\begin{equation}
@@ -202,7 +202,9 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 	\end{equation}
 	che hanno rispettivamente come sottogruppo di torsione $\Z_2$ e $\{0\}$, quindi non possono essere isomorfi ed in particolare non $T_g \not\simeq U_h$ (inoltre non sono neanche omotopicamente equivalenti).
 	
-	\textbf{$U_h \not\simeq U_{h'}$} \\
+	\begin{flushleft}
+		\textbf{$U_h \not\simeq U_{h'}$}
+	\end{flushleft} 
 	
 	Se fossero isomorfi allora gli abelianizzati sarebbero isomorfi e inoltre il quoziente dell'abelianizzato per il sottogruppo di torsione sarebbe isomorfo. In particolare 
 	\begin{equation}
@@ -212,7 +214,9 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 	\end{equation}
 	che funziona se e solo se $h = h'$.
 	
-	\textbf{$T_g \not\simeq T_{g'}$} \\
+	\begin{flushleft}
+		\textbf{$T_g \not\simeq T_{g'}$} 
+	\end{flushleft}
 	
 	Se fossero isomorfi allora gli abelianizzati sarebbero isomorfi quindi valrebbe $\Z^{2g} \simeq \Z^{2g'}$ che è valido solo se $g = g'$.
 \end{proof}
@@ -221,7 +225,7 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 % TODO: Inserire esempi da minuto 22 della lezione del 24/03/2020.
 
 \begin{remark}
-	Ricordiamo che affinché un retratto $\morphism{i}{A}{B}$ sia tale è necessario che $\morphism{i_*}{\pi(A, a)}{\pi(B, b)}$ sia un omomorfismo iniettivo; se vogliamo che sia un retratto di deformazione allora $i_*$ dev'essere un isomorfismo. 
+	Ricordiamo che affinché un retratto $\morphism{i}{A}{X}$ sia tale è necessario che $\morphism{i_*}{\pi(A, a)}{\pi(X, x)}$ sia un omomorfismo iniettivo; se vogliamo che sia un retratto di deformazione allora $i_*$ dev'essere un isomorfismo. 
 \end{remark}
 
 \begin{example}\
@@ -250,15 +254,13 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 			\caption{}
 			\label{fig:kelinpolygon}
 		\end{figure}
-		Infatti $B = \{b\}$ è un retratto della bottiglia di Klein, mentre $A = \{a\}$ non lo è. \
-		
-		Possiamo costruire un retratto per $B$: 
+		Infatti $B = \{b\}$ è un retratto della bottiglia di Klein, mentre $A = \{a\}$ non lo è. Possiamo costruire un retratto per $B$: 
 		\begin{equation*}
 			r(\left[s,t\right]) = \left[0,t\right]
 		\end{equation*}
 		e osserviamo che è continua e ben definita e tale che $K \overset{r}{\hookrightarrow} B$.\
 		
-		Mostriamo che $A$ non è un ritratto. Prendiamo i gruppi fondamentale di $A$ e $K$ 
+		Mostriamo che $A$ non è un retratto. Prendiamo i gruppi fondamentale di $A$ e $K$ 
 		\begin{equation*}
 			\pi(K, P) \simeq \left\langle \alpha, \beta \,\middle|\, \alpha\beta\alpha\beta^{-1} = 1 \right\rangle \quad\ \pi(A, P) \simeq \left\langle \alpha \,\middle|\, \varnothing \right\rangle
 		\end{equation*}
