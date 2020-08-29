@@ -1,5 +1,5 @@
-\chapter{Indice e formula integrale di Cauchy}
-
+\section{L'indice e la formula integrale di Cauchy}
+\subsection{\textcolor{AnComp}{\textbf{Indice di un punto rispetto ad una curva}}}
 \begin{definition}
   \label{def:indice-in-z}
   Sia $\morphism{\gamma}{\left[ a,b \right]}{\C}$ una curva chiusa e sia
@@ -132,6 +132,10 @@
     \label{rmk:winding-numbers-interpretation}
 \end{remark}
 
+
+\subsection{\textcolor{AnComp}{\textbf{La formula integrale di Cauchy}}}
+
+
 \begin{theorem}[Formula integrale di Cauchy]
     Sia $D$ un disco aperto e $f \in \mathcal{O}(D)$ e $\gamma$ una curva
     chiusa con $\image(\gamma) \subset D$. Allora
@@ -205,7 +209,7 @@
     sulla circonferenza.
 \end{remark}
 
-\section{Applicazioni della formula integrale}
+\subsection{\textcolor{AnComp}{\textbf{Conseguenze della formula integrale}}}
 
 \begin{definition}
   Data $\morphism{f}{\Omega}{\C}$ funzione olomorfa su $\Omega \setminus
@@ -426,6 +430,7 @@
 \end{proof}
 
 \section{Teoremi integrali di Cauchy}
+\subsection{\textcolor{AnComp}{\textbf{Teoremi integrali in forma generale}}}
 
 % TODO: revise at the end
 Come abbiamo visto il campo dei complessi dona meraviglie al calcolo degli
@@ -614,7 +619,7 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora
 \end{enumerate}
 \label{thr:formule-di-cauchy-generale}
 \end{theorem}
-\begin{proof}[1]
+\begin{proof}Dimostrazione parte 1:\\ \\
 
     \textbf{Definizioni preliminari}\\
 
@@ -695,7 +700,7 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora
       \Ind_\Gamma(z)  
     \end{equation*}
 \end{proof}
-\begin{proof}[2]
+\begin{proof}Dimostrazione parte 2: \\ \\
   Sia $z_0 \in \Omega \setminus \image(\Gamma)$. Per il punto precedente
     applicato alla funzione $F(z) = f(z)(z-z_0)$ vale
     \begin{equation*}
@@ -713,6 +718,7 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora
 \end{corollary}
 
 \section{L'indice rispetto alle curve continue}
+\subsection{\textcolor{AnComp}{\textbf{Ridefinire l'indice per curve non $C^1$}}}
 
 \begin{lemma}
     Siano $\gamma_1, \gamma_2$ curve chiuse di classe $C^1$ a tratti definite su
@@ -849,7 +855,7 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora
   da cui la tesi.
 \end{proof}
 
-\section{Applicazioni dell'indice}
+\subsection{\textcolor{AnComp}{\textbf{Applicazioni dell'indice}}}
 
 \begin{theorem}
     La mappa $\morphism{\Psi}{\pi(\S^1, 1)}{\Z}$ definita come $\Psi(\left[
