@@ -1,16 +1,15 @@
 
 \chapter{Estensione di funzioni in $\C$}
-
+Come ci si può aspettare, alcune funzioni notevoli dell'analisi reale avranno uno spazio dedicato alla costruzione delle rispettive estensioni complesse. Non sempre sarà facile come ci si potrebbe aspettare, e faremo del nostro meglio per far capire come sia importante soffermarsi a ragionare su alcuni dettagli che spesso trascuriamo essendo abituati a \enquote{ragionare in $\mathbb{R}$}. \\ \\ Ad esempio: $\operatorname{log}(a^n)=n \ \operatorname{log}(a)$\dots \textit{chi l'ha deciso?}
+\newpage
 \section{Funzione esponenziale}
-
+\subsection{\textcolor{AnComp}{\textbf{La funzione esponenziale}}}
 \begin{definition}
 	\label{defn:funzione-esponenziale}
 	Definiamo l'esponenziale in $\C$ come la serie di potenze
-	\begin{equation}
-	\begin{aligned}
+	\begin{equation*}
 		e^z := \sum^{+\infty}_{k=0} \frac{z^k}{k!}
-	\end{aligned}
-	\end{equation}
+	\end{equation*}
 \end{definition}
 
 Possiamo osservarne alcune caratteristiche fondamentali. 
@@ -51,16 +50,14 @@ Possiamo osservarne alcune caratteristiche fondamentali.
 	\end{enumerate}
 \end{proof}
 
-\section{Funzioni trigonometriche}
+\subsection{\textcolor{AnComp}{\textbf{Le funzioni trigonometriche}}}
 	
 	\begin{definition}
 		\label{defn:sin-cos}
 		Definiamo le funzioni trigonometriche in funzione delle serie di potenze come segue:
-		\begin{equation}
-		\begin{aligned}
+		\begin{equation*}
 			\sin(z) := \sum^{+\infty}_{k=0} (-1)^k\frac{z^{2k+1}}{(2k+1)!} \;\ \cos(z) := \sum^{+\infty}_{k=0} (-1)^k\frac{z^{2k}}{(2k)!}
-		\end{aligned}
-		\end{equation}
+		\end{equation*}
 	\end{definition}
 	
 	\begin{theorem}
@@ -69,13 +66,13 @@ Possiamo osservarne alcune caratteristiche fondamentali.
 			\item 
 			\begin{equation*}
 			\begin{aligned}
-				\sin(z) = \frac{e^{iz} - e^{-iz}}{2} \;\ \cos(z) = \frac{e^{iz} + e^{-iz}}{2}
+				\sin(z) = \frac{e^{iz} - e^{-iz}}{2i} \;\ \cos(z) = \frac{e^{iz} + e^{-iz}}{2}
 			\end{aligned}
 			\end{equation*}
 			\item sono $2\pi$ periodiche
 			\item non sono limitate
 			\item l'immagine di $\sin$ e $\cos$ coincide con $\C$
-			\item le seguenti funzioni sono olomorfe tranne nei loro rispettivi poli
+			\item le seguenti funzioni sono olomorfe dovunque nel piano complesso meno che nei loro rispettivi poli
 			\begin{equation*}
 			\begin{aligned}
 				\tan z & := \frac{\sin z}{\cos z} \in \mathcal{O}(\C \setminus \{ \pi /2 + k\pi \mid k \in \N \}) \\
@@ -84,27 +81,27 @@ Possiamo osservarne alcune caratteristiche fondamentali.
 			\end{equation*}
 		\end{enumerate}
 	\end{theorem}
-	\begin{proof}\ %TODO: proof 
+	\begin{proof}\ 
+		%TODO: proof  (G)
+		%ne ho messe un paio ma sono troppo stanco per finirle (S)
 	\begin{enumerate}
-		\item 
-		\item
+		\item Ovvio, basta scrivere la forma trigonometrica di $e^{iz}$ ed $e^{-iz}$, poi cercarne la parte reale ed immaginaria.
+		\item Anche questo è ovvio per scrittura esponenziale.
 		\item
 		\item
 		\item
 	\end{enumerate}
 	\end{proof}
 	
-\section{Funzione logaritmo}
+\subsection{\textcolor{AnComp}{\textbf{Il logaritmo ed il logaritmo principale}}}
 	
 	\begin{definition}
 		\label{defn:logaritmo-principale}
 		Il \textbf{logaritmo principale} è la funzione definita come:
-		\begin{equation}
-		\begin{aligned}	
-			 & \morphism{\log}{\C \setminus \{x \in \R \mid x \le 0\}}{\C} \\
-			 \log(z) = & \ln(|z|) + i\arg z \ \text{  con  } \ \arg z \in (-\pi,\pi]
-		\end{aligned}
-		\end{equation}
+		\begin{align*}
+		& \morphism{\log}{\C \setminus \{x \in \R \mid x \le 0\}}{\C} \\
+		\log(z) = & \ln(|z|) + i\arg z \ \text{  con  } \ \arg z \in (-\pi,\pi]
+		\end{align*}
 		
 	\end{definition}
 
