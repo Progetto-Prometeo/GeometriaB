@@ -1,6 +1,8 @@
 \def \ord {\operatorname{ord}}
 
 \chapter{Zeri di funzioni olomorfe}
+\section{Alcuni teoremi utili}
+\subsection{\textcolor{AnComp}{\textbf{Principi e teoremi per funzioni olomorfe e meromorfe}}}
 
 Lo scopo principale di questo capitolo è di dimostrare il \emph{Principio di
 indentità}, ovvero se due funzioni olomorfe coincidono in un qualche intorno di
@@ -34,17 +36,14 @@ un punto, allora sono identiche.
     \subset Z(f)$ tale che $f(s_n) = 0$ e che $s_n \to z$, ma con 
     $\lim_{n\to+\infty} f(s_n) \neq f(z)$ per cui $f$ non sarebbe continua).
     % TODO: chiarire meglio questa parte.
+    % fatto (S)
     \begin{enumerate}
-    	\item Se $A$ è aperto allora $z_0 \in A$ quindi è uno zero isolato
-    	di $f$ e per quanto visto sopra possiamo trovare un intorno in cui $f \neq
-    	0$ per tutto un intorno escluso $z_0$. Quindi l'intorno dovrebbe essere
-    	contenuto in $A$, ma ciò vorrebbe dire che $A \not\subset Z(f)$. 
-    	\item Se $A$ chiuso allora esiste una sequenza $z_n \to z$ con $z_n \in A$ e che
-    	convergono ancora in $z \in A$. In particolare se $z \in Z(f)$ allora $z$
-    	non sarebbe isolato (e abbiamo visto che non è il caso) quindi $z \in A$
-    	e quindi $A \not\subset Z(f)$.
+    	\item Se $z_0 \in A$ vuol dire che è uno zero non isolato
+    	di $f$ e per quanto visto sopra possiamo trovare un intorno in cui $f =
+    	0$ per tutto un intorno escluso $z_0$. Quindi tutto un suo intorno è contenuto in $A$, ed essendo intorno di ogni suo punto $A$ è aperto.
+    	\item Sia data una successione di $z_n$ contenuta in $A$ e convergente ad un certo $z_0$, allora $z_0$ appartiene a $Z(f)$ e non è isolato, quindi appartiene ad $A$: per quanto sappiamo dalla topologia $A$ è chiuso.
     \end{enumerate}
-  Pertanto dev'essere che $A = \varnothing$.
+  Abbiamo scoperto che $A$ è aperto e chiuso, ma per connessione (e perché $f$ non è costantemente nulla, $A \neq \Omega$) dev'essere che $A = \varnothing$.
 \end{proof}
 
 \begin{corollary}[Principio di Identità]
@@ -303,7 +302,7 @@ un punto, allora sono identiche.
   \end{enumerate}
 \end{example}
 
-\section{Principio del Massimo Modulo}
+\subsection{\textcolor{AnComp}{\textbf{Il principio del massimo modulo}}}
 
 Per ottenere i seguenti teoremi: \emph{Principio del Massimo}; il 
 \emph{Teorema della mappa aperta}; il \emph{Teorema della mappa inversa}. Ci
