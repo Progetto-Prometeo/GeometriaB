@@ -402,7 +402,7 @@ Esiste un gruppo che possiamo \enquote{incollare} ad uno spazio e che ne raccogl
 \subsection{\textcolor{TopAlg}{\textbf{Il teorema di invarianza omotopica}}}
 Vogliamo dimostrare un risultato potente: il gruppo fondamentale è invariante omotopico. Per farlo dobbiamo sviluppare ulteriormente la teoria.
 \begin{lemma}
-	Siano $\Phi$ e $\Psi$ funzioni continue ed omotope tra $X$ ed $Y$, $F$ loro omotopia. Sia $f(t)=F(x_0,t)$ cammino tra $\Phi(x_0)$ e $\Psi(x_0)$. Allora il seguente diagramma commuta (questo vuol dire che $\Phi_*=u_f\circ \Phi_*$).
+	Siano $\Phi$ e $\Psi$ funzioni continue ed omotope tra $X$ ed $Y$, $F$ loro omotopia. Sia $f(t)=F(x_0,t)$ cammino tra $\Phi(x_0)$ e $\Psi(x_0)$ per il punto $x_0\in X$. Allora il seguente diagramma commuta (questo vuol dire che $\Psi_*=u_f\circ \Phi_*$).
 	\begin{equation*}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB120sAKADVIAPAPrEAlCAC+pdJlz5CKAEzkqtRizaduPAJqlOABQAWvEeInTZ2PASIBGUvbX1mrRBy699R7D3NilmowUADm8ESgAGYAThAAtkhkIDgQSCogDHQARjAMhnK2iiBYYNiwINSumh6+WMIAVFIyILEJSdSpSI6ZOXkFNgpspeWsVRrunib1TVatcYmIPV2IGVm5+YVDHiNYFeNubEzCUVIUkkA
 	\begin{tikzcd}
@@ -417,15 +417,15 @@ Vogliamo dimostrare un risultato potente: il gruppo fondamentale è invariante o
 	&=[\Psi\circ a]=\Psi_*(A)
 	\end{align*}
 	(cioè che $(\overline{f}*(\Phi\circ a))*f \sim \Psi\circ a$) \\ 
-	Sia $y_0=\Phi(x_0)$, so che $\Psi\circ a \sim (\varepsilon_{y_0}*(\Phi \circ a))*\varepsilon_{y_0}$. Ho risotto la tesi a 
+	Sia $y_0=\Phi(x_0)$, so che $\Psi\circ a \sim (\varepsilon_{y_0}*(\Psi \circ a))*\varepsilon_{y_0}$. Ho ridotto la tesi a 
 	\begin{equation*}
-	(\overline{f}*(\Phi\circ a))\sim (\varepsilon_{y_0}*(\Phi \circ a))*\varepsilon_{y_0}
+	(\overline{f}*(\Phi\circ a))*f\sim (\varepsilon_{y_0}*(\Psi \circ a))*\varepsilon_{y_0}
 	\end{equation*}
 	Ricordo che $f$ è un cammino da $\Phi(x_0)$ ad $y_0$, allora 
 	\begin{enumerate}
 		\item $\overline{f}\sim \varepsilon_{y_0}$ tramite $\overline{G}(s,t)=f\left((1-t)s\right)$
 		\item $f\sim \varepsilon_{y_0}$ tramite $\overline{G}(s,t)=f\left((1-t)s+t\right)$
-		\item $\Phi*a \sim \Psi*a$ tramite $K(s,t)=F\left(a(4s-1),t\right)$
+		\item $\Phi*a \sim \Psi*a$ tramite $K(s,t)=F\left(a(s),t\right)$
 	\end{enumerate}
 	Allora posso dimostrare la tesi riparametrizzando.
 	\begin{equation*} 
@@ -439,14 +439,14 @@ Vogliamo dimostrare un risultato potente: il gruppo fondamentale è invariante o
 	ed ovviamente è continua perché per ogni $t \in [0,1]$ le definizioni coincidono.
 \end{proof}
 
-\begin{corollary}[Teorema di invarianza omotopica] Siano $X$ ed $Y$ spazi con $\varphi$ omotopia equivalenza omotopica. Allora il suo morfismo indotto tra i gruppi fondamentali è un isomorfismo.
+\begin{corollary}[Teorema di invarianza omotopica] Siano $X$ ed $Y$ spazi con $\varphi$ omotopia data dall'equivalenza omotopica. Allora il suo morfismo indotto tra i gruppi fondamentali è un isomorfismo.
 \end{corollary}
 \begin{proof} Sia $y=\varphi(x)$, sia $\psi$ l'altra equivalenza omotopica. Allora sappiamo che 
 	\begin{enumerate}
 		\item 	$\psi \circ \varphi \sim \operatorname{id}_X$
 		\item	$\varphi \circ \psi \sim \operatorname{id}_Y$ 
 	\end{enumerate}
-Inoltre dico $\Phi$ l'identità in $X$ e $\Phi$ $\psi \circ \varphi$.
+Inoltre dico $\Psi$ l'identità in $X$ e $\Phi=\psi \circ \varphi$.
 	\begin{equation*}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB120sAKADVIAPAJQgAvqXSZc+QigCMpeVVqMWbTt35DREqdjwEiAJnIr6zVog5deAzgAUAFrwCew3ZJAYDsoospqC3VrTV4ATVJ3cRUYKABzeCJQADMAJwgAWyQAZmocCCRTEAY6ACMYBgdpQzkQLDBsWBAgtSsbNGwAfQAqcS90rKQyEAKkRRLyyurfI2sGptZWyw12CDQYNLoCtLA6TJhgLCgxLuAw7RExftSM7MRiscQJ0oqqmr95xuOl1RXrJhdFI3ECDe4jJ55SZvGYyOb1b7NZYhGz0NJoFy9GJiIA
 	\begin{tikzcd}
@@ -462,7 +462,7 @@ Inoltre dico $\Phi$ l'identità in $X$ e $\Phi$ $\psi \circ \varphi$.
 	\begin{equation*}
 	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB120sAKATVIBPAJQgAvqXSZc+QigCM5KrUYs2nbjwAapDdh4jREqdjwEiAJiXV6zVog5csnBjABmOfrq4ALXnt5DTgAnLABzHxxhI0kQDFNZIkV5ZVs1Bw1eARFxZRgoMPgiUDdgiABbJDIQHAgkAGYbVXtHCDQYYLpa4LA6cphgLCgxAH1gTK8RMRBqBjoAIxgGAAVpMzkQLDBsWHFY0oqq6lqkRRU7dS5sEYAqGZA5xZW1xIctndZjEAPKxGqTxBWc7pEA8DR+TgAYywwUhAWEt3ujyWqwS5je2yGrGoizAUAaxC+P1OxzqgKaFwy7DwDFg43Y9GCaD8ozuswWKJe6M2mN2RLKvyBAMawJaTBGYSRHOeaI27yxuTEQA
 	\begin{tikzcd}
-	{\pi(Y,y)} \arrow[rd, "{\operatorname{id}_{\pi(Y,y)}}" description] \arrow[r, "\psi_*" description] \arrow[rr, "(\phi\circ\psi)_*" description, bend left] & {\pi(X,\psi(y))} \arrow[r, "\tilde{\varphi}_*" description] & {\pi\left(Y,\phi(\psi(y))\right))} \arrow[ld, "u_g" description] \\
+	{\pi(Y,y)} \arrow[rd, "{\operatorname{id}_{\pi(Y,y)}}" description] \arrow[r, "\psi_*" description] \arrow[rr, "(\tilde{\phi}\circ\psi)_*" description, bend left] & {\pi(X,\psi(y))} \arrow[r, "\tilde{\varphi}_*" description] & {\pi\left(Y,\phi(\psi(y))\right))} \arrow[ld, "u_g" description] \\
 	& {\pi(Y,y)}                                                  &                                                                 
 	\end{tikzcd}
 	\end{equation*}
@@ -531,7 +531,7 @@ Presento alcuni corollari utili allo svolgimento degli esempi successivi.
 		\caption{}
 		\label{fig:bouquet-circle-fundamental-group}
 	\end{figure}
-	Possiamo usare il teorema dei CW-complessi per ritrarre $U \sim \S^1$ e $V \sim \S^1$, mentre l'intersezione è ritraibile in un punto. Quindi diventa che 
+	Possiamo usare il teorema dei CW-complessi per retrarre $U \sim \S^1$ e $V \sim \S^1$, mentre l'intersezione è retraibile in un punto. Quindi diventa che 
 	\begin{equation*}
 		\pi_1(\S^1 \lor \S^1, x_0) \simeq \left\langle \alpha, \beta \mid \varnothing \right\rangle \simeq \Z \ast \Z
 	\end{equation*}
