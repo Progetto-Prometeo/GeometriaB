@@ -149,18 +149,22 @@ Poiché le topologie possono essere molto complesse, sarebbe utile avere un modo
 \end{example}
 
 \begin{proposition}
-	Sia $X \neq \varnothing$ e $\left\{\tau_i\right\}$ una famiglia di topologie su $X$. \\ I seguenti enunciati sono veri:
+	Sia $X \neq \varnothing$ e $\left\{\tau_i\right\}$ una famiglia di topologie su $X$. \\ Valgono seguenti enunciati:
 	\begin{enumerate}
 		\item 
 		\begin{equation*}
 			\tau_\cap = \bigcap_{i \in I} \tau_i \; \text{è una topologia di X} 
 		\end{equation*}
-		\item Non sempre l'unione di topologie è una topologia.
-		\item Siano dati $\mathcal{Y} \subset 2^X$ e la famiglia $\tau_\cap$ con la seguente restrizione 
+		\item L'unione di topologie non è sempre una topologia.
+		\item Siano dati $\mathcal{Y} \subset 2^X$ e la famiglia $\{\tau_i\}_{i \in I}$ con la seguente restrizione 
 		\begin{equation*}
-		\mathcal{Y} \subset \tau_i \ \ \forall i 
+			\mathcal{Y} \subset \tau_i \; \forall i \in I
 		\end{equation*}
-		allora  $\tau_\cap$ è la topologia meno fine su $X$ tale da contenere $\mathcal{Y}$.
+		allora 
+		\begin{equation*}
+			\tau_\cap \coloneqq \bigcap_{i \in I} \tau_i	
+		\end{equation*}
+		 è la topologia meno fine su $X$ tale da contenere $\mathcal{Y}$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof} \
@@ -218,9 +222,9 @@ Poiché le topologie possono essere molto complesse, sarebbe utile avere un modo
 L'idea dietro la costruzione di una sottobase è mostrare un modo semplice di costruire le basi di topologie, che abbiamo visto non essere sempre amichevoli. Spesso ostili, queste possono essere scritte agilmente grazie a quanto vedremo.
 
 \begin{definition}
-	Sia $(X,\tau)$ uno spazio topologico e sia $S \subset \tau$. \\ Si dice che $S$ è una \textbf{sottobase di $\tau$} se $\mathcal{B}$ è una base di $\tau$ e vale che
+	Sia $(X,\tau)$ uno spazio topologico e sia $S \subset \tau$. Si dice che $S$ è una \textbf{sottobase di $\tau$} se genera una base $\mathcal{B}$ per via di intersezioni finite. Il generato di $S$ si definisce nel seguente modo 
 	\begin{equation*}
-		S \subset \mathcal{B} \coloneqq \left\{ B \in 2^X \ \Big|\ \bigcap_{i \in I} S_i = B \ \text{ per un indice con } |I| < +\infty \right\}
+		 \mathcal{B} = \langle S\rangle \coloneqq \left\{ B \in 2^X \,\middle|\, \bigcap_{i \in I} S_i = B \, \text{ per un indice con } |I| < +\infty \right\}
 	\end{equation*}
 	.
 \end{definition}
@@ -318,10 +322,11 @@ Ad un certo punto, nello studio di analisi si è destinati ad incontrare gli \te
 	\end{enumerate}
 \end{proof}
 
-Dalle osservazioni che seguono vedremo come una topologia induce sugli intorni certe proprietà, ma allo stesso modo se si danno quelle proprietà a degli intorni questi creano una topologia. Insomma, una topologia genera degli intorni se e solo se quegli stessi intorni generano la suddetta topologia. \\ A meno di restrizioni, ogni intorno appartenente al sistema di intorni è aperto (basti pensare alla definizione di intorno, con $x \in U \subset A$ ed $U \in \tau$, bisogna solo eventualmente restringersi all'aperto $A$). Gli intorni quindi possono sostituirsi agli aperti.
+Dalle osservazioni che seguono vedremo come una topologia induce sugli intorni certe proprietà, ma allo stesso modo se si danno quelle proprietà a degli intorni questi creano una topologia. Insomma, una topologia genera degli intorni se e solo se quegli stessi intorni generano la suddetta topologia. Questo è dato dal fatto che esistono diverse definizioni equivalenti di topologia, tra le quali esiste quella per filtri e filtri principali (si veda \url{https://leanprover-community.github.io/theories/topology.html}). \\
+A meno di restrizioni, ogni intorno appartenente al sistema di intorni è aperto (basti pensare alla definizione di intorno, con $x \in U \subset A$ ed $U \in \tau$, bisogna solo eventualmente restringersi all'aperto $A$). Gli intorni quindi possono sostituirsi agli aperti.
 
 \begin{proposition}
-	Sia $(X,\tau)$ uno spazio topologico ed $x \in X$, indichiamo per semplicità $\mathcal{N}_\tau(x) = \mathcal{N}(x)$. \\ Valgono le seguenti proprietà:
+	Sia $(X,\tau)$ uno spazio topologico ed $x \in X$, indichiamo per semplicità $\mathcal{N}_\tau(x) = \mathcal{N}(x)$. Valgono le seguenti proprietà:
 	\begin{enumerate}
 		\item Se $U \in \mathcal{N}_\tau(x)$ e $V \in 2^X$ tale che $U \subset V$, allora $V \in \mathcal{N}_\tau(x)$
 		\item Siano $N_i \in \mathcal{N}(x)$, allora 
@@ -420,7 +425,7 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 	è un sistema fondamentale di intorni di $x$ rispetto a $\tau$.
 \end{theorem}
 \begin{proof}
-	Sia $\beta$ una base di $\tau$ e $x \in X$. Sia $U \in \mathcal{N}_\tau(x)$, cioè $\exists A \in \tau$ tale che $x \in A \subset U$. \\ Poiché $\mathcal{B}$ base di $\tau$, allora $A = \bigcup_{B \in \mathcal{B}'} B$ con $\mathcal{B}' \subset \mathcal{B}$. Perciò $x \in A$, che implica $x \in B$ per qualche $B \in \mathcal{B}' \subset \mathcal{B}$, ed otteniamo che $B \in \mathcal{B}(x)$. \\ Quindi dimostro che per ogni intorno $N(x) \in \mathcal{N}(x)$; segue che esiste $B \subset N(x)$, ovvio perché per definizione di intorno $x \in A \subset N(x)$, ma $A = \bigcup_{B \in \mathcal{B}'} B$ per qualche $\mathcal{B}' \subset \mathcal{B}$.\\  	
+	Sia $\mathcal{B}$ una base di $\tau$ e $x \in X$. Sia $U \in \mathcal{N}_\tau(x)$, per definizione $\exists A \in \tau$ tale che $x \in A \subset U$. \\ Poiché $\mathcal{B}$ base di $\tau$, allora $A = \bigcup_{B \in \mathcal{B}'} B$ con $\mathcal{B}' \subset \mathcal{B}$. Perciò $x \in A$, che implica $x \in B$ per qualche $B \in \mathcal{B}' \subset \mathcal{B}$, ed otteniamo che $B \in \mathcal{B}(x)$. \\ Quindi dimostro che per ogni intorno $N(x) \in \mathcal{N}(x)$; segue che esiste $B \subset N(x)$, ovvio perché per definizione di intorno $x \in A \subset N(x)$, ma $A = \bigcup_{B \in \mathcal{B}'} B$ per qualche $\mathcal{B}' \subset \mathcal{B}$.\\  	
 	Supponiamo che $\mathcal{B}(x)$ sia un sistema fondamentale di intorni per ogni $x \in X$. Sia $A \in \tau$, per la proposizione precedente allora $\forall x \in A, \exists V(x) \in \mathcal{B}(x)$ tale che $V(x) \subset A$. In particolare ottengo che
 	\begin{equation*}
 		A = \bigcup_{x \in A} \left\{x\right\} \subset \bigcup_{x \in A} V(x) \subset A
@@ -539,7 +544,7 @@ Torneranno utili nella descrizione degli spazi e nella comprensione della loro s
 \end{example}
 
 
-\begin{theorem}[Teorema di Linderöff]
+\begin{theorem}[Teorema di Lindelöf]
 	Sia $(X,\tau)$ uno spazio topologico con base numerabile e sia data la famiglia $\left\{A_i\right\}_{i\in \mathcal{I}} \subset \tau$, dove $\mathcal{I}$ non per forza numerabile; allora $\exists \mathcal{J} \subset \mathcal{I}$ tale che 
 	\begin{equation*}
 		\bigcup_{i \in \mathcal{I}} A_i = \bigcup_{i \in \mathcal{J}} A_i
@@ -553,16 +558,17 @@ Torneranno utili nella descrizione degli spazi e nella comprensione della loro s
 	\end{equation*}
 	per definizione di topologia. Essendo $S \in \tau$ dev'essere della forma
 	\begin{equation*}
-		S = \bigcup_{i \in \mathcal{I}} A_i = \bigcup_{B \in \mathcal{B}'} B
+		S = \bigcup_{i \in \mathcal{I}} A_i 
 	\end{equation*}
-	dove $\mathcal{B}' \subset \mathcal{B}$ e $\mathcal{B}$ una base numerabile della topologia $\tau$. \\ Voglio inoltre che per ogni $A_i$ esista un $B_i \subset A_i$ dove $B_i \in \mathcal{B}'$; questa sottofamiglia della base esiste perché ogni $A_i \in \tau$. Per semplificare la notazione chiamo questa famiglia $\left\{A_j\right\}_{j \in \mathcal{J}}$ dove $\mathcal{J}$ è un insieme numerabile perché sottoinsieme della base. Per l'osservazione sopra ottengo
+	Sappiamo che la base è numerabile quindi per ogni $A_i = \bigcup_{B \in \mathcal{B}_i} B$ dove $i \in I$. Pertanto 
 	\begin{equation*}
-		\bigcup_{j \in \mathcal{J}}  A_j \subset \bigcup_{i \in \mathcal{I}} A_i = \bigcup_{B \in \mathcal{B}'} B \subset \bigcup_{j \in \mathcal{J}}  A_j
+		S = \bigcup_{i \in I} A_i = \bigcup_{i \in I} \bigcup_{B \in \mathcal{B}_i} B
 	\end{equation*}
-	Per l'ultima inclusione: sia $x$ appartenente all'unione degli $A_i$, allora appartiene ad un $A_i$ per $i \in \mathcal{I}$; poiché ho una base numerabile della topologia esiste un $B_i$ elemento della base tale che $x \in B_i \subset A_i$. In particolare ottengo che $B_i$ appartiene alla famiglia degli $A_j$ perché rispetta le condizioni con cui l'ho costruita, $B_i=B_{j_i}$ per un certo $j_i \in \mathcal{J}$. \\ Da questo
+	e poiché la base è numerabile possiamo riscrivere l'ultima uguaglianza come una sola unione numerabile di elementi della base $\mathcal{B}$, quindi scriviamo con $J$ l'insieme degli indici numerabile tale che raccoglie tutto $S$:
 	\begin{equation*}
-	B_i=B_{j_i} \subset A_{j_i} \subset \bigcup_{j \in \mathcal{J}}  A_j
+			\bigcup_{i \in I} A_i \subseteq \bigcup_{i \in I} \bigcup_{B \in \mathcal{B}_i} B = \bigcup_{j \in J} B_j \subset \bigcup_{j \in J} A_j \subseteq \bigcup_{i \in I} A_i
 	\end{equation*}
+	dove gli $A_j$ sono una scelta di insiemi contenenti i rispettivi $B_j$, da cui si ottiene la tesi.
 \end{proof}
 
 
@@ -624,7 +630,7 @@ Come detto prima, la topologia cerca di generalizzare i concetti visti in analis
 
 
 \chapter{La struttura degli spazi topologici}
-Abbiamo visto tutti gli strumenti che ci possono servire per iniziare a descrivere le strutture degli spazi topologici, quindi ora possiamo davvero dare inizio al divertimento. \\ Studieremo queste strutture e vedremo come possono essere collegate tra loro, partendo dalle più semplici (interno, esterno, \dots) per arrivare a manipolare la struttura della topologia in modo da costruire degli \textit{spazi quozienti}. \\ \\ In altre parole, indossate il casco. 
+Abbiamo visto tutti gli strumenti che ci possono servire per iniziare a descrivere le strutture degli spazi topologici, quindi ora possiamo davvero dare inizio al divertimento. \\ Studieremo queste strutture e vedremo come possono essere collegate tra loro, partendo dalle più semplici (interno, esterno, \dots) per arrivare a manipolare la struttura della topologia in modo da costruire degli \textit{spazi quozienti}.  
 \newpage
 \section{Sottoinsiemi di uno spazio topologico}
 \subsection{\textcolor{TopGener}{\textbf{Punti interni, esterni e di frontiera}}}
@@ -650,7 +656,7 @@ Abbiamo visto tutti gli strumenti che ci possono servire per iniziare a descrive
 \end{definition}	
 
 Vediamo alcune proprietà di questi insiemi.
-\newpage
+
 \begin{proposition}
 	Sia $(X,\tau)$ spazio topologico con $S \subset X$, allora le seguenti affermazioni sono vere.
 	\begin{enumerate}
@@ -832,6 +838,10 @@ Vediamo subito che per il calcolo della chiusura di un insieme, la definizione v
 	\end{enumerate}
 \end{proof}
 
+\begin{remark}
+	Osserviamo infine che i precedenti enunciati diventano molto più semplici una volta dimostrata l'equivalenza della definizione per ``aderenza'' della chiusura, alla definizione insiemistica di chiusura.
+\end{remark}
+
 \begin{proposition}
 	Sia $(X,\tau)$ uno spazio topologico e $A, B \subset X$. Allora vale 
 	\begin{equation*}
@@ -942,7 +952,7 @@ Questo mostra che avendo dati solo sulle successioni di un dato spazio topologic
 		\item $E$ è denso.
 		\item $\forall x \in X . \; \forall U \in \mathcal{N}(x)$ ho che $U \cap E \neq \varnothing$.
 		\item Si supponga che per ogni $x \in X$ sia assegnato un sistema fondamentale di intorni $\mathcal{V}(x)$. Allora $\forall V \in \mathcal{V}(x)$ ho che $V \cap E \neq \varnothing$.
-		\item $Int(X \setminus S) = Est(S) = \varnothing$.
+		\item $Int(X \setminus E) = Est(E) = \varnothing$.
 		\item $\forall A \in \tau$ dove $A \neq \varnothing$, allora $A \cap E \neq \varnothing$.
 		\item $\exists \mathcal{B}$ che è una base di $\tau$ tale che $\forall B \in \mathcal{B}$ allora $B \cap E \neq \varnothing$.
 	\end{enumerate}
@@ -954,9 +964,13 @@ Questo mostra che avendo dati solo sulle successioni di un dato spazio topologic
 		\item[$1 \Rightarrow 2$] Poiché $E$ denso allora $\bar{E} = X$. Quindi tutti i punti di $X$ sono aderenti a $E$ per definizione di denso e per la proposizione $\ref{prop:aderent_points_are_in_closure}$.
 		\item[$2 \Rightarrow 3$] Si fissi un $x \in X$, allora esiste il sistema di intorni $\mathcal{N}(x)$ e un sistema fondamentale di intorni $\mathcal{V}(x)$, poiché $V \in \mathcal{V}(x)$ è anche un intorno ottengo banalmente la tesi.
 		\item[$3 \Rightarrow 4$] Suppongo esista un intorno $U \in \mathcal{N}(x)$ per cui $x \in U$ e $U \cap E = \varnothing$. Allora per definizione di sistema fondamentale di intorni esiste $V \in \mathcal{V}(x)$ tale che $V \subset U$, allora anche $V \cap E \subset U \cap E = \varnothing$, il ché è un assurdo date le nostre ipotesi.  
-		\item[$4 \Rightarrow 5$] Suppongo esista $A \in \tau$ e $A \cap E = \varnothing$. Allora prendo un $x \in A$ e considero $A$ come intorno, ottengo che $x \in Est(S)$, assurdo.  
+		\item[$4 \Rightarrow 5$] Suppongo esista $A \in \tau$ e $A \cap E = \varnothing$. Allora prendo un $x \in A$ e considero $A$ come intorno, ottengo che $x \in Est(E)$, assurdo.  
 		\item[$5 \Rightarrow 6$] Poiché $\mathcal{B} \subset \tau$ e per ipotesi ho che per ogni $A \in \tau$, $A \cap E \neq \varnothing$, risulta anche che per ogni $B \in \mathcal{B}$, $B \cap E \neq \varnothing$.
-		\item[$6 \Rightarrow 1$] Dato che per ogni $B \in \mathcal{B}$ e $B \cap E \neq \varnothing$, allora anche ogni aperto $A \in \tau$, tranne $\varnothing$, dev'essere tale che $ A \cap E = \bigcup_{B \in \mathcal{B}'} B \cap E \neq \varnothing$. Inoltre ogni chiuso di $\tau$ dev'essere tale che sia $A^c$ chiuso dove $A \in \tau$, allora $E \cap A^c = \varnothing$, a parte per $\varnothing^c = X$. Per cui nessun chiuso contiene $E$ a parte ovviamente $X$, per cui $\bar{E} = X$.
+		\item[$6 \Rightarrow 1$] Prendiamo $x \in E^c$. Allora facciamo vedere che è aderente a $E$. Prendiamo un qualsiasi intorno $U_x$ di $x$, allora esiste $x \in A \subset U_x$. In particolare sappiamo che esiste un $B$ elemento della base tale che $x \in B \subset A$ per definizione di base. Concludiamo utilizzando l'ipotesi che 
+			\begin{equation*}
+				\varnothing \neq B \cap E \subset U_x \cap E
+			\end{equation*}
+		da cui $x$ è aderente a $E$. In particolare $\overline{E} = X$. 
 	\end{enumerate}
 \end{proof}
 
@@ -964,13 +978,12 @@ Questo mostra che avendo dati solo sulle successioni di un dato spazio topologic
 	Siano $(X,\tau), (Y, \xi)$ spazi topologici e $\morphism{f}{(X,\tau)}{(Y,\xi)}$ una applicazione continua e suriettiva. Sia $D$ insieme denso in $(X,\tau)$, allora $f(D)$ è un insieme denso in $Y$.
 \end{theorem}
 \begin{proof}
-	Sia $A \in \xi$ aperto allora basta dimostrare che ogni $A \cap f(D) \neq \varnothing$. 
-	\begin{align*}
-	A \cap f(D) & \supset f(D \cap f^{-1}(A)) \\
-	& \neq \varnothing
-	\end{align*}
-		%todo: verificare pls perché sono stanco (s)
-		%todo: inoltre mi sono permesso di metterlo in align, se ti fa schifo togli
+	Usiamo la caraterizzazione della continuità che ci dice che per ogni sottoinsieme $W \subset X$ abbiamo $f(\overline{W}) \subseteq \overline{f(W)}$. Quindi abbiamo che 
+	\begin{equation*}
+		f(X) = f(\overline{D}) \subseteq \overline{f(D)}
+	\end{equation*}
+	poiché $f$ è suriettiva segue che $f(X) = Y$ e quindi 
+	$Y \subseteq \overline{f(D)}$.
 \end{proof}
 
 
@@ -1030,7 +1043,8 @@ Come si è visto dal controesempio, servono ipotesi molto più forti per poter s
 
 
 \chapter{Applicazioni tra spazi topologici}
-Molti dei concetti che vedremo possono a primo avviso sembrare banali ed intuitivi, ma a posteriori questo è forse uno dei capitoli più importanti dello studio della topologia generale: impareremo a trattare le \textit{funzioni continue} ed a costruire sottospazi di uno spazio topologico. In particolare studieremo anche la costruzione di spazi topologici tramite il \textit{prodotto} ed il \textit{quoziente} (solitamente per relazioni di equivalenza); tutte queste definizioni e strutture sono fondamentali in topologia algebrica \\ \\ Quindi impareremo a manipolare la struttura di uno spazio topologico tramite delle funzioni. Diamo inizio al divertimento!
+Molti dei concetti che vedremo possono a primo avviso sembrare banali ed intuitivi, ma a posteriori questo è forse uno dei capitoli più importanti dello studio della topologia generale: impareremo a trattare le \textit{funzioni continue} ed a costruire sottospazi di uno spazio topologico. In particolare studieremo anche la costruzione di spazi topologici tramite il \textit{prodotto} ed il \textit{quoziente} (solitamente per relazioni di equivalenza); tutte queste definizioni e strutture sono fondamentali in topologia algebrica. 
+
 \newpage
 \section{Applicazioni nello spazio topologico}
 \subsection{\textcolor{TopGener}{\textbf{Le applicazioni continue}}}
@@ -1054,7 +1068,7 @@ Molti dei concetti che vedremo possono a primo avviso sembrare banali ed intuiti
 \begin{proof}
 	Dimostro la catena di implicazioni, malgrado $2 \iff 3$ valga per fatti totalmente insiemistici; non ha nulla a che fare con la topologia.
 	\begin{enumerate}
-		\item[$(3\Rightarrow 2)$] Prendo $A \in \xi$, voglio dimostrare che $f^{-1}(A)$ è ancora un aperto. Mi basta dimostrare che $\forall x \in f^{-1}(A)$ questo è un intorno di $x$. Quindi fisso un $x \in f^{-1}(A)$, allora per ogni $U \in \mathcal{N}_\xi(f(x))$ ho che esiste $V \in \mathcal{N}_\tau(x)$ tale che $f(V) \subset U$. Ora prendo $U = A$ ed ottengo che esiste un intorno $V$. Ma $V \subset f^{-1}(A)$; allora
+		\item[$(1\Rightarrow 2)$] Prendo $A \in \xi$, voglio dimostrare che $f^{-1}(A)$ è ancora un aperto. Mi basta dimostrare che $\forall x \in f^{-1}(A)$ questo è un intorno di $x$. Quindi fisso un $x \in f^{-1}(A)$, allora per ogni $U \in \mathcal{N}_\xi(f(x))$ ho che esiste $V \in \mathcal{N}_\tau(x)$ tale che $f(V) \subset U$. Ora prendo $U = A$ ed ottengo che esiste un intorno $V$. Ma $V \subset f^{-1}(A)$; allora
 		\begin{equation*}
 			f(V) \subset A \Longrightarrow V \subset f^{-1}f(V) \subset f^{-1}(A)
 		\end{equation*}
@@ -1170,8 +1184,7 @@ Le applicazioni continue sono fondamentali per la topologia, soprattutto nella t
 \begin{enumerate}
 	\item La funzione $\morphism{\pi_1}{(\R^2,\tau^2_{\text{euclidea}})}{(\R,\tau_{\text{euclidea}})}$ tale che $\pi_1 \colon\ (x,y) \mapsto x$ è aperta, continua, ma non chiusa. \\ Infatti si consideri il grafico di $xy - 1 = 0$ in $\R^2$, che chiameremo $S$, allora $\pi_1(S) = \R \setminus \left\{0\right\}$ che non è chiuso, mentre $S$ lo è.
 	\item In modo analogo posso considerare degli iperboloidi per notare che le proiezioni da $\mathbb{R}^n$ alle sue componenti sono aperte, continue e non chiuse.
-	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $i_1 \colon\ x \mapsto (x,0)$ è una mappa continua, chiusa e non aperta. 
-	% TODO: `MINOR PROOF': dimostrare che la mappa di inclusione è una mappa chiusa e non aperta
+	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $i_1 \colon\ x \mapsto (x,0)$ è una mappa continua, chiusa e non aperta. È ovvio che sia chiusa dato che il grafo di una funzione in uno spazio di Hausdorff è chiuso.
 	\item L'applicazione $\morphism{\gamma}{(X = \left\{z\right\},\tau =\tau_{\text{banale}})}{(Y = \left\{a,b\right\},\xi = \tau_{\text{banale}})}$ tale che  $\gamma \colon z \mapsto a$ è una mappa continua, ma non è aperta e nemmeno chiusa.
 	\item Un esempio di funzione non continua aperta e chiusa è dato dalla funzione $\morphism{\omega}{(X,\tau =\tau_{\text{banale}})}{(Y,\xi = \tau_{\text{discreta}})}$ tale che $\image{\omega} = Y$ e $|Y| > 1$.
 	\footnote{notare che $\omega$ non è una funzione costante quindi non è continua.}
@@ -1286,6 +1299,8 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 	dunque ogni aperto è di $\tau$ è generato dalla base definita; inoltre la base non può generare una topologia più fine, altrimenti avrei $A \in \tau$ tale da non essere della forma $f^{-1}(A')$ per $A' \in \xi$. Pertanto genera la stessa topologia.
 \end{remark}
 
+\subsection{Sottospazio di uno spazio topologico}
+
 \begin{definition}
 	Sia $(X,\tau)$ uno spazio topologico e sia $\varnothing \neq S \subset X$ allora consideriamo $\morphism{i_S}{S}{X}$, allora $(S, i^{-1}_S(\tau))$\footnote{Questa scelta è una scelta naturale e si vedrà che è ben caraterizzabile.} forma un \textbf{sottospazio topologico}.\\ Siccome la mappa $i$ rispetta la teoria appena vista, la topologia del sottospazio si può indicare come $i^{-1}_S(\tau) \coloneqq \tau|_S$ e si dice \textbf{topologia indotta} da $\tau$ su $S$.
 \end{definition}
@@ -1382,7 +1397,13 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 					  & = \left\{x \in  S \,\middle|\, f(x) \in A'\right\} \\
 					  & = S \cap \left\{x \in  X \,\middle|\, f(x) \in A'\right\} = S \cap f^{-1}(A') \in \tau|_S
 	\end{align*}
-	dove ho notato che $S \cap f^{-1}(A') \in \tau|_S$ perché per ipotesi $f^{-1}(A) \in \tau$.
+	dove ho notato che $S \cap f^{-1}(A') \in \tau|_S$ perché per ipotesi $f^{-1}(A) \in \tau$.\\
+	
+	Più immediato è vedere che la controimmagine commuta con l'intersezione. Pertanto se $A = A' \cap T$ con $A \in \xi|_T$ e $A' \in \xi$, allora 
+	\begin{equation*}
+			f^{-1}(A) = f^{-1} (A' \cap T) = f^{-1}(A') \cap f^{-1}(T) = f^{-1}(A') \cap S
+	\end{equation*} 
+	che diventa quindi un aperto di $\tau|_S$. Pertanto $f$ è continua.
 \end{proof}
 
 \begin{remark}
@@ -1490,7 +1511,7 @@ per indicare tre spazi topologici. L'ultimo in particolare è il prodotto di due
 \end{theorem}
 \begin{proof}
 	La topologia prodotto rende palesemente le mappe continue, dobbiamo solo verificare che sia la più fine. \\
-	Suppongo esista una topologia meno fine di $\tau$ che chiamerò $\tau'$. Allora $\pi_1$ è continua e quindi contiene almeno tutti gli aperti della forma $\pi^{-1}_1(A_1) \times \pi^{-1}_2(A_2)$ dove $A_i$ aperto in $\tau_i$. Ma questi aperti sono esattamente gli aperti della base che generano $\tau$, pertanto $\tau \subset \tau'$.
+	Suppongo esista una topologia meno fine di $\tau$ che chiamerò $\tau'$. Allora $\pi_1$ è continua e quindi contiene almeno tutti gli aperti della forma $\pi^{-1}_1(A_1) \times \pi^{-1}_2(A_2)$ dove $A_i$ aperto in $\tau_i$. Ma questi aperti sono esattamente gli aperti della base che genera $\tau$, pertanto $\tau \subset \tau'$.
 \end{proof}
 
 \begin{theorem}
@@ -1665,7 +1686,7 @@ Possiamo notare che in generale i teoremi dimostrati per $n=2$, ovvero $X=X_1 \t
 	\begin{enumerate}
 		\item La topologia quoziente su $Y$ rispetto a $f$ esiste ed è unica, inoltre denotandola come $\tau_f$ vale 
 		\begin{equation*}
-			\tau_f \coloneqq \left\{ A \in 2^Y \,\middle|\, f^{-1}(A) \right\}
+			\tau_f \coloneqq \left\{ A \in 2^Y \,\middle|\, f^{-1}(A) \in \tau \right\}
 		\end{equation*}
 		\item $C$ è chiuso in $\tau_f$ se e solo se $f^{-1}(C)$ è chiuso in $\tau$.
 		\item \textbf{Proprietà universale degli  spazi quozienti:} Sotto le ipotesi precedenti, sia $f$ una funzione continua.
@@ -1684,7 +1705,7 @@ Possiamo notare che in generale i teoremi dimostrati per $n=2$, ovvero $X=X_1 \t
 		\item La controimmagine commuta con il complementare. 
 		\item Se $g$ è continua è ovvio che $g \circ f$ è continua perché la composizione di funzioni continue è continua. \\ Se $f\circ g$ è continua, sia $A$ aperto  in arrivo rispetto a $g$, allora $g^{-1}(A)$ deve essere un aperto. 
 		\begin{equation*}
-		f^{-1}\left(g^{-1}(A)\right)=\left(g \circ f\right)(A)
+		f^{-1}\left(g^{-1}(A)\right)=\left(g \circ f\right)^{-1}(A)
 		\end{equation*}
 		Siccome la composizione è continua per ipotesi allora ho ottenuto un aperto in partenza.
 	\end{enumerate}
@@ -1736,8 +1757,6 @@ Possiamo notare che in generale i teoremi dimostrati per $n=2$, ovvero $X=X_1 \t
 	\end{enumerate}
 \end{proof}
 
-
-\newpage
 \subsection{\textcolor{TopGener}{\textbf{Quozienti con mappe surgettive}}}
 La topologia quoziente può essere cattiva. Decisamente cattiva. \\
 Costruire un modo più facile per studiarla è necessario per i casi peggiori e più contorti; possiamo provare a collegare le proprietà della topologia $\tau_f$ a quella di partenza $\tau$. \\ Uno strumento utile saranno le identificazioni.
@@ -1834,7 +1853,6 @@ Costruire un modo più facile per studiarla è necessario per i casi peggiori e 
 \begin{proof}
 	Dimostro solo il primo caso, il secondo è equivalente al primo dato quanto visto fino ad ora. Se $f$ aperta allora $\forall A \in \tau$ risulta che $f(A)$ è aperta per ipotesi e $f^{-1}f(A)$ dev'essere ancora un aperto perché $f$ continua. Se invece vale che la $f$-saturazione di un aperto è ancora aperta, fisso $A \in \tau$ e voglio vedere che $f(A)$ è un aperto in $\tau_f$. Ma $f(A) \in \tau_f$ se e solo se esiste $S \in \tau$ e $f$-saturo tale che $f(S) = f(A)$. Basta scegliere $S = f^{-1}f(A)$, e sappiamo che appartiene a $\tau$; è $f$-saturo ed inoltre poiché $f$ suriettiva $f(S) = f(f^{-1}f(A)) = f(A)$. Pertanto $f$ è aperta. 
 \end{proof}
-Nella prossima pagina ci aspetta una fantastica ricetta.
 
 \newpage
 \subsection{\textcolor{TopGener}{\textbf{Relazioni di equivalenza e spazi quozienti}}}
@@ -1878,10 +1896,8 @@ che è la \textbf{proiezione naturale} dell'insieme sul suo quoziente.\\  \\
 \\
 La proiezione naturale è sempre suriettiva  e si \enquote{comporta bene} (come si può vedere dalla figura).
 \footnote{per questo si sono sempre studiate mappe suriettive nel capitolo precedente!}
- \\ \\ Utilizzando il procedimento canonico per la costruzione di topologie quozienti indotte da applicazioni sulla proiezione naturale, si ottiene quella che è detta \textbf{topologia quoziente di $\tau$ modulo $R$} e $(X/R, \tau_\pi)$ è detto lo spazio topologico quoziente di $(X,\tau)$ modulo $R$. \\
- Servire freddo.
+ \\ \\ Utilizzando il procedimento canonico per la costruzione di topologie quozienti indotte da applicazioni sulla proiezione naturale, si ottiene quella che è detta \textbf{topologia quoziente di $\tau$ modulo $R$} e $(X/R, \tau_\pi)$ è detto lo spazio topologico quoziente di $(X,\tau)$ modulo $R$. 
 
-\paragraph{Cosa caspita ho appena letto?}\ \\
 \begin{lemma}
 	\label{lem_qdom}
 	Sia $\morphism{f}{(X, \tau)}{(X', \tau')}$ un'applicazione continua tra spazi topologici e siano $R, R'$ relazioni di equivalenza rispettivamente su $X, X'$. Vale $f(\left[x\right]_R) \subset \left[f(x)\right]_{R'}$ (equivale alla condizione $xRy \Rightarrow f(x)R'f(y)$) se e solo se esiste ed è unica una $g$ continua tale che il diagramma commuta.
