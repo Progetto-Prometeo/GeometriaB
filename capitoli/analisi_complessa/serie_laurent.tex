@@ -38,9 +38,10 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
   \begin{equation*}
   \sum_{n=0}^{+\infty} a_n (z-z_0)^{n} 
   \end{equation*}
-  \begin{equation*}
+  \begin{equation}
+  	\label{eq:serie_laurent_neg}
   \sum_{m=-\infty}^{0} a_{m} \frac{1}{(z-z_0)^{m}}
-  \end{equation*}
+  \end{equation}
   la seconda basta fare una sostituzione $w = 1/(z-z_0)$ e diventa una serie di
   potenze.
   Per il Teorema di Hadamard \ref{thr:criterio-hadamard} le serie di potenze
@@ -144,10 +145,9 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
 \end{remark}
 
 \begin{definition}
-  Il coefficiente della serie di Laurent $a_{-1}$ è detto \emph{residuo} di $f$
-  in $z_0$ 
+  Il coefficiente della serie di Laurent centrata in $z_0$, $a_{-1}$ è detto \emph{residuo} di $f$
   \begin{equation*}
-    a_{-1} \coloneqq \frac{1}{2\pi i} \int_{\gamma} f(w)\ dw
+    Res_{z_0}(f) =  a_{-1} \coloneqq \frac{1}{2\pi i} \int_{\gamma} f(w)\ dw
   \end{equation*}
   per ogni curva di Jordan $\gamma$ in $\Omega$ e $z_0 \in
   \operatorname{interno}(\gamma)$.
@@ -297,18 +297,13 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
       e ovviamente $q \neq 0$ allora $f \in \mathcal{M}(\Omega)$. Infatti se
       $z_0$ è uno zero di $q$ di ordine $k$ allora possiamo supporre che al
       massimo per $l \ge 0$ vale 
-      \begin{equation*}
-      \begin{bmatrix}
-      &p(z) = (z-z_0)^l \tilde{p}(z) \\   &q(z)  = (z-z_0)^k \tilde{q}(z)
-      \end{bmatrix} 
-      \Longrightarrow f(z)  = (z-z_0)^{l-k}
-      \frac{\tilde{p}(z)}{\tilde{q}(z)} 
-      \end{equation*}
-
+      %\begin{equation*}
       \begin{align*}
-        &   \\
-        & & 
+       p(z)  & = (z-z_0)^l \tilde{p}(z)  \\
+       q(z)  & = (z-z_0)^k \tilde{q}(z) \\
+       \therefore f(z)  & = (z-z_0)^{l-k}\frac{\tilde{p}(z)}{\tilde{q}(z)}
       \end{align*}
+      % \end{equation*}
       e quindi al massimo $z_0$ è un polo di ordine $l-k$ (se $k > l$)
       altrimenti è una singolarità eliminabile. 
     \item Sia $f(z) = e^{1/z}$ allora possiamo vedere che ha una singolarità
