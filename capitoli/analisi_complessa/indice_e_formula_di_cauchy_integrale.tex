@@ -394,6 +394,25 @@
   Liouville \ref{thr:liouville} e ottenre che $f$ è una funzione costante su
   $\C$, ovvero $p(z)$ è un polinomio costante.
 \end{proof}
+\begin{proof}
+  Consideriamo il polinomio $p(z) = z^d + a_{d-1}z^{d-1} + \dots + a_0$. 
+  Allora la funzione 
+  \begin{equation*}
+  		\left\| \frac{p(z)}{z^d} \right\| \to 1
+  \end{equation*}
+  per $|z| \to +\infty$. Per cui per un certo $M > 0$ tale che $|z| > M$ 
+  abbiamo che
+  \begin{equation*}
+	  	\left\|\frac{p(z)}{z^d} - 1\right\| < 1
+  \end{equation*} 
+  in particolare quindi se $\gamma = \partial B_M(0)$ allora possiamo vedere 
+  che vale 
+  \begin{equation*}
+	  \left\|p(z) - z^d\right\| < \|z^d\|
+  \end{equation*} 
+  quindi per il Teorema di Rouché \ref{thr:rouche} dev'essere che $p(z)$ ha 
+  $d$ radici in $\C$.
+\end{proof}
 
 \begin{theorem}[Morera]
   Sia $\Omega \subset \C$ aperto e $f \in C^0(\Omega)$ e tale che 
@@ -577,7 +596,7 @@ solamente i punti dove la funzione ha dei poli.
     e inoltre $\gamma'(t) = w - z$. Allora possiamo esprimere la formula di
     prima come
     \begin{align*}
-       g(z,w) - g(z_0, z_0) & = \frac{1}{w-z}(f(w)- f(z) - f'(z_0)) \\
+       g(z,w) - g(z_0, z_0) & = \frac{1}{w-z}(f(w)- f(z) - f'(z_0)(w-z)) \\
         & = \frac{1}{w-z} \int_\gamma f'(\alpha) - f'(z_0)\ d\alpha \\
         & = \frac{1}{w-z} \int^1_0 (f'(\gamma(t)) - f'(z_0)) \gamma'(t)\
         dt \\
