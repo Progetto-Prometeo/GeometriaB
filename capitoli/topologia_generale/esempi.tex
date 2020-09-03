@@ -112,7 +112,7 @@ Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il 
 
 
 \section{Esempio di quoziente}
-\subsection{\textcolor{TopGener}{\textbf{Un breve esempio di quoziente topologico}}}
+\subsection{\textcolor{TopGener}{\textbf{Brevi esempi di quoziente topologico}}}
 	
 
 
@@ -127,8 +127,19 @@ Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il 
 	che è suriettiva, continua sulla topologia euclidea e vale $f^{-1}f(x) = \left[x\right]_R$. Meno banale è dimostrare che $\tau_f = \tau_{\text{euclidea}}|_{S^1}$. Usando il teorema \ref{thr:freeomeombyquo}
 \end{proof}
 
+\begin{example}
+	Nella retta euclidea (retta reale con topologia euclidea) trovare una relazione di equivalenza che renda la proiezione a quoziente non aperta e non chiusa.
+\end{example}
+\begin{proof}
+	Sia definita la seguente relazione di equivalenza:
+	\begin{equation*}
+	xRy \iff x,y \in A = [0,1) \ \text{oppure} \ x=y
+	\end{equation*}
+	Studiamo le $R$-classi di equivalenza: queste sono l'insieme $A$ e tutti i punti non contenuti in $A$. \\ Allora la mappa è aperta? No, scegliamo un aperto per dimostrarlo. Potremmo prenderlo in modo abbastanza vario, ma un metodo intelligente è sfruttare il modo in cui abbiamo definito $A$. Sappiamo che gli insiemi in arrivo devono essere $\pi$-saturati (con $\pi$ proiezione a quoziente), in altre parole dato un insieme $U$ dobbiamo considerare tutte le fibre che interseca per proiettarlo a quoziente. Sia $U=(0,1)$, questo è ovviamente aperto nella topologia euclidea ed è contenuto in $A$. Quindi la sua saturazione è $A$, viene mandato in un insieme in arrivo non aperto e non chiuso. \\ Evidentemente possiamo ripetere il procedimento con un chiuso contenuto in $A$ ed otteniamo lo stesso risultato. \\ \\ Se l'insieme non fosse contenuto in $A$? Sia ad esempio $(0,3)$. La sua saturazione è palesemente $[0,3)$ perché interseca $A$ e tutti i singoletti non in $A$. A meno di non prendere insiemi \enquote{esagerati} del tipo $(-10, 10)$ questo ragionamento continua a valere. \\ Se proprio ci tenete altrimenti basta allargare $A$. 
+\end{proof}
 
 
+\newpage
 \section{Discriminazione di topologie}
 \subsection{\textcolor{TopGener}{\textbf{Discriminare, ma in senso buono}}}
 
