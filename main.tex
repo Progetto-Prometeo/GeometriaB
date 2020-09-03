@@ -5,16 +5,13 @@
 
 
 %------ COPERTINA e ROBA RANDOM --------------
-% TODO: Decidere se mettere o meno i nomi (G) Boh intanto li ho messi (S)
 \makeindex
 \begin{document}
 \definecolor{VerdeSfondo}{rgb}{0.09, 0.45, 0.27}
 \definecolor{VerdeEsag}{rgb}{0.0, 0.5, 0.0}
 \include{copertina_geom}
-\setcounter{page}{1} % correzione errore per presenza copertina
+\setcounter{page}{1} % correzione numerazione per presenza copertina
 
-% Per ora è verde, ma possiamo cambiarla; era il primo colore che mi venisse in mente
-% Colori : http://latexcolor.com/
 
 %Colori per i capitoli
 \definecolor{TopGener}{rgb}{0.64, 0.0, 0.0}
@@ -27,21 +24,12 @@
 % --- FRONT MATTER ------------------------------------
 
 \frontmatter
-
-
-%    Change page number to 6 if a dedication is present.
-% NOTA: l'ho settato ad 1 perché è la prima pagina dell'indice, 
-% mettere la copertina ha cambiato tutto ma non è un problema. (Stark)
 \setcounter{page}{1}
-
 \tableofcontents
-
-
-
 
 % --- MAIN MATTER ------------------------------------
 
-\mainmatter		% Include main chapters here.
+\mainmatter
 
 %TODO: aggiornare il contatore dei todos (sì, è molto ironico)
 \part{Topologia Generale}
@@ -94,8 +82,9 @@
 
 % --- APPENDIX & BACKMATTER ------------------------------------
 
-%\appendix
-%    Include appendix "chapters" here.
+\appendix
+% 1. Rifare la teoria con il retratto di deformazione forte vs debole
+% 2. Insiemistica di base
 %\include{}
 
 % TODO? bibliografia
