@@ -82,6 +82,12 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	\end{equation*}
 	dove $f = \mathcal{X}_{\left[0,2\right)}$. La funzione induce (per quanto visto precedentemente) la topologia banale e quindi non di Hausdorff malgrado la topologia euclidea sia Hausdorff. 
 \end{remark} 
+\begin{theorem}
+	Sia $\left\{x_n\right\}$ una successione definita su $(X, \tau)$ spazio topologico di Hausdorff allora se converge lo può fare unicamente ad un solo punto. 
+\end{theorem} 
+\begin{proof}
+	È sempre la solita dimostrazione che in $\R$ se il limite converge allora non può avere due valori distinti. Ma comunque la ripresento anche qui. Suppongo che una successione $\left\{x_n\right\}_{n \in \N} \rightarrow \left\{k_1, k_2\right\}$, allora per definizione di convergenza in uno spazio topologico ho che per ogni intorno di $k_1$ c'è sempre almeno un punto della successione. Per cui prendo un intorno $U$ di $k_1$ e uno $V$ di $k_2$ tale che $U \cap V = \varnothing$ che esistono per la proprietà di Hausdorff. Se la successione converge in entrambi i punti allora deve valere definitivamente che $U \cap V \neq \varnothing$. Da questo assurdo si arriva a concludere che una successione, se converge, converge ad un solo punto in uno spazio di Hausdorff. 
+\end{proof}
 
 
 
@@ -99,14 +105,10 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \begin{proof}
 	Devo dimostrare che per ogni $x\in X$, $\left\{x\right\}$ è un chiuso. Quindi mi basta dimostrare che $\left\{x\right\}^c$ è aperto. Per cui sia $y \in \left\{x\right\}^c$, per la proprietà di Hausdorff dev'essere che esiste $U \in \mathcal{N}_\tau(y)$ ho che $U \cap V = \varnothing$ dove $V$ è un intorno di $\left\{x\right\}$. Per cui dev'essere che $U \subset \left\{x\right\}^c$ per qualche $U$ intorno. Ovvero $\left\{x\right\}^c$ è intorno di tutti i suoi punti e quindi è un aperto e $\left\{x\right\}$ è un chiuso.
 \end{proof}
+\begin{remark}[$T1$ proprietà topologica] Abbiamo appena dimostrato che la proprietà $T_1$ viene preservata dagli omeomorfismi. Questo è ovvio, l'omeomorfismo è una mappa aperta con inversa aperta.
+\end{remark}
 \begin{remark} Come visto la topologia cofinita su uno spazio $X$ infinito induce una struttura di spazio $T_1$ ma non $T_2$. L'implicazione inversa quindi in generale non è vera.
 \end{remark}
-\begin{theorem}
-	Sia $\left\{x_n\right\}$ una successione definita su $(X, \tau)$ spazio topologico di Hausdorff allora se converge allora converge ad un solo punto. 
-\end{theorem} 
-\begin{proof}
-	È sempre la solita dimostrazione che in $\R$ se il limite converge allora non può avere due valori distinti. Ma comunque la ripresento anche qui. Suppongo che una successione $\left\{x_n\right\}_{n \in \N} \rightarrow \left\{k_1, k_2\right\}$, allora per definizione di convergenza in uno spazio topologico ho che per ogni intorno di $k_1$ c'è sempre almeno un punto della successione. Per cui prendo un intorno $U$ di $k_1$ e uno $V$ di $k_2$ tale che $U \cap V = \varnothing$ che esistono per la proprietà di Hausdorff. Se la successione converge in entrambi i punti allora deve valere definitivamente che $U \cap V \neq \varnothing$. Da questo assurdo si arriva a concludere che una successione, se converge, converge ad un solo punto in uno spazio di Hausdorff. 
-\end{proof}
 
 \begin{theorem}
 	Sia $\left\{x_n\right\}_{n\in \N}$ una successione in $(X,\tau)$ spazio topologico di Hausdorff che soddisfa il primo assioma di numerabilità, allora se $x \in X$ è un punto di accumulazione di $\left\{x_n\right\}_{n\in \N}$ esiste una sottosuccessione tale che $\left\{x_{n_k}\right\}_{n_k \in \left\{n_k\right\}_{k \in \N}} \rightarrow x$. 
@@ -116,7 +118,12 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	Sia $(X, \tau)$ spazio topologico che soddisfa $T_1$, allora non vale che una successione converga ad un unico punto (in altre parole, la classe dei valori limite per successioni globalmente convergenti non è necessariamente costituita da un solo punto).
 \end{remark}
 
-\begin{theorem} Sia $\Delta_{X}$ l'insieme diagonale (il suo significato è ovvio, contiene quella che sarebbe la \enquote{diagonale} dell'insieme).
+\begin{theorem} Sia $\Delta_{X}$ l'insieme diagonale 
+	\begin{equation*}
+	\Delta_{X} \coloneqq \left\{(x,y)\in X \times X \ \text{con} \ x=y\right\}
+	%todo sono stanco, verificare se ho scritto bene l'insieme diagonale
+	\end{equation*}
+	(il suo significato è ovvio, contiene quella che sarebbe la \enquote{diagonale} dell'insieme).
 	\begin{equation*}
 	(X, \tau) \; \text{è} \; T_2 \Leftrightarrow \Delta_{X} \; \text{è chiuso in} \; X \times X
 	\end{equation*}
@@ -196,11 +203,11 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 	\begin{equation*}
 			Y \coloneqq \left\{ x\in \left[a,b\right] \,\middle|\, \exists J \subset I. \; \text{t. c.} \; |J| < +\infty,\ \bigcup_{j \in J} A_j \supset \left[a,x\right] \right\}
 	\end{equation*}
-	È ovvio che $a \in Y$, per cui $Y \neq \varnothing$ ed essendo $Y \subset \R$ allora (siccome è raggiungibile per successioni) esiste $\sup Y =: z$. \\ Poiché $z \in \left[a,b\right]$ e l'intervallo è ricoperto dagli $A_i$, deve esistere un $A_{k}$ tale che $z \in [z-\varepsilon, z+] \subset A_k$ per qualche $\varepsilon > 0$, visto che $A_i$ aperto. Inoltre per la definizione di estremo superiore so che per qualsiasi $\varepsilon$ esiste un $x$ tale che $x \in \left[z-\varepsilon, z\right] \cap Y$. \\ Sia $J$ l'insieme finito che indicizza il ricoprimento di $[a,x]$, posso costruire il seguente ricoprimento:
+	È ovvio che $a \in Y$, per cui $Y \neq \varnothing$ ed essendo $Y \subset \R$ allora (siccome è raggiungibile per successioni) esiste $\sup Y \eqqcolon z$. \\ Poiché $z \in \left[a,b\right]$ e l'intervallo è ricoperto dagli $A_i$, deve esistere un $A_{k}$ tale che $z \in [z-\varepsilon, z+] \subset A_k$ per qualche $\varepsilon > 0$, visto che $A_i$ aperto. Inoltre per la definizione di estremo superiore so che per qualsiasi $\varepsilon$ esiste un $x$ tale che $x \in \left[z-\varepsilon, z\right] \cap Y$. \\ Sia $J$ l'insieme finito che indicizza il ricoprimento di $[a,x]$, posso costruire il seguente ricoprimento:
 	\begin{align*}
 		\left[a,z+\varepsilon\right] \subset \bigcap_{j \in J\cup \left\{k\right\}}
 	\end{align*}
-Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere l'estremo superiore di $Y$ visto che $z+\varepsilon > z$, ed è ottenuto attraverso un ricoprimento finito. Inoltre il ricoprimento ottenuto contiene $z = b$. $\left[a,b\right]$ è compatto.
+Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere l'estremo superiore di $Y$ visto che ho appena ottenuto un sottoricoprimento finito. Inoltre il ricoprimento ottenuto contiene $z = b$. $\left[a,b\right]$ è compatto.
 \end{proof}
 
 \begin{remark}
@@ -306,7 +313,7 @@ Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere
 
 \begin{corollary}
 	\label{thr:freeomeombyquo}
-	Sia $(X, \tau)$ spazio topologico compatto, $(X', \tau')$ di Hausdorff e $R$ relazione di equivalenza su $X$. Se esiste $\morphism{f}{(X, \tau)}{(X', \tau')}$ continua e surgettiva allora esiste una mappa $g$ omeomorfismo tra $(X/R,\tau_{X/R})$ e $(X', \tau')$
+	Sia $(X, \tau)$ spazio topologico compatto, $(X', \tau')$ di Hausdorff e $R$ relazione di equivalenza su $X$. Se esiste $\morphism{f}{(X, \tau)}{(X', \tau')}$ continua e surgettiva allora esiste una mappa $g$ omeomorfismo tra $(X/R,\tau_{X/R})$ e $(X', \tau')$.
 \end{corollary}
 \begin{proof}
 	È ovvio, ma volevo sembrare saccente, quindi ecco una dimostrazione.
@@ -355,7 +362,7 @@ Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere
 \begin{enumerate}
 	\item $(X, \tau_{\text{discreta}})$ con $|X| \ge 2$ allora ogni suo sottoinsieme è sconnesso. 
 	\item $(X, \tau_{\text{banale}})$ è sempre connesso. 
-	\item $(\R, \tau_{\text{euclidea}})$, $x \in \R$; $(\R, \tau_{\text{euclidea}})$ è sconnesso infatti $\R \setminus \left\{x\right\}$ si può comporre con $(-\infty, x) \cup (x, +\infty)$ che sono sottoinsiemi disgiunti aperti e non vuoti. 
+	\item $(\R, \tau_{\text{euclidea}})$, $x \in \R$; vediamo che $(\R, \tau_{\text{euclidea}})$ meno un punto è sconnesso. Infatti $\R \setminus \left\{x\right\}$ si può comporre con $(-\infty, x) \cup (x, +\infty)$ che sono sottoinsiemi disgiunti aperti e non vuoti. 
 	\item Sia $|X| > + \infty$ allora $(X, \tau_{\text{cof}})$ è connesso basta vedere che i chiusi sono tutti finiti quindi non si può ricoprire $X$ con insiemi chiusi disgiunti. 
 \end{enumerate}
 \end{example}
@@ -370,7 +377,7 @@ Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere
 	\begin{equation*}
 	S \text{ connesso } \iff S=[a,b] \text{ (intervallo)}
 	\end{equation*}
-	Sia $S$ un sottoinsieme convesso della retta reale, ammette un elemento massimo ed un elemento minimo, inoltre siccome è convesso contiene tutti gli elementi tra $a$ e $b$, quindi è ovviamente un intervallo. \\ \\ Sia invece $S$ un generico intervallo $S=[a,b]$, allora rispetta palesemente la definizione di convesso.
+	Sia $S$ un sottoinsieme convesso della retta reale, ammette un elemento massimo ed un elemento minimo, inoltre siccome è convesso contiene tutti gli elementi tra $a$ e $b$, quindi è ovviamente un intervallo. \\ Sia invece $S$ un generico intervallo $S=[a,b]$, allora rispetta palesemente la definizione di convesso. \\ \\ Questa dimostrazione vale \textbf{solo nel caso di $a$ e $b$ non infiniti}, ma è facilmente generalizzabile: se uno dei due fosse infinito userei l'ipotesi di connessione in modo molto interessante, infatti dovrei dimostrare che \enquote{l'intervallo ($I$) vive nel connesso $S$} e viceversa, quindi che $I$ intervallo è esattamente il connesso.
 \end{proof}
 \begin{theorem}
 	I connessi di $\R$ sono tutti e soli gli insiemi convessi. 
@@ -450,7 +457,7 @@ Segue ovviamente che $z = b$, infatti se non lo fosse allora non potrebbe essere
 \begin{proof} \
 	\begin{enumerate}
 		\item Se $X$ connesso allora per ogni $x, y \in X$, $X$ li contiene e sono quindi connessi. 
-		\item Sia $\varnothing \neq A$ e tale che $A \subset X$. Se $A \neq X$, esiste $y \in A^c$ e siccome ogni $x, y$ sono connessi allora deve esistere $S$ tale che connette almeno un punto di $A$ con $y$. Ma per quanto visto prima $A$ deve per forza contenere anche $S$ e quindi $y \in A$ contro l'ipotesi che $g \notin A$. Quindi $A = X$ e dunque $X$ è connesso. 
+		\item Sia $\varnothing \neq A$ e tale che $A \subset X$. Se $A \neq X$, esiste $y \in A^c$ e siccome ogni $x, y$ sono connessi allora deve esistere $S$ tale che connette almeno un punto di $A$ con $y$. Ma per quanto visto prima $A$ deve per forza contenere anche $S$ e quindi $y \in A$ contro l'ipotesi che $y \notin A$. Quindi $A = X$ e dunque $X$ è connesso. 
 	\end{enumerate}
 \end{proof}
 
@@ -533,6 +540,7 @@ In generale è più comodo valutare la \textit{connessione per archi} rispetto a
 		\begin{flushleft}
 			\textbf{Seno del topologo}
 		\end{flushleft}
+		% todo: aggiungere immagine seno del topologo
 		
 		 Consideriamo la funzione reale 
 		\begin{equation*}
