@@ -1,8 +1,5 @@
 \chapter{Introduzione alla topologia generale}
 
-%todo: introduzione di ghiloni sullo spazio metrico e la distanza? maybe? [giorgio]
-%todo: naaaaaaah (plazma)
-
 
 Perché studiare topologia? \\
 Oltre al fatto che sia (seppur discutibilmente) molto interessante e divertente, la topologia generalizza gli assiomi degli spazi metrici. \\ \\ 
@@ -88,7 +85,7 @@ Di seguito mostreremo come alcune semplici topologie possano essere collegate al
 
 \subsection{\textcolor{TopGener}{\textbf{Confronto tra topologie}}}
 
-Risulta perfettamente naturale chiedersi quando due topologia siano \enquote{uguali}. Ma come si definisce per una topologia l'essere \enquote{uguale} ad un'altra? \\ \\ Intuitivamente vogliamo dire che devono indurre la stessa struttura topologica sullo spazio, ma questa intuizione deve essere formalizzata.
+Risulta perfettamente naturale chiedersi quando due topologie siano \enquote{uguali}, o comunque \enquote{confrontabili}. Ma come si definisce per una topologia l'essere \enquote{uguale} ad un'altra? In che senso una topologia è \enquote{paragonabile} ad un'altra? \\ \\ Intuitivamente vogliamo lavorare sulla struttura topologica che inducono nello spazio, ma questa intuizione deve essere formalizzata.
 
 
 
@@ -117,7 +114,7 @@ Risulta perfettamente naturale chiedersi quando due topologia siano \enquote{ugu
 
 
 
-Poiché le topologie possono essere molto complesse, sarebbe utile avere un modo per poterle scrivere (o costruire) più semplicemente. \\ Scegliamo il seguente approccio: cerchiamo una sottofamiglia $B$ della topologia stessa tale che ogni $A$ della topologia si possa scrivere come unione di $B_j$ in $B$; intuitivamente sarà un po' come i generatori per i gruppi o le basi per gli spazi vettoriali. \\ Vediamo come costruire le \textit{basi di una topologia}.
+Poiché le topologie possono essere molto complesse, sarebbe utile avere un modo per poterle scrivere (o costruire) più semplicemente. \\ Scegliamo il seguente approccio: cerchiamo una sottofamiglia $B$ della topologia tale che ogni $A$ elemento della topologia si possa scrivere come unione di insiemi $B_j$ contenuti in $B$; intuitivamente sarà un po' come i generatori per i gruppi o le basi per gli spazi vettoriali. \\ Vediamo come costruire le \textit{basi di una topologia}.
 
 \begin{definition}
 	Sia $X \neq \varnothing$. $(X, \tau)$ spazio topologico e sia $\mathcal{B} \subset \tau$. \\ $\mathcal{B}$ è una \textbf{base di $\tau$} se $\forall A \in \tau \ \exists \left\{B_i\right\}_{i \in I} \subset \mathcal{B}$ per cui $\bigcup_{i \in I} B_i = A$. \\ O analogamente se la definisco come segue:
@@ -149,14 +146,11 @@ Poiché le topologie possono essere molto complesse, sarebbe utile avere un modo
 \end{example}
 
 \begin{proposition}
-	Sia $X \neq \varnothing$ e $\left\{\tau_i\right\}$ una famiglia di topologie su $X$. \\ Valgono seguenti enunciati:
-	\begin{enumerate}
-		\item 
-		\begin{equation*}
-			\tau_\cap = \bigcap_{i \in I} \tau_i \; \text{è una topologia di X} 
-		\end{equation*}
+	Sia $X \neq \varnothing$ e $\left\{\tau_i\right\}$ una famiglia di topologie su $X$. \\ Valgono i seguenti enunciati:
+	\begin{enumerate} 
+		\item $\tau_\cap = \bigcap_{i \in I} \tau_i$ è una topologia di X.
 		\item L'unione di topologie non è sempre una topologia.
-		\item Siano dati $\mathcal{Y} \subset 2^X$ e la famiglia $\{\tau_i\}_{i \in I}$ con la seguente restrizione 
+		\item Sia dato un insieme $\mathcal{Y} \subset 2^X$, sia $\{\tau_i\}_{i \in I}$ una famiglia di insiemi di $X$ presa come segue
 		\begin{equation*}
 			\mathcal{Y} \subset \tau_i \; \forall i \in I
 		\end{equation*}
@@ -222,7 +216,7 @@ Poiché le topologie possono essere molto complesse, sarebbe utile avere un modo
 L'idea dietro la costruzione di una sottobase è mostrare un modo semplice di costruire le basi di topologie, che abbiamo visto non essere sempre amichevoli. Spesso ostili, queste possono essere scritte agilmente grazie a quanto vedremo.
 
 \begin{definition}
-	Sia $(X,\tau)$ uno spazio topologico e sia $S \subset \tau$. Si dice che $S$ è una \textbf{sottobase di $\tau$} se genera una base $\mathcal{B}$ per via di intersezioni finite. Il generato di $S$ si definisce nel seguente modo 
+	Sia $(X,\tau)$ uno spazio topologico e sia $S \subset \tau$. Si dice che $S$ è una \textbf{sottobase di $\tau$} se genera gli elementi di una base $\mathcal{B}$ tramite di intersezioni finite. La base generata da $S$ si definisce nel seguente modo 
 	\begin{equation*}
 		 \mathcal{B} = \langle S\rangle \coloneqq \left\{ B \in 2^X \,\middle|\, \bigcap_{i \in I} S_i = B \, \text{ per un indice con } |I| < +\infty \right\}
 	\end{equation*}
@@ -323,7 +317,7 @@ Ad un certo punto, nello studio di analisi si è destinati ad incontrare gli \te
 \end{proof}
 
 Dalle osservazioni che seguono vedremo come una topologia induce sugli intorni certe proprietà, ma allo stesso modo se si danno quelle proprietà a degli intorni questi creano una topologia. Insomma, una topologia genera degli intorni se e solo se quegli stessi intorni generano la suddetta topologia. Questo è dato dal fatto che esistono diverse definizioni equivalenti di topologia, tra le quali esiste quella per filtri e filtri principali (si veda \url{https://leanprover-community.github.io/theories/topology.html}). \\
-A meno di restrizioni, ogni intorno appartenente al sistema di intorni è aperto (basti pensare alla definizione di intorno, con $x \in U \subset A$ ed $U \in \tau$, bisogna solo eventualmente restringersi all'aperto $A$). Gli intorni quindi possono sostituirsi agli aperti.
+A meno di restrizioni, ogni intorno appartenente al sistema di intorni è aperto (basti pensare alla definizione di intorno, con $x \in U \subset A$ ed $U \in \tau$, bisogna solo eventualmente restringersi all'aperto $A$). Gli intorni quindi possono sostituirsi agli aperti, ma sotto opportune condizioni.
 
 \begin{proposition}
 	Sia $(X,\tau)$ uno spazio topologico ed $x \in X$, indichiamo per semplicità $\mathcal{N}_\tau(x) = \mathcal{N}(x)$. Valgono le seguenti proprietà:
@@ -494,7 +488,7 @@ Gli intorni sono tanti. \textit{Davvero} tanti. \\ Fatto sta che spesso e volent
 
 \section{Assiomi di numerabilità}
 Gli assiomi di numerabilità descrivono proprietà dello spazio in cui lavoriamo, e sono strettamente legati alle proprietà di Hausdorff - che vedremo. \\
-Torneranno utili nella descrizione degli spazi e nella comprensione della loro struttura, ad esempio: in che modo sono collegati i sistemi di intorni e gli aperti? \\ \\A prima intuizione la corrispondenza sembra essere \enquote{biunivoca} (da entrambe le parti, data la struttura degli intorni ho quella degli aperti), ma scopriremo che imporre la base è un'operazione più potente dell'imporre il sistema fondamentale di intorni: questo può sembrare controintuitivo.
+Torneranno utili nella descrizione degli spazi e nella comprensione della loro struttura, ad esempio: in che modo sono collegati i sistemi di intorni e gli aperti? \\ \\A prima intuizione la corrispondenza sembra essere \enquote{biunivoca} (da entrambe le parti, data la struttura degli intorni ho quella degli aperti), ma scopriremo che imporre la base è un'operazione più potente dell'imporre il sistema fondamentale di intorni: questo può sembrare contro intuitivo
 \subsection{\textcolor{TopGener}{\textbf{Primo assioma di numerabilità}}}
 
 
@@ -544,15 +538,14 @@ Torneranno utili nella descrizione degli spazi e nella comprensione della loro s
 \end{example}
 
 
-\begin{theorem}[Teorema di Lindelöf]
-	Sia $(X,\tau)$ uno spazio topologico con base numerabile e sia data la famiglia $\left\{A_i\right\}_{i\in \mathcal{I}} \subset \tau$, dove $\mathcal{I}$ non per forza numerabile; allora $\exists \mathcal{J} \subset \mathcal{I}$ tale che 
+\begin{theorem}[Teorema di Lindeloff]
+	Sia $(X,\tau)$ uno spazio topologico con base numerabile e sia data la famiglia $\left\{A_i\right\}_{i\in \mathcal{I}} \subset \tau$, dove $\mathcal{I}$ non per forza numerabile; allora $\exists \mathcal{J} \subset \mathcal{I}$ insieme indicizzante numerabile tale che 
 	\begin{equation*}
 		\bigcup_{i \in \mathcal{I}} A_i = \bigcup_{i \in \mathcal{J}} A_i
 	\end{equation*}
 \end{theorem}
 \begin{proof}
-	Se $\mathcal{I}$ numerabile allora basta prendere $\mathcal{J} = \mathcal{I}$ ed è risolto il mistero.\\
-	Si consideri il caso non banale, ovvero $\mathcal{I}$ insieme non numerabile. Allora 
+	Se $\mathcal{I}$ numerabile allora basta prendere $\mathcal{J} = \mathcal{I}$ ed è risolto il mistero.	Si consideri il caso non banale, ovvero $\mathcal{I}$ insieme non numerabile. Allora 
 	\begin{equation*}
 		S \coloneqq \bigcup_{i \in \mathcal{I}} A_i \in \tau
 	\end{equation*}
@@ -572,7 +565,7 @@ Torneranno utili nella descrizione degli spazi e nella comprensione della loro s
 \end{proof}
 
 
-
+\newpage
 \section{Successioni in uno spazio topologico}
 \marginpar{\textcolor{TopGener}{\textbf{Abusi di notazione:}} come un gatto ed un topo, la rigorosità della topologia si scontra pesantemente con l'utilizzo di abusi di notazione - di cui vedremo subito degli esempi. \\ Questo però non ci impedisce di usarli, perché spesso rendono ben più facile la scrittura e la comprensione del testo matematico; nonostante siano utilizzati spesso ed ormai accettati, è bene esserne a conoscenza. Vediamone alcuni: 
 	\begin{itemize}
@@ -664,7 +657,6 @@ Vediamo alcune proprietà di questi insiemi.
 		\item $Est(S) \subset X \setminus S$
 		\item $X = Int(S) \cup Est(S) \cup Fr(S)$ 
 		\item $Int(S)$ è il più grande aperto contenuto in $S$. Inoltre se $A$ è un aperto tale che $A \subset S$, $A \subset Int(S)$.	
-		\item $S = Int(S) \cup (S \cap Fr(S))$ \label{thr:set_decomposition_inner_frontier}
 	\end{enumerate}
 \end{proposition}
 \begin{proof} \
@@ -677,18 +669,32 @@ Vediamo alcune proprietà di questi insiemi.
 			Int(S) = \bigcup_{x\in Int(S)} \left\{x\right\} \subset \bigcup_{x \in S} A_x \subset Int(S) 
 		\end{equation*}
 		che è il maggiore aperto, poiché se ci fosse un aperto più grande sarebbe contenuto in $\bigcup_{x \in S} A_x$, anzi sarebbe uno degli $A_x$.
-		\item Da $Int(S)\subset S$ e $S \cap Fr(S) \subset S$ segue che $Int(S) \cup (S \cap Fr(S)) \subset S$. Di conseguenza basta dimostrare che se $x \in S \setminus Int(S)$, $x \in S \cap Fr(S)$. Ovvero bisogna dimostrare che $x \in Fr(S)$. Quindi $\forall U \in \mathcal{N}(x)$ intorno di $x$ ho che $x \in U$ e quindi $U \cup S \neq \varnothing$. Ma dev'essere anche $U \not \subset S$ (equivalentemente: $U \setminus S \neq \varnothing$) perché altrimenti avrei che $x \in Int(S)$, che è assurdo. Pertanto dev'essere $x \in Fr(S)$.
+		\item 
 	\end{enumerate}
 \end{proof}
 
+Il fatto che \enquote{la chisura della chiusura è la chiusura} non è immediato, e nemmeno scontato; ad esempio prendendo la chiusura sequenziale (vedremo in seguito cosa sia) questo smette di valere. Perché sia vero devo applicare la chiusura sequenziale $\aleph_0$ volte.
+
 \begin{theorem}
+	\label{thr:set_decomposition_inner_frontier}
+	Sia $(X,\tau)$ spazio topologico con $S \subset X$, allora vale che
+	\begin{equation*}
+	S = Int(S) \cup (S \cap Fr(S))
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	Da $Int(S)\subset S$ e $S \cap Fr(S) \subset S$ segue che $Int(S) \cup (S \cap Fr(S)) \subset S$. Di conseguenza basta dimostrare che se $x \in S \setminus Int(S)$, $x \in S \cap Fr(S)$. Ovvero bisogna dimostrare che $x \in Fr(S)$. Quindi $\forall U \in \mathcal{N}(x)$ intorno di $x$ ho che $x \in U$ e quindi $U \cup S \neq \varnothing$. Ma dev'essere anche $U \not \subset S$ (equivalentemente: $U \setminus S \neq \varnothing$) perché altrimenti avrei che $x \in Int(S)$, che è assurdo. Pertanto dev'essere $x \in Fr(S)$.
+\end{proof}
+
+\begin{corollary}
 	Le seguenti affermazioni sono equivalenti:
 	\begin{enumerate}
 		\item $Fr(S) \subset S$
 		\item $S = Int(S) \cup Fr(S)$
 		\item $X \setminus S \in \tau$ 
 	\end{enumerate}
-\end{theorem}
+\end{corollary}
 
 \begin{proof} \
 	\begin{enumerate}
@@ -821,7 +827,7 @@ Vediamo subito che per il calcolo della chiusura di un insieme, la definizione v
 		\item $Fr(S) = \bar{S} \cap \bar{S^c}$.
 	\end{enumerate}
 \end{proposition}
-\begin{proof} \
+\begin{proof} Se usassimo la caratterizzazione della chiusura tramite i punti aderenti questi punti sarebbero immediati; difatti la descrizione tramite aderenza è la più potente in assoluto. Consigliamo altamente di utilizzarla sempre quando possibile, ma per questioni didattiche proporremo delle dimostrazioni \enquote{vere e proprie}.
 	\begin{enumerate} 
 		\item Per definizione $\bar{S} = \bigcap_{C \in \mathcal{C}} C$ dove per ogni $C \in \mathcal{C}$, $C$ chiuso e $S \subset C$, anche $S \subset \bar{S}$.
 		\item Per definizione $\bar{S} = \bigcap_{C \in \mathcal{C}} C$, ma in $S \in \mathcal{C}$ poiché $S$ è chiuso e $S \subset S$. Per cui $\bar{S} \subset S$ e per il precedente punto $\bar{S} = S$.
@@ -884,7 +890,7 @@ Vediamo subito che per il calcolo della chiusura di un insieme, la definizione v
 			V'_k \coloneqq \bigcap^k_{i=1} V_i
 		\end{equation*}
 		da questa definizione si ottiene che $V'_{m} \subset V'_p$ per ogni $m \ge p$.\footnote{$\mathcal{V}'(x)$ è ancora un sistema fondamentale di intorni perché gli intorni diventano \enquote{più' piccoli}, ma contengono sempre tutti gli aperti che $\mathcal{V}(x)$ conteneva.}.
-		Poiché $x \in \bar{S}$, allora $x$ è aderente e quindi $\forall U \in \mathcal{N}(x)$ $U \cap S \neq \varnothing$, in particolare anche per ogni $V'_k \in \mathcal{V}'(x)$ ho che $V'_k \cap S \neq \varnothing$. \\ Inoltre per dimostrare la convergenza devo dimostrare che fissato $x_{n_U} \in U \in \mathcal{N}(x)$ e un corrispettivo $n_U$ tale che $V'_{n_U} \subset U$ (questo esiste per definizione di sistema fondamentale di intorni), allora per ogni $n > n_U$ $x_n \in U$. Ma questo è vero perché sia $x_n \in V'_n$, allora per la descrescenza degli intorni fondamentali $V'_{n} \subset V'_{n_U} \subset U$. La successione costruita quindi converge $\left\{x_n\right\} \rightarrow x \in \bar{S}^\text{seq}$.
+		Poiché $x \in \bar{S}$, allora $x$ è aderente e quindi $\forall U \in \mathcal{N}(x)$ $U \cap S \neq \varnothing$, in particolare anche per ogni $V'_k \in \mathcal{V}'(x)$ ho che $V'_k \cap S \neq \varnothing$. \\ Inoltre per dimostrare la convergenza devo dimostrare che fissato $x_{n_U} \in U \in \mathcal{N}(x)$ e un corrispettivo $n_U$ tale che $V'_{n_U} \subset U$ (questo esiste per definizione di sistema fondamentale di intorni), allora per ogni $n > n_U$ $x_n \in U$. Ma questo è vero perché sia $x_n \in V'_n$, allora per la decrescenza degli intorni fondamentali $V'_{n} \subset V'_{n_U} \subset U$. La successione costruita quindi converge $\left\{x_n\right\} \rightarrow x \in \bar{S}^\text{seq}$.
 	\end{enumerate}
 \end{proof}
 
@@ -912,11 +918,10 @@ Vediamo subito che per il calcolo della chiusura di un insieme, la definizione v
 				\item $f \in V(f, I, \varepsilon)$ per ogni $I, \varepsilon$.
 				\item Bisogna dimostrare che dato $V = V(f, I, \varepsilon)\in \mathcal{V}(f,I,\varepsilon)$ esiste un $W \in \mathcal{V}(f,I,\varepsilon)$ tale che per ogni $g \in W$ si possa avere $W_g \subset V$ e $W_g \in \mathcal{V}(f,I, \varepsilon)$. Ma basta prendere $W = \left\{f\right\}$ e definire $W_f = V(f, I_1 \subset I, \varepsilon/2)$ e poi è ovvio che $W_f \subset V$, che è ancora nel sistema fondamentale di intorni.
 			\end{enumerate}
-		per cui, si, genera una ed una sola topologia.
+		per cui, sì, genera una ed una sola topologia.
 		\end{proof}
-		\item Soddisfa il primo assioma di numerabilità e non è metrizzabile
-			%TODO: manca proof, non negli appunti (g)
-			%TODO: non la metterei neanche (s)
+		\item Non soddisfa il primo assioma di numerabilità e non è metrizzabile
+			%TODO: manca proof, non negli appunti 
 		\item Sia $\left\{f_n\right\}$ una famiglia di funzioni e sia $f \in \R^\R$ allora $\left\{f_n\right\} \rightarrow f$ se solo se $\forall x \in \R$ allora $\left\{f_n(x)\right\} \rightarrow f(x)$. \footnote{questa è la classica convergenza puntuale di analisi}
 		\item Dato l'insieme 
 		\begin{equation*}
@@ -978,12 +983,15 @@ Questo mostra che avendo dati solo sulle successioni di un dato spazio topologic
 	Siano $(X,\tau), (Y, \xi)$ spazi topologici e $\morphism{f}{(X,\tau)}{(Y,\xi)}$ una applicazione continua e suriettiva. Sia $D$ insieme denso in $(X,\tau)$, allora $f(D)$ è un insieme denso in $Y$.
 \end{theorem}
 \begin{proof}
-	Usiamo la caraterizzazione della continuità che ci dice che per ogni sottoinsieme $W \subset X$ abbiamo $f(\overline{W}) \subseteq \overline{f(W)}$. Quindi abbiamo che 
+	Usiamo la caratterizzazione della continuità che ci dice che per ogni sottoinsieme $W \subset X$ abbiamo $f(\overline{W}) \subseteq \overline{f(W)}$. Quindi abbiamo che 
 	\begin{equation*}
 		f(X) = f(\overline{D}) \subseteq \overline{f(D)}
 	\end{equation*}
-	poiché $f$ è suriettiva segue che $f(X) = Y$ e quindi 
-	$Y \subseteq \overline{f(D)}$.
+	poiché $f$ è suriettiva $f(X) = Y$, inoltre
+	$\overline{f(D)}\subseteq f(X)=Y$.
+	\begin{equation*}
+	Y\subseteq\overline{f(D)}\subseteq Y
+	\end{equation*}
 \end{proof}
 
 
@@ -1042,11 +1050,11 @@ Come si è visto dal controesempio, servono ipotesi molto più forti per poter s
 
 
 
-\chapter{Applicazioni tra spazi topologici}
+\chapter{Spazi topologici ed applicazioni}
 Molti dei concetti che vedremo possono a primo avviso sembrare banali ed intuitivi, ma a posteriori questo è forse uno dei capitoli più importanti dello studio della topologia generale: impareremo a trattare le \textit{funzioni continue} ed a costruire sottospazi di uno spazio topologico. In particolare studieremo anche la costruzione di spazi topologici tramite il \textit{prodotto} ed il \textit{quoziente} (solitamente per relazioni di equivalenza); tutte queste definizioni e strutture sono fondamentali in topologia algebrica. 
 
 \newpage
-\section{Applicazioni nello spazio topologico}
+\section{Lo studio delle applicazioni tra spazi topologici}
 \subsection{\textcolor{TopGener}{\textbf{Le applicazioni continue}}}
 
 
@@ -1156,7 +1164,7 @@ Le applicazioni continue sono fondamentali per la topologia, soprattutto nella t
 \end{theorem}
 \begin{proof}\
 	\begin{enumerate}
-		\item Sia $A\in \xi$ allora $f^{-1}(A) \in 2^X$ per forza di cose e quindi appartiente a $\tau_{\text{discreta}}$. Per cui è continua.
+		\item Sia $A\in \xi$ allora $f^{-1}(A) \in 2^X$ per forza di cose e quindi appartiene a $\tau_{\text{discreta}}$. Per cui è continua.
 		\item Sia $A \in \tau_{\text{banale}}$ allora o $A = \varnothing$ o $A = Y$. Se $A = \varnothing$ allora $f^{-1}(A) = \varnothing$ che è aperto. Se $A = Y$ allora $f^{-1}(A) = X$ che è ancora aperto dimostrando così che è continua.
 	\end{enumerate}
 \end{proof}
@@ -1184,16 +1192,23 @@ Le applicazioni continue sono fondamentali per la topologia, soprattutto nella t
 \begin{enumerate}
 	\item La funzione $\morphism{\pi_1}{(\R^2,\tau^2_{\text{euclidea}})}{(\R,\tau_{\text{euclidea}})}$ tale che $\pi_1 \colon\ (x,y) \mapsto x$ è aperta, continua, ma non chiusa. \\ Infatti si consideri il grafico di $xy - 1 = 0$ in $\R^2$, che chiameremo $S$, allora $\pi_1(S) = \R \setminus \left\{0\right\}$ che non è chiuso, mentre $S$ lo è.
 	\item In modo analogo posso considerare degli iperboloidi per notare che le proiezioni da $\mathbb{R}^n$ alle sue componenti sono aperte, continue e non chiuse.
-	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $i_1 \colon\ x \mapsto (x,0)$ è una mappa continua, chiusa e non aperta. È ovvio che sia chiusa dato che il grafo di una funzione in uno spazio di Hausdorff è chiuso.
+	\item Invece la funzione $\morphism{i_1}{(\R,\tau_{\text{euclidea}})}{(\R^2,\tau^2_{\text{euclidea}})}$ tale che $i_1 \colon\ x \mapsto (x,0)$ è una mappa continua, chiusa e non aperta. È ovvio che sia chiusa dato che il grafico di una funzione in uno spazio di Hausdorff è chiuso. Questo si potrebbe dimostrare facilmente.
 	\item L'applicazione $\morphism{\gamma}{(X = \left\{z\right\},\tau =\tau_{\text{banale}})}{(Y = \left\{a,b\right\},\xi = \tau_{\text{banale}})}$ tale che  $\gamma \colon z \mapsto a$ è una mappa continua, ma non è aperta e nemmeno chiusa.
 	\item Un esempio di funzione non continua aperta e chiusa è dato dalla funzione $\morphism{\omega}{(X,\tau =\tau_{\text{banale}})}{(Y,\xi = \tau_{\text{discreta}})}$ tale che $\image{\omega} = Y$ e $|Y| > 1$.
 	\footnote{notare che $\omega$ non è una funzione costante quindi non è continua.}
 	 Allora si prenda il singoletto $\left\{y\right\} \subset Y$, è ovvio che $\omega^{-1}(\left\{y\right\}) \notin \tau_{\text{banale}}$, quindi non è continua. È aperta e chiusa perché $\omega(\varnothing) = \varnothing$ e chiusa perché $\omega(X) = Y$.
-	\item Per un esempio di funzione non continua, non aperta, non chiusa si considerino gli insiemi $X = \left\{a,b,c\right\}$ e $Y = X \cup \left\{d\right\}$ e le topologie $\tau = \left\{\varnothing, \left\{a\right\}, X\right\}$, $\mu = \left\{ \varnothing, \left\{a\right\}, \left\{a,b,c,d\right\}\right\}$. \\ Allora la funzione $\morphism{f}{(X,\tau)}{(Y,\mu)}$ tale che assegna $a \mapsto b$, $b \mapsto a$, $c \mapsto a$. Questa funzione non è continua perché $f^{-1}(Y) = \left\{a,b\right\}$ che non è un aperto. Inoltre non è aperta perché $f(X) = \left\{a,b\right\}$ che non è aperta e non è chiusa perché $f(\left\{b,c\right\}) = \left\{a\right\}$ ma $\left\{a\right\}$ è un aperto in $\mu$.
+	\item Per un esempio di funzione non continua, non aperta, non chiusa si considerino gli insiemi $X = \left\{a,b,c\right\}$ e $Y = X \cup \left\{d\right\}$ e le topologie $\tau = \left\{\varnothing, \left\{a\right\}, X\right\}$, $\mu = \left\{ \varnothing, \left\{a\right\}, \left\{a,b,c,d\right\}\right\}$. \\ Allora la funzione $\morphism{q}{(X,\tau)}{(Y,\mu)}$ tale che assegna $a \mapsto b$, $b \mapsto a$, $c \mapsto a$. Questa funzione non è continua perché $q^{-1}(Y) = \left\{a,b\right\}$ che non è un aperto. Inoltre non è aperta perché $q(X) = \left\{a,b\right\}$ che non è aperta e non è chiusa perché $q(\left\{b,c\right\}) = \left\{a\right\}$ ma $\left\{a\right\}$ è un aperto in $\mu$.
 	\item Una funzione continua, aperta e chiusa è l'identità, o un qualsiasi omeomorfismo.
 	\item Per l'esempio di una funzione che non è continua e neanche chiusa ma è aperta ricorro di nuovo ad insiemi semplici come $X = \left\{a,b,c\right\}$ e le due topologie $\tau = \left\{\varnothing, \left\{a\right\},\left\{a,b,c\right\}\right\}$, $\mu = \left\{\varnothing, \left\{a\right\}, \left\{c\right\}, \left\{a,c\right\}, \left\{a,b,c\right\}\right\}$. \\ Allora definendo la mappa $\morphism{f}{(X,\tau)}{(X,\mu)}$ come $f \colon a \mapsto a$, $f \colon b \mapsto a$, $f \colon c \mapsto c$ non è continua poiché $f^{-1}(X) = \left\{a,c\right\} \notin \tau$, inoltre non è chiusa perché $f(\left\{b,c\right\}) = \left\{a,c\right\} \in \mu$, ma è aperta.\\
 	\item Sia $X = \left\{a,b,c,d\right\}$  e $Y = \left\{a,b,c\right\}$, definisco $\tau = \left\{\varnothing, \left\{a\right\}, X\right\}$, $\nu = \left\{\varnothing, \left\{a\right\}, \left\{c\right\}, \left\{a,c\right\}, Y\right\}$; allora la mappa $\morphism{f}{(X,\tau)}{(Y,\nu)}$ definita come $f \colon a \rightarrow b$,  $f \colon b \rightarrow b$, $f \colon c \rightarrow b$, $f \colon d \rightarrow c$ non è continua, perché $f^{-1}(\left\{c\right\}) = \left\{d\right\} \notin \tau$, inoltre $f(X) = \left\{b,c\right\} \notin \nu$ quindi non è aperta, ma è chiusa perché $f(X) = \left\{b,c\right\} = \left\{a\right\}^c$, $f(\left\{b,c,d\right\}) = \left\{b,c\right\} = \left\{a\right\}^c$.   
 \end{enumerate}
+Riassumiamo alcuni casi visti di funzioni continue:
+\begin{tabular}{c | c | c}
+	& chiusa & non chiusa \\
+	\hline
+	aperta & identità & proiezione $\pi$\\
+	non aperta & $i:\mathbb{R}\to\mathbb{R}^2$ & $q$ tra banali \\
+\end{tabular}
 \end{example}
 
 
@@ -1290,7 +1305,7 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 
 \begin{remark}
 	\label{remark:induced_bases_by_a_map}
-	Sia $\mathcal{B}$ una base di $\xi$ allora $f^{-1}(\mathcal{B})$ è una base di $f^{-1}(\xi)$. \\ Infatti mi basta dimostrare che $f^{-1}(\mathcal{B})$ ricopre $f^{-1}(\xi)$, ma è ovvio: $\xi = \bigcup_{B \in \mathcal{B}} B$ poiché una base, per cui $f^{-1}(\xi) = f^{-1}(\bigcup_{B \in \mathcal{B}} B) = \bigcup_{B \in \mathcal{B}} f^{-1}(B)$. \\ Inoltre devo dimostrare che se $B_1, B_2 \in f^{-1}(\mathcal{B})$ allora $B_1 \cap B_2 = \bigcup_{B \in \mathcal{B}'}f^{-1}(B)$. Questo deriva dal fatto che $B_1 = f^{-1}(B'_1), B_2 = f^{-1}(B'_2)$ per definizione, ma poiché $B'_1, B'_2 \in \mathcal{B}$ allora $B'_1 \cap B'_2 = \bigcup_{B \in \mathcal{B}'} B$, per cui puoi passare a controimmagine senza problemi. \\
+	Sia $\mathcal{B}$ una base di $\xi$ allora $f^{-1}(\mathcal{B})$ è una base di $f^{-1}(\xi)$. \\ Infatti mi basta dimostrare che $f^{-1}(\mathcal{B})$ ricopre $f^{-1}(\xi)$, ma è ovvio: $\xi = \bigcup_{B \in \mathcal{B}} B$ poiché una base, per cui $f^{-1}(\xi) = f^{-1}(\bigcup_{B \in \mathcal{B}} B) = \bigcup_{B \in \mathcal{B}} f^{-1}(B)$. \\ Inoltre devo dimostrare che se $B_1, B_2 \in f^{-1}(\mathcal{B})$ allora $B_1 \cap B_2 = \bigcup_{B \in \mathcal{B}'}f^{-1}(B)$. Questo deriva dal fatto che $B_1 = f^{-1}(B'_1), B_2 = f^{-1}(B'_2)$ per definizione, ma poiché $B'_1, B'_2 \in \mathcal{B}$ allora $B'_1 \cap B'_2 = \bigcap_{B \in \mathcal{B}'} B$, per cui puoi passare a controimmagine senza problemi. \\
 	
 	Ovviamente dunque è una base. Ma è anche vero che genera la stessa topologia di $f^{-1}(\xi)$? \\ Prendiamo $A$ aperto in $\tau$, allora esiste $A' \in \xi$ tale che $A = f^{-1}(A')$. Ma $A' = \bigcup_{B \in \mathcal{B}'} B$ poiché $B$ lo genera, per cui
 	\begin{equation*}
@@ -1302,7 +1317,7 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 \subsection{Sottospazio di uno spazio topologico}
 
 \begin{definition}
-	Sia $(X,\tau)$ uno spazio topologico e sia $\varnothing \neq S \subset X$ allora consideriamo $\morphism{i_S}{S}{X}$, allora $(S, i^{-1}_S(\tau))$\footnote{Questa scelta è una scelta naturale e si vedrà che è ben caraterizzabile.} forma un \textbf{sottospazio topologico}.\\ Siccome la mappa $i$ rispetta la teoria appena vista, la topologia del sottospazio si può indicare come $i^{-1}_S(\tau) \coloneqq \tau|_S$ e si dice \textbf{topologia indotta} da $\tau$ su $S$.
+	Sia $(X,\tau)$ uno spazio topologico e sia $\varnothing \neq S \subset X$; consideriamo $\morphism{i_S}{S}{X}$, allora $(S, i^{-1}_S(\tau))$\footnote{Questa scelta è una scelta naturale e si vedrà che è ben caratterizzabile} forma un \textbf{sottospazio topologico}.\\ Siccome la mappa $i$ rispetta la teoria appena vista, la topologia del sottospazio si può indicare come $i^{-1}_S(\tau) \coloneqq \tau|_S$ e si dice \textbf{topologia indotta} da $\tau$ su $S$.
 \end{definition}
 
 \begin{theorem}
@@ -1378,7 +1393,7 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 \end{enumerate}
 \end{proof}
 
-
+\newpage
 \begin{theorem}
 	Sia $\morphism{f}{(X,\tau)}{(Y,\xi)}$ ed $f$ continua. Sia $\varnothing \neq S \subset X$ e $T \subset Y$.
 	\begin{enumerate}
@@ -1404,6 +1419,14 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 			f^{-1}(A) = f^{-1} (A' \cap T) = f^{-1}(A') \cap f^{-1}(T) = f^{-1}(A') \cap S
 	\end{equation*} 
 	che diventa quindi un aperto di $\tau|_S$. Pertanto $f$ è continua.
+\end{proof}
+\begin{proof}
+	Una dimostrazione \enquote{più pulita}, non quella fatta in classe: ovviamente dimostriamo solo il punto $2$.\\ \\
+	Sia $A$ un aperto in arrivo, quindi aperto in $T$; allora ha forma $A' \cap T$ per un $A'$ aperto in $Y$.  Siccome l'intersezione commuta per controimmagine abbiamo vinto in automatico.
+	\begin{equation*}
+	f^{-1}\left(A' \cap T\right)=f^{-1}\left(A'\right) \bigcap f^{-1}\left(T\right) = f^{-1}\left(A'\right) \bigcap S 
+	\end{equation*}
+	che è un'intersezione tra $S$ ed un aperto poiché $f$ è continua, quindi (per caratterizzazione dei sottospazi topologici) abbiamo un aperto di $S$.
 \end{proof}
 
 \begin{remark}
@@ -1442,7 +1465,7 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 
 
 
-\subsection{\textcolor{TopGener}{\textbf{Il prodotto topologico}}}
+\subsection{\textcolor{TopGener}{\textbf{Il prodotto topologico finito}}}
 
 
 
@@ -1522,7 +1545,7 @@ per indicare tre spazi topologici. L'ultimo in particolare è il prodotto di due
 \end{proof}
 
 \begin{theorem}
-	Siano $S_1 \subset X_1, S_2, \subset X_2$; il prodotto di sottotopologie si comporta bene, ovvero
+	Siano $S_1 \subset X_1, S_2, \subset X_2$; il prodotto di sotto topologie si comporta bene, ovvero
 	\begin{equation*}
 		\left\langle \tau_1 \times \tau_2 \right\rangle|_{S_1 \times S_2} = \left\langle \tau_1|_{S_1} \times \tau_2|_{S_2} \right\rangle 
 	\end{equation*}
@@ -1604,7 +1627,7 @@ per indicare tre spazi topologici. L'ultimo in particolare è il prodotto di due
 	Unendo tutte le condizioni si ottiene la tesi. 
 \end{proof}
 
-\begin{theorem}[Proprientà universale del prodotto topologico]
+\begin{theorem}[Proprietà universale del prodotto topologico]
 	Sia data 
 	\begin{equation*}
 	\morphism{f}{(Y, \xi)}{(X_1 \times X_2, \tau)}
@@ -1679,7 +1702,7 @@ Possiamo notare che in generale i teoremi dimostrati per $n=2$, ovvero $X=X_1 \t
 \begin{theorem}
 	Sia $(X, \tau)$ spazio topologico e $\morphism{f}{X}{Y}$ applicazione e $Y \neq \varnothing$. Valgono le seguenti affermazioni.
 	
-	\marginpar{\textbf{\textcolor{TopGener}{La proprietà universale dei quozienti topologici:}} perché è interessante questa proprietà universale? La proprietà è addrittura fondamentale, perché permette di by-passare la topologia quoziente per verificare che una mappa è continua, senza dover lavorare sulla topologia quoziente stessa.}
+	\marginpar{\textbf{\textcolor{TopGener}{La proprietà universale dei quozienti topologici:}} perché è interessante questa proprietà universale? La proprietà è addirittura fondamentale, perché permette di by-passare la topologia quoziente per verificare che una mappa è continua, senza dover lavorare sulla topologia quoziente stessa.}
 	
 	
 	
@@ -1689,7 +1712,8 @@ Possiamo notare che in generale i teoremi dimostrati per $n=2$, ovvero $X=X_1 \t
 			\tau_f \coloneqq \left\{ A \in 2^Y \,\middle|\, f^{-1}(A) \in \tau \right\}
 		\end{equation*}
 		\item $C$ è chiuso in $\tau_f$ se e solo se $f^{-1}(C)$ è chiuso in $\tau$.
-		\item \textbf{Proprietà universale degli  spazi quozienti:} Sotto le ipotesi precedenti, sia $f$ una funzione continua.
+		\item La topologia quoziente rispetto ad $f$ è la topologia più fine che rende $f$ continua.
+		\item \textbf{Proprietà universale degli  spazi quozienti:} Sotto le ipotesi precedenti, sia $f$ continua. Considerando il seguente diagramma 
 		\begin{equation*}
 		\begin{tikzcd}
 		(X, \tau) \arrow[swap]{rd}{g\circ f} \arrow{r}{f} & (Y, \tau_f) \arrow{d}{g} \\
@@ -1703,11 +1727,12 @@ Possiamo notare che in generale i teoremi dimostrati per $n=2$, ovvero $X=X_1 \t
 	\begin{enumerate}
 		\item È ovviamente una topologia ed è la più fine. 
 		\item La controimmagine commuta con il complementare. 
+		\item Chiaramente, per come abbiamo definito la topologia quoziente.
 		\item Se $g$ è continua è ovvio che $g \circ f$ è continua perché la composizione di funzioni continue è continua. \\ Se $f\circ g$ è continua, sia $A$ aperto  in arrivo rispetto a $g$, allora $g^{-1}(A)$ deve essere un aperto. 
 		\begin{equation*}
 		f^{-1}\left(g^{-1}(A)\right)=\left(g \circ f\right)^{-1}(A)
 		\end{equation*}
-		Siccome la composizione è continua per ipotesi allora ho ottenuto un aperto in partenza.
+		Siccome la composizione è continua per ipotesi allora ho ottenuto un aperto in partenza. Si noti l'importanza della topologia quoziente in $Y$.
 	\end{enumerate}
 \end{proof}
 
@@ -1720,11 +1745,11 @@ Possiamo notare che in generale i teoremi dimostrati per $n=2$, ovvero $X=X_1 \t
 \end{definition} 
 
 \begin{remark}
-	$S$ è saturo in $f$.
+	Possiamo caratterizzare $S$ sottospazio saturo rispetto ad $f$.
 	\begin{equation*}
 		S = f^{-1}f(S) = \bigcup_{x \in S} f^{-1}f(x)
 	\end{equation*}
-	ovvero se per ogni $x \in S$ abbiamo una unica fibra in $S$. Ovvero $S$ contiene tutte le fibre di $f$ contenenti i suoi punti. 
+	ovvero se per ogni $x \in S$ abbiamo un'unica fibra in $S$. Ovvero $S$ contiene tutte le fibre di $f$ contenenti i suoi punti. 
 \end{remark} 
 
 \begin{remark}
@@ -1810,13 +1835,13 @@ Costruire un modo più facile per studiarla è necessario per i casi peggiori e 
 	Una applicazione $\morphism{f}{(X,\tau)}{(Y, \xi)}$ tra spazi topologici è detta \textbf{identificazione} se è continua, surgettiva e $\xi = \tau_f$.
 \end{definition}
 
-\begin{theorem}[Caratterizzazione delle indentificazioni]
+\begin{theorem}[Caratterizzazione delle identificazioni]
 	\label{crtident}
 	Sia data una funzione $\morphism{f}{(X,\tau)}{(Y, \xi)}$ continua e surgettiva, allora le seguenti affermazioni sono equivalenti.
 	\begin{enumerate}
 		\item $f$ è un identificazione.
 		\item Se $\forall A \subset Y$  tale che $f^{-1}(A) \in \tau$ allora $A \in \xi$.
-		\item Se $\forall A \in \tau$, $A$ è $f$-saturo e $f(A) \in \xi$.
+		\item Se $\forall A \in \tau$ $A$ è $f$-saturo, $f(A) \in \xi$.
 		\item Se $\forall C \subset X$ chiuso e $f$-saturo vale $f(C)$ chiuso in $\xi$.
 	\end{enumerate}
 \end{theorem}
@@ -1917,7 +1942,7 @@ La proiezione naturale è sempre suriettiva  e si \enquote{comporta bene} (come 
 	ma questa uguaglianza vale se e solo se $f(x) R' f(y)$, per cui ho la tesi.\\
 	
 	Dimostro l'esistenza di $g$ e la definisco come $g(\alpha) = (\pi' \circ f)(x_\alpha)$ dove $x_\alpha = \pi^{-1}\alpha$, ovvero $x_\alpha$ è un rappresentante della classe $\alpha$. Devo far vedere che sia ben definita, altrimenti non \textit{esiste}.
-	Per cui considero anche un altro rappresentate della classe $\alpha$ e lo chiamo $x'_\alpha$. Affinché sia ben definita dev'essere che $g(\alpha) = \pi'f(x_\alpha) = \pi' f(x'_\alpha) = g(\alpha)$, ma questa condizione è vera per l'ipotesi. La continuità di $g$ è data dalla proprietà universale degli spazi quozienti, si consideri il seguente diagramma commutativo
+	Per cui considero anche un altro rappresentate della classe $\alpha$ e lo chiamo $x'_\alpha$. Affinché sia ben definita dev'essere che $g(\alpha) = \pi'f(x_\alpha) = \pi' f(x'_\alpha) = g(\alpha')$, ma questa condizione è vera per l'ipotesi. La continuità di $g$ è data dalla proprietà universale degli spazi quozienti, si consideri il seguente diagramma commutativo
 	\begin{equation*}
 		\begin{tikzcd}[row sep = 3em]
 			(X,\tau) \arrow{d}{\pi} \arrow{rd}{\pi' \circ f} & \\
@@ -1958,7 +1983,7 @@ La proiezione naturale è sempre suriettiva  e si \enquote{comporta bene} (come 
 	
 	Dimostro il secondo punto del teorema, per cui separo i due casi
 	\begin{enumerate}
-		\item[$(\Leftarrow)$] Sia $f$ indentificazione. Notare che abbiamo già che $g$ continua e biettiva, ci manca da dimostrare che $g$ aperta. \\ Sia $A \in \tau_{X/R_f}$ allora $\pi^{-1}(A) \in \tau$ ed è $f$-saturo. Allora $f(\pi^{-1}(A)) \in \tau_f$ e poiché $f = g \circ \pi$ risulta 
+		\item[$(\Leftarrow)$] Sia $f$ identificazione Notare che abbiamo già che $g$ continua e biettiva, ci manca da dimostrare che $g$ aperta. \\ Sia $A \in \tau_{X/R_f}$ allora $\pi^{-1}(A) \in \tau$ ed è $f$-saturo. Allora $f(\pi^{-1}(A)) \in \tau_f$ e poiché $f = g \circ \pi$ risulta 
 		\begin{equation*}
 			 \tau_f \ni f(\pi^{-1}(A)) = g ((\pi \circ \pi^{-1})(A)) = g(A)
 		\end{equation*}
@@ -2009,5 +2034,5 @@ La trattazione dei gruppi topologici è fondamentale, perché si possono costrui
 	Una dimostrazione completa sarebbe molto complessa, però nel caso $n=1$ e $n=2$ è abbastanza intuitiva. \\ \\
 	
 	Sia ad esempio $n=1$. Allora tutti gli elementi di $\R / \Z = \left\{a + \Z \,\middle|\, a \in \left[0,1\right) \right\}$. 
-	Per cui viene indentificato lo $0$ con $1$, è la stessa procedura svolta per dimostrare che $\left[0,1\right]/ \simeq \S$. 
+	Per cui viene identificato lo $0$ con $1$, è la stessa procedura svolta per dimostrare che $\left[0,1\right]/ \simeq \S$. 
 \end{proof}
