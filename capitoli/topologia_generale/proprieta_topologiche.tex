@@ -140,11 +140,11 @@ Se uno degli $X_1$ è di Hausdorff ed $X_2$ non è di Hausdorff, allora il loro 
 \end{proof}
 
 \begin{theorem}
-	Siano $\morphism{f,g}{(X,\tau)}{(Y,\xi)}$ continue, $Y$ è $T_2$ se e solo se $Z \coloneqq \left\{x \in X \,\middle|\, f(x) = g(x) \right\}$ è chiuso in $X$.
+	Siano $\morphism{f,g}{(X,\tau)}{(Y,\xi)}$ continue, $Y$ è $T_2$ allora $Z \coloneqq \left\{x \in X \,\middle|\, f(x) = g(x) \right\}$ è chiuso in $X$.
 \end{theorem}
-%\begin{proof}
-	% TODO
-%\end{proof}
+\begin{proof}
+	Dimostriamo che il complementare di $Z$ è aperto. Per cui sia $y \in Z^c$ allora dev'essere che $f(y) \neq g(y)$. Poiché quindi sono punti distinti e $Y$ è di Hausdorf, esistono $U_{f(y)}, U_{g(y)}$ tali che $U_{f(y)} \cap U_{g(y)} = \varnothing$. Per la continuità delle funzioni $f,g$, esistono quindi degli intorni di $y$ rispettivamente $V_{f,y}, V_{g,y}$ tali che $f(V_{f,y}) \subseteq U_{f(y)}$ e $g(V_{g,y}) \subseteq U_{g(y)}$. Per cui definiamo $V_y \coloneqq V_{f,y} \cap V_{g,y}$. Per concludere dobbiamo osservare che $V_y$ è un intorno di $y$ e che effettivamente $V_y \cap Z = \varnothing$. Se esistesse $x \in V_y \cap Z$ allora $f(x) = g(x)$, ma sappiamo anche che $f(V_y) \cap g(V_y) = \varnothing$ da cui una contraddizione, dev'essere che l'intersezione è nulla. Pertanto $Z^c$ è aperto e $Z$ è chiuso.
+\end{proof}
 
 
 
