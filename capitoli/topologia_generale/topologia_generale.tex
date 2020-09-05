@@ -666,7 +666,6 @@ Vediamo alcune proprietà di questi insiemi.
 			Int(S) = \bigcup_{x\in Int(S)} \left\{x\right\} \subset \bigcup_{x \in S} A_x \subset Int(S) 
 		\end{equation*}
 		che è il maggiore aperto, poiché se ci fosse un aperto più grande sarebbe contenuto in $\bigcup_{x \in S} A_x$, anzi sarebbe uno degli $A_x$.
-		\item 
 	\end{enumerate}
 \end{proof}
 
@@ -1390,7 +1389,6 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 \end{enumerate}
 \end{proof}
 
-\newpage
 \begin{theorem}
 	Sia $\morphism{f}{(X,\tau)}{(Y,\xi)}$ ed $f$ continua. Sia $\varnothing \neq S \subset X$ e $T \subset Y$.
 	\begin{enumerate}
@@ -1416,14 +1414,6 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 			f^{-1}(A) = f^{-1} (A' \cap T) = f^{-1}(A') \cap f^{-1}(T) = f^{-1}(A') \cap S
 	\end{equation*} 
 	che diventa quindi un aperto di $\tau|_S$. Pertanto $f$ è continua.
-\end{proof}
-\begin{proof}
-	Una dimostrazione \enquote{più pulita}, non quella fatta in classe: ovviamente dimostriamo solo il punto $2$.\\ \\
-	Sia $A$ un aperto in arrivo, quindi aperto in $T$; allora ha forma $A' \cap T$ per un $A'$ aperto in $Y$.  Siccome l'intersezione commuta per controimmagine abbiamo vinto in automatico.
-	\begin{equation*}
-	f^{-1}\left(A' \cap T\right)=f^{-1}\left(A'\right) \bigcap f^{-1}\left(T\right) = f^{-1}\left(A'\right) \bigcap S 
-	\end{equation*}
-	che è un'intersezione tra $S$ ed un aperto poiché $f$ è continua, quindi (per caratterizzazione dei sottospazi topologici) abbiamo un aperto di $S$.
 \end{proof}
 
 \begin{remark}
@@ -1459,6 +1449,8 @@ Arriviamo alla parte saliente del corso: possiamo utilizzare la teoria delle fun
 	\end{equation*}
 	ma $X_i, A'_i \in \tau$ quindi la loro intersezione è ancora un aperto, inoltre l'intersezione qualsiasi di aperti è un aperto. Segue che $f^{-1}(A)$ è aperto e dunque $f$ continua.
 \end{proof}
+
+\newpage
 
 
 
@@ -1876,7 +1868,6 @@ Costruire un modo più facile per studiarla è necessario per i casi peggiori e 
 	Dimostro solo il primo caso, il secondo è equivalente al primo dato quanto visto fino ad ora. Se $f$ aperta allora $\forall A \in \tau$ risulta che $f(A)$ è aperta per ipotesi e $f^{-1}f(A)$ dev'essere ancora un aperto perché $f$ continua. Se invece vale che la $f$-saturazione di un aperto è ancora aperta, fisso $A \in \tau$ e voglio vedere che $f(A)$ è un aperto in $\tau_f$. Ma $f(A) \in \tau_f$ se e solo se esiste $S \in \tau$ e $f$-saturo tale che $f(S) = f(A)$. Basta scegliere $S = f^{-1}f(A)$, e sappiamo che appartiene a $\tau$; è $f$-saturo ed inoltre poiché $f$ suriettiva $f(S) = f(f^{-1}f(A)) = f(A)$. Pertanto $f$ è aperta. 
 \end{proof}
 
-\newpage
 \subsection{\textcolor{TopGener}{\textbf{Relazioni di equivalenza e spazi quozienti}}}
 La nostra ricetta più raffinata sarà quella degli \textbf{spazi quozienti}. 
 
@@ -1948,7 +1939,7 @@ La proiezione naturale è sempre suriettiva  e si \enquote{comporta bene} (come 
 	\end{equation*}
 	per cui $g$ è continua dato che $\pi' \circ f$ è continua.
 \end{proof}
-\newpage
+
 \begin{theorem}
 	Sia  $\morphism{f}{X}{X'}$ una applicazione continua e surgettiva, possiamo definire la relazione di equivalenza $R_f$ sull'insieme $X$ ponendo la relazione $xR_fy \Leftrightarrow f(x) = f(y)$. Allora 
 	\begin{enumerate}
@@ -2007,29 +1998,19 @@ I seguenti corollari sono decisamente simili ed indicano la stessa cosa, ma in m
 
 \section{Gruppi topologici}
 \subsection{\textcolor{TopGener}{\textbf{L'operatore di gruppo}}}
-Finalmente è giunto il momento di portare ad un livello superiore la nostra trattazione. \\ Avendo un insieme, chiunque proverebbe a capire come costruire una struttura di gruppo. Oppure è solo una nostra fissazione.
 
+Finalmente è giunto il momento di portare ad un livello superiore la nostra trattazione. I gruppi sono ubiquitari in matematica, e si presentano in varie forme in topologia i.e. gruppo fondamentale, gruppi di omologia, etc. In particolare l'argomento trattato ora, per quanto `fuori dal contesto' generale, si ricollega a costruzioni utili nella teoria dei rivestimenti e rivestimenti universali (argomenti profondi che avranno collegamenti anche con la teoria di Galois, si veda etalé homology).  
 
 
 \begin{definition}
-	Sia $(X, \tau)$ uno spazio topologico con $\dot \colon X \times X \rightarrow X$ un operatore di gruppo su $X$. \\ Allora è un gruppo topologico se $x \dot y^{-1}$ è una funzione continua. %todo non manca il nome dell'operatore di gruppo?
+	Sia $(X, \tau)$ uno spazio topologico con $\cdot \colon X \times X \rightarrow X$ un operatore di gruppo su $X$. \\ Allora è un gruppo topologico se $x \cdot y^{-1}$ è una funzione continua.
 \end{definition}
 
 \begin{example} \
 \begin{enumerate}
 	\item $\R$ con la topologia euclidea e l'addizione è un gruppo topologico.
-	\item $\Z, \Q$ sono due sottogruppi normale di $\R$ rispetto all'addizione. 
-	\item $\operatorname{GL}_n$ e i suoi sottogruppi sono gruppi topologici.
+	\item $\Z, \Q$ sono due sottogruppi normali di $\R$ rispetto all'addizione. 
+	\item $\operatorname{GL}_n(\R)$ e i suoi sottogruppi sono gruppi topologici sconnessi rispetto al prodotto tra matrici.
 \end{enumerate}
 \end{example}
 
-La trattazione dei gruppi topologici è fondamentale, perché si possono costruire dei quozienti topologici.
-\begin{theorem}
-	$\R^n / \Z^n \simeq \S^n$
-\end{theorem}
-\begin{proof}
-	Una dimostrazione completa sarebbe molto complessa, però nel caso $n=1$ e $n=2$ è abbastanza intuitiva. \\ \\
-	
-	Sia ad esempio $n=1$. Allora tutti gli elementi di $\R / \Z = \left\{a + \Z \,\middle|\, a \in \left[0,1\right) \right\}$. 
-	Per cui viene identificato lo $0$ con $1$, è la stessa procedura svolta per dimostrare che $\left[0,1\right]/ \simeq \S$. 
-\end{proof}
