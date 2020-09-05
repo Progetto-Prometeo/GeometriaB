@@ -360,20 +360,20 @@ A meno di restrizioni, ogni intorno appartenente al sistema di intorni è aperto
 \begin{proof}
 	Definiamo innanzitutto una topologia come segue (il che richiede la presenza dell'ipotesi $3$)
 	\begin{equation*}
-		\tau \coloneqq \left\{ A \in 2^X \,\middle|\, \forall x \in A\ . \ \exists N \in \mathcal{N}(x)\ \text{t.c.}\ x \in A \subset N \right\}
+		\tau \coloneqq \left\{ A \in 2^X \,\middle|\, \forall x \in A\ . \ \exists N \in \mathcal{N}(x)\ \text{t.c.}\ x \in N \subset A \right\}
 	\end{equation*}
 	Mostriamo la sua struttura topologica:
 	\begin{enumerate}
 		\item $\varnothing \in \tau$ in quanto non avendo punti soddisfa il criterio, mentre $X \in \tau$ dato che per il punto $1$ ho che $U \subset X$ per ogni $U \in \mathcal{N}(x)$ ($x \in X$ qualsiasi).
-		\item Mostro che se $A_1, A_2 \in \tau$ allora $A_1 \cap A_2 \in \tau$. \\ Sia $x \in A_1 \cap A_2$, per definizione di $A_1$ deve esistere almeno un insieme $U \in \mathcal{N}(x)$ tale che $A_1\subset U$, e lo stesso vale per $A_2 \subset V$. Quindi prendo $A_1 \cap A_2 \subset V \cap U$ e per il punto $2$ deve essere $U \cap V \in \mathcal{N}(x)$. \\ Quindi $A_1 \cap A_2 \in \tau$.
-		\item Devo dimostrare che rimane stabile per unione arbitraria di aperti. \\ Considero una famiglia $\left\{A_i\right\}_{i \in I}$ con $I$ insieme qualunque. Denominiamo poi $S = \bigcup_{i \in I} A_i$. Per cui sia $x \in S$, allora deve esistere $x \in A_{i_0}$. Per definizione di aperto deve esistere $U\in \mathcal{N}(x)$ tale che $x \in A_{i_0} \subset U$. Poiché questo vale per ogni $x \in S$ segue che
+		\item Mostro che se $A_1, A_2 \in \tau$ allora $A_1 \cap A_2 \in \tau$. \\ Sia $x \in A_1 \cap A_2$, per definizione di $A_1$ deve esistere almeno un insieme $U \in \mathcal{N}(x)$ tale che $U \subset A_1$, e lo stesso vale per $V \subset A_2$. Quindi prendo $V \cap U \subset A_1 \cap A_2$ e per il punto $2$ deve essere $U \cap V \in \mathcal{N}(x)$. \\ Quindi $A_1 \cap A_2 \in \tau$.
+		\item Devo dimostrare che rimane stabile per unione arbitraria di aperti. \\ Considero una famiglia $\left\{A_i\right\}_{i \in I}$ con $I$ insieme qualunque. Denominiamo poi $S = \bigcup_{i \in I} A_i$. Per cui sia $x \in S$, allora deve esistere $x \in A_{i_0}$. Per definizione di aperto deve esistere $U\in \mathcal{N}(x)$ tale che $x \in U \subset A_{i_0}$. Poiché questo vale per ogni $x \in S$ segue che
 		\begin{equation*}
-			S = \bigcup_{x \in S} \left\{x\right\} = \bigcup_{i \in I} A_i \subset \bigcup_{i \in I} U_i
+			\bigcup_{i \in I} U_i \subset  S = \bigcup_{x \in S} \left\{x\right\} = \bigcup_{i \in I} A_i 
 		\end{equation*}
 		e l'unione degli $U_{i_0} \subset \bigcup_{i \in I} U_i$. 
 		\footnote{per l'ipotesi $4$ posso trovare un ricoprimento di $U_i \in \mathcal{N}(y)$ per ogni $y \in A_i$!}
 		\\
-		 Quindi per l'asserto $1$ segue che l'unione di questi intorni è ancora un intorno di ogni punto di $S$. Pertanto $S \in \tau$.
+		 Quindi per la definizione della topologia segue che l'unione di questi intorni è ancora un intorno di ogni punto di $S$. Pertanto $S \in \tau$.
 	\end{enumerate}
 	Per come si possono caratterizzare gli insiemi aperti, ovvero come intorni di ogni loro punto, dev'essere che la topologia sopra definita sia l'unica.  
 \end{proof}
@@ -519,15 +519,12 @@ Torneranno utili nella descrizione degli spazi e nella comprensione della loro s
 \begin{lemma}
 	Sia $(X,\tau)$ uno spazio topologico, se esso soddisfa il secondo assioma di numerabilità allora soddisfa anche il primo. 
 \end{lemma}
-\begin{proof}[Vista in classe]
+\begin{proof}
 	Prendendo come abbiamo sempre fatto la costruzione del sistema fondamentale di intorni (in un punto $x$ generico) dalla base
 	\begin{equation*}
 	B_x \coloneqq \left\{ b \in \mathcal{B} \ \text{ tali che } \ x \in b \right\}
 	\end{equation*}
-	risulta ovvio che se la base $\mathcal{B}$ è finita, allora lo è anche il sistema fondamentale di intorni.
-\end{proof}
-\begin{proof}[Alternativa]
-	Sia $\mathcal{B}$ una base numerabile di $\tau$, allora mi basta prendere come sistema fondamentale di intorni tutti i $\left\{B_i\right\} \in \mathcal{B}$ tali che $x \in B_i$. Per cui $\left\{B_i\right\}$ genera un sistema fondamentale di intorni numerabile per ogni $x \in X$.
+	risulta ovvio che se la base $\mathcal{B}$ è numerabile, allora lo è anche il sistema fondamentale di intorni.
 \end{proof}
 
 \begin{example}	\
