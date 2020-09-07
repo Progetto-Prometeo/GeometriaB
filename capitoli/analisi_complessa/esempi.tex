@@ -85,11 +85,27 @@ Possiamo osservarne alcune caratteristiche fondamentali.
 		%TODO: proof  (G)
 		%ne ho messe un paio ma sono troppo stanco per finirle (S)
 	\begin{enumerate}
-		\item Ovvio, basta scrivere la forma trigonometrica di $e^{iz}$ ed $e^{-iz}$, poi cercarne la parte reale ed immaginaria.
-		\item Anche questo è ovvio per scrittura esponenziale.
-		\item
-		\item
-		\item
+		\item Per algebra:
+			\begin{align*}
+				\sin(z) & = \frac{e^{iz} - e^{-iz}}{2i} = \frac{1}{2i} \sum_{j=0}^{+\infty} \frac{(iz)^{j}}{j!} - \frac{(-iz)^{j}}{j!} \\
+					 	& = \frac{1}{2i} \sum_{j=0}^{+\infty} \frac{(iz)^j - (-iz)^j}{j!}
+			\end{align*}
+			Dobbiamo vedere i diversi casi per cui $i^{4k} = 1$, $i^{4k + 1} = i$, $i^{4k + 2} = -1$, $i^{4k + 3} = -i$. A questo punto abbbiamo tre sommatorie rispettivamente 
+			\begin{align*}
+				\frac{1}{2i} \sum_{j=0}^{+\infty} \frac{(iz)^{4j} - (-iz)^{4j}}{4j!} & = 0 \\
+				\frac{1}{2i} \sum_{j=0}^{+\infty} \frac{(iz)^{4j+1} - (-iz)^{4j+1}}{(4j+1)!} & = \frac{1}{2i} \sum_{j=0}^{+\infty} i\frac{z^{4j+1}}{(4j+1)!} \\
+				\frac{1}{2i} \sum_{j=0}^{+\infty} \frac{(iz)^{4j+2} - (-iz)^{4j+2}}{(4j+2)!} & = 0 \\
+				\frac{1}{2i} \sum_{j=0}^{+\infty} \frac{(iz)^{4j+3} - (-iz)^{4j+3}}{(4j+3)!} & = \frac{1}{2i} \sum_{j=0}^{+\infty} -i\frac{z^{4j+3}}{(4j+3)!} \\
+			\end{align*}
+			da cui si trova la stessa definizione di $\sin(z)$ con $z \in \C$.
+		\item Osserviamo che l'esponziale complesso $e^{iz}$ con $z \in \C$, allora se $z = a + ib$ vale che $e^{ia - b}$ che è $2\pi$ periodico in funzione della parte reale di $z$. Analogamente per $e^{-iz}$, questo dà la ben conosciuta proprietà di $2\pi$ periodicità sull'asse reale delle funzioni trigonometriche.
+		\item Supponiamo per assurdo che siano limitate. Sappiamo che $\sin(z), \cos(z)$ sono funzioni intere, ovvero sono olomorfe su tutto $\C$ (deriva dal fatto che si possono scrivere come combianzione lineare di funzioni intere). Allora per il Teorema di Liouville dev'essere che $\sin(z), \cos(z)$ siano costanti. Ma è ovvio che non lo sono, infatti basta calcolarsi due valori e vedere che non lo sono i.e. si prenda $z = \pi$ e $z = \pi/2$. Pertanto abbiamo una contraddizione. Segue che $\sin(z), \cos(z)$ non possono essere limitate.  
+		\item Sia $y \in \C$ allora vale che $y = \sin(z)$ sse esiste una soluzione a 
+		\begin{equation*}
+			2cw = w^2 + 1 \quad\ \text{con}\ w = e^{iz}
+		\end{equation*} 
+		e questa esiste per ogni $c$ da cui la tesi.
+		\item Basta osservare che il coseno ha zeri in $\pi/2 k$ con $k \in \Z$, per vederlo si può usare Rouché o più banalmente basta far vedere che se la parte immaginaria $>0$ allora $\cos(z) > 0$.    
 	\end{enumerate}
 	\end{proof}
 	
