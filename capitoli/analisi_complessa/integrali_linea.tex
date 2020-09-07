@@ -2,7 +2,7 @@
 Il corso si fonderà sul calcolo degli integrali di funzioni in variabile complessa su un dominio - o una curva - complesso: vedremo alcune definizioni ed alcuni teoremi per il calcolo integrale e noteremo come le curve abbiamo un ruolo fondamentale. Presto scopriremo anche come \enquote{scegliere} le curve per semplificare i calcoli. \\ \\ Ci inoltreremo nel teorema più importante di questa sezione del corso: il \textit{teorema integrale di Cauchy}.
 \newpage
 \section{Integrare su una curva}
-\subsection{\textcolor{AnComp}{\textbf{Integrare su una curva?}}}
+\subsection{\textcolor{AnComp}{\textbf{Integrare su una curva}}}
 
 Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso. Per fare ciò parametriziamo le curve complesse su un intervallo reale. 
 
@@ -46,16 +46,16 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 		\end{equation*}
 	\end{enumerate} 
 \end{proposition}
-\begin{proof} (1)\\
+\begin{proof}[Dimostrazione di (1)]
 	Il primo punto deriva dalla linearità dell'integrale di Riemann. 
 	Basta dividere in parte reale e immaginaria della funzione $f = u+ iv$.
 \end{proof}
 
-\begin{proof} (2)\\
+\begin{proof}[Dimostrazione di (2)]
 	Segue dalla linearità dividendo la funzione in parte reale e immaginaria.	
 \end{proof}
 
-\begin{proof} (3)\\
+\begin{proof}[Dimostrazione di (3)]
 	Poniamo $\omega \coloneqq \int_{a}^{b} f(t)\ dt$, allora se $\omega = 0$ è dimostrata. Se $\omega \neq 0$ allora poniamo $u = \overline{\omega}/|\omega|$, osserviamo che $|u|=1$. Da cui
 	\begin{equation*}
 	\begin{aligned}
@@ -64,7 +64,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 	\end{equation*}
 \end{proof}
 
-\begin{proof} (4)\\
+\begin{proof}[Dimostrazione di (4)]
 	Questo si può vedere come la Formula dell'area  
 	\begin{equation*}
 	\begin{aligned}
@@ -110,8 +110,6 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 \begin{remark}
 	La definizione \ref{defn:integrale-di-linea} è dipendente dalla parametrizzazione utilizzata, ma ciò non toglie che dia, per parametrizzazioni che non cambiano l'orientazione della curva, lo stesso risultato (come si può riparametrizzando avanti e indietro la curva).
 \end{remark}
-
-\subsection{\textcolor{AnComp}{\textbf{Integrare su una curva!}}}
 
 \begin{proposition}
 	\label{prop:proprieta-integrale-di-linea}
