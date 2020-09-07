@@ -1,5 +1,7 @@
 \chapter{Serie di Laurent}
-In analisi reale sappiamo che è possibile scrivere le funzioni in forma di serie di Taylor. Non sarebbe magnifico avere un attrezzo simile anche nell'analisi complessa? \\ \\ Si potrebbe obiettare che l'estensione di una serie di Taylor reale può essere un'ottima costruzione; sicuramente ha senso per funzioni analitiche (si veda l'esponenziale reale), ma le funzioni olomorfe sono decisamente più delle funzioni armoniche reali. Inoltre in caso di singolarità isolate (definizione: letteralmente singolarità isolate) la serie di Taylor non è più così \enquote{buona}. \\ \\ Capiremo veramente il motivo più avanti.
+
+In modo analogo alle serie di potenze usate per descrivere una funzione olomorfa su una palla aperta, è possibile descrivere una funzione olomorfa in una corona circolare attraverso una sorta di ``serie di potenze''. Quest'ultime vengono chiamate serie di Laurent. 
+
 \newpage
 \section{Serie di Laurent e singolarità solate}
 \subsection{\textcolor{AnComp}{\textbf{Funzioni olomorfe come serie di potenze}}}
@@ -74,7 +76,7 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
   corona circolare chiusa 
   \begin{equation*}
     \overline{C_{z_0}(r,R)} \coloneqq \left\{ z \in \C \,\middle|\,
-            \le < |z - z_0| \le R \right\}
+            r \le |z - z_0| \le R \right\}
   \end{equation*}
   allora si può scrivere $f$ come somma di una serie di Laurent, ovvero 
   \begin{equation*}
@@ -202,12 +204,13 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
   \label{rmk:equivalenza_definizioni_sing_eliminabili}
 \end{remark}
 
+\newpage
+
 \begin{example}\
   \begin{enumerate}
     \item Sia $f(z) = 1/z$ allora proviamo a vedere che tipo di singolarità ha
       in $z = 0$, il residuo è 
       \begin{equation*}
-        % TODO: check if my calcs are correct
         \operatorname{Res}_f(0) = \frac{1}{2\pi i } \int_{\gamma} f(w)\ dw = 1
       \end{equation*}
       Per ogni $n < 1$ i coefficienti si azzerano.\\ Quindi ha un polo di ordine
@@ -328,7 +331,7 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
   \delta$ per ogni $z \in D \setminus \left\{ z_0 \right\}$. Sia quindi
   \begin{equation*}
     g(z) = \frac{1}{f(z) - \alpha} \in \mathcal{O}(D \setminus \left\{ z_0
-      \right\}
+      \right\})
   \end{equation*}
   allora $g \le 1/\delta$, ovvero è limitata. Pertanto $g$ ha una singolarità
   eliminabile in $z_0$ e questo indica che $f - \alpha$ può avere al massimo una

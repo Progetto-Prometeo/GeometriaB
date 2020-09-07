@@ -2,6 +2,7 @@
 
 \chapter{Lo studio dei residui}
 L'ultima importante parte dello studio dell'analisi complessa è imparare ad analizzare i residui; come abbiamo visto possono essere molto utili nella risoluzione di integrali complessi.
+
 \newpage
 \section{Residuo e residuo a infinito}
 \subsection{\textcolor{AnComp}{\textbf{Funzioni olomorfe come serie di potenze}}}
@@ -66,13 +67,13 @@ L'ultima importante parte dello studio dell'analisi complessa è imparare ad ana
      & = \int_{0}^{\pi} f(\gamma_R(t)) \gamma'_R(t) \ dt\\
      & = \int_{\gamma_R} f(z)\ dz
   \end{align*}
-  ovvero la tesi.
+  da cui segue la tesi.
 \end{proof}
 
 \begin{corollary}
   Sia $f \in \mathcal{O}(\C \setminus \left\{ z_1, \cdots, z_n \right\})$. Allora 
     \begin{equation*}
-      \Res_\infty(f) = - \sum_{i=1}^{n} \Res_{z_i}(f) = 0
+      \Res_\infty(f) + \sum_{i=1}^{n} \Res_{z_i}(f) = 0
     \end{equation*}
 \end{corollary}
 \begin{proof}

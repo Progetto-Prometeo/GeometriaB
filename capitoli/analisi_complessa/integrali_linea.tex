@@ -236,13 +236,13 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 	Inoltre $f \in \mathcal{O}(\Omega)$ e quindi è olomorfa anche in $z^*$. Quindi essendo differenziabile in $z^*$ si ottiene che 
 	\begin{equation*}
 	\begin{aligned}
-	|f(z) - f(z^*) - f'(z^*)(z-z^*)| < \varepsilon(z - z^*)
+	|f(z) - f(z^*) - f'(z^*)(z-z^*)| < \varepsilon|z - z^*|
 	\end{aligned}
 	\end{equation*}
 	vale per ogni $\varepsilon > 0$ e $|z - z^*| < \delta$ per qualche $\delta > 0$. Osserviamo che in particolare possiamo prendere come intorno in cui vale un rettangolo $R_{i_n}$ per $n$ ``abbastanza grande''. Per cui
 	\begin{equation*}
 	\begin{aligned}
-	\eta(R_{i_n}) = \left|\int_{\partial R_n} f(z)\ dz\right| = 0 % TODO non so bene come scriverlo, essenzialmente e' a causa della differenziabilità che di da che è uguale a un polinomio, quindi ha primitiva e quindi va a 0
+		\eta(R_{i_n}) = \left|\int_{\partial R_n} f(z)\ dz\right| = 0 
 	\end{aligned}
 	\end{equation*}
 	da cui 
@@ -265,7 +265,7 @@ Vogliamo definire l'integrale di funzioni complesse su curve nel piano complesso
 	Sia $\D \subset \C$ un disco aperto e $f$ olomorfa sul disco e $\gamma$ una curva chiusa con supporto $\gamma(I) \subset D$, allora 
 	\begin{equation*}
 	\begin{aligned}
-	\int_\gamma f(z)\ dz = 0
+		\int_\gamma f(z)\ dz = 0
 	\end{aligned}
 	\end{equation*}
 \end{theorem}

@@ -164,14 +164,6 @@
 \end{proof} 
 
 \begin{remark}
-  % TODO: Se trovo una dimostrazione carina, lo metto come teorema.
-  % Allora: 
-  % 1. Dimostrare che separa in due sole componenti connesse.
-  % 2. Dimostrare che se hai una curva chiusa, nella sua parte interna
-  % hai che |Ind_\gamma(z)| > 0. (lemma a parte) 
-  % 3. Da questo poi trovare che dev'essere almeno Ind_\gamma(z) >= 1 
-  % o Ind_\gamma(z) <= -1, poi proseguire per ridurre il bound a 
-  % Ind_\gamma(z) < 2 e analogamente Ind_\gamma(z) > -2.
   Data una \textbf{curva di Jordan} ovvero una curva regolare a tratti,
   chiusa e semplice (ovvero è iniettiva), allora per il \textbf{teorema
   della curva di Jordan} vale che divide $\C$ in due componenti connesse, 
@@ -179,7 +171,7 @@
   positivamente avrà $\Ind_\gamma(z) = 1$ per ogni $z$ nella
   componente connessa limitata, altrimenti sarà orientata negativamente
   e allora $\Ind_\gamma(z) = -1$.
-    \label{rmk:teorema-curva-di-jordan}
+  \label{rmk:teorema-curva-di-jordan}
 \end{remark}
 
 \begin{corollary}
@@ -359,8 +351,6 @@
 	Cosa succede se si prova ad usare il Teorema di Liouville in $\R$? 
 	Non funziona. Infatti basta consideare la funzione $\sin(x)$ che è 
 	analitica ovunque e limitata (su $\R$), ma non è una funzione costante. 
-	Inoltre $\sin(x)$ è una funzione intera, ma non è limitata sui complessi
-	e infatti non vale il Teorema di Liouville.
 \end{remark}
 
 \begin{corollary}
@@ -451,13 +441,8 @@
 \section{Teoremi integrali di Cauchy}
 \subsection{\textcolor{AnComp}{\textbf{Teoremi integrali in forma generale}}}
 
-% TODO: revise at the end
-Come abbiamo visto il campo dei complessi dona meraviglie al calcolo degli
-integrali di linea e stabilisce una profonda relazione tra integrale, indice
-di una curva e la funzione stessa. Vogliamo ora investigare la
-possibilità di calcolare una funzione attraverso il suo integrale nella
-maggior parte possibile dello spazio $\Omega$. Ovvero cercare di escludere
-solamente i punti dove la funzione ha dei poli.
+L'essenza di questo capitolo è generalizzare il teorema della formula integrale 
+di Cauchy in forma locale. 
 
 \begin{definition}
     \label{def:catena-di-curve-chiuse}
@@ -638,20 +623,19 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora
 \end{enumerate}
 \label{thr:formule-di-cauchy-generale}
 \end{theorem}
-\begin{proof}Dimostrazione parte 1:\\ \\
+\begin{proof}[Dimostrazione parte 1]\
 
     \textbf{Definizioni preliminari}\\
 
     Sia $\morphism{g}{\Omega\times\Omega}{\C}$ definita come nel Lemma
     \ref{lem:rapporto-incrementale-funzione-olomorfa}. 
-    % TODO
     Poniamo quindi 
     \begin{equation*}
         \Omega' := \left\{ z \in \C \setminus \image(\Gamma) \mid
             \Ind_\Gamma(z) = 0  \right\}
     \end{equation*}
     ovvero $\Omega'$ rappresenta la componente connessa esterna alla catena
-    $\Gamma$ e quindi è un aperto. % TODO: why?
+    $\Gamma$ e quindi è un aperto.
     Essendo inoltre $\Gamma \sim_\Omega 0$, dev'essere che $\Omega' \supset
     \C \setminus \Omega$.  Per cui $\Omega \cup \Omega' = \C$. Poniamo 
     \begin{equation*}
@@ -719,7 +703,7 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora
       \Ind_\Gamma(z)  
     \end{equation*}
 \end{proof}
-\begin{proof}Dimostrazione parte 2: \\ \\
+\begin{proof}[Dimostrazione parte 2:]\
   Sia $z_0 \in \Omega \setminus \image(\Gamma)$. Per il punto precedente
     applicato alla funzione $F(z) = f(z)(z-z_0)$ vale
     \begin{equation*}
@@ -753,8 +737,7 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora
 \end{lemma}
 \begin{proof}
  Dalla definizione segue che $\Ind_\gamma(z)
- = \Ind_{\gamma - z}(o)$. % TODO: perché vale questa cosa?
- % Riguarda la definizione di catena di curve chiuse forse?? 
+ = \Ind_{\gamma - z}(o)$. 
  Assumiamo quindi $z = 0$. Sia 
  \begin{equation*}
    \gamma(t) = \frac{\gamma_1(t)}{\gamma_2(t)}
@@ -924,7 +907,14 @@ $\Gamma \sim_\Omega 0$. Sia $f \in \mathcal{O}(\Omega)$. Allora
     costante in $0$.
     Pertanto $\gamma$ è omotopo a $e^{2\pi i 0} = 1$. Ovvero per qualsiasi
     rappresentante scelto della classe $\alpha \in \operatorname{ker}(\Psi)$, 
-    si ha che la classe $\alpha = \left[c\right]$ ovvero la classe costante. 
+    si ha che la classe $\alpha = \left[c\right]$ ovvero la classe costante. \\
+    
+    Osserviamo infine che la classe di cappi usate sono di curve regolari, 
+    mentre noi vogliamo descrivere l'isomorfismo per tutti i cappi continui. 
+    Per generalizzare l'enunciato ai cappi continui osserviamo che possiamo 
+    sempre portare una curva continua a una curva differenziabile attraverso
+    un omotopia\footnote{N.d.R. basta osservare gli enunciati che precedono.}.
+    Da cui vale effettivamente l'isomorfismo su tutto il gruppo fondamentale.
 \end{proof}
 
 \begin{theorem}
