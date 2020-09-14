@@ -1,7 +1,9 @@
 \chapter{Varietà}
+Ora abbiamo completato uno studio fondamentale, che ci permetterà di lavorare su superfici topologiche \enquote{brutte a piacere}; quindi perché non farlo? \\ \\ Studieremo le varietà topologiche più interessanti dopo una breve introduzione generale, e vedremo di persona il \textit{teorema di classificazione delle superfici topologiche compatte}.
 
-
-\section{Varietà topologica}
+\newpage
+\section{Le varietà topologiche}
+\subsection{\textcolor{TopAlg}{\textbf{Introduzione allo studio delle varietà}}}
 
 \begin{definition}
 	Un $(X,\tau)$ spazio topologico, è detto \textbf{localmente euclideo} se per ogni $x \in X$ esiste $n \in \N$ e $U_x \subset X$ intorno aperto di $x$ tale che esiste un omeomorfismo $\morphism{\varphi_x}{U_x}{\mathring{\D}^n}$.  
@@ -19,11 +21,11 @@
 	Il disco nella topologia euclidea $\mathbb{D}^n$ è connesso per archi. 
 \end{theorem} 
 \begin{proof}
-	Dimostro che il disco è convesso e quindi connesso per rette (e in particolare per archi). Infatti sia 
+	Dimostro che il disco è convesso e quindi connesso per segmenti (e in particolare per archi). Infatti sia 
 	\begin{equation}
 	\mathbb{D}^n := \{x\in \R^n\; |\; |x| \le 1\}
 	\end{equation}
-	allora basta far vedere che presi due punti vale che l'intera retta sta nel disco. Siano $x, y \in \mathbb{D}^n$ allora
+	allora basta far vedere che presi due punti vale che l'intero segmento sta nel disco. Siano $x, y \in \mathbb{D}^n$ allora
 	\begin{equation}
 	|(1-t)x+ty| \le (1-t)|x| + t|y| \le 1-t+t =1
 	\end{equation}
@@ -80,7 +82,7 @@
 \end{proof}
 
 \begin{remark}
-	In generale se uno spazio topologico è localmente euclideo non è di Hausdorff. Infatti si consideri $\{a,b\} \times \R$ con la relazione di equivalenza $(x,y) \sim (z,w) \leftrightarrow y = w \land y > 0 \lor (x,y) = (z,w)$. Allora il disegno diventa una sorta di Y, in cui dove le due rette si congiungono c'è lo $0$ (che non viene identificato! ci sono due zeri: $\{0\}\times \{a\}, \{0\}\times \{b\}$).
+	In generale se uno spazio topologico è localmente euclideo non è di Hausdorff. Infatti si consideri $\{a,b\} \times \R$ con la relazione di equivalenza $(x,y) \sim (z,w) \leftrightarrow y = w \land y > 0 \lor (x,y) = (z,w)$. Allora il disegno diventa una sorta di Y, in cui le due rette si congiungono nello $0$ (che non viene identificato! ci sono due zeri: $\{0\}\times \{a\}, \{0\}\times \{b\}$).
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.35\linewidth]{images/topologia_generale/lcleucnott2}
@@ -100,6 +102,7 @@
 	Un altro esempio è dato dalla linea con due origini che è molto simile all'esempio precedente, l'unica differenza è che si identificano tutte le rette tranne l'origine al posto che solo la parte positiva come avveniva sopra. Si prenda $\R \times \{a,b\}$ come spazio e si quozienti con la relazione $(x,a) \sim (y,b) \Longleftrightarrow x = y \land x,y \neq 0$. Allora lo spazio quoziente sarà dato da due rette distinte, ma con due origini $\{0\} \times \{a\}, \{0\}\times \{b\}$. Se si prende un qualsiasi intorno di $\{0\}\times \{a\}$ si avrà un intersezione per qualsiasi intorno di $\{0\} \times \{b\}$ per ovvie ragioni, per cui non è Hausdorff, malgrado sia localmente euclideo. Infatti basta prendere una carta locale di due mappe che cartografano $(-\infty, a) \cup \{0\}\times \{a\}$ e una che prende $(-a, +\infty) \cup \{0\}\times \{b\}$.  
 \end{remark}
 
+\subsection{\textcolor{TopAlg}{\textbf{Struttura delle varietà topologiche}}}
 \begin{definition}
 	Uno spazio topologico $(X,\tau)$ è detto \textbf{varietà topologica} di dimensione $n$ se è localmente euclideo, connesso, di Hausdorff e a base numerabile.
 \end{definition}
@@ -125,7 +128,9 @@
 L'intuizione di ciò è data dal fatto che il toro può essere rappresentato dalla stringa $aba^{-1}b^{-1}$ e il piano proiettivo da $aa$, mentre la sfera da $aa^{-1}$, per cui tutte le possibili stringhe sono di questo tipo visto che la somma connessa risulta essere, in questo caso, una semplice concatenazione di queste stringhe. La dimostrazione della minimalità verrà data nella prossima sezione.
 
 
-\section{Classificazione superfici compatte}
+\newpage
+\section{Classificazione delle superfici compatte}
+\subsection{\textcolor{TopAlg}{\textbf{Alcuni cenni di teoria dei gruppi}}}
 
 Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebrici sui gruppi. In particolar modo il calcolo degli abelianizzati e dei gruppi dei nostri modelli fondamentali: il toro e il piano proiettivo.
 
@@ -139,18 +144,18 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 	\end{aligned}
 	\end{equation}  
 \end{lemma}
-\begin{proof}[1]
+\begin{proof} Prima formula:\\
 	Sappiamo che $\pi_1(U_h) \simeq \left\langle \alpha_1, \dots, \alpha_h \mid \alpha^2_1 \cdots \alpha^2_h = 1\right\rangle$, quindi abelianizzando il gruppo si ottiene (utilizzando le trasformate di Tietze)
 	\begin{equation}
 	\begin{aligned}
 		& Ab( \left\langle \alpha_1, \dots, \alpha_h \mid \alpha^2_1 \cdots \alpha^2_h = 1\right\rangle) \\
-		& \simeq \left\langle \alpha_0, \alpha_1, \dots, \alpha_h \mid \alpha^2_1 \cdots \alpha^2_h = 1,\ \alpha_0 = \alpha_1 \dots \alpha_h,\ \left[a_i, a_j\right],\ \forall i,j \right\rangle\\
-		& \simeq \left\langle \alpha_0, \alpha_1, \dots, \alpha_h \mid \alpha^2_0 = 1,\ \left[a_i, a_j\right],\ \forall i,j \right\rangle \\
-		& \simeq \left\langle \alpha_1, \dots, \alpha_h \mid \left[a_i, a_j\right],\ \forall i,j \right\rangle \times \left\langle \alpha_0 \mid \alpha^2_0 = 1\right\rangle \simeq \Z^{h-1} \times \Z_2 
+		& \simeq \left\langle \alpha_0, \alpha_1, \dots, \alpha_h \mid \alpha^2_1 \cdots \alpha^2_h = 1,\ \alpha_0 = \alpha_1 \dots \alpha_h,\ \left[\alpha_i, \alpha_j\right],\ \forall i,j \right\rangle\\
+		& \simeq \left\langle \alpha_0, \alpha_1, \dots, \alpha_h \mid \alpha^2_0 = 1,\ \left[\alpha_i, \alpha_j\right],\ \forall i,j \right\rangle \\
+		& \simeq \left\langle \alpha_1, \dots, \alpha_h \mid \left[\alpha_i, \alpha_j\right],\ \forall i,j \right\rangle \times \left\langle \alpha_0 \mid \alpha^2_0 = 1\right\rangle \simeq \Z^{h-1} \times \Z_2 
 	\end{aligned}
 	\end{equation}
 \end{proof}
-\begin{proof}[2]
+\begin{proof}Seconda formula:\\
 	Sappiamo che $\pi_1(T_g) \simeq \left\langle \alpha_1, \dots, \alpha_g, \beta_1, \dots, \beta_g \mid \alpha_1 \beta_1\alpha^{-1}_1\beta^{-1}_1 \dots \alpha_g \beta_g\alpha^{-1}_g\beta^{-1}_g = 1\right\rangle$. Quindi la relazione sui generatori coincide al prodotto di tutti i commutatori, per cui 
 	\begin{equation}
 	\begin{aligned}
@@ -176,16 +181,17 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 \begin{proposition}
 	$\Z^n \simeq \Z^m$ se e solo se $m = n$. 
 \end{proposition}
-\begin{proof}
-\end{proof}
 
+\subsection{\textcolor{TopAlg}{\textbf{Il teorema di classificazione per le superfici compatte}}}
 \begin{theorem}
 	Sia $S$ una superficie compatta. Allora essa è omeomorfa a $T_g$ con $g\ge 0$ oppure ad una superficie $U_h$ per $h > 0$. Inoltre $T_g \not\simeq U_h$ per ogni $g,h$, $U_h \not\simeq U_{h'}$ per $h\neq h'$ e $T_{g'} \not\simeq T_g$ per $g \neq g'$.
 \end{theorem}
 \begin{proof}
 	Il fatto che $S$ sia omeomorfa ad una delle due superfici è già stato dimostrato. Non resta che dimostrare la minimalità dei modelli presi.\\
 	
-	\textbf{$T_g \not\simeq U_h$}\\
+	\begin{flushleft}
+		\textbf{$T_g \not\simeq U_h$}
+	\end{flushleft}
 	
 	Consideriamo gli abelianizzati dei gruppi fondamentali rispettivi. Per il Lemma \ref{lemm:abel_torus_proj} vale che 
 	\begin{equation}
@@ -196,7 +202,9 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 	\end{equation}
 	che hanno rispettivamente come sottogruppo di torsione $\Z_2$ e $\{0\}$, quindi non possono essere isomorfi ed in particolare non $T_g \not\simeq U_h$ (inoltre non sono neanche omotopicamente equivalenti).
 	
-	\textbf{$U_h \not\simeq U_{h'}$} \\
+	\begin{flushleft}
+		\textbf{$U_h \not\simeq U_{h'}$}
+	\end{flushleft} 
 	
 	Se fossero isomorfi allora gli abelianizzati sarebbero isomorfi e inoltre il quoziente dell'abelianizzato per il sottogruppo di torsione sarebbe isomorfo. In particolare 
 	\begin{equation}
@@ -206,7 +214,9 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 	\end{equation}
 	che funziona se e solo se $h = h'$.
 	
-	\textbf{$T_g \not\simeq T_{g'}$} \\
+	\begin{flushleft}
+		\textbf{$T_g \not\simeq T_{g'}$} 
+	\end{flushleft}
 	
 	Se fossero isomorfi allora gli abelianizzati sarebbero isomorfi quindi valrebbe $\Z^{2g} \simeq \Z^{2g'}$ che è valido solo se $g = g'$.
 \end{proof}
@@ -215,7 +225,7 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 % TODO: Inserire esempi da minuto 22 della lezione del 24/03/2020.
 
 \begin{remark}
-	Ricordiamo che affinché un retratto $\morphism{i}{A}{B}$ sia tale è necessario che $\morphism{i_*}{\pi(A, a)}{\pi(B, b)}$ sia un omomorfismo iniettivo; se vogliamo che sia un retratto di deformazione allora $i_*$ dev'essere un isomorfismo. 
+	Ricordiamo che affinché un retratto $\morphism{i}{A}{X}$ sia tale è necessario che $\morphism{i_*}{\pi(A, a)}{\pi(X, x)}$ sia un omomorfismo iniettivo; se vogliamo che sia un retratto di deformazione allora $i_*$ dev'essere un isomorfismo. 
 \end{remark}
 
 \begin{example}\
@@ -244,15 +254,13 @@ Per poter classificare le superfici abbiamo bisogno di alcuni strumenti algebric
 			\caption{}
 			\label{fig:kelinpolygon}
 		\end{figure}
-		Infatti $B = \{b\}$ è un retratto della bottiglia di Klein, mentre $A = \{a\}$ non lo è. \
-		
-		Possiamo costruire un retratto per $B$: 
+		Infatti $B = \{b\}$ è un retratto della bottiglia di Klein, mentre $A = \{a\}$ non lo è. Possiamo costruire un retratto per $B$: 
 		\begin{equation*}
 			r(\left[s,t\right]) = \left[0,t\right]
 		\end{equation*}
 		e osserviamo che è continua e ben definita e tale che $K \overset{r}{\hookrightarrow} B$.\
 		
-		Mostriamo che $A$ non è un ritratto. Prendiamo i gruppi fondamentale di $A$ e $K$ 
+		Mostriamo che $A$ non è un retratto. Prendiamo i gruppi fondamentale di $A$ e $K$ 
 		\begin{equation*}
 			\pi(K, P) \simeq \left\langle \alpha, \beta \,\middle|\, \alpha\beta\alpha\beta^{-1} = 1 \right\rangle \quad\ \pi(A, P) \simeq \left\langle \alpha \,\middle|\, \varnothing \right\rangle
 		\end{equation*}

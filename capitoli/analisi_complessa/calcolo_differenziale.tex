@@ -1,6 +1,9 @@
 \chapter{Calcolo differenziale}
+Il calcolo differenziale è alla base dell'analisi in ogni campo, quindi è solamente giusto iniziare dalla nozione di \textit{funzioni differenziabili in senso complesso}. Dato che la struttura sui complessi è `più forte' di quella di $\R^2$, anche se la topologia dei complessi viene indotta da quella di $\R^2$, si avranno teoremi più forti e generali partendo da ipotesi più deboli rispetto a quelli dell'analisi reale. Per esempio una funzione $C^1(\R)$ non è detto che sia $C^2(\R)$, mentre nei complessi se è differenziabile è anche analitica. 
 
+\newpage
 \section{Differenziabilità in senso complesso}
+\subsection{\textcolor{AnComp}{\textbf{Da $\mathbb{R}$ a $\mathbb{C}$: funzioni differenziabili}}}
 
 Partiamo dal presupposto che possiamo identificare $\C$ con $\R^2$ dato che hanno la stessa topologia - e noi siamo interessati principalmente a questa struttura, dato che vogliamo definirne continuità e  differenziabilità in senso complesso. \\ Allora ogni funzione di una variabile complessa $\morphism{f}{\C}{\C}$ sarà essenzialmente trattata come se fosse una funzione $\morphism{f}{\R^2}{\R^2}$, ovvero ponendo $z = x + iy$
 \begin{equation}
@@ -105,15 +108,15 @@ In virtù della relazione stabilità precedentemente, ovvero che $f = u + iv$ pe
 	E quindi risulta essere una funzione costante. Analogamente se $v(x,y) = p \in \R$ allora $f$ è una funzione costante.   
 \end{corollary}
 
-\section{Funzioni armoniche, operatori di Wirtinger}
+\subsection{\textcolor{AnComp}{\textbf{Funzioni armoniche ed operatori di Wirtinger}}}
 
 \begin{definition}[Operatori di Wirtinger]
 	Sia $\morphism{f}{\Omega}{\C}$ funzione di classe $C^1(\Omega)$. Allora possiamo definire i seguenti operatori
-	\begin{equation}
+	\begin{equation*}
 	\begin{aligned}
 		\frac{\partial f}{\partial z} := \frac{1}{2}(f_x - if_y) \quad\ \frac{\partial f}{\partial \overline{z}} := \frac{1}{2}(f_x + if_y)
 	\end{aligned}
-	\end{equation}
+	\end{equation*}
 \end{definition}
 
 \begin{remark}
@@ -139,8 +142,9 @@ In virtù della relazione stabilità precedentemente, ovvero che $f = u + iv$ pe
 	
 	\textit{Sia $\morphism{u}{\Omega \subset \R^2}{R}$ una funzione armonica su un dominio semplicemente connesso $\Omega$. Allora esiste una funzione armonica $\morphism{v}{\Omega}{\R}$ - unica a meno di una costante - tale che $f(z=x+iy) = u(x,y) + iv(x,y)$ sia una funzione olomorfa}.
 \end{remark}		
-	
+
 \section{Funzioni analitiche o funzioni olomorfe?}
+\subsection{\textcolor{AnComp}{\textbf{Serie e successioni in senso complesso}}}
 
 Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dato che, come vedremo, l'insieme delle funzioni olomorfe coincide con quello delle funzioni analitiche. \\ Pertanto si preferisce descrivere le funzioni analitiche come olomorfe - una condizione facilmente accertabile, data anche l'equivalenza stabilita delle equazioni di Cauchy-Riemann. \\ \\ In questa sezione ci limiteremo a sviluppare la teoria strettamente necessaria per stabilire la convergenza di serie complesse, arrivando infine a dimostrare quanto detto sfruttando il teorema di Abel.\\
 
@@ -152,66 +156,66 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 \begin{definition}
 	\label{defn:serie-di-funzioni-complesse}
 	Data una successione di funzioni complesse $\{f_n\}_{n\in\N}$ definite su $\Omega\subset\C$, allora 
-	\begin{equation}
+	\begin{equation*}
 	\begin{aligned}
 		\sum_{n=0}^{+\infty} f_n 
 	\end{aligned}
-	\end{equation}
+	\end{equation*}
 	si dice \textbf{serie di funzioni complesse}.
 \end{definition}
 
 \begin{definition}
 	\label{defn:convergenza-puntuale-successione}
 	Data una successione di funzioni complesse definite su $\Omega$, $\{f_n\}_{n\in\N}$, se per ogni $z \in \Omega$ vale 
-	\begin{equation}
+	\begin{equation*}
 	\begin{aligned}
 		f_n(z) \to f(z) \quad\ \text{per}\ n \to +\infty
 	\end{aligned}
-	\end{equation}
+	\end{equation*}
 	per una qualche $\morphism{f}{\Omega}{\C}$, allora si dice che la successione \textbf{converge puntualmente} a $f$.
 \end{definition}
 
 \begin{definition}
 	\label{defn:convergenza-puntuale-serie}
 	Data una successione di funzioni complesse definite su $\Omega$, $\{f_n\}_{n\in\N}$, se per ogni $z \in \Omega$ vale 
-	\begin{equation}
+	\begin{equation*}
 	\begin{aligned}
 		\sum^{n}_{k=0} f_k(z) \to f(z) \quad\ \text{per}\ n \to +\infty
 	\end{aligned}
-	\end{equation}
+	\end{equation*}
 	per una qualche $\morphism{f}{\Omega}{\C}$, allora si dice che la serie \textbf{converge puntualmente} a $f$.
 \end{definition}
 
 \begin{definition}
 	\label{defn:convergenza-uniforme-successione}
 	Data una successione di funzioni complesse definite su $\Omega$, $\{f_n\}_{n\in\N}$, se vale 
-	\begin{equation}
+	\begin{equation*}
 	\begin{aligned}
 		\sup_{z \in \Omega} |f_n(z) - f(z)| \to 0 \quad\ \text{per}\ n \to +\infty
 	\end{aligned}
-	\end{equation}
+	\end{equation*}
 	per una qualche $\morphism{f}{\Omega}{\C}$, allora si dice che la successione \textbf{converge uniformemente} a $f$.
 \end{definition}
 
 \begin{definition}
 	\label{defn:convergenza-uniforme-serie}
 	Data una successione di funzioni complesse definite su $\Omega$, $\{f_n\}_{n\in\N}$, se vale 
-	\begin{equation}
+	\begin{equation*}
 	\begin{aligned}
 		\sup_{z \in \Omega} \left|\sum^{N}_{n=0}f_n(z) - f(z)\right| \to 0 \quad\ \text{per}\ N \to +\infty
 	\end{aligned}
-	\end{equation}
+	\end{equation*}
 	per una qualche $\morphism{f}{\Omega}{\C}$, allora si dice che la serie \textbf{converge uniformemente} a $f$.
 \end{definition}	
 	
 \begin{definition}
 	\label{defn:convergenza-assoluta}
 	Data una successione di funzioni complesse definite su $\Omega$, $\{f_n\}_{n\in\N}$, se per ogni $z \in \Omega$ vale 
-	\begin{equation}
+	\begin{equation*}
 	\begin{aligned}
 		\sum^{+\infty}_{n=0} |f_n|(z) < +\infty \quad\ \text{per}\ n \to +\infty
 	\end{aligned}
-	\end{equation}
+	\end{equation*}
 	allora si dice che la serie \textbf{converge assolutamente}.	
 \end{definition}
 
@@ -241,6 +245,10 @@ Il termine \textit{analitico} si perde nel contesto delle funzioni complesse dat
 	\end{equation*}
 	Dato che la serie degli $M_k$ converge, fissato un qualsiasi $\varepsilon > 0$ possiamo sempre trovare $N$ tale per cui $\sum_{k>N} M_k < \varepsilon$. Per l'assoluta generalità con cui è stato scelto $z \in \Omega$ ottengo la tesi di uniforme convergenza. 
 \end{proof}
+
+
+\subsection{\textcolor{AnComp}{\textbf{Le serie di potenze}}}
+
 
 \begin{definition}
 	\label{defn:serie-di-potenze}

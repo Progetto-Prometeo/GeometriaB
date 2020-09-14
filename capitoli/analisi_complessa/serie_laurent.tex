@@ -1,5 +1,11 @@
 \chapter{Serie di Laurent}
 
+In modo analogo alle serie di potenze usate per descrivere una funzione olomorfa su una palla aperta, è possibile descrivere una funzione olomorfa in una corona circolare attraverso una sorta di ``serie di potenze''. Quest'ultime vengono chiamate serie di Laurent. 
+
+\newpage
+\section{Serie di Laurent e singolarità solate}
+\subsection{\textcolor{AnComp}{\textbf{Funzioni olomorfe come serie di potenze}}}
+
 \begin{definition}
   Una \emph{serie di Laurent} è una serie di funzioni della forma 
   \begin{equation*}
@@ -30,19 +36,21 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
 \begin{proof}
   Osserviamo che la serie di Laurent si può scrivere come sommatoria di due serie di
   potenze
-  \begin{align}
-    \label{eq:serie_laurent_pos}
-    \sum_{n=0}^{+\infty} a_n (z-z_0)^{n} \\
-    \label{eq:serie_laurent_neg}
-    \sum_{m=-\infty}^{0} a_{m} \frac{1}{(z-z_0)^{m}}
-  \end{align}
+  % il doppio align dava errore
+  \begin{equation*}
+  \sum_{n=0}^{+\infty} a_n (z-z_0)^{n} 
+  \end{equation*}
+  \begin{equation}
+  	\label{eq:serie_laurent_neg}
+  \sum_{m=-\infty}^{0} a_{m} \frac{1}{(z-z_0)^{m}}
+  \end{equation}
   la seconda basta fare una sostituzione $w = 1/(z-z_0)$ e diventa una serie di
   potenze.
   Per il Teorema di Hadamard \ref{thr:criterio-hadamard} le serie di potenze
   hanno un raggio di convergenza, quindi denotiamo con $R, R_1 \in \left[ 0, 
   +\infty \right]$ rispettivamente il raggio di convergenza della serie di
-  potenze \ref{eq:serie_laurent_pos} e della serie di potenze
-  \ref{eq:serie_laurent_neg}. Ponendo $r = 1/R_1$ si ottiene il raggio di
+  potenze positiva e della serie di potenze
+  negativa. Ponendo $r = 1/R_1$ si ottiene il raggio di
   convergenza della parte della serie di potenze negativa (ovvero formula
   \ref{eq:serie_laurent_neg}) in funzione di $z$. Pertanto la serie di Laurent
   converge (la parte a indici negativi) assolutamente in 
@@ -68,7 +76,7 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
   corona circolare chiusa 
   \begin{equation*}
     \overline{C_{z_0}(r,R)} \coloneqq \left\{ z \in \C \,\middle|\,
-            \le < |z - z_0| \le R \right\}
+            r \le |z - z_0| \le R \right\}
   \end{equation*}
   allora si può scrivere $f$ come somma di una serie di Laurent, ovvero 
   \begin{equation*}
@@ -139,17 +147,16 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
 \end{remark}
 
 \begin{definition}
-  Il coefficiente della serie di Laurent $a_{-1}$ è detto \emph{residuo} di $f$
-  in $z_0$ 
+  Il coefficiente della serie di Laurent centrata in $z_0$, $a_{-1}$ è detto \emph{residuo} di $f$
   \begin{equation*}
-    a_{-1} \coloneqq \frac{1}{2\pi i} \int_{\gamma} f(w)\ dw
+    Res_{z_0}(f) =  a_{-1} \coloneqq \frac{1}{2\pi i} \int_{\gamma} f(w)\ dw
   \end{equation*}
   per ogni curva di Jordan $\gamma$ in $\Omega$ e $z_0 \in
   \operatorname{interno}(\gamma)$.
   \label{def:residuo}
 \end{definition}
 
-\section{Singolarità}
+\subsection{\textcolor{AnComp}{\textbf{Le singolarità di funzioni olomorfe}}}
 
 \begin{definition}
   Sia $D$ un disco aperto centrato in $z_0$. Se $f \in \mathcal{O}(D \setminus
@@ -197,15 +204,16 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
   \label{rmk:equivalenza_definizioni_sing_eliminabili}
 \end{remark}
 
-\begin{example}
+\newpage
+
+\begin{example}\
   \begin{enumerate}
     \item Sia $f(z) = 1/z$ allora proviamo a vedere che tipo di singolarità ha
       in $z = 0$, il residuo è 
       \begin{equation*}
-        % TODO: check if my calcs are correct
         \operatorname{Res}_f(0) = \frac{1}{2\pi i } \int_{\gamma} f(w)\ dw = 1
       \end{equation*}
-      Per per ogni $n < 1$ i coefficienti si azzerano. Quindi ha un polo di ordine
+      Per ogni $n < 1$ i coefficienti si azzerano.\\ Quindi ha un polo di ordine
       $1$.
     \item Sia invece 
       \begin{equation*}
@@ -288,16 +296,17 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
 
 \begin{example}\
   \begin{enumerate}
-    \item Se funzione razionale $f= p / q$ dove $p,q$ sono polinomi complessi
+    \item Se ho una funzione razionale $f= p / q$ dove $p,q$ sono polinomi complessi
       e ovviamente $q \neq 0$ allora $f \in \mathcal{M}(\Omega)$. Infatti se
       $z_0$ è uno zero di $q$ di ordine $k$ allora possiamo supporre che al
       massimo per $l \ge 0$ vale 
-      % TODO: formattare meglio questa espressione
+      %\begin{equation*}
       \begin{align*}
-        & p(z) = (z-z_0)^l \tilde{p}(z) &  & q(z)  = (z-z_0)^k \tilde{q}(z)  \\
-        & & \Longrightarrow f(z)  = (z-z_0)^{l-k}
-        \frac{\tilde{p}(z)}{\tilde{q}(z)} 
+       p(z)  & = (z-z_0)^l \tilde{p}(z)  \\
+       q(z)  & = (z-z_0)^k \tilde{q}(z) \\
+       \therefore f(z)  & = (z-z_0)^{l-k}\frac{\tilde{p}(z)}{\tilde{q}(z)}
       \end{align*}
+      % \end{equation*}
       e quindi al massimo $z_0$ è un polo di ordine $l-k$ (se $k > l$)
       altrimenti è una singolarità eliminabile. 
     \item Sia $f(z) = e^{1/z}$ allora possiamo vedere che ha una singolarità
@@ -322,7 +331,7 @@ con $a_n \in \C$ e per ogni $n \in \Z$ e $z_0 \in \C$ fissato e $z\in \C
   \delta$ per ogni $z \in D \setminus \left\{ z_0 \right\}$. Sia quindi
   \begin{equation*}
     g(z) = \frac{1}{f(z) - \alpha} \in \mathcal{O}(D \setminus \left\{ z_0
-      \right\}
+      \right\})
   \end{equation*}
   allora $g \le 1/\delta$, ovvero è limitata. Pertanto $g$ ha una singolarità
   eliminabile in $z_0$ e questo indica che $f - \alpha$ può avere al massimo una

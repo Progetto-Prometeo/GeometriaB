@@ -5,44 +5,31 @@
 
 
 %------ COPERTINA e ROBA RANDOM --------------
-% TODO: Decidere se mettere o meno i nomi (G) Boh intanto li ho messi (S)
 \makeindex
 \begin{document}
 \definecolor{VerdeSfondo}{rgb}{0.09, 0.45, 0.27}
 \definecolor{VerdeEsag}{rgb}{0.0, 0.5, 0.0}
 \include{copertina_geom}
-\setcounter{page}{1} % correzione errore per presenza copertina
+\setcounter{page}{1} % correzione numerazione per presenza copertina
 
-% Per ora è verde, ma possiamo cambiarla; era il primo colore che mi venisse in mente
-% Colori : http://latexcolor.com/
 
 %Colori per i capitoli
 \definecolor{TopGener}{rgb}{0.64, 0.0, 0.0}
 \definecolor{TopAlg}{rgb}{0.27, 0.42, 0.81}
 \definecolor{AnComp}{rgb}{1.0, 0.65, 0.0}
 \title{Geometria B}
-\author{Giorgio S. \and Leonardo E.}
+\author{G. Susanna \and Leonardo E.}
 \maketitle
 
 % --- FRONT MATTER ------------------------------------
 
 \frontmatter
-
-
-%    Change page number to 6 if a dedication is present.
-% NOTA: l'ho settato ad 1 perché è la prima pagina dell'indice, 
-% mettere la copertina ha cambiato tutto ma non è un problema. (Stark)
 \setcounter{page}{1}
-
 \tableofcontents
-
-
-
 
 % --- MAIN MATTER ------------------------------------
 
-\mainmatter		% Include main chapters here.
-
+\mainmatter
 
 Questo testo contiene gli argomenti svolti in classe, ed alcuni leggermente più approfonditi, di
 \begin{itemize}
@@ -67,8 +54,6 @@ e provvederemo a rilasciare eventualmente una versione aggiornata. \\ Qui sotto 
 \begin{itemize}
 	\item[14-09-2020] Versione originale completata
 \end{itemize}
-
-
 
 \part{Topologia Generale}
 \include{capitoli/topologia_generale/topologia_generale} 
@@ -120,16 +105,24 @@ e provvederemo a rilasciare eventualmente una versione aggiornata. \\ Qui sotto 
 
 % --- APPENDIX & BACKMATTER ------------------------------------
 
-%\appendix
-%    Include appendix "chapters" here.
+\appendix
+% 1. Rifare la teoria con il retratto di deformazione forte vs debole
+% 2. Insiemistica di base
 %\include{}
 
 % TODO? bibliografia
 %\backmatter
 %    Bibliography styles amsplain or harvard are also acceptable.
-%\bibliographystyle{amsalpha}
-%\bibliography{}
+\bibliographystyle{amsalpha}
+\begin{thebibliography}{9}
+	\bibitem{filters-in-lean}
+		Topology formalisation via Filters in Lean,
+		\url{https://leanprover-community.github.io/theories/topology.html}
+	\bibitem{riehl-cat-theory} 
+		Emily Riehl,
+		\textit{Category Theory in Context},
+		\url{http://www.math.jhu.edu/~eriehl/context.pdf}
+\end{thebibliography}
 %    See note above about multiple indexes.
-%\printindex
 
 \end{document}

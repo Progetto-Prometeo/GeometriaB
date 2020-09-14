@@ -1,6 +1,8 @@
 \def \ord {\operatorname{ord}}
 
 \chapter{Zeri di funzioni olomorfe}
+\section{Alcuni teoremi utili}
+\subsection{\textcolor{AnComp}{\textbf{Principi e teoremi per funzioni olomorfe e meromorfe}}}
 
 Lo scopo principale di questo capitolo è di dimostrare il \emph{Principio di
 indentità}, ovvero se due funzioni olomorfe coincidono in un qualche intorno di
@@ -29,22 +31,14 @@ un punto, allora sono identiche.
     Per ottenere il risultato globale usiamo la proprietà di connessione di
     $\Omega$. Infatti sia $A \subset \Omega$ l'insieme dei punti di
     accumulazione di $Z(f)$ in $\Omega$. Noi sappiamo che $f$ è continua, quindi
-    dev'essere che $A \subset Z(f)$ (infatti se $z$ fosse di accumulazione
-      e $f(z) \neq 0$ allora vorrebbe dire che esiste una sequenza di $\{s_n\}
-    \subset Z(f)$ tale che $f(s_n) = 0$ e che $s_n \to z$, ma con 
-    $\lim_{n\to+\infty} f(s_n) \neq f(z)$ per cui $f$ non sarebbe continua).
-    % TODO: chiarire meglio questa parte.
+    dev'essere che $A \subset Z(f)$ poiché $Z(f)$ è chiuso dato che $Z(f) = f^{-1}(\{0\})$.
     \begin{enumerate}
-    	\item Se $A$ è aperto allora $z_0 \in A$ quindi è uno zero isolato
-    	di $f$ e per quanto visto sopra possiamo trovare un intorno in cui $f \neq
-    	0$ per tutto un intorno escluso $z_0$. Quindi l'intorno dovrebbe essere
-    	contenuto in $A$, ma ciò vorrebbe dire che $A \not\subset Z(f)$. 
-    	\item Se $A$ chiuso allora esiste una sequenza $z_n \to z$ con $z_n \in A$ e che
-    	convergono ancora in $z \in A$. In particolare se $z \in Z(f)$ allora $z$
-    	non sarebbe isolato (e abbiamo visto che non è il caso) quindi $z \in A$
-    	e quindi $A \not\subset Z(f)$.
+    	\item Se $z_0 \in A$ vuol dire che è uno zero non isolato
+    	di $f$ e per quanto visto sopra possiamo trovare un intorno in cui $f =
+    	0$ per tutto un intorno escluso $z_0$. Quindi tutto un suo intorno è contenuto in $A$, ed essendo intorno di ogni suo punto $A$ è aperto.
+    	\item Sia data una successione di $z_n$ contenuta in $A$ e convergente ad un certo $z_0$, allora $z_0$ appartiene a $Z(f)$ e non è isolato, quindi appartiene ad $A$: per quanto sappiamo dalla topologia $A$ è chiuso.
     \end{enumerate}
-  Pertanto dev'essere che $A = \varnothing$.
+  Abbiamo scoperto che $A$ è aperto e chiuso, ma per connessione (e perché $f$ non è costantemente nulla, $A \neq \Omega$) dev'essere che $A = \varnothing$.
 \end{proof}
 
 \begin{corollary}[Principio di Identità]
@@ -57,13 +51,10 @@ un punto, allora sono identiche.
   Sia $h = f - g$, osserviamo che la differenza di funzioni olomorfe su $\Omega$
   sarà ancora olomorfa. Allora per il Teorema \ref{thr:zeri_di_funz_no_accum},
   sapendo che $S \subseteq Z(h)$, abbiamo che l'insieme $Z(h)$ ha almeno
-  un punto di accumulazione in $\Omega$ (per Bolzano-Weierstrass), pertanto si
+  un punto di accumulazione in $\Omega$, pertanto si
   conclude che $h$ è la funzione identicamente nulla su tutto $\Omega$.
 \end{proof}
 
-% TODO: portare la definizione di meromorfa, qui, perché dov'era non aveva
-% senso. Era stata introdotta e lasciata a marcire, quindi mettiamola dove può
-% servire effettivamente la sua definizione.
 \begin{corollary}
 	\label{thr:rapporto_olomorfe_diventa_meromorfa}
   Sia $\Omega \supset \C$ connesso e $f,g \in \mathcal{O}(\Omega)$ con $f \neq
@@ -126,8 +117,7 @@ un punto, allora sono identiche.
     \frac{f'(z)}{f(z)} = \frac{m_i}{z-z_i} + \frac{h'(z)}{h(z)}
   \end{equation*}
   con $h'/h$ funzione olomorfa in un intorno di $z_i$. Si può concludere che
-  $m_i = \Res_{z_i}(f'/f)$. La formula segue quindi dal Teorema dei Residui \ref{} 
-  % TODO aggiungere riferimento al teorema dei Residui.
+  $m_i = \Res_{z_i}(f'/f)$. La formula segue quindi dal Teorema dei Residui \ref{thr:teorema_dei_residui}.
 \end{proof}
 
 \begin{corollary}
@@ -303,7 +293,7 @@ un punto, allora sono identiche.
   \end{enumerate}
 \end{example}
 
-\section{Principio del Massimo Modulo}
+\subsection{\textcolor{AnComp}{\textbf{Il principio del massimo modulo}}}
 
 Per ottenere i seguenti teoremi: \emph{Principio del Massimo}; il 
 \emph{Teorema della mappa aperta}; il \emph{Teorema della mappa inversa}. Ci

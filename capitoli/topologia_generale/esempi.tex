@@ -112,7 +112,7 @@ Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il 
 
 
 \section{Esempio di quoziente}
-\subsection{\textcolor{TopGener}{\textbf{Un breve esempio di quoziente topologico}}}
+\subsection{\textcolor{TopGener}{\textbf{Brevi esempi di quoziente topologico}}}
 	
 
 
@@ -127,8 +127,19 @@ Allora valgono alcune proprietà già viste nei precedenti capitoli, tra cui il 
 	che è suriettiva, continua sulla topologia euclidea e vale $f^{-1}f(x) = \left[x\right]_R$. Meno banale è dimostrare che $\tau_f = \tau_{\text{euclidea}}|_{S^1}$. Usando il teorema \ref{thr:freeomeombyquo}
 \end{proof}
 
+\begin{example}
+	Nella retta euclidea (retta reale con topologia euclidea) trovare una relazione di equivalenza che renda la proiezione a quoziente non aperta e non chiusa.
+\end{example}
+\begin{proof}
+	Sia definita la seguente relazione di equivalenza:
+	\begin{equation*}
+	xRy \iff x,y \in A = [0,1) \ \text{oppure} \ x=y
+	\end{equation*}
+	Studiamo le $R$-classi di equivalenza: queste sono l'insieme $A$ e tutti i punti non contenuti in $A$. \\ Allora la mappa è aperta? No, scegliamo un aperto per dimostrarlo. Potremmo prenderlo in modo abbastanza vario, ma un metodo intelligente è sfruttare il modo in cui abbiamo definito $A$. Sappiamo che gli insiemi in arrivo devono essere $\pi$-saturati (con $\pi$ proiezione a quoziente), in altre parole dato un insieme $U$ dobbiamo considerare tutte le fibre che interseca per proiettarlo a quoziente. Sia $U=(0,1)$, questo è ovviamente aperto nella topologia euclidea ed è contenuto in $A$. Quindi la sua saturazione è $A$, viene mandato in un insieme in arrivo non aperto e non chiuso. \\ Evidentemente possiamo ripetere il procedimento con un chiuso contenuto in $A$ ed otteniamo lo stesso risultato. \\ \\ Se l'insieme non fosse contenuto in $A$? Sia ad esempio $(0,3)$. La sua saturazione è palesemente $[0,3)$ perché interseca $A$ e tutti i singoletti non in $A$. A meno di non prendere insiemi \enquote{esagerati} del tipo $(-10, 10)$ questo ragionamento continua a valere. \\ Se proprio ci tenete altrimenti basta allargare $A$. 
+\end{proof}
 
 
+\newpage
 \section{Discriminazione di topologie}
 \subsection{\textcolor{TopGener}{\textbf{Discriminare, ma in senso buono}}}
 
@@ -151,7 +162,7 @@ Non è sempre facile dimostrare che due topologie sono la stessa a meno di omeom
 		\item La compattezza è un'invariante per omeomorfismi, quindi se le due topologie fossero la medesima avrei che $(0,1)$ compatto se e solo se $\left[0,1\right]$ lo è. Ma $\left[0,1\right]$ è compatto, mentre $(0,1)$ non lo è. Pertanto non possono essere omeomorfi.
 		\item Usando ancora una volta la compattezza come invariante topologico si vede che $\R$ non è compatto mentre $\left[0,1\right]$ lo è, pertanto non possono essere omeomorfi.
 		\item La connessione è un altro invariante topologico. Infatti supponiamo che $\left(0,1\right]$ sia omeomorfo a $\left(0,1\right)$. Allora esiste $f(\left(0,1\right]) = \left(0,1\right)$ e $f(1) = x \in (0,1)$. Quindi se si considera $\morphism{f}{(0,1)}{(0,1)\setminus \left\{x\right\}}$ di sicuro $x$ è interno a $(0,1)$, quindi dev'essere che $(0,1) \setminus \left\{x\right\} = (0, x) \cup (x, 1)$. Bisogna far notare che $f$ è ancora un omeomorfismo tra $(0,1)$ e $(0,1)\setminus \left\{x\right\}$ (è ovviamente bigettiva e manda aperti in aperti anche se manca un punto). Eppure $(0,1)$ è connesso e quindi $f((0,1))$ dovrebbe essere connesso, ma non lo è. \\ Pertanto non può esistere $f$ omeomorfismo.
-		\item Analogo al caso precedente. Infatti si prenda un punto interno di $x \in (0,1)$, indipendentemente da dove verrà mappato su $\left[0,1\right]^2$, $\left[0,1\right]^2 \setminus \left\{f(x)\right\}$ sarà ancora connesso\footnote{È ovvio che sarà ancora connesso: se $x$ viene mappato sul bordo, allora essendo $(0,1)^2$ connesso e $\left[0,1\right]^2$ connesso segue che qualsiasi $Z$, tale che $(0,1)^2 \subset Z \subset \left[0,1\right]^2$ è ancora connesso; se $x$ è interno invece posso sempre trovare una funzione continua che aggira $x$ e collega ogni paio di punti di $\left[0,1\right]^2 \setminus \left\{f(x)\right\}$}, mentre $\left[0,1\right] \setminus \left\{x\right\}$ non lo è. 
+		\item Analogo al caso precedente. Infatti si prenda un punto interno di $x \in (0,1)$, indipendentemente da dove verrà mappato su $\left[0,1\right]^2$, $\left[0,1\right]^2 \setminus \left\{f(x)\right\}$ sarà ancora connesso\footnote{È ovvio che sarà ancora connesso: se $x$ viene mappato sul bordo, allora essendo $(0,1)^2$ connesso e $\left[0,1\right]^2$ connesso segue che qualsiasi $Z$, tale che $(0,1)^2 \subset Z \subset \left[0,1\right]^2$ è ancora connesso; se $x$ è interno invece posso sempre trovare una funzione continua che aggira $x$ e collega ogni paio di punti di $\left[0,1\right]^2 \setminus \left\{f(x)\right\}$, creando un arco.}, mentre $\left[0,1\right] \setminus \left\{x\right\}$ non lo è. 
 		\item Per vedere questa omeomorfismo basta prendere $\morphism{f}{(0,1)}{\R}$ definita come segue
 		\begin{equation*}
 			f(x) = \tan\left(\pi x - \frac{\pi}{2}\right)
